@@ -1,25 +1,39 @@
-import logo from './logo.svg';
+// src/App.js
+
+import React, { useState, useEffect } from 'react';
 import './App.css';
+import HomePage from './HomePage';
+import AccountSettings from './AccountSettings';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem('currentUser')));
+    const [isRegModalOpen, setRegModalOpen] = useState(false);
+    const [isLoginModalOpen, setLoginModalOpen] = useState(false);
+
+    useEffect(() => {
+        const storedUser = JSON.parse(localStorage.getItem('currentUser'));
+        setCurrentUser(storedUser);
+    }, []);
+    return (
+        <Router>
+          
+            <div className="App">
+               <Navbar currentUser={currentUser} setCurrentUser={setCurrentUser} setLoginModalOpen={setLoginModalOpen} setRegModalOpen={setRegModalOpen} />
+                <Routes>
+                    <Route path="/" element={<HomePage 
+                        updateCurrentUser={setCurrentUser}
+                        isRegModalOpen={isRegModalOpen}
+                        setRegModalOpen={setRegModalOpen}
+                        isLoginModalOpen={isLoginModalOpen}
+                        setLoginModalOpen={setLoginModalOpen}
+                    />} />
+                    {currentUser && <Route path="/account-settings" element={<AccountSettings />} />}
+                </Routes>
+            </div>
+        </Router>
+    );
 }
 
 export default App;
