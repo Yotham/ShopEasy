@@ -37,6 +37,8 @@ def getLinkInfo(url):
     serving = soup.find_all('div', class_='Item_characteristics__text__dcfEC')
     name = soup.find('div', class_= 'Item_characteristics__title__7nfa8').text
     print(name)
+    
+    
     '''
     for div in serving:
         subtext_element = div.find('sub')
