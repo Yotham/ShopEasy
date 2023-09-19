@@ -6,6 +6,8 @@ from bs4 import BeautifulSoup
 from urllib.parse import quote
 import json
 from selenium.webdriver.firefox.service import Service
+import re
+import time
 
 
 def get_product_details(url):
@@ -30,23 +32,70 @@ def get_product_details(url):
 
     return storage
 
+def extract_number_of_servings(soup):
+    serves_tag = soup.find('th', class_='Item_table__cell__aUMvf', text=re.compile('Serves'))
+    if serves_tag:
+        number_of_servings = int(re.search(r'\d+', serves_tag.text).group())
+        return number_of_servings
+    return 1  # default to 1 if not found
+
 def getLinkInfo(url):
     driver.get(url)
     wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '.Section_section__headerText__2GTKM')))
     soup = BeautifulSoup(driver.page_source, 'html.parser')
-    serving = soup.find_all('div', class_='Item_characteristics__text__dcfEC')
-    name = soup.find('div', class_= 'Item_characteristics__title__7nfa8').text
-    print(name)
+
+    NutritionFacts = soup.find('div', class_='NutritionFacts_nutritionFacts__1Nvz0')
+    if NutritionFacts == None:
+        return {"None":0}
     
+    serving_size = NutritionFacts.find('div', class_='Item_characteristics__title__7nfa8', text='serving size').find_next_sibling().text
+    print(serving_size)
+    # Get serving size in grams (assuming it's formatted like "xxx g")
+
+    match = re.search(r'(\d+)g', serving_size)
+    if match:
+        serving_size_grams = int(match.group(1))
+    else:
+        serving_size_grams = 99999  # Default to 1 if not found in "xxx g" format
     
-    '''
-    for div in serving:
-        subtext_element = div.find('sub')
-        subtext = subtext_element.text if subtext_element else None
-        main_text = div.text.replace(subtext, '') if subtext else div.text
-        print("Main Text:", main_text.strip())
-        print("Subtext:", subtext)
-    '''
+
+    # Extract the amount in oz from the provided div/span class
+    amount_oz_div = soup.find('div', class_='ProductPrice_productPrice__wrapper__20hep')
+    if amount_oz_div:
+        amount_oz_span = amount_oz_div.find('span', class_='ProductPrice_productPrice__unit__2jvkA')
+        if amount_oz_span:
+            amount_oz_text = amount_oz_span.text
+            amount_oz = float(re.search(r'\d+\.?\d*', amount_oz_text).group())
+            print(amount_oz)
+            # Convert the amount from oz to grams
+            amount_grams = amount_oz * 28.35
+            print(amount_grams)
+            number_of_servings = amount_grams / serving_size_grams
+        else:
+            number_of_servings = 1
+    else:
+        number_of_servings = 1
+    if serving_size_grams == 99999:
+        number_of_servings = 1
+    
+    # Helper function to extract nutrient values
+    def get_nutrient_value(nutrient_name):
+        nutrient = NutritionFacts.find('td', class_='Item_table__cell__aUMvf', text=nutrient_name)
+        if nutrient:
+            return nutrient.find_next_sibling().text
+        return {"None":0}
+
+    total_fat = get_nutrient_value('Total Fat')
+    total_carbs = get_nutrient_value('Total Carbohydrate')
+    protein = get_nutrient_value('Protein')
+
+    return {
+        'serving_size': serving_size,
+        'number_of_servings': number_of_servings,
+        'total_fat_per_serving': total_fat,
+        'total_carbs_per_serving': total_carbs,
+        'protein_per_serving': protein
+    }
 
 # Set up the Selenium driver for Firefox
 options = webdriver.FirefoxOptions()
@@ -68,16 +117,17 @@ for i in range(1, len(pages) - 1):
     url = f"https://www.traderjoes.com/home/products/category/entrees-sides-101?filters={page_filter}"
     products[str(i + 1)] = get_product_details(url)
 
-# Save data to files
 with open("output.html", "w", encoding="utf-8") as file:
     file.write(soup.prettify())
 
-with open('data.json', 'w', encoding="utf-8") as json_file:
-    json.dump(products, json_file,ensure_ascii=False, indent=4)
 
+i = 0
 for key in products.keys():
     for item in products[key]:
+        print("Item:",item)
         url = products[key][item]["link"]
-        getLinkInfo(url)
-
+        products[key][item]["Nutrition"] = getLinkInfo(url)
+        
+with open('data.json', 'w', encoding="utf-8") as json_file:
+    json.dump(products, json_file,ensure_ascii=False, indent=4)
 driver.quit()
