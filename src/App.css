@@ -39,7 +39,10 @@ h1, h2, h3 {
   justify-content: space-between;
   align-items: center;
   padding: 0 20px;
+  background-color: #f7f7f7; /* Light gray background */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle bottom shadow */
 }
+
 
 .auth-buttons {
   display: flex;
@@ -47,6 +50,16 @@ h1, h2, h3 {
 }
 
 .navbar-title {
-  flex-grow: 1; /* Use flex-grow instead of flex */
-  text-align: center;
+  display:fixed;
+  flex-grow: 5; /* Use flex-grow instead of flex */
 }
+
+.main-div {
+  background-color: rgba(255, 255, 255, 0.8); /* This will give a transparent white background */
+  margin: 20px;   /* Adds space around the main-div */
+  padding: 20px;  /* Adds space inside the main-div */
+  border-radius: 10px; /* Rounds the corners */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+  height:100%;
+}
+

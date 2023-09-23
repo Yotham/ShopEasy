@@ -1,0 +1,47 @@
+.Generate {
+    display: flex;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    background-color: #007BFF; 
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    justify-content: center;
+}
+
+.Generate:hover {
+    background-color: #0056b3;
+}
+
+/* Styles for the row of square boxes */
+.itemBoxContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px; 
+}
+
+.itemBox {
+    margin-top:20px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f5f5f5; /* Light gray matching the navbar */
+    border: 1px solid #e0e0e0; /* Border matching the navbar's bottom border */
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+    font-family: 'Ubuntu', sans-serif; /* Added for consistency */
+    font-size:16px;
+    text-align: center;
+}
+
+.itemBox:hover {
+    background-color: #e0e0e0; /* A slightly darker gray on hover */
+    border-color: #c0c0c0; /* Darken the border color on hover */
+}

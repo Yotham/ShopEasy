@@ -1,0 +1,891 @@
+{
+    "1": {
+        "Butternut Squash Italian Lasagna": {
+            "link": "https://www.traderjoes.com/home/products/pdp/butternut-squash-italian-lasagna-076675",
+            "Nutrition": {
+                "servingSize": "1/2 container(227g)",
+                "numServings": 1.998237885462555,
+                "FatPS": "13 g",
+                "CarbPS": "36 g",
+                "ProteinPS": "11 g"
+            }
+        },
+        "12 Mini Pumpkin Ginger Scones": {
+            "link": "https://www.traderjoes.com/home/products/pdp/12-mini-pumpkin-ginger-scones-076650",
+            "Nutrition": {
+                "servingSize": "2 scones(68g)",
+                "numServings": 6.003529411764706,
+                "FatPS": "9 g",
+                "CarbPS": "30 g",
+                "ProteinPS": "4 g"
+            }
+        },
+        "Shrimp & Garlic Flatbread": {
+            "link": "https://www.traderjoes.com/home/products/pdp/shrimp-garlic-flatbread-075067",
+            "Nutrition": {
+                "servingSize": "1 package(200g)",
+                "numServings": 0.99792,
+                "FatPS": "5 g",
+                "CarbPS": "29 g",
+                "ProteinPS": "12 g"
+            }
+        },
+        "Mango Blueberry Chia Bowl": {
+            "link": "https://www.traderjoes.com/home/products/pdp/mango-blueberry-chia-bowl-075233",
+            "Nutrition": {
+                "servingSize": "1 Bowl(198g)",
+                "numServings": 1.0022727272727274,
+                "FatPS": "13 g",
+                "CarbPS": "25 g",
+                "ProteinPS": "5 g"
+            }
+        },
+        "Chicken Cheese & Green Chile Pupusas": {
+            "link": "https://www.traderjoes.com/home/products/pdp/chicken-cheese-green-chile-pupusas-075475",
+            "Nutrition": {
+                "servingSize": "1 Pupusa(113g)",
+                "numServings": 3.010619469026549,
+                "FatPS": "10 g",
+                "CarbPS": "21 g",
+                "ProteinPS": "13 g"
+            }
+        },
+        "Mushroom & Black Truffle Flatbread": {
+            "link": "https://www.traderjoes.com/home/products/pdp/mushroom-black-truffle-flatbread-090538",
+            "Nutrition": {
+                "servingSize": "1/2 Pizza",
+                "numServings": 1,
+                "FatPS": "14 g",
+                "CarbPS": "46 g",
+                "ProteinPS": "13 g"
+            }
+        },
+        "Portuguese Bacalhau Tartlettes": {
+            "link": "https://www.traderjoes.com/home/products/pdp/portuguese-bacalhau-tartlettes-073567",
+            "Nutrition": {
+                "servingSize": "4 pieces(132g)",
+                "numServings": 1.9973863636363638,
+                "FatPS": "20 g",
+                "CarbPS": "32 g",
+                "ProteinPS": "7 g"
+            }
+        },
+        "Broccoli & Cheddar Cheese Quiche": {
+            "link": "https://www.traderjoes.com/home/products/pdp/broccoli-cheddar-cheese-quiche-010142",
+            "Nutrition": {
+                "servingSize": "1 Quiche(170g)",
+                "numServings": 1.0005882352941178,
+                "FatPS": "28 g",
+                "CarbPS": "26 g",
+                "ProteinPS": "16 g"
+            }
+        },
+        "Kimbap": {
+            "link": "https://www.traderjoes.com/home/products/pdp/kimbap-076023",
+            "Nutrition": {
+                "servingSize": "3 pieces(77g)",
+                "numServings": 2.9859545454545455,
+                "FatPS": "4.0 g",
+                "CarbPS": "23 g",
+                "ProteinPS": "4 g"
+            }
+        },
+        "Chicken Karaage": {
+            "link": "https://www.traderjoes.com/home/products/pdp/chicken-karaage-073030",
+            "Nutrition": {
+                "servingSize": "1/4 package(135g)",
+                "numServings": 3.9837,
+                "FatPS": "20 g",
+                "CarbPS": "25 g",
+                "ProteinPS": "15 g"
+            }
+        },
+        "Grilled Chicken Strips": {
+            "link": "https://www.traderjoes.com/home/products/pdp/grilled-chicken-strips-075767",
+            "Nutrition": {
+                "servingSize": "3 oz(84g)",
+                "numServings": 5.4,
+                "FatPS": "2.5 g",
+                "CarbPS": "2 g",
+                "ProteinPS": "20 g"
+            }
+        },
+        "Thai Vegetable Gyoza": {
+            "link": "https://www.traderjoes.com/home/products/pdp/thai-vegetable-gyoza-047945",
+            "Nutrition": {
+                "servingSize": "about 3 pieces(85g)",
+                "numServings": 5.3364705882352945,
+                "FatPS": "4.5 g",
+                "CarbPS": "25 g",
+                "ProteinPS": "3 g"
+            }
+        },
+        "Vegetable & Cheese Enchiladas": {
+            "link": "https://www.traderjoes.com/home/products/pdp/vegetable-cheese-enchiladas-075235",
+            "Nutrition": {
+                "servingSize": "1 container(292g)",
+                "numServings": 1.0000171232876713,
+                "FatPS": "21 g",
+                "CarbPS": "40 g",
+                "ProteinPS": "12 g"
+            }
+        },
+        "Mini Cheeseburgers": {
+            "link": "https://www.traderjoes.com/home/products/pdp/mini-cheeseburgers-075126",
+            "Nutrition": {
+                "servingSize": "1 container(199g)",
+                "numServings": 1.0000854271356783,
+                "FatPS": "10 g",
+                "CarbPS": "19 g",
+                "ProteinPS": "8 g"
+            }
+        },
+        "Asian Style Vegetables with Stir Fry Sauce": {
+            "link": "https://www.traderjoes.com/home/products/pdp/asian-style-vegetables-with-stir-fry-sauce-044180",
+            "Nutrition": {
+                "servingSize": "4 oz(112g/ 1/4 package)",
+                "numServings": 4.05,
+                "FatPS": "0 g",
+                "CarbPS": "7 g",
+                "ProteinPS": "3 g"
+            }
+        }
+    },
+    "2": {
+        "Shrimp Boom Bah": {
+            "link": "https://www.traderjoes.com/home/products/pdp/shrimp-boom-bah-073707",
+            "Nutrition": {
+                "servingSize": "1/4 package(113g)",
+                "numServings": 4.014159292035399,
+                "FatPS": "30 g",
+                "CarbPS": "14 g",
+                "ProteinPS": "10 g"
+            }
+        },
+        "Breaded Cheddar Cheese Curds": {
+            "link": "https://www.traderjoes.com/home/products/pdp/breaded-cheddar-cheese-curds-075557",
+            "Nutrition": {
+                "servingSize": "about 4 pieces(85g)",
+                "numServings": 5.3364705882352945,
+                "FatPS": "10 g",
+                "CarbPS": "26 g",
+                "ProteinPS": "9 g"
+            }
+        },
+        "Gluten Free Battered Plant-Based Fish Fillets": {
+            "link": "https://www.traderjoes.com/home/products/pdp/gluten-free-battered-plant-based-fish-fillets-074251",
+            "Nutrition": {
+                "servingSize": "1 fillet(90g)",
+                "numServings": 2.9988,
+                "FatPS": "11 g",
+                "CarbPS": "19 g",
+                "ProteinPS": "4 g"
+            }
+        },
+        "Chicken Tikka Masala": {
+            "link": "https://www.traderjoes.com/home/products/pdp/chicken-tikka-masala-099142",
+            "Nutrition": {
+                "servingSize": "1 tray(241g/8.5 oz)",
+                "numServings": 0.9998962655601661,
+                "FatPS": "14 g",
+                "CarbPS": "39 g",
+                "ProteinPS": "21 g"
+            }
+        },
+        "Vegetarian Meatless Cheeseburger Pizza": {
+            "link": "https://www.traderjoes.com/home/products/pdp/vegetarian-meatless-cheeseburger-pizza-075061",
+            "Nutrition": {
+                "servingSize": "1/3 pizza(158g)",
+                "numServings": 2.9928987341772153,
+                "FatPS": "15 g",
+                "CarbPS": "37 g",
+                "ProteinPS": "14 g"
+            }
+        },
+        "Roasted Garlic & Pesto Pizza with Deep Fried Crust": {
+            "link": "https://www.traderjoes.com/home/products/pdp/roasted-garlic-pesto-pizza-with-deep-fried-crust-068834",
+            "Nutrition": {
+                "servingSize": "1/3 pizza(133g)",
+                "numServings": 3.005526315789474,
+                "FatPS": "20 g",
+                "CarbPS": "43 g",
+                "ProteinPS": "17 g"
+            }
+        },
+        "Kung Pao Chicken": {
+            "link": "https://www.traderjoes.com/home/products/pdp/kung-pao-chicken-097706",
+            "Nutrition": {
+                "servingSize": "1 cup(150g - 115g entree with 35g/2 Tbs sauce)",
+                "numServings": 4.347,
+                "FatPS": "10g",
+                "CarbPS": "17g",
+                "ProteinPS": "24g"
+            }
+        },
+        "Butter Chicken with Basmati Rice": {
+            "link": "https://www.traderjoes.com/home/products/pdp/butter-chicken-with-basmati-rice-099032",
+            "Nutrition": {
+                "servingSize": "1 container(354g)",
+                "numServings": 1.0010593220338984,
+                "FatPS": "13 g",
+                "CarbPS": "49 g",
+                "ProteinPS": "24 g"
+            }
+        },
+        "Stir Fried Garlicky Cabbage": {
+            "link": "https://www.traderjoes.com/home/products/pdp/stir-fried-garlicky-cabbage-074892",
+            "Nutrition": {
+                "servingSize": "1 cup frozen(126g)",
+                "numServings": 1.9845000000000002,
+                "FatPS": "9 g",
+                "CarbPS": "9 g",
+                "ProteinPS": "3 g"
+            }
+        },
+        "Italian Tomato & Red Onion Focaccia": {
+            "link": "https://www.traderjoes.com/home/products/pdp/italian-tomato-red-onion-focaccia-074384",
+            "Nutrition": {
+                "servingSize": "1/3 focaccia(120g)",
+                "numServings": 3.000375,
+                "FatPS": "7 g",
+                "CarbPS": "48 g",
+                "ProteinPS": "8 g"
+            }
+        },
+        "Sliced Korean Rice Cakes": {
+            "link": "https://www.traderjoes.com/home/products/pdp/sliced-korean-rice-cakes-074566",
+            "Nutrition": {
+                "servingSize": "3/4 cup frozen(90g)",
+                "numServings": 5.04,
+                "FatPS": "0 g",
+                "CarbPS": "47 g",
+                "ProteinPS": "5 g"
+            }
+        },
+        "Mashed Potatoes": {
+            "link": "https://www.traderjoes.com/home/products/pdp/mashed-potatoes-074158",
+            "Nutrition": {
+                "servingSize": "1 cup frozen(126g)",
+                "numServings": 6.300000000000001,
+                "FatPS": "2.5g",
+                "CarbPS": "14g",
+                "ProteinPS": "2g"
+            }
+        },
+        "Korean Beefless Bulgogi": {
+            "link": "https://www.traderjoes.com/home/products/pdp/korean-beefless-bulgogi-072949",
+            "Nutrition": {
+                "servingSize": "1/3 package(94g)",
+                "numServings": 3.015957446808511,
+                "FatPS": "11 g",
+                "CarbPS": "15 g",
+                "ProteinPS": "16 g"
+            }
+        },
+        "Chicken Gyoza Potstickers": {
+            "link": "https://www.traderjoes.com/home/products/pdp/chicken-gyoza-potstickers-003663",
+            "Nutrition": {
+                "None": 0
+            }
+        },
+        "Organic Super Sweet Cut Corn": {
+            "link": "https://www.traderjoes.com/home/products/pdp/organic-super-sweet-cut-corn-029963",
+            "Nutrition": {
+                "None": 0
+            }
+        }
+    },
+    "3": {
+        "Gluten Free Breaded Shrimp": {
+            "link": "https://www.traderjoes.com/home/products/pdp/gluten-free-breaded-shrimp-071651",
+            "Nutrition": {
+                "servingSize": "1/3 package(113g)",
+                "numServings": 3.010619469026549,
+                "FatPS": "16 g",
+                "CarbPS": "13 g",
+                "ProteinPS": "7 g"
+            }
+        },
+        "Mini Chicken Tacos": {
+            "link": "https://www.traderjoes.com/home/products/pdp/mini-chicken-tacos-070708",
+            "Nutrition": {
+                "servingSize": "4 tacos(83g)",
+                "numServings": 5.977409638554217,
+                "FatPS": "13 g",
+                "CarbPS": "24 g",
+                "ProteinPS": "11 g"
+            }
+        },
+        "Mini Beef Tacos": {
+            "link": "https://www.traderjoes.com/home/products/pdp/mini-beef-tacos-070709",
+            "Nutrition": {
+                "servingSize": "4 tacos(83g)",
+                "numServings": 5.977409638554217,
+                "FatPS": "14 g",
+                "CarbPS": "23 g",
+                "ProteinPS": "11 g"
+            }
+        },
+        "Gluten Free Pizza Crusts": {
+            "link": "https://www.traderjoes.com/home/products/pdp/gluten-free-pizza-crusts-073467",
+            "Nutrition": {
+                "servingSize": "1/3 crust(62g)",
+                "numServings": 6.026661290322581,
+                "FatPS": "3 g",
+                "CarbPS": "33 g",
+                "ProteinPS": "3 g"
+            }
+        },
+        "Jamaican Style Beef Patties": {
+            "link": "https://www.traderjoes.com/home/products/pdp/jamaican-style-beef-patties-072933",
+            "Nutrition": {
+                "servingSize": "1 container(255g)",
+                "numServings": 1.0005882352941178,
+                "FatPS": "22 g",
+                "CarbPS": "45 g",
+                "ProteinPS": "15 g"
+            }
+        },
+        "Instant Boba Kit": {
+            "link": "https://www.traderjoes.com/home/products/pdp/instant-boba-kit-073998",
+            "Nutrition": {
+                "servingSize": "1 pouch(65g)",
+                "numServings": 4.012615384615384,
+                "FatPS": "0 g",
+                "CarbPS": "28 g",
+                "ProteinPS": "0 g"
+            }
+        },
+        "Vegetable Biryani with Vegetable Dumplings": {
+            "link": "https://www.traderjoes.com/home/products/pdp/vegetable-biryani-with-vegetable-dumplings-051530",
+            "Nutrition": {
+                "servingSize": "1/2 Container(142g)",
+                "numServings": 1.9964788732394365,
+                "FatPS": "6 g",
+                "CarbPS": "36 g",
+                "ProteinPS": "5 g"
+            }
+        },
+        "Gluten Free Uncured Pepperoni Pizza": {
+            "link": "https://www.traderjoes.com/home/products/pdp/gluten-free-uncured-pepperoni-pizza-073023",
+            "Nutrition": {
+                "servingSize": "1/3 pizza(122g)",
+                "numServings": 2.99069262295082,
+                "FatPS": "13 g",
+                "CarbPS": "33 g",
+                "ProteinPS": "10 g"
+            }
+        },
+        "Cheese & Green Chile Tamales": {
+            "link": "https://www.traderjoes.com/home/products/pdp/cheese-green-chile-tamales-008450",
+            "Nutrition": {
+                "servingSize": "1 tamale(142g)",
+                "numServings": 1.9964788732394365,
+                "FatPS": "16 g",
+                "CarbPS": "28 g",
+                "ProteinPS": "8 g"
+            }
+        },
+        "Sweet Potato Fries": {
+            "link": "https://www.traderjoes.com/home/products/pdp/sweet-potato-fries-092157",
+            "Nutrition": {
+                "None": 0
+            }
+        },
+        "Pizza Parlanno": {
+            "link": "https://www.traderjoes.com/home/products/pdp/pizza-parlanno-002517",
+            "Nutrition": {
+                "servingSize": "1/4 Pizza(129g/4.5 oz)",
+                "numServings": 3.9997674418604654,
+                "FatPS": "16 g",
+                "CarbPS": "33 g",
+                "ProteinPS": "13 g"
+            }
+        },
+        "Chicken Cilantro Mini Wontons": {
+            "link": "https://www.traderjoes.com/home/products/pdp/chicken-cilantro-mini-wontons-099085",
+            "Nutrition": {
+                "servingSize": "4 pieces(36g)",
+                "numServings": 9.450000000000001,
+                "FatPS": "0.5g",
+                "CarbPS": "9g",
+                "ProteinPS": "3g"
+            }
+        },
+        "Dill Pickle Mini Falafel": {
+            "link": "https://www.traderjoes.com/home/products/pdp/dill-pickle-mini-falafel-072024",
+            "Nutrition": {
+                "servingSize": "10 pieces(85g)",
+                "numServings": 4.002352941176471,
+                "FatPS": "8 g",
+                "CarbPS": "22 g",
+                "ProteinPS": "8 g"
+            }
+        },
+        "Beef Birria": {
+            "link": "https://www.traderjoes.com/home/products/pdp/beef-birria-072620",
+            "Nutrition": {
+                "servingSize": "1 cup(227g)",
+                "numServings": 1.998237885462555,
+                "FatPS": "15 g",
+                "CarbPS": "3 g",
+                "ProteinPS": "32 g"
+            }
+        },
+        "Artichoke Timbales": {
+            "link": "https://www.traderjoes.com/home/products/pdp/artichoke-timbales-073024",
+            "Nutrition": {
+                "servingSize": "1 piece(100g)",
+                "numServings": 3.99735,
+                "FatPS": "9 g",
+                "CarbPS": "7 g",
+                "ProteinPS": "4 g"
+            }
+        }
+    },
+    "4": {
+        "Premium Salmon Burgers": {
+            "link": "https://www.traderjoes.com/home/products/pdp/premium-salmon-burgers-096766",
+            "Nutrition": {
+                "servingSize": "1 Burger",
+                "numServings": 1,
+                "FatPS": "3 g",
+                "CarbPS": "3 g",
+                "ProteinPS": "15 g"
+            }
+        },
+        "Hatch Chile Mac & Cheese": {
+            "link": "https://www.traderjoes.com/home/products/pdp/hatch-chile-mac-cheese-056018",
+            "Nutrition": {
+                "servingSize": "1 Cup(170g)",
+                "numServings": 2.0011764705882356,
+                "FatPS": "10 g",
+                "CarbPS": "31 g",
+                "ProteinPS": "11 g"
+            }
+        },
+        "Chickenless Crispy Tenders": {
+            "link": "https://www.traderjoes.com/home/products/pdp/chickenless-crispy-tenders-097899",
+            "Nutrition": {
+                "servingSize": "3 pieces(78g)",
+                "numServings": 2.9440384615384616,
+                "FatPS": "7 g",
+                "CarbPS": "14 g",
+                "ProteinPS": "13 g"
+            }
+        },
+        "Egg Frittata": {
+            "link": "https://www.traderjoes.com/home/products/pdp/egg-frittata-062899",
+            "Nutrition": {
+                "servingSize": "2 frittatas(140g)",
+                "numServings": 1.00035,
+                "FatPS": "15 g",
+                "CarbPS": "10 g",
+                "ProteinPS": "25 g"
+            }
+        },
+        "Vegetable Fried Rice": {
+            "link": "https://www.traderjoes.com/home/products/pdp/vegetable-fried-rice-052148",
+            "Nutrition": {
+                "servingSize": "1-1/4 cups frozen(159g), makes 1 cup cooked",
+                "numServings": 2.8528301886792455,
+                "FatPS": "2.5 g",
+                "CarbPS": "45 g",
+                "ProteinPS": "6 g"
+            }
+        },
+        "Root Vegetable Fries": {
+            "link": "https://www.traderjoes.com/home/products/pdp/root-vegetable-fries-066323",
+            "Nutrition": {
+                "servingSize": "3/4 cup frozen(85g)",
+                "numServings": 5.3364705882352945,
+                "FatPS": "0 g",
+                "CarbPS": "13 g",
+                "ProteinPS": "1 g"
+            }
+        },
+        "Eggwich Breadless Breakfast Sandwich": {
+            "link": "https://www.traderjoes.com/home/products/pdp/eggwich-breadless-breakfast-sandwich-070784",
+            "Nutrition": {
+                "servingSize": "1 sandwich(111g)",
+                "numServings": 1.9921621621621621,
+                "FatPS": "12 g",
+                "CarbPS": "3 g",
+                "ProteinPS": "16 g"
+            }
+        },
+        "Quinoa Cowboy Veggie Burgers": {
+            "link": "https://www.traderjoes.com/home/products/pdp/quinoa-cowboy-veggie-burgers-053276",
+            "Nutrition": {
+                "servingSize": "1 Burger(85g)",
+                "numServings": 4.002352941176471,
+                "FatPS": "8g",
+                "CarbPS": "22g",
+                "ProteinPS": "5g"
+            }
+        },
+        "Black Bean & Cheese Taquitos": {
+            "link": "https://www.traderjoes.com/home/products/pdp/black-bean-cheese-taquitos-065291",
+            "Nutrition": {
+                "servingSize": "2 taquitos(76g)",
+                "numServings": 5.968421052631579,
+                "FatPS": "9 g",
+                "CarbPS": "21 g",
+                "ProteinPS": "6 g"
+            }
+        },
+        "Impossible™ Chicken Nuggets": {
+            "link": "https://www.traderjoes.com/home/products/pdp/impossible-chicken-nuggets-073297",
+            "Nutrition": {
+                "None": 0
+            }
+        },
+        "Kalua Pork Spring Rolls": {
+            "link": "https://www.traderjoes.com/home/products/pdp/kalua-pork-spring-rolls-070655",
+            "Nutrition": {
+                "servingSize": "2 pieces(113g)",
+                "numServings": 2.0070796460176994,
+                "FatPS": "14 g",
+                "CarbPS": "33 g",
+                "ProteinPS": "8 g"
+            }
+        },
+        "BBQ Teriyaki Chicken": {
+            "link": "https://www.traderjoes.com/home/products/pdp/bbq-teriyaki-chicken-074961",
+            "Nutrition": {
+                "None": 0
+            }
+        },
+        "Hashbrowns": {
+            "link": "https://www.traderjoes.com/home/products/pdp/hashbrowns-094769",
+            "Nutrition": {
+                "servingSize": "1 potato patty(64g)",
+                "numServings": 9.966796875,
+                "FatPS": "6 g",
+                "CarbPS": "15 g",
+                "ProteinPS": "1 g"
+            }
+        },
+        "Southwest Style Chicken Quesadillas": {
+            "link": "https://www.traderjoes.com/home/products/pdp/southwest-style-chicken-quesadillas-070609",
+            "Nutrition": {
+                "servingSize": "1 quesadilla(170g)",
+                "numServings": 2.0011764705882356,
+                "FatPS": "19 g",
+                "CarbPS": "36 g",
+                "ProteinPS": "23 g"
+            }
+        },
+        "Butternut Squash Mac & Cheese": {
+            "link": "https://www.traderjoes.com/home/products/pdp/butternut-squash-mac-cheese-061023",
+            "Nutrition": {
+                "servingSize": "1 cup(170g)",
+                "numServings": 2.0011764705882356,
+                "FatPS": "8 g",
+                "CarbPS": "38 g",
+                "ProteinPS": "11 g"
+            }
+        }
+    },
+    "5": {
+        "Japchae Korean Glass Noodles & Vegetable Stir Fry": {
+            "link": "https://www.traderjoes.com/home/products/pdp/japchae-korean-glass-noodles-vegetable-stir-fry-071063",
+            "Nutrition": {
+                "servingSize": "1/2 Tray(142g)",
+                "numServings": 2.006461267605634,
+                "FatPS": "6 g",
+                "CarbPS": "34 g",
+                "ProteinPS": "1 g"
+            }
+        },
+        "Italian Style Meatballs": {
+            "link": "https://www.traderjoes.com/home/products/pdp/italian-style-meatballs-044919",
+            "Nutrition": {
+                "servingSize": "2 meatballs(71g)",
+                "numServings": 6.3887323943661976,
+                "FatPS": "20 g",
+                "CarbPS": "5 g",
+                "ProteinPS": "11 g"
+            }
+        },
+        "Mandarin Orange Chicken": {
+            "link": "https://www.traderjoes.com/home/products/pdp/mandarin-orange-chicken-066563",
+            "Nutrition": {
+                "servingSize": "1 cup(140g)",
+                "numServings": 4.455,
+                "FatPS": "16g",
+                "CarbPS": "24g",
+                "ProteinPS": "21g"
+            }
+        },
+        "Joe's Diner Mac 'n Cheese": {
+            "link": "https://www.traderjoes.com/home/products/pdp/joes-diner-mac-n-cheese-003655",
+            "Nutrition": {
+                "None": 0
+            }
+        },
+        "Turkey Burgers": {
+            "link": "https://www.traderjoes.com/home/products/pdp/turkey-burgers-096937",
+            "Nutrition": {
+                "servingSize": "1 burger(112g/4oz)",
+                "numServings": 4.05,
+                "FatPS": "10g",
+                "CarbPS": "0g",
+                "ProteinPS": "22g"
+            }
+        },
+        "Mexican Style Roasted Corn": {
+            "link": "https://www.traderjoes.com/home/products/pdp/mexican-style-roasted-corn-059063",
+            "Nutrition": {
+                "servingSize": "1 cup frozen(113g)",
+                "numServings": 3.5123893805309736,
+                "FatPS": "8 g",
+                "CarbPS": "21 g",
+                "ProteinPS": "5 g"
+            }
+        },
+        "Vegetable Pad Thai": {
+            "link": "https://www.traderjoes.com/home/products/pdp/vegetable-pad-thai-094404",
+            "Nutrition": {
+                "servingSize": "1 tray(300g)",
+                "numServings": 0.9922500000000001,
+                "FatPS": "11 g",
+                "CarbPS": "55 g",
+                "ProteinPS": "10 g"
+            }
+        },
+        "Parmesan Pastry Pups": {
+            "link": "https://www.traderjoes.com/home/products/pdp/parmesan-pastry-pups-099272",
+            "Nutrition": {
+                "servingSize": "4 pups(85g)",
+                "numServings": 3.502058823529412,
+                "FatPS": "20 g",
+                "CarbPS": "19 g",
+                "ProteinPS": "8 g"
+            }
+        },
+        "Carne Asada Burritos": {
+            "link": "https://www.traderjoes.com/home/products/pdp/carne-asada-burritos-069998",
+            "Nutrition": {
+                "servingSize": "1 burrito(198g)",
+                "numServings": 2.004545454545455,
+                "FatPS": "19 g",
+                "CarbPS": "55 g",
+                "ProteinPS": "22 g"
+            }
+        },
+        "Potato Pancakes": {
+            "link": "https://www.traderjoes.com/home/products/pdp/potato-pancakes-036084",
+            "Nutrition": {
+                "servingSize": "2 pancakes(75g)",
+                "numServings": 4.0068,
+                "FatPS": "6 g",
+                "CarbPS": "22 g",
+                "ProteinPS": "3 g"
+            }
+        },
+        "Quiche Lorraine": {
+            "link": "https://www.traderjoes.com/home/products/pdp/quiche-lorraine-058674",
+            "Nutrition": {
+                "servingSize": "1/3 quiche(113g)",
+                "numServings": 3.010619469026549,
+                "FatPS": "22g",
+                "CarbPS": "20g",
+                "ProteinPS": "15g"
+            }
+        },
+        "Mexican-Style Riced Cauliflower": {
+            "link": "https://www.traderjoes.com/home/products/pdp/mexican-style-riced-cauliflower-069856",
+            "Nutrition": {
+                "servingSize": "1 cup frozen(110g)",
+                "numServings": 4.123636363636364,
+                "FatPS": "2.5 g",
+                "CarbPS": "5 g",
+                "ProteinPS": "2 g"
+            }
+        },
+        "Bulgogi Beef Fried Rice With Kimchi": {
+            "link": "https://www.traderjoes.com/home/products/pdp/bulgogi-beef-fried-rice-with-kimchi-067480",
+            "Nutrition": {
+                "servingSize": "1 container(454g)",
+                "numServings": 0.9991189427312775,
+                "FatPS": "10 g",
+                "CarbPS": "60 g",
+                "ProteinPS": "11 g"
+            }
+        },
+        "Cheese Filled Fiocchetti with Pink Sauce": {
+            "link": "https://www.traderjoes.com/home/products/pdp/cheese-filled-fiocchetti-with-pink-sauce-067008",
+            "Nutrition": {
+                "servingSize": "1 cup(133g)",
+                "numServings": 3.410526315789474,
+                "FatPS": "17 g",
+                "CarbPS": "26 g",
+                "ProteinPS": "8 g"
+            }
+        },
+        "Beef Pho": {
+            "link": "https://www.traderjoes.com/home/products/pdp/beef-pho-065920",
+            "Nutrition": {
+                "servingSize": "1 bowl(375g)",
+                "numServings": 1.000188,
+                "FatPS": "4.5 g",
+                "CarbPS": "34 g",
+                "ProteinPS": "13 g"
+            }
+        }
+    },
+    "6": {
+        "Mashed Cauliflower": {
+            "link": "https://www.traderjoes.com/home/products/pdp/mashed-cauliflower-059065",
+            "Nutrition": {
+                "servingSize": "1 cup(112g)",
+                "numServings": 4.05,
+                "FatPS": "2.0 g",
+                "CarbPS": "7 g",
+                "ProteinPS": "2 g"
+            }
+        },
+        "Riced Cauliflower Stir Fry": {
+            "link": "https://www.traderjoes.com/home/products/pdp/riced-cauliflower-stir-fry-060024",
+            "Nutrition": {
+                "servingSize": "1 cup(105g)",
+                "numServings": 4.32,
+                "FatPS": "2.0 g",
+                "CarbPS": "7 g",
+                "ProteinPS": "2 g"
+            }
+        },
+        "Gluten Free Cheese Pizza With A Cauliflower Crust": {
+            "link": "https://www.traderjoes.com/home/products/pdp/gluten-free-cheese-pizza-with-a-cauliflower-crust-059448",
+            "Nutrition": {
+                "servingSize": "1/3 pizza(113g)",
+                "numServings": 3.010619469026549,
+                "FatPS": "12 g",
+                "CarbPS": "24 g",
+                "ProteinPS": "14 g"
+            }
+        },
+        "Gluten Free Mac & Cheese": {
+            "link": "https://www.traderjoes.com/home/products/pdp/gluten-free-mac-cheese-061364",
+            "Nutrition": {
+                "servingSize": "1 cup(170g)",
+                "numServings": 2.0011764705882356,
+                "FatPS": "10 g",
+                "CarbPS": "41 g",
+                "ProteinPS": "11 g"
+            }
+        },
+        "Chipotle Vegetable Quesadillas": {
+            "link": "https://www.traderjoes.com/home/products/pdp/chipotle-vegetable-quesadillas-061365",
+            "Nutrition": {
+                "servingSize": "1 quesadilla(170g)",
+                "numServings": 2.0011764705882356,
+                "FatPS": "13 g",
+                "CarbPS": "47 g",
+                "ProteinPS": "15 g"
+            }
+        },
+        "Cauliflower Gnocchi": {
+            "link": "https://www.traderjoes.com/home/products/pdp/cauliflower-gnocchi-061524",
+            "Nutrition": {
+                "servingSize": "1 cup(140g)",
+                "numServings": 2.43,
+                "FatPS": "3.0 g",
+                "CarbPS": "22 g",
+                "ProteinPS": "2 g"
+            }
+        },
+        "Chicken Burrito Bowl": {
+            "link": "https://www.traderjoes.com/home/products/pdp/chicken-burrito-bowl-057750",
+            "Nutrition": {
+                "servingSize": "1 bowl(330g)",
+                "numServings": 0.9965454545454546,
+                "FatPS": "10 g",
+                "CarbPS": "51 g",
+                "ProteinPS": "22 g"
+            }
+        },
+        "Cauliflower Pancakes": {
+            "link": "https://www.traderjoes.com/home/products/pdp/cauliflower-pancakes-063192",
+            "Nutrition": {
+                "servingSize": "2 pieces(85g)",
+                "numServings": 3.001764705882353,
+                "FatPS": "7 g",
+                "CarbPS": "21 g",
+                "ProteinPS": "7 g"
+            }
+        },
+        "Sriracha Shrimp Bowl": {
+            "link": "https://www.traderjoes.com/home/products/pdp/sriracha-shrimp-bowl-060317",
+            "Nutrition": {
+                "servingSize": "1 bowl(320g)",
+                "numServings": 1.001109375,
+                "FatPS": "8 g",
+                "CarbPS": "47 g",
+                "ProteinPS": "15 g"
+            }
+        },
+        "Chicken-less Mandarin Orange Morsels": {
+            "link": "https://www.traderjoes.com/home/products/pdp/chicken-less-mandarin-orange-morsels-097897",
+            "Nutrition": {
+                "servingSize": "1/2 bag with sauce(131g)",
+                "numServings": 2.001812977099237,
+                "FatPS": "8 g",
+                "CarbPS": "29 g",
+                "ProteinPS": "20 g"
+            }
+        },
+        "Outside-In Stuffed Gnocchi": {
+            "link": "https://www.traderjoes.com/home/products/pdp/outside-in-stuffed-gnocchi-062955",
+            "Nutrition": {
+                "servingSize": "1 cup(135g)",
+                "numServings": 3.3600000000000003,
+                "FatPS": "3.5 g",
+                "CarbPS": "29 g",
+                "ProteinPS": "6 g"
+            }
+        },
+        "Cuban Style Citrus Garlic Bowl": {
+            "link": "https://www.traderjoes.com/home/products/pdp/cuban-style-citrus-garlic-bowl-062823",
+            "Nutrition": {
+                "servingSize": "1 bowl(312g)",
+                "numServings": 0.9995192307692309,
+                "FatPS": "18 g",
+                "CarbPS": "44 g",
+                "ProteinPS": "16 g"
+            }
+        },
+        "Mixed Mushroom & Spinach Quiche": {
+            "link": "https://www.traderjoes.com/home/products/pdp/mixed-mushroom-spinach-quiche-055970",
+            "Nutrition": {
+                "servingSize": "1 quiche(175g)",
+                "numServings": 0.99954,
+                "FatPS": "26 g",
+                "CarbPS": "35 g",
+                "ProteinPS": "12 g"
+            }
+        },
+        "Honey Walnut Shrimp": {
+            "link": "https://www.traderjoes.com/home/products/pdp/honey-walnut-shrimp-056309",
+            "Nutrition": {
+                "servingSize": "1 cup(208 g)",
+                "numServings": 1,
+                "FatPS": "28 g",
+                "CarbPS": "22 g",
+                "ProteinPS": "24 g"
+            }
+        },
+        "Steamed Pork & Ginger Soup Dumplings": {
+            "link": "https://www.traderjoes.com/home/products/pdp/steamed-pork-ginger-soup-dumplings-065259",
+            "Nutrition": {
+                "servingSize": "1 Container(170g)",
+                "numServings": 1.0005882352941178,
+                "FatPS": "10 g",
+                "CarbPS": "30 g",
+                "ProteinPS": "14 g"
+            }
+        }
+    },
+    "7": {}
+}

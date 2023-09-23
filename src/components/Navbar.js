@@ -17,4 +17,5 @@ function Navbar({ currentUser, setCurrentUser, setLoginModalOpen, setRegModalOpe
     );
 }
 
+
 export default Navbar;

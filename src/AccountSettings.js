@@ -18,7 +18,6 @@ function AccountSettings() {
             [name]: value
         }));
     };
-
     const handleHeightChange = (type, value) => {
         const height = [...updatedUser.height];
         if (type === "feet") height[0] = parseInt(value);
