@@ -4,9 +4,10 @@ export function getRandomItems(data, count = 10) {
     for (const pageNumber in data) {
         const itemNames = Object.keys(data[pageNumber]);
         for (const name of itemNames) {
-            // Ensure the item's nutrition does not contain "None"
             const nutrition = data[pageNumber][name].Nutrition;
-            if (!nutrition["None"]) {
+            
+            // Ensure the item's nutrition does not contain "None" and has other nutrition details
+            if (Object.keys(nutrition).length > 1 || (Object.keys(nutrition).length === 1 && !("None" in nutrition))) {
                 allItems.push({ name, pageNumber });
             }
         }
