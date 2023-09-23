@@ -9,21 +9,11 @@ import Data from './Data/data.json';
 import './components/Generation.css';
 import TransparentModal from './components/TransparentModal';
 
-{/*
-function clearUsers() {
-    localStorage.removeItem('users');
-    // Additional logic if needed, e.g., update state, show notification, etc.
-}*/}
 function HomePage({ updateCurrentUser, isRegModalOpen, setRegModalOpen, isLoginModalOpen, setLoginModalOpen }) {
     const [randomItems, setRandomItems] = useState([]);
     const [isItemModalOpen, setItemModalOpen] = useState(false);
     const [currentItemLink, setCurrentItemLink] = useState("");
     const [currentSS, setCurrentSS] = useState("");
-    const [selectedItem, setSelectedItem] = useState(null);
-    const handleItemClick = (name) => {
-        setSelectedItem(name);
-        setItemModalOpen(true);
-    };
     const handleGenerate = () => {
         const items = getRandomItems(Data); 
         const itemObjects = items.map(item => {
