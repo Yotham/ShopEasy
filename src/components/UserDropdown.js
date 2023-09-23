@@ -1,7 +1,4 @@
-// src/components/UserDropdown.js
-
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import './UserDropdown.css';
 import { useNavigate } from 'react-router-dom';
 import AccountSettingsModal from '../AccountSettingsModal'; // Adjust the path accordingly
