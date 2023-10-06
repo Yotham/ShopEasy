@@ -9,29 +9,26 @@ from selenium.webdriver.firefox.service import Service
 import re
 import time
 
-"""
+
 def get_product_details(url):
-    #Get product details from a specified URL
+    """Get product details from a specified URL"""
     driver.get(url)
-    wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '.PaginationItem_paginationItem__2f87h')))
+    wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '.see-more-btn')))
     soup = BeautifulSoup(driver.page_source, 'html.parser')
-    h2_tags = soup.find_all('h2', class_='ProductCard_card__title__text__uiWLe')
-    hrefs = [h2.find('a', class_='Link_link__1AZfr')['href'] for h2 in h2_tags]
-    links = []
+    
+    product_containers = soup.find_all('div', class_='catalog-product')
     storage = {}
-    for a in hrefs: 
-        link = "https://www.traderjoes.com" + str(a)
-        links.append(link)
-         
-
-    productNames = [product.get_text(strip=True) for product in soup.find_all('h2', class_='ProductCard_card__title__text__uiWLe')]
-
-    for i in range(len(links)):
-        storage[productNames[i]] = {}
-        storage[productNames[i]]["link"] = links[i]
-
+    for product in product_containers:
+        data_url = product.get('data-url')
+        if data_url:
+            product_name = product.get('data-product-name')
+            product_url = f"https://www.hannaford.com{data_url}"
+            storage[product_name] = {"link": product_url}
+    
     return storage
 
+
+"""
 def extract_number_of_servings(soup):
     serves_tag = soup.find('th', class_='Item_table__cell__aUMvf', text=re.compile('Serves'))
     if serves_tag:
@@ -104,14 +101,12 @@ service = Service(geckodriver_path)
 driver = webdriver.Firefox(service=service, options=options)
 
 wait = WebDriverWait(driver, 60)  # Wait up to 60 seconds
-
 # Initial URL
 initial_url = "https://www.hannaford.com/departments/frozen/frozen-dinners-entrees?displayAll=true"
-#products = {"1": get_product_details(initial_url)}
-
+products = {"1": get_product_details(initial_url)}
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 pages = soup.find_all('li', class_='PaginationItem_paginationItem__2f87h')
-
+print(products)
 """
 for i in range(1, len(pages) - 1):
     page_filter = quote(f'{{"page":{i + 1}}}')
