@@ -7,25 +7,72 @@ from urllib.parse import quote
 import json
 from selenium.webdriver.firefox.service import Service
 import re
+from selenium.webdriver.common.keys import Keys
 import time
 
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from bs4 import BeautifulSoup
+import time
+import json
+from selenium.webdriver.firefox.service import Service
 
-def get_product_details(url):
+def get_product_details(url, max_retries=1):
     """Get product details from a specified URL"""
     driver.get(url)
-    wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '.see-more-btn')))
-    soup = BeautifulSoup(driver.page_source, 'html.parser')
     
-    product_containers = soup.find_all('div', class_='catalog-product')
     storage = {}
-    for product in product_containers:
-        data_url = product.get('data-url')
-        if data_url:
-            product_name = product.get('data-product-name')
-            product_url = f"https://www.hannaford.com{data_url}"
-            storage[product_name] = {"link": product_url}
+    prev_product_count = 0
+    
+    while True:
+        # Parse the page with BeautifulSoup and extract product data
+        soup = BeautifulSoup(driver.page_source, 'html.parser')
+        product_containers = soup.find_all('div', class_='catalog-product')
+        
+        # Check if new products have been loaded
+        if len(product_containers) == prev_product_count:
+            print("No new products loaded. Ending scraping.")
+            break
+        # Update the product count
+        prev_product_count = len(product_containers)
+        
+        for product in product_containers:
+            data_url = product.get('data-url')
+            if data_url:
+                product_name = product.get('data-product-name')
+                product_url = f"https://www.hannaford.com{data_url}"
+                storage[product_name] = {"link": product_url}
+        
+        retries = 0
+        while retries < max_retries:
+            try:
+                # Wait until the "catalog-product" is loaded
+                wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '.catalog-product')))
+                #locate see-more-btn
+                see_more_button = driver.find_element(By.CSS_SELECTOR, '.see-more-btn')
+                
+                # Scroll to the button and adjust offset, then click it
+                driver.execute_script("arguments[0].scrollIntoView();", see_more_button)
+                driver.execute_script("window.scrollBy(0, -150);")  
+                
+                # Use JavaScript to click the button
+                driver.execute_script("arguments[0].click();", see_more_button)
+                
+                # Wait a bit for new products to load
+                time.sleep(2)
+                break  # Exit the retry loop if the click was successful
+            except Exception as e:
+                print(f"Attempt {retries + 1}")
+                retries += 1
+        
+        if retries == max_retries:
+            print("Reached end. Ending scraping.")
+            break
     
     return storage
+
 
 
 """
@@ -35,65 +82,55 @@ def extract_number_of_servings(soup):
         number_of_servings = int(re.search(r'\d+', serves_tag.text).group())
         return number_of_servings
     return 1  # default to 1 if not found
+"""
+
+import re
+from bs4 import BeautifulSoup
 
 def getLinkInfo(url):
     driver.get(url)
-    wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '.Section_section__headerText__2GTKM')))
+    wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '.serving-size')))
     soup = BeautifulSoup(driver.page_source, 'html.parser')
-
-    NutritionFacts = soup.find('div', class_='NutritionFacts_nutritionFacts__1Nvz0')
-    if NutritionFacts == None:
-        return {"None":0}
     
-    serving_size = NutritionFacts.find('div', class_='Item_characteristics__title__7nfa8', text='serving size').find_next_sibling().text
-    print(serving_size)
-    # Get serving size in grams (assuming it's formatted like "xxx g")
-
-    match = re.search(r'(\d+)g', serving_size)
-    if match:
-        serving_size_grams = int(match.group(1))
-    else:
-        serving_size_grams = 99999  # Default to 1 if not found in "xxx g" format
+    nutrition_info = {}
     
-
-    # Extract the amount in oz from the provided div/span class
-    amount_oz_div = soup.find('div', class_='ProductPrice_productPrice__wrapper__20hep')
-    if amount_oz_div:
-        amount_oz_span = amount_oz_div.find('span', class_='ProductPrice_productPrice__unit__2jvkA')
-        if amount_oz_span:
-            amount_oz_text = amount_oz_span.text
-            amount_oz = float(re.search(r'\d+\.?\d*', amount_oz_text).group())
-            print(amount_oz)
-            # Convert the amount from oz to grams
-            amount_grams = amount_oz * 28.35
-            print(amount_grams)
-            number_of_servings = amount_grams / serving_size_grams
+    # Extract serving size in grams
+    serving_size_tag = soup.find("dl", class_="serving-size")
+    if serving_size_tag:
+        serving_size = serving_size_tag.find("dd").get_text(strip=True)
+        nutrition_info['serving_size'] = serving_size
+    
+    # Extract number of servings
+    servings_per_tag = soup.find("h3", class_="servings-per")
+    if servings_per_tag:
+        servings_text = servings_per_tag.get_text(strip=True)
+        match = re.search(r'(\d+)', servings_text)
+        if match:
+            nutrition_info['number_of_servings'] = int(match.group(1))
         else:
-            number_of_servings = 1
-    else:
-        number_of_servings = 1
-    if serving_size_grams == 99999:
-        number_of_servings = 1
+            nutrition_info['number_of_servings'] = None
     
     # Helper function to extract nutrient values
-    def get_nutrient_value(nutrient_name):
-        nutrient = NutritionFacts.find('td', class_='Item_table__cell__aUMvf', text=nutrient_name)
-        if nutrient:
-            return nutrient.find_next_sibling().text
-        return {"None":0}
+    def extract_nutrient(dt_text):
+        dt = soup.find("dt", string=re.compile(dt_text, re.IGNORECASE))
+        if dt:
+            dd = dt.find_next_sibling("dd")
+            if dd:
+                # Extract numerical value from text, if possible
+                match = re.search(r'(\d+\.?\d*)', dd.get_text(strip=True))
+                return float(match.group(1)) if match else None
+        return None
+    
+    # Extracting nutritional values
+    nutrition_info['calories'] = extract_nutrient("Calories")
+    nutrition_info['total_fat_g'] = extract_nutrient("Total Fat")
+    nutrition_info['total_carbohydrate_g'] = extract_nutrient("Total Carbohydrate")
+    nutrition_info['protein_g'] = extract_nutrient("Protein")
+    
+    return nutrition_info
 
-    total_fat = get_nutrient_value('Total Fat')
-    total_carbs = get_nutrient_value('Total Carbohydrate')
-    protein = get_nutrient_value('Protein')
 
-    return {
-        'serving_size': serving_size,
-        'number_of_servings': number_of_servings,
-        'total_fat_per_serving': total_fat,
-        'total_carbs_per_serving': total_carbs,
-        'protein_per_serving': protein
-    }
-"""
+
 # Set up the Selenium driver for Firefox
 options = webdriver.FirefoxOptions()
 geckodriver_path = "./geckodriver.exe"  # replace with your path
@@ -106,25 +143,20 @@ initial_url = "https://www.hannaford.com/departments/frozen/frozen-dinners-entre
 products = {"1": get_product_details(initial_url)}
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 pages = soup.find_all('li', class_='PaginationItem_paginationItem__2f87h')
-print(products)
+#print(products)
+
+url = products["1"]["Stouffer's Mac & Cheese"]["link"]
+print(url)
+
+print(getLinkInfo(url))
 """
-for i in range(1, len(pages) - 1):
-    page_filter = quote(f'{{"page":{i + 1}}}')
-    url = f"https://www.traderjoes.com/home/products/category/entrees-sides-101?filters={page_filter}"
-    products[str(i + 1)] = get_product_details(url)
-
-with open("output.html", "w", encoding="utf-8") as file:
-    file.write(soup.prettify())
-
-
 i = 0
 for key in products.keys():
     for item in products[key]:
         print("Item:",item)
         url = products[key][item]["link"]
         products[key][item]["Nutrition"] = getLinkInfo(url)
-        
+"""
 with open('data.json', 'w', encoding="utf-8") as json_file:
     json.dump(products, json_file,ensure_ascii=False, indent=4)
 driver.quit()
-"""
