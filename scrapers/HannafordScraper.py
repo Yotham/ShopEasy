@@ -98,7 +98,7 @@ def getLinkInfo(url):
     serving_size_tag = soup.find("dl", class_="serving-size")
     if serving_size_tag:
         serving_size = serving_size_tag.find("dd").get_text(strip=True)
-        nutrition_info['serving_size'] = serving_size
+        nutrition_info['servingSize'] = serving_size
     
     # Extract number of servings
     servings_per_tag = soup.find("h3", class_="servings-per")
@@ -106,9 +106,9 @@ def getLinkInfo(url):
         servings_text = servings_per_tag.get_text(strip=True)
         match = re.search(r'(\d+)', servings_text)
         if match:
-            nutrition_info['number_of_servings'] = int(match.group(1))
+            nutrition_info['numServings'] = int(match.group(1))
         else:
-            nutrition_info['number_of_servings'] = None
+            nutrition_info['numServings'] = None
     
     # Helper function to extract nutrient values
     def extract_nutrient(dt_text):
@@ -122,10 +122,10 @@ def getLinkInfo(url):
         return None
     
     # Extracting nutritional values
-    nutrition_info['calories'] = extract_nutrient("Calories")
-    nutrition_info['total_fat_g'] = extract_nutrient("Total Fat")
-    nutrition_info['total_carbohydrate_g'] = extract_nutrient("Total Carbohydrate")
-    nutrition_info['protein_g'] = extract_nutrient("Protein")
+    nutrition_info['CaloriesPS'] = extract_nutrient("Calories")
+    nutrition_info['FatPS'] = extract_nutrient("Total Fat")
+    nutrition_info['CarbPS'] = extract_nutrient("Total Carbohydrate")
+    nutrition_info['ProteinPS'] = extract_nutrient("Protein")
     
     return nutrition_info
 
