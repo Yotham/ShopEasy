@@ -89,11 +89,14 @@ from bs4 import BeautifulSoup
 
 def getLinkInfo(url):
     driver.get(url)
-    wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '.serving-size')))
+    wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, '#panelNutrition')))
     soup = BeautifulSoup(driver.page_source, 'html.parser')
     
     nutrition_info = {}
-    
+    no_nutrition_tag = soup.find("p", class_="no-nutrition")
+    if no_nutrition_tag:
+        print("No nutritional information available for", url)
+        return {"None": 0}
     # Extract serving size in grams
     serving_size_tag = soup.find("dl", class_="serving-size")
     if serving_size_tag:
@@ -144,19 +147,11 @@ products = {"1": get_product_details(initial_url)}
 soup = BeautifulSoup(driver.page_source, 'html.parser')
 pages = soup.find_all('li', class_='PaginationItem_paginationItem__2f87h')
 #print(products)
-
-url = products["1"]["Stouffer's Mac & Cheese"]["link"]
-print(url)
-
-print(getLinkInfo(url))
-"""
-i = 0
 for key in products.keys():
     for item in products[key]:
         print("Item:",item)
         url = products[key][item]["link"]
         products[key][item]["Nutrition"] = getLinkInfo(url)
-"""
 with open('data.json', 'w', encoding="utf-8") as json_file:
     json.dump(products, json_file,ensure_ascii=False, indent=4)
 driver.quit()
