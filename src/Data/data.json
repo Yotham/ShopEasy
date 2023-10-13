@@ -1,13 +1,36 @@
 {
     "1": {
+        "Chicken Breakfast Sausage Patties": {
+            "link": "https://www.traderjoes.com/home/products/pdp/chicken-breakfast-sausage-patties-075420",
+            "Nutrition": {
+                "servingSize": "2 patties(72g)",
+                "numServings": 3.07125,
+                "CaloriesPS": 140,
+                "FatPS": 9,
+                "CarbPS": 1,
+                "ProteinPS": 13
+            }
+        },
+        "Par-Baked Organic French Demi-Baguettes": {
+            "link": "https://www.traderjoes.com/home/products/pdp/par-baked-organic-french-demi-baguettes-075065",
+            "Nutrition": {
+                "servingSize": "2 oz(56g/about 3 inch slice)",
+                "numServings": 4.642312500000001,
+                "CaloriesPS": 150,
+                "FatPS": 0,
+                "CarbPS": 33,
+                "ProteinPS": 4
+            }
+        },
         "Butternut Squash Italian Lasagna": {
             "link": "https://www.traderjoes.com/home/products/pdp/butternut-squash-italian-lasagna-076675",
             "Nutrition": {
                 "servingSize": "1/2 container(227g)",
                 "numServings": 1.998237885462555,
-                "FatPS": "13 g",
-                "CarbPS": "36 g",
-                "ProteinPS": "11 g"
+                "CaloriesPS": 320,
+                "FatPS": 13,
+                "CarbPS": 36,
+                "ProteinPS": 11
             }
         },
         "12 Mini Pumpkin Ginger Scones": {
@@ -15,9 +38,10 @@
             "Nutrition": {
                 "servingSize": "2 scones(68g)",
                 "numServings": 6.003529411764706,
-                "FatPS": "9 g",
-                "CarbPS": "30 g",
-                "ProteinPS": "4 g"
+                "CaloriesPS": 220,
+                "FatPS": 9,
+                "CarbPS": 30,
+                "ProteinPS": 4
             }
         },
         "Shrimp & Garlic Flatbread": {
@@ -25,9 +49,10 @@
             "Nutrition": {
                 "servingSize": "1 package(200g)",
                 "numServings": 0.99792,
-                "FatPS": "5 g",
-                "CarbPS": "29 g",
-                "ProteinPS": "12 g"
+                "CaloriesPS": 210,
+                "FatPS": 5,
+                "CarbPS": 29,
+                "ProteinPS": 12
             }
         },
         "Mango Blueberry Chia Bowl": {
@@ -35,9 +60,10 @@
             "Nutrition": {
                 "servingSize": "1 Bowl(198g)",
                 "numServings": 1.0022727272727274,
-                "FatPS": "13 g",
-                "CarbPS": "25 g",
-                "ProteinPS": "5 g"
+                "CaloriesPS": 220,
+                "FatPS": 13,
+                "CarbPS": 25,
+                "ProteinPS": 5
             }
         },
         "Chicken Cheese & Green Chile Pupusas": {
@@ -45,9 +71,10 @@
             "Nutrition": {
                 "servingSize": "1 Pupusa(113g)",
                 "numServings": 3.010619469026549,
-                "FatPS": "10 g",
-                "CarbPS": "21 g",
-                "ProteinPS": "13 g"
+                "CaloriesPS": 220,
+                "FatPS": 10,
+                "CarbPS": 21,
+                "ProteinPS": 13
             }
         },
         "Mushroom & Black Truffle Flatbread": {
@@ -55,9 +82,10 @@
             "Nutrition": {
                 "servingSize": "1/2 Pizza",
                 "numServings": 1,
-                "FatPS": "14 g",
-                "CarbPS": "46 g",
-                "ProteinPS": "13 g"
+                "CaloriesPS": 360,
+                "FatPS": 14,
+                "CarbPS": 46,
+                "ProteinPS": 13
             }
         },
         "Portuguese Bacalhau Tartlettes": {
@@ -65,9 +93,10 @@
             "Nutrition": {
                 "servingSize": "4 pieces(132g)",
                 "numServings": 1.9973863636363638,
-                "FatPS": "20 g",
-                "CarbPS": "32 g",
-                "ProteinPS": "7 g"
+                "CaloriesPS": 340,
+                "FatPS": 20,
+                "CarbPS": 32,
+                "ProteinPS": 7
             }
         },
         "Broccoli & Cheddar Cheese Quiche": {
@@ -75,9 +104,10 @@
             "Nutrition": {
                 "servingSize": "1 Quiche(170g)",
                 "numServings": 1.0005882352941178,
-                "FatPS": "28 g",
-                "CarbPS": "26 g",
-                "ProteinPS": "16 g"
+                "CaloriesPS": 420,
+                "FatPS": 28,
+                "CarbPS": 26,
+                "ProteinPS": 16
             }
         },
         "Kimbap": {
@@ -85,9 +115,10 @@
             "Nutrition": {
                 "servingSize": "3 pieces(77g)",
                 "numServings": 2.9859545454545455,
-                "FatPS": "4.0 g",
-                "CarbPS": "23 g",
-                "ProteinPS": "4 g"
+                "CaloriesPS": 140,
+                "FatPS": 4,
+                "CarbPS": 23,
+                "ProteinPS": 4
             }
         },
         "Chicken Karaage": {
@@ -95,9 +126,10 @@
             "Nutrition": {
                 "servingSize": "1/4 package(135g)",
                 "numServings": 3.9837,
-                "FatPS": "20 g",
-                "CarbPS": "25 g",
-                "ProteinPS": "15 g"
+                "CaloriesPS": 340,
+                "FatPS": 20,
+                "CarbPS": 25,
+                "ProteinPS": 15
             }
         },
         "Grilled Chicken Strips": {
@@ -105,9 +137,10 @@
             "Nutrition": {
                 "servingSize": "3 oz(84g)",
                 "numServings": 5.4,
-                "FatPS": "2.5 g",
-                "CarbPS": "2 g",
-                "ProteinPS": "20 g"
+                "CaloriesPS": 110,
+                "FatPS": 2,
+                "CarbPS": 2,
+                "ProteinPS": 20
             }
         },
         "Thai Vegetable Gyoza": {
@@ -115,9 +148,10 @@
             "Nutrition": {
                 "servingSize": "about 3 pieces(85g)",
                 "numServings": 5.3364705882352945,
-                "FatPS": "4.5 g",
-                "CarbPS": "25 g",
-                "ProteinPS": "3 g"
+                "CaloriesPS": 160,
+                "FatPS": 4,
+                "CarbPS": 25,
+                "ProteinPS": 3
             }
         },
         "Vegetable & Cheese Enchiladas": {
@@ -125,41 +159,45 @@
             "Nutrition": {
                 "servingSize": "1 container(292g)",
                 "numServings": 1.0000171232876713,
-                "FatPS": "21 g",
-                "CarbPS": "40 g",
-                "ProteinPS": "12 g"
-            }
-        },
-        "Mini Cheeseburgers": {
-            "link": "https://www.traderjoes.com/home/products/pdp/mini-cheeseburgers-075126",
-            "Nutrition": {
-                "servingSize": "1 container(199g)",
-                "numServings": 1.0000854271356783,
-                "FatPS": "10 g",
-                "CarbPS": "19 g",
-                "ProteinPS": "8 g"
-            }
-        },
-        "Asian Style Vegetables with Stir Fry Sauce": {
-            "link": "https://www.traderjoes.com/home/products/pdp/asian-style-vegetables-with-stir-fry-sauce-044180",
-            "Nutrition": {
-                "servingSize": "4 oz(112g/ 1/4 package)",
-                "numServings": 4.05,
-                "FatPS": "0 g",
-                "CarbPS": "7 g",
-                "ProteinPS": "3 g"
+                "CaloriesPS": 390,
+                "FatPS": 21,
+                "CarbPS": 40,
+                "ProteinPS": 12
             }
         }
     },
     "2": {
+        "Steel Cut Oatmeal": {
+            "link": "https://www.traderjoes.com/home/products/pdp/steel-cut-oatmeal-083177",
+            "Nutrition": {
+                "servingSize": "1 package(227g)",
+                "numServings": 1.998237885462555,
+                "CaloriesPS": 170,
+                "FatPS": 2,
+                "CarbPS": 33,
+                "ProteinPS": 5
+            }
+        },
+        "Whole Grain Waffles": {
+            "link": "https://www.traderjoes.com/home/products/pdp/whole-grain-waffles-075558",
+            "Nutrition": {
+                "servingSize": "3 waffles(99g)",
+                "numServings": 2.6631818181818185,
+                "CaloriesPS": 290,
+                "FatPS": 13,
+                "CarbPS": 37,
+                "ProteinPS": 7
+            }
+        },
         "Shrimp Boom Bah": {
             "link": "https://www.traderjoes.com/home/products/pdp/shrimp-boom-bah-073707",
             "Nutrition": {
                 "servingSize": "1/4 package(113g)",
                 "numServings": 4.014159292035399,
-                "FatPS": "30 g",
-                "CarbPS": "14 g",
-                "ProteinPS": "10 g"
+                "CaloriesPS": 370,
+                "FatPS": 30,
+                "CarbPS": 14,
+                "ProteinPS": 10
             }
         },
         "Breaded Cheddar Cheese Curds": {
@@ -167,9 +205,10 @@
             "Nutrition": {
                 "servingSize": "about 4 pieces(85g)",
                 "numServings": 5.3364705882352945,
-                "FatPS": "10 g",
-                "CarbPS": "26 g",
-                "ProteinPS": "9 g"
+                "CaloriesPS": 230,
+                "FatPS": 10,
+                "CarbPS": 26,
+                "ProteinPS": 9
             }
         },
         "Gluten Free Battered Plant-Based Fish Fillets": {
@@ -177,9 +216,10 @@
             "Nutrition": {
                 "servingSize": "1 fillet(90g)",
                 "numServings": 2.9988,
-                "FatPS": "11 g",
-                "CarbPS": "19 g",
-                "ProteinPS": "4 g"
+                "CaloriesPS": 190,
+                "FatPS": 11,
+                "CarbPS": 19,
+                "ProteinPS": 4
             }
         },
         "Chicken Tikka Masala": {
@@ -187,9 +227,10 @@
             "Nutrition": {
                 "servingSize": "1 tray(241g/8.5 oz)",
                 "numServings": 0.9998962655601661,
-                "FatPS": "14 g",
-                "CarbPS": "39 g",
-                "ProteinPS": "21 g"
+                "CaloriesPS": 360,
+                "FatPS": 14,
+                "CarbPS": 39,
+                "ProteinPS": 21
             }
         },
         "Vegetarian Meatless Cheeseburger Pizza": {
@@ -197,29 +238,16 @@
             "Nutrition": {
                 "servingSize": "1/3 pizza(158g)",
                 "numServings": 2.9928987341772153,
-                "FatPS": "15 g",
-                "CarbPS": "37 g",
-                "ProteinPS": "14 g"
-            }
-        },
-        "Roasted Garlic & Pesto Pizza with Deep Fried Crust": {
-            "link": "https://www.traderjoes.com/home/products/pdp/roasted-garlic-pesto-pizza-with-deep-fried-crust-068834",
-            "Nutrition": {
-                "servingSize": "1/3 pizza(133g)",
-                "numServings": 3.005526315789474,
-                "FatPS": "20 g",
-                "CarbPS": "43 g",
-                "ProteinPS": "17 g"
+                "CaloriesPS": 340,
+                "FatPS": 15,
+                "CarbPS": 37,
+                "ProteinPS": 14
             }
         },
         "Kung Pao Chicken": {
             "link": "https://www.traderjoes.com/home/products/pdp/kung-pao-chicken-097706",
             "Nutrition": {
-                "servingSize": "1 cup(150g - 115g entree with 35g/2 Tbs sauce)",
-                "numServings": 4.347,
-                "FatPS": "10g",
-                "CarbPS": "17g",
-                "ProteinPS": "24g"
+                "None": 0
             }
         },
         "Butter Chicken with Basmati Rice": {
@@ -227,9 +255,10 @@
             "Nutrition": {
                 "servingSize": "1 container(354g)",
                 "numServings": 1.0010593220338984,
-                "FatPS": "13 g",
-                "CarbPS": "49 g",
-                "ProteinPS": "24 g"
+                "CaloriesPS": 400,
+                "FatPS": 13,
+                "CarbPS": 49,
+                "ProteinPS": 24
             }
         },
         "Stir Fried Garlicky Cabbage": {
@@ -237,29 +266,10 @@
             "Nutrition": {
                 "servingSize": "1 cup frozen(126g)",
                 "numServings": 1.9845000000000002,
-                "FatPS": "9 g",
-                "CarbPS": "9 g",
-                "ProteinPS": "3 g"
-            }
-        },
-        "Italian Tomato & Red Onion Focaccia": {
-            "link": "https://www.traderjoes.com/home/products/pdp/italian-tomato-red-onion-focaccia-074384",
-            "Nutrition": {
-                "servingSize": "1/3 focaccia(120g)",
-                "numServings": 3.000375,
-                "FatPS": "7 g",
-                "CarbPS": "48 g",
-                "ProteinPS": "8 g"
-            }
-        },
-        "Sliced Korean Rice Cakes": {
-            "link": "https://www.traderjoes.com/home/products/pdp/sliced-korean-rice-cakes-074566",
-            "Nutrition": {
-                "servingSize": "3/4 cup frozen(90g)",
-                "numServings": 5.04,
-                "FatPS": "0 g",
-                "CarbPS": "47 g",
-                "ProteinPS": "5 g"
+                "CaloriesPS": 130,
+                "FatPS": 9,
+                "CarbPS": 9,
+                "ProteinPS": 3
             }
         },
         "Mashed Potatoes": {
@@ -267,19 +277,27 @@
             "Nutrition": {
                 "servingSize": "1 cup frozen(126g)",
                 "numServings": 6.300000000000001,
-                "FatPS": "2.5g",
-                "CarbPS": "14g",
-                "ProteinPS": "2g"
+                "CaloriesPS": 90,
+                "FatPS": 2,
+                "CarbPS": 14,
+                "ProteinPS": 2
             }
         },
         "Korean Beefless Bulgogi": {
             "link": "https://www.traderjoes.com/home/products/pdp/korean-beefless-bulgogi-072949",
             "Nutrition": {
-                "servingSize": "1/3 package(94g)",
-                "numServings": 3.015957446808511,
-                "FatPS": "11 g",
-                "CarbPS": "15 g",
-                "ProteinPS": "16 g"
+                "None": 0
+            }
+        },
+        "Spanish Style Rice": {
+            "link": "https://www.traderjoes.com/home/products/pdp/spanish-style-rice-073936",
+            "Nutrition": {
+                "servingSize": "1/2 pouch frozen(142g)",
+                "numServings": 3.992957746478873,
+                "CaloriesPS": 220,
+                "FatPS": 6,
+                "CarbPS": 38,
+                "ProteinPS": 4
             }
         },
         "Chicken Gyoza Potstickers": {
@@ -301,9 +319,10 @@
             "Nutrition": {
                 "servingSize": "1/3 package(113g)",
                 "numServings": 3.010619469026549,
-                "FatPS": "16 g",
-                "CarbPS": "13 g",
-                "ProteinPS": "7 g"
+                "CaloriesPS": 260,
+                "FatPS": 16,
+                "CarbPS": 13,
+                "ProteinPS": 7
             }
         },
         "Mini Chicken Tacos": {
@@ -311,9 +330,10 @@
             "Nutrition": {
                 "servingSize": "4 tacos(83g)",
                 "numServings": 5.977409638554217,
-                "FatPS": "13 g",
-                "CarbPS": "24 g",
-                "ProteinPS": "11 g"
+                "CaloriesPS": 260,
+                "FatPS": 13,
+                "CarbPS": 24,
+                "ProteinPS": 11
             }
         },
         "Mini Beef Tacos": {
@@ -321,19 +341,16 @@
             "Nutrition": {
                 "servingSize": "4 tacos(83g)",
                 "numServings": 5.977409638554217,
-                "FatPS": "14 g",
-                "CarbPS": "23 g",
-                "ProteinPS": "11 g"
+                "CaloriesPS": 270,
+                "FatPS": 14,
+                "CarbPS": 23,
+                "ProteinPS": 11
             }
         },
         "Gluten Free Pizza Crusts": {
             "link": "https://www.traderjoes.com/home/products/pdp/gluten-free-pizza-crusts-073467",
             "Nutrition": {
-                "servingSize": "1/3 crust(62g)",
-                "numServings": 6.026661290322581,
-                "FatPS": "3 g",
-                "CarbPS": "33 g",
-                "ProteinPS": "3 g"
+                "None": 0
             }
         },
         "Jamaican Style Beef Patties": {
@@ -341,9 +358,10 @@
             "Nutrition": {
                 "servingSize": "1 container(255g)",
                 "numServings": 1.0005882352941178,
-                "FatPS": "22 g",
-                "CarbPS": "45 g",
-                "ProteinPS": "15 g"
+                "CaloriesPS": 440,
+                "FatPS": 22,
+                "CarbPS": 45,
+                "ProteinPS": 15
             }
         },
         "Instant Boba Kit": {
@@ -351,9 +369,10 @@
             "Nutrition": {
                 "servingSize": "1 pouch(65g)",
                 "numServings": 4.012615384615384,
-                "FatPS": "0 g",
-                "CarbPS": "28 g",
-                "ProteinPS": "0 g"
+                "CaloriesPS": 110,
+                "FatPS": 0,
+                "CarbPS": 28,
+                "ProteinPS": 0
             }
         },
         "Vegetable Biryani with Vegetable Dumplings": {
@@ -361,9 +380,10 @@
             "Nutrition": {
                 "servingSize": "1/2 Container(142g)",
                 "numServings": 1.9964788732394365,
-                "FatPS": "6 g",
-                "CarbPS": "36 g",
-                "ProteinPS": "5 g"
+                "CaloriesPS": 210,
+                "FatPS": 6,
+                "CarbPS": 36,
+                "ProteinPS": 5
             }
         },
         "Gluten Free Uncured Pepperoni Pizza": {
@@ -371,9 +391,10 @@
             "Nutrition": {
                 "servingSize": "1/3 pizza(122g)",
                 "numServings": 2.99069262295082,
-                "FatPS": "13 g",
-                "CarbPS": "33 g",
-                "ProteinPS": "10 g"
+                "CaloriesPS": 290,
+                "FatPS": 13,
+                "CarbPS": 33,
+                "ProteinPS": 10
             }
         },
         "Cheese & Green Chile Tamales": {
@@ -381,9 +402,10 @@
             "Nutrition": {
                 "servingSize": "1 tamale(142g)",
                 "numServings": 1.9964788732394365,
-                "FatPS": "16 g",
-                "CarbPS": "28 g",
-                "ProteinPS": "8 g"
+                "CaloriesPS": 290,
+                "FatPS": 16,
+                "CarbPS": 28,
+                "ProteinPS": 8
             }
         },
         "Sweet Potato Fries": {
@@ -397,9 +419,10 @@
             "Nutrition": {
                 "servingSize": "1/4 Pizza(129g/4.5 oz)",
                 "numServings": 3.9997674418604654,
-                "FatPS": "16 g",
-                "CarbPS": "33 g",
-                "ProteinPS": "13 g"
+                "CaloriesPS": 330,
+                "FatPS": 16,
+                "CarbPS": 33,
+                "ProteinPS": 13
             }
         },
         "Chicken Cilantro Mini Wontons": {
@@ -407,29 +430,16 @@
             "Nutrition": {
                 "servingSize": "4 pieces(36g)",
                 "numServings": 9.450000000000001,
-                "FatPS": "0.5g",
-                "CarbPS": "9g",
-                "ProteinPS": "3g"
-            }
-        },
-        "Dill Pickle Mini Falafel": {
-            "link": "https://www.traderjoes.com/home/products/pdp/dill-pickle-mini-falafel-072024",
-            "Nutrition": {
-                "servingSize": "10 pieces(85g)",
-                "numServings": 4.002352941176471,
-                "FatPS": "8 g",
-                "CarbPS": "22 g",
-                "ProteinPS": "8 g"
+                "CaloriesPS": 50,
+                "FatPS": 0,
+                "CarbPS": 9,
+                "ProteinPS": 3
             }
         },
         "Beef Birria": {
             "link": "https://www.traderjoes.com/home/products/pdp/beef-birria-072620",
             "Nutrition": {
-                "servingSize": "1 cup(227g)",
-                "numServings": 1.998237885462555,
-                "FatPS": "15 g",
-                "CarbPS": "3 g",
-                "ProteinPS": "32 g"
+                "None": 0
             }
         },
         "Artichoke Timbales": {
@@ -437,31 +447,34 @@
             "Nutrition": {
                 "servingSize": "1 piece(100g)",
                 "numServings": 3.99735,
-                "FatPS": "9 g",
-                "CarbPS": "7 g",
-                "ProteinPS": "4 g"
+                "CaloriesPS": 130,
+                "FatPS": 9,
+                "CarbPS": 7,
+                "ProteinPS": 4
             }
-        }
-    },
-    "4": {
+        },
         "Premium Salmon Burgers": {
             "link": "https://www.traderjoes.com/home/products/pdp/premium-salmon-burgers-096766",
             "Nutrition": {
                 "servingSize": "1 Burger",
                 "numServings": 1,
-                "FatPS": "3 g",
-                "CarbPS": "3 g",
-                "ProteinPS": "15 g"
+                "CaloriesPS": 100,
+                "FatPS": 3,
+                "CarbPS": 3,
+                "ProteinPS": 15
             }
-        },
+        }
+    },
+    "4": {
         "Hatch Chile Mac & Cheese": {
             "link": "https://www.traderjoes.com/home/products/pdp/hatch-chile-mac-cheese-056018",
             "Nutrition": {
                 "servingSize": "1 Cup(170g)",
                 "numServings": 2.0011764705882356,
-                "FatPS": "10 g",
-                "CarbPS": "31 g",
-                "ProteinPS": "11 g"
+                "CaloriesPS": 260,
+                "FatPS": 10,
+                "CarbPS": 31,
+                "ProteinPS": 11
             }
         },
         "Chickenless Crispy Tenders": {
@@ -469,9 +482,10 @@
             "Nutrition": {
                 "servingSize": "3 pieces(78g)",
                 "numServings": 2.9440384615384616,
-                "FatPS": "7 g",
-                "CarbPS": "14 g",
-                "ProteinPS": "13 g"
+                "CaloriesPS": 170,
+                "FatPS": 7,
+                "CarbPS": 14,
+                "ProteinPS": 13
             }
         },
         "Egg Frittata": {
@@ -479,9 +493,21 @@
             "Nutrition": {
                 "servingSize": "2 frittatas(140g)",
                 "numServings": 1.00035,
-                "FatPS": "15 g",
-                "CarbPS": "10 g",
-                "ProteinPS": "25 g"
+                "CaloriesPS": 270,
+                "FatPS": 15,
+                "CarbPS": 10,
+                "ProteinPS": 25
+            }
+        },
+        "Tteok Bok Ki": {
+            "link": "https://www.traderjoes.com/home/products/pdp/tteok-bok-ki-071551",
+            "Nutrition": {
+                "servingSize": "1 cup frozen(140g)",
+                "numServings": 3.24,
+                "CaloriesPS": 280,
+                "FatPS": 1,
+                "CarbPS": 61,
+                "ProteinPS": 5
             }
         },
         "Vegetable Fried Rice": {
@@ -489,9 +515,10 @@
             "Nutrition": {
                 "servingSize": "1-1/4 cups frozen(159g), makes 1 cup cooked",
                 "numServings": 2.8528301886792455,
-                "FatPS": "2.5 g",
-                "CarbPS": "45 g",
-                "ProteinPS": "6 g"
+                "CaloriesPS": 230,
+                "FatPS": 2,
+                "CarbPS": 45,
+                "ProteinPS": 6
             }
         },
         "Root Vegetable Fries": {
@@ -499,9 +526,10 @@
             "Nutrition": {
                 "servingSize": "3/4 cup frozen(85g)",
                 "numServings": 5.3364705882352945,
-                "FatPS": "0 g",
-                "CarbPS": "13 g",
-                "ProteinPS": "1 g"
+                "CaloriesPS": 50,
+                "FatPS": 0,
+                "CarbPS": 13,
+                "ProteinPS": 1
             }
         },
         "Eggwich Breadless Breakfast Sandwich": {
@@ -509,9 +537,10 @@
             "Nutrition": {
                 "servingSize": "1 sandwich(111g)",
                 "numServings": 1.9921621621621621,
-                "FatPS": "12 g",
-                "CarbPS": "3 g",
-                "ProteinPS": "16 g"
+                "CaloriesPS": 190,
+                "FatPS": 12,
+                "CarbPS": 3,
+                "ProteinPS": 16
             }
         },
         "Quinoa Cowboy Veggie Burgers": {
@@ -519,19 +548,10 @@
             "Nutrition": {
                 "servingSize": "1 Burger(85g)",
                 "numServings": 4.002352941176471,
-                "FatPS": "8g",
-                "CarbPS": "22g",
-                "ProteinPS": "5g"
-            }
-        },
-        "Black Bean & Cheese Taquitos": {
-            "link": "https://www.traderjoes.com/home/products/pdp/black-bean-cheese-taquitos-065291",
-            "Nutrition": {
-                "servingSize": "2 taquitos(76g)",
-                "numServings": 5.968421052631579,
-                "FatPS": "9 g",
-                "CarbPS": "21 g",
-                "ProteinPS": "6 g"
+                "CaloriesPS": 180,
+                "FatPS": 8,
+                "CarbPS": 22,
+                "ProteinPS": 5
             }
         },
         "Impossible™ Chicken Nuggets": {
@@ -543,27 +563,18 @@
         "Kalua Pork Spring Rolls": {
             "link": "https://www.traderjoes.com/home/products/pdp/kalua-pork-spring-rolls-070655",
             "Nutrition": {
-                "servingSize": "2 pieces(113g)",
-                "numServings": 2.0070796460176994,
-                "FatPS": "14 g",
-                "CarbPS": "33 g",
-                "ProteinPS": "8 g"
+                "None": 0
             }
         },
         "BBQ Teriyaki Chicken": {
             "link": "https://www.traderjoes.com/home/products/pdp/bbq-teriyaki-chicken-074961",
             "Nutrition": {
-                "None": 0
-            }
-        },
-        "Hashbrowns": {
-            "link": "https://www.traderjoes.com/home/products/pdp/hashbrowns-094769",
-            "Nutrition": {
-                "servingSize": "1 potato patty(64g)",
-                "numServings": 9.966796875,
-                "FatPS": "6 g",
-                "CarbPS": "15 g",
-                "ProteinPS": "1 g"
+                "servingSize": "1 cup frozen(150g)",
+                "numServings": 3.9690000000000003,
+                "CaloriesPS": 240,
+                "FatPS": 9,
+                "CarbPS": 11,
+                "ProteinPS": 31
             }
         },
         "Southwest Style Chicken Quesadillas": {
@@ -571,9 +582,32 @@
             "Nutrition": {
                 "servingSize": "1 quesadilla(170g)",
                 "numServings": 2.0011764705882356,
-                "FatPS": "19 g",
-                "CarbPS": "36 g",
-                "ProteinPS": "23 g"
+                "CaloriesPS": 410,
+                "FatPS": 19,
+                "CarbPS": 36,
+                "ProteinPS": 23
+            }
+        },
+        "Turkey Sausage Stuffing Fried Rice": {
+            "link": "https://www.traderjoes.com/home/products/pdp/turkey-sausage-stuffing-fried-rice-071810",
+            "Nutrition": {
+                "servingSize": "1 1/3 cups(156g) frozen, makes 1 cup cooked",
+                "numServings": 2.907692307692308,
+                "CaloriesPS": 280,
+                "FatPS": 11,
+                "CarbPS": 39,
+                "ProteinPS": 7
+            }
+        },
+        "Scallopini Potatoes": {
+            "link": "https://www.traderjoes.com/home/products/pdp/scallopini-potatoes-068963",
+            "Nutrition": {
+                "servingSize": "1 cup frozen(140g)",
+                "numServings": 3.645,
+                "CaloriesPS": 190,
+                "FatPS": 10,
+                "CarbPS": 18,
+                "ProteinPS": 7
             }
         },
         "Butternut Squash Mac & Cheese": {
@@ -581,9 +615,10 @@
             "Nutrition": {
                 "servingSize": "1 cup(170g)",
                 "numServings": 2.0011764705882356,
-                "FatPS": "8 g",
-                "CarbPS": "38 g",
-                "ProteinPS": "11 g"
+                "CaloriesPS": 250,
+                "FatPS": 8,
+                "CarbPS": 38,
+                "ProteinPS": 11
             }
         }
     },
@@ -593,9 +628,10 @@
             "Nutrition": {
                 "servingSize": "1/2 Tray(142g)",
                 "numServings": 2.006461267605634,
-                "FatPS": "6 g",
-                "CarbPS": "34 g",
-                "ProteinPS": "1 g"
+                "CaloriesPS": 190,
+                "FatPS": 6,
+                "CarbPS": 34,
+                "ProteinPS": 1
             }
         },
         "Italian Style Meatballs": {
@@ -603,9 +639,10 @@
             "Nutrition": {
                 "servingSize": "2 meatballs(71g)",
                 "numServings": 6.3887323943661976,
-                "FatPS": "20 g",
-                "CarbPS": "5 g",
-                "ProteinPS": "11 g"
+                "CaloriesPS": 240,
+                "FatPS": 20,
+                "CarbPS": 5,
+                "ProteinPS": 11
             }
         },
         "Mandarin Orange Chicken": {
@@ -613,9 +650,10 @@
             "Nutrition": {
                 "servingSize": "1 cup(140g)",
                 "numServings": 4.455,
-                "FatPS": "16g",
-                "CarbPS": "24g",
-                "ProteinPS": "21g"
+                "CaloriesPS": 320,
+                "FatPS": 16,
+                "CarbPS": 24,
+                "ProteinPS": 21
             }
         },
         "Joe's Diner Mac 'n Cheese": {
@@ -629,9 +667,10 @@
             "Nutrition": {
                 "servingSize": "1 burger(112g/4oz)",
                 "numServings": 4.05,
-                "FatPS": "10g",
-                "CarbPS": "0g",
-                "ProteinPS": "22g"
+                "CaloriesPS": 180,
+                "FatPS": 10,
+                "CarbPS": 0,
+                "ProteinPS": 22
             }
         },
         "Mexican Style Roasted Corn": {
@@ -639,9 +678,10 @@
             "Nutrition": {
                 "servingSize": "1 cup frozen(113g)",
                 "numServings": 3.5123893805309736,
-                "FatPS": "8 g",
-                "CarbPS": "21 g",
-                "ProteinPS": "5 g"
+                "CaloriesPS": 180,
+                "FatPS": 8,
+                "CarbPS": 21,
+                "ProteinPS": 5
             }
         },
         "Vegetable Pad Thai": {
@@ -649,9 +689,10 @@
             "Nutrition": {
                 "servingSize": "1 tray(300g)",
                 "numServings": 0.9922500000000001,
-                "FatPS": "11 g",
-                "CarbPS": "55 g",
-                "ProteinPS": "10 g"
+                "CaloriesPS": 360,
+                "FatPS": 11,
+                "CarbPS": 55,
+                "ProteinPS": 10
             }
         },
         "Parmesan Pastry Pups": {
@@ -659,9 +700,10 @@
             "Nutrition": {
                 "servingSize": "4 pups(85g)",
                 "numServings": 3.502058823529412,
-                "FatPS": "20 g",
-                "CarbPS": "19 g",
-                "ProteinPS": "8 g"
+                "CaloriesPS": 270,
+                "FatPS": 20,
+                "CarbPS": 19,
+                "ProteinPS": 8
             }
         },
         "Carne Asada Burritos": {
@@ -669,9 +711,10 @@
             "Nutrition": {
                 "servingSize": "1 burrito(198g)",
                 "numServings": 2.004545454545455,
-                "FatPS": "19 g",
-                "CarbPS": "55 g",
-                "ProteinPS": "22 g"
+                "CaloriesPS": 490,
+                "FatPS": 19,
+                "CarbPS": 55,
+                "ProteinPS": 22
             }
         },
         "Potato Pancakes": {
@@ -679,9 +722,10 @@
             "Nutrition": {
                 "servingSize": "2 pancakes(75g)",
                 "numServings": 4.0068,
-                "FatPS": "6 g",
-                "CarbPS": "22 g",
-                "ProteinPS": "3 g"
+                "CaloriesPS": 150,
+                "FatPS": 6,
+                "CarbPS": 22,
+                "ProteinPS": 3
             }
         },
         "Quiche Lorraine": {
@@ -689,9 +733,10 @@
             "Nutrition": {
                 "servingSize": "1/3 quiche(113g)",
                 "numServings": 3.010619469026549,
-                "FatPS": "22g",
-                "CarbPS": "20g",
-                "ProteinPS": "15g"
+                "CaloriesPS": 340,
+                "FatPS": 22,
+                "CarbPS": 20,
+                "ProteinPS": 15
             }
         },
         "Mexican-Style Riced Cauliflower": {
@@ -699,9 +744,10 @@
             "Nutrition": {
                 "servingSize": "1 cup frozen(110g)",
                 "numServings": 4.123636363636364,
-                "FatPS": "2.5 g",
-                "CarbPS": "5 g",
-                "ProteinPS": "2 g"
+                "CaloriesPS": 50,
+                "FatPS": 2,
+                "CarbPS": 5,
+                "ProteinPS": 2
             }
         },
         "Bulgogi Beef Fried Rice With Kimchi": {
@@ -709,9 +755,10 @@
             "Nutrition": {
                 "servingSize": "1 container(454g)",
                 "numServings": 0.9991189427312775,
-                "FatPS": "10 g",
-                "CarbPS": "60 g",
-                "ProteinPS": "11 g"
+                "CaloriesPS": 400,
+                "FatPS": 10,
+                "CarbPS": 60,
+                "ProteinPS": 11
             }
         },
         "Cheese Filled Fiocchetti with Pink Sauce": {
@@ -719,9 +766,10 @@
             "Nutrition": {
                 "servingSize": "1 cup(133g)",
                 "numServings": 3.410526315789474,
-                "FatPS": "17 g",
-                "CarbPS": "26 g",
-                "ProteinPS": "8 g"
+                "CaloriesPS": 290,
+                "FatPS": 17,
+                "CarbPS": 26,
+                "ProteinPS": 8
             }
         },
         "Beef Pho": {
@@ -729,9 +777,10 @@
             "Nutrition": {
                 "servingSize": "1 bowl(375g)",
                 "numServings": 1.000188,
-                "FatPS": "4.5 g",
-                "CarbPS": "34 g",
-                "ProteinPS": "13 g"
+                "CaloriesPS": 220,
+                "FatPS": 4,
+                "CarbPS": 34,
+                "ProteinPS": 13
             }
         }
     },
@@ -741,9 +790,10 @@
             "Nutrition": {
                 "servingSize": "1 cup(112g)",
                 "numServings": 4.05,
-                "FatPS": "2.0 g",
-                "CarbPS": "7 g",
-                "ProteinPS": "2 g"
+                "CaloriesPS": 50,
+                "FatPS": 2,
+                "CarbPS": 7,
+                "ProteinPS": 2
             }
         },
         "Riced Cauliflower Stir Fry": {
@@ -751,19 +801,10 @@
             "Nutrition": {
                 "servingSize": "1 cup(105g)",
                 "numServings": 4.32,
-                "FatPS": "2.0 g",
-                "CarbPS": "7 g",
-                "ProteinPS": "2 g"
-            }
-        },
-        "Gluten Free Cheese Pizza With A Cauliflower Crust": {
-            "link": "https://www.traderjoes.com/home/products/pdp/gluten-free-cheese-pizza-with-a-cauliflower-crust-059448",
-            "Nutrition": {
-                "servingSize": "1/3 pizza(113g)",
-                "numServings": 3.010619469026549,
-                "FatPS": "12 g",
-                "CarbPS": "24 g",
-                "ProteinPS": "14 g"
+                "CaloriesPS": 50,
+                "FatPS": 2,
+                "CarbPS": 7,
+                "ProteinPS": 2
             }
         },
         "Gluten Free Mac & Cheese": {
@@ -771,9 +812,10 @@
             "Nutrition": {
                 "servingSize": "1 cup(170g)",
                 "numServings": 2.0011764705882356,
-                "FatPS": "10 g",
-                "CarbPS": "41 g",
-                "ProteinPS": "11 g"
+                "CaloriesPS": 300,
+                "FatPS": 10,
+                "CarbPS": 41,
+                "ProteinPS": 11
             }
         },
         "Chipotle Vegetable Quesadillas": {
@@ -781,9 +823,10 @@
             "Nutrition": {
                 "servingSize": "1 quesadilla(170g)",
                 "numServings": 2.0011764705882356,
-                "FatPS": "13 g",
-                "CarbPS": "47 g",
-                "ProteinPS": "15 g"
+                "CaloriesPS": 360,
+                "FatPS": 13,
+                "CarbPS": 47,
+                "ProteinPS": 15
             }
         },
         "Cauliflower Gnocchi": {
@@ -791,9 +834,10 @@
             "Nutrition": {
                 "servingSize": "1 cup(140g)",
                 "numServings": 2.43,
-                "FatPS": "3.0 g",
-                "CarbPS": "22 g",
-                "ProteinPS": "2 g"
+                "CaloriesPS": 140,
+                "FatPS": 3,
+                "CarbPS": 22,
+                "ProteinPS": 2
             }
         },
         "Chicken Burrito Bowl": {
@@ -801,9 +845,10 @@
             "Nutrition": {
                 "servingSize": "1 bowl(330g)",
                 "numServings": 0.9965454545454546,
-                "FatPS": "10 g",
-                "CarbPS": "51 g",
-                "ProteinPS": "22 g"
+                "CaloriesPS": 370,
+                "FatPS": 10,
+                "CarbPS": 51,
+                "ProteinPS": 22
             }
         },
         "Cauliflower Pancakes": {
@@ -811,9 +856,10 @@
             "Nutrition": {
                 "servingSize": "2 pieces(85g)",
                 "numServings": 3.001764705882353,
-                "FatPS": "7 g",
-                "CarbPS": "21 g",
-                "ProteinPS": "7 g"
+                "CaloriesPS": 170,
+                "FatPS": 7,
+                "CarbPS": 21,
+                "ProteinPS": 7
             }
         },
         "Sriracha Shrimp Bowl": {
@@ -821,9 +867,10 @@
             "Nutrition": {
                 "servingSize": "1 bowl(320g)",
                 "numServings": 1.001109375,
-                "FatPS": "8 g",
-                "CarbPS": "47 g",
-                "ProteinPS": "15 g"
+                "CaloriesPS": 320,
+                "FatPS": 8,
+                "CarbPS": 47,
+                "ProteinPS": 15
             }
         },
         "Chicken-less Mandarin Orange Morsels": {
@@ -831,9 +878,10 @@
             "Nutrition": {
                 "servingSize": "1/2 bag with sauce(131g)",
                 "numServings": 2.001812977099237,
-                "FatPS": "8 g",
-                "CarbPS": "29 g",
-                "ProteinPS": "20 g"
+                "CaloriesPS": 270,
+                "FatPS": 8,
+                "CarbPS": 29,
+                "ProteinPS": 20
             }
         },
         "Outside-In Stuffed Gnocchi": {
@@ -841,9 +889,10 @@
             "Nutrition": {
                 "servingSize": "1 cup(135g)",
                 "numServings": 3.3600000000000003,
-                "FatPS": "3.5 g",
-                "CarbPS": "29 g",
-                "ProteinPS": "6 g"
+                "CaloriesPS": 180,
+                "FatPS": 3,
+                "CarbPS": 29,
+                "ProteinPS": 6
             }
         },
         "Cuban Style Citrus Garlic Bowl": {
@@ -851,9 +900,10 @@
             "Nutrition": {
                 "servingSize": "1 bowl(312g)",
                 "numServings": 0.9995192307692309,
-                "FatPS": "18 g",
-                "CarbPS": "44 g",
-                "ProteinPS": "16 g"
+                "CaloriesPS": 400,
+                "FatPS": 18,
+                "CarbPS": 44,
+                "ProteinPS": 16
             }
         },
         "Mixed Mushroom & Spinach Quiche": {
@@ -861,19 +911,16 @@
             "Nutrition": {
                 "servingSize": "1 quiche(175g)",
                 "numServings": 0.99954,
-                "FatPS": "26 g",
-                "CarbPS": "35 g",
-                "ProteinPS": "12 g"
+                "CaloriesPS": 420,
+                "FatPS": 26,
+                "CarbPS": 35,
+                "ProteinPS": 12
             }
         },
         "Honey Walnut Shrimp": {
             "link": "https://www.traderjoes.com/home/products/pdp/honey-walnut-shrimp-056309",
             "Nutrition": {
-                "servingSize": "1 cup(208 g)",
-                "numServings": 1,
-                "FatPS": "28 g",
-                "CarbPS": "22 g",
-                "ProteinPS": "24 g"
+                "None": 0
             }
         },
         "Steamed Pork & Ginger Soup Dumplings": {
@@ -881,9 +928,10 @@
             "Nutrition": {
                 "servingSize": "1 Container(170g)",
                 "numServings": 1.0005882352941178,
-                "FatPS": "10 g",
-                "CarbPS": "30 g",
-                "ProteinPS": "14 g"
+                "CaloriesPS": 270,
+                "FatPS": 10,
+                "CarbPS": 30,
+                "ProteinPS": 14
             }
         }
     },

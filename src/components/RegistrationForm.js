@@ -9,7 +9,8 @@ function RegistrationForm({ setRegModalOpen }) {
         height: [5, 0],  // Default height set to 5'0"
         weight: '',
         gender: 'Male',
-        goal: 'Maintain Weight'
+        goal: 'Maintain Weight',
+        age: ''
     });
     const users = JSON.parse(localStorage.getItem('users')) || [];
     const modalRef = useRef();
@@ -31,13 +32,48 @@ function RegistrationForm({ setRegModalOpen }) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        localStorage.setItem('users', JSON.stringify([...users, userData]));
-        localStorage.setItem('currentUser', JSON.stringify(userData));
+    
+        // Conversions
+        const heightInCm = (userData.height[0] * 30.48) + (userData.height[1] * 2.54);
+        const weightInKg = userData.weight * 0.453592;
+        
+        // BMR Calculation using userData.age
+        let bmr;
+        if (userData.gender === "Male") {
+            bmr = 88.362 + (13.397 * weightInKg) + (4.799 * heightInCm) - (5.677 * userData.age);
+        } else if (userData.gender === "Female") {
+            bmr = 447.593 + (9.247 * weightInKg) + (3.098 * heightInCm) - (4.330 * userData.age);
+        } else {  // For "Other" gender
+            const bmrMale = 88.362 + (13.397 * weightInKg) + (4.799 * heightInCm) - (5.677 * userData.age);
+            const bmrFemale = 447.593 + (9.247 * weightInKg) + (3.098 * heightInCm) - (4.330 * userData.age);
+            bmr = (bmrMale + bmrFemale) / 2;
+        }
+        // Caloric Goal Calculation
+        let caloricGoal;
+        if (userData.goal === "Maintain Weight") {
+            caloricGoal = bmr;
+        } else if (userData.goal === "Gain Weight") {
+            caloricGoal = bmr + 500;
+        } else { // Lose Weight
+            caloricGoal = bmr - 500;
+        }
+    
+        // Storing BMR and Caloric Goal with user data
+        const newUserData = {
+            ...userData,
+            bmr,
+            caloricGoal
+        };
+    
+        // Storing user data in localStorage
+        localStorage.setItem('users', JSON.stringify([...users, newUserData]));
+        localStorage.setItem('currentUser', JSON.stringify(newUserData));
         setRegModalOpen(false);
         alert('Registered successfully!');
-        navigate('/');  // Redirect to homepage or dashboard after successful registration
+        navigate('/');  
         window.location.reload();
     };
+    
 
     useEffect(() => {
         function handleClickOutside(event) {
@@ -80,7 +116,16 @@ function RegistrationForm({ setRegModalOpen }) {
                                 required
                             />
                         </label>
-
+                        <label>
+                            Age:
+                            <input
+                                type="number"
+                                name="age"
+                                value={userData.age}
+                                onChange={handleChange}
+                                required
+                            />
+                        </label>
                         <label>
                             Height:
                             <input 

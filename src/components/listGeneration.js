@@ -1,19 +1,34 @@
-export function getRandomItems(data, count = 10) {
-    // Create an array of all item names and their associated page numbers
+export function getRandomItems(data, caloricGoal, count = 10) {
     const allItems = [];
+
     for (const pageNumber in data) {
         const itemNames = Object.keys(data[pageNumber]);
+
         for (const name of itemNames) {
             const nutrition = data[pageNumber][name].Nutrition;
             
-            // Ensure the item's nutrition does not contain "None" and has other nutrition details
+            console.log(`Checking item:  ${name}`);
+            
             if (Object.keys(nutrition).length > 1 || (Object.keys(nutrition).length === 1 && !("None" in nutrition))) {
-                allItems.push({ name, pageNumber });
+                
+                const calories = (
+                    (nutrition.ProteinPS * 4) +
+                    (nutrition.CarbPS * 4) +
+                    (nutrition.FatPS * 9)
+                );
+                
+                console.log(`Item calories:  ${calories}`);
+
+                // Ensure the calculated calories is not NaN
+                if (!isNaN(calories)) {
+                    allItems.push({ name, pageNumber, calories });
+                } else {
+                    console.log(`Calories for ${name} is NaN. Skipping...`);
+                }
             }
         }
     }
 
-    // Shuffle the array
     let m = allItems.length, t, i;
     while (m) {
         i = Math.floor(Math.random() * m--);
@@ -22,8 +37,25 @@ export function getRandomItems(data, count = 10) {
         allItems[i] = t;
     }
 
-    // Return the desired number of items
-    return allItems.slice(0, count);
+    const selectedItems = [];
+    let totalCalories = 0;
+
+    for (const item of allItems) {
+        if (selectedItems.length >= count) {
+            break;
+        }
+
+        // Update this condition
+        if (totalCalories + item.calories -25 <= caloricGoal) {
+            totalCalories += item.calories;
+            selectedItems.push(item);
+        }
+    }
+
+    console.log(`Total selected calories: ${totalCalories}, caloric goal: ${caloricGoal}`);
+    console.log(`Selected items: `, selectedItems);
+
+    return selectedItems;
 }
 
-export default getRandomItems
+export default getRandomItems;
