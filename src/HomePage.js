@@ -17,6 +17,11 @@ function HomePage({ updateCurrentUser, isRegModalOpen, setRegModalOpen, isLoginM
     const [isItemModalOpen, setItemModalOpen] = useState(false);
     const [currentItemLink, setCurrentItemLink] = useState("");
     const [currentSS, setCurrentSS] = useState("");
+	const [currentNumServings, setCurrentNumServings] = useState("");
+	const [currentCaloriesPS, setCurrentCaloriesPS] = useState("");
+	const [currentFatPS, setCurrentFatPS] = useState("");
+	const [currentCarbPS, setCurrentCarbPS] = useState("");
+	const [currentProteinPS, setCurrentProteinPS] = useState("");
     const [selectedData, setSelectedData] = useState(Data);
     const [caloricGoal, setCaloricGoal] = useState(null);
 
@@ -46,7 +51,12 @@ function HomePage({ updateCurrentUser, isRegModalOpen, setRegModalOpen, isLoginM
                 return {
                     name: item.name,
                     link: productData.link,
-                    servingSize: productData.Nutrition["servingSize"]
+                    servingSize: productData.Nutrition["servingSize"],
+                    numServings: productData.Nutrition["numServings"],
+                    caloriesPS: productData.Nutrition["CaloriesPS"],
+                    FatPS: productData.Nutrition["FatPS"],
+                    CarbPS: productData.Nutrition["CarbPS"],
+                    ProteinPS: productData.Nutrition["ProteinPS"]
                 };
             });
             console.log("Item objects: ", itemObjects);  // Debug line
@@ -59,8 +69,7 @@ function HomePage({ updateCurrentUser, isRegModalOpen, setRegModalOpen, isLoginM
     
     return (
         <div className = "main-div">
-            <center><h1>Welcome</h1></center>
-            <center><DataDropdown onSelectData={handleDataSelection} /></center>
+            <center>Grocery Store: <DataDropdown onSelectData={handleDataSelection} /></center>
             {/*<button onClick={clearUsers}>Clear Users</button>*/}
             <center><button className = "Generate" onClick={handleGenerate}>Generate</button></center>
             
@@ -72,6 +81,12 @@ function HomePage({ updateCurrentUser, isRegModalOpen, setRegModalOpen, isLoginM
                         onClick={() => {
                             setCurrentItemLink(item.link);
                             setCurrentSS(item.servingSize)
+                            setCurrentNumServings(item.numServings);
+                            setCurrentCaloriesPS(item.caloriesPS);
+                            setCurrentFatPS(item.FatPS);
+                            setCurrentCarbPS(item.CarbPS);
+                            setCurrentProteinPS(item.ProteinPS)
+
                             setItemModalOpen(true);
                         }}
                     >
@@ -84,6 +99,11 @@ function HomePage({ updateCurrentUser, isRegModalOpen, setRegModalOpen, isLoginM
                 onClose={() => setItemModalOpen(false)}
                 itemLink={currentItemLink}
                 servingSize={currentSS}
+                numServings={currentNumServings}
+                caloriesPS={currentCaloriesPS}
+                FatPS={currentFatPS}
+                CarbPS={currentCarbPS}
+                ProteinPS={currentProteinPS}
             />
             {/* Display the random items */}
             <Modal isOpen={isRegModalOpen} onClose={() => setRegModalOpen(false)} title="Register">
