@@ -6,6 +6,8 @@ import HomePage from './HomePage';
 import AccountSettings from './AccountSettings';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer'
+import FAQ from './components/FAQ'
 
 function App() {
   const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem('currentUser')));
@@ -30,7 +32,9 @@ function App() {
                         setLoginModalOpen={setLoginModalOpen}
                     />} />
                     {currentUser && <Route path="/account-settings" element={<AccountSettings />} />}
+                    <Route path="/faq" element={<FAQ />} />
                 </Routes>
+                <Footer></Footer>
             </div>
         </Router>
     );

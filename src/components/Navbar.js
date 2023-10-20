@@ -1,10 +1,13 @@
+import React from 'react';
 import UserDropdown from './UserDropdown';
+import { Link } from 'react-router-dom';
 
 function Navbar({ currentUser, setCurrentUser, setLoginModalOpen, setRegModalOpen }) {
     return (
         <div className="navbar">
-            <div></div> {/* This is a placeholder div to maintain space between items */}
-            <h1 className="navbar-title">ShopEasy</h1>
+            <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+                <h1 className="navbar-title">ShopEasy</h1>
+            </Link>
             {currentUser ? (
                  <UserDropdown setCurrentUser={setCurrentUser} />
             ) : (
@@ -16,6 +19,5 @@ function Navbar({ currentUser, setCurrentUser, setLoginModalOpen, setRegModalOpe
         </div>
     );
 }
-
 
 export default Navbar;

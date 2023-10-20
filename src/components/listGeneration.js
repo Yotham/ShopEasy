@@ -1,4 +1,5 @@
 export function getRandomItems(data, caloricGoal, minMeals = 10) {
+    caloricGoal = caloricGoal*7
     const allItems = [];
 
     for (const pageNumber in data) {
@@ -32,30 +33,42 @@ export function getRandomItems(data, caloricGoal, minMeals = 10) {
         allItems[i] = t;
     }
 
+    // Segment items into lower and higher calorie lists
+    const medianCalories = caloricGoal / minMeals;
+    const lowerCalorieItems = allItems.filter(item => item.caloriesForAllServings <= medianCalories);
+    const higherCalorieItems = allItems.filter(item => item.caloriesForAllServings > medianCalories);
+
     const selectedItems = [];
     let totalCalories = 0;
-    let totalServings = 0;
 
-    for (const item of allItems) {
-        if (selectedItems.length < minMeals && totalCalories + item.caloriesForAllServings <= caloricGoal + 25) {
+    // Initial selection from lower calorie items
+    for (const item of lowerCalorieItems) {
+        if (selectedItems.length < minMeals - 2 && totalCalories + item.caloriesForAllServings <= caloricGoal) {
             totalCalories += item.caloriesForAllServings;
-            totalServings += item.numServings;
             selectedItems.push(item);
         }
     }
 
-    // If servings are less than 21, try to add more items to meet the calorie goal
-    if (totalServings < 21) {
-        for (const item of allItems) {
-            if (!selectedItems.includes(item) && totalCalories + item.caloriesForAllServings <= caloricGoal + 25) {
-                totalCalories += item.caloriesForAllServings;
-                totalServings += item.numServings;
-                selectedItems.push(item);
-            }
+    // Fill up to minMeals with higher calorie items
+    for (const item of higherCalorieItems) {
+        if (selectedItems.length < minMeals && totalCalories + item.caloriesForAllServings <= caloricGoal) {
+            totalCalories += item.caloriesForAllServings;
+            selectedItems.push(item);
         }
     }
-    console.log(`Total selected calories: ${totalCalories}, caloric goal: ${caloricGoal}`);
-    console.log(`Selected items: `, selectedItems);
+
+    // Ensure caloric constraints: No more than caloricGoal, and no more than 100 below caloricGoal
+    for (const item of allItems) {
+        if (!selectedItems.includes(item) && totalCalories + item.caloriesForAllServings <= caloricGoal) {
+            totalCalories += item.caloriesForAllServings;
+            selectedItems.push(item);
+        }
+        if (totalCalories >= caloricGoal - 100) {
+            break;
+        }
+    }
+
+    // Return the selected items
     return selectedItems;
 }
 

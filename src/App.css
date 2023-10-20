@@ -34,6 +34,7 @@ h1, h2, h3 {
   background-color: #0056b3;
 }
 
+
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -49,8 +50,14 @@ h1, h2, h3 {
   gap: 10px; /* Adds a space between the buttons */
 }
 
+.auth-buttons, .UserDropdown {
+  flex-grow: 0;  /* This will prevent these elements from growing */
+}
+
 .navbar-title {
-  display:fixed;
+  display:flex;
+  justify-content: left;
+  align-items: left;
   flex-grow: 5; /* Use flex-grow instead of flex */
 }
 
@@ -63,3 +70,34 @@ h1, h2, h3 {
   height:100%;
 }
 
+.GroceryGenerate {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Vertically align items in the center */
+  gap: 10px; /* Space between items */
+}
+
+.Generate {
+  margin-bottom:20px;
+}
+
+
+.totals {
+  display:flex;
+  justify-content: center; /* Centered horizontally */
+  align-items: center; /* Centered vertically */
+  flex-direction: row;
+  margin-top: 30px;
+  gap: 20px; /* Spacing between items */
+  padding: 20px;
+}
+
+.total-item {
+  margin: 0; /* Remove default margin */
+}
+
+.shared-background {
+  border-radius: 10px;
+  background-color: #f5f5f5; /* Same as other backgrounds */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}

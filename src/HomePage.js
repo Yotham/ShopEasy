@@ -12,6 +12,7 @@ import Data2 from './Data/hannafordData.json';
 import './components/Generation.css';
 import TransparentModal from './components/TransparentModal';
 
+
 function HomePage({ updateCurrentUser, isRegModalOpen, setRegModalOpen, isLoginModalOpen, setLoginModalOpen }) {
     const [randomItems, setRandomItems] = useState([]);
     const [isItemModalOpen, setItemModalOpen] = useState(false);
@@ -24,6 +25,7 @@ function HomePage({ updateCurrentUser, isRegModalOpen, setRegModalOpen, isLoginM
 	const [currentProteinPS, setCurrentProteinPS] = useState("");
     const [selectedData, setSelectedData] = useState(Data);
     const [caloricGoal, setCaloricGoal] = useState(null);
+    const [isGenerated, setIsGenerated] = useState(false); // New state variable
 
     useEffect(() => {
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
@@ -61,17 +63,27 @@ function HomePage({ updateCurrentUser, isRegModalOpen, setRegModalOpen, isLoginM
             });
             console.log("Item objects: ", itemObjects);  // Debug line
             setRandomItems(itemObjects);
+            setIsGenerated(true);
         } else {
             alert('Please log in to generate items based on your nutritional goals.');
         }
     };
+    const totalCalories = Math.round(randomItems.reduce((acc, item) => acc + (item.caloriesPS * item.numServings), 0) * 10) / 10;
+    const totalProtein = Math.round(randomItems.reduce((acc, item) => acc + (item.ProteinPS * item.numServings), 0) * 10) / 10;
+    const totalCarbs = Math.round(randomItems.reduce((acc, item) => acc + (item.CarbPS * item.numServings), 0) * 10) / 10;
+    const totalFats = Math.round(randomItems.reduce((acc, item) => acc + (item.FatPS * item.numServings), 0) * 10) / 10;
     
+    
+
     
     return (
+        
         <div className = "main-div">
-            <center>Grocery Store: <DataDropdown onSelectData={handleDataSelection} /></center>
-            {/*<button onClick={clearUsers}>Clear Users</button>*/}
-            <center><button className = "Generate" onClick={handleGenerate}>Generate</button></center>
+            <div className = "GroceryGenerate">
+                Grocery Store: <DataDropdown onSelectData={handleDataSelection} />
+                {/*<button onClick={clearUsers}>Clear Users</button>*/}
+                <button className = "Generate" onClick={handleGenerate}>Generate</button>
+            </div>
             
             <div className="itemBoxContainer">
                 {randomItems.map(item => (
@@ -95,6 +107,7 @@ function HomePage({ updateCurrentUser, isRegModalOpen, setRegModalOpen, isLoginM
                 ))}
             </div>
             <TransparentModal 
+                className="shared-background"
                 isOpen={isItemModalOpen} 
                 onClose={() => setItemModalOpen(false)}
                 itemLink={currentItemLink}
@@ -105,6 +118,15 @@ function HomePage({ updateCurrentUser, isRegModalOpen, setRegModalOpen, isLoginM
                 CarbPS={currentCarbPS}
                 ProteinPS={currentProteinPS}
             />
+            {isGenerated && (
+                <div className="totals shared-background">
+                    <p className="total-item"><strong>Total Calories:</strong> {totalCalories/7}</p>
+                    <p className="total-item"><strong>Total Protein:</strong> {totalProtein/7}g</p>
+                    <p className="total-item"><strong>Total Carbs:</strong> {totalCarbs/7}g</p>
+                    <p className="total-item"><strong>Total Fats:</strong> {totalFats/7}g</p>
+                </div>
+            )}
+
             {/* Display the random items */}
             <Modal isOpen={isRegModalOpen} onClose={() => setRegModalOpen(false)} title="Register">
                 <RegistrationForm setRegModalOpen={setRegModalOpen} />
@@ -113,6 +135,7 @@ function HomePage({ updateCurrentUser, isRegModalOpen, setRegModalOpen, isLoginM
             <Modal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} title="Login">
                 <LoginForm setCurrentUser={updateCurrentUser} setLoginModalOpen={setLoginModalOpen} />
             </Modal>
+                        
         </div>
     );
 }

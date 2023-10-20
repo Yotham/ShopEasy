@@ -1,11 +1,7 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import './AccountSettingsModal.css';
 
 function AccountSettingsModal({ isOpen, onClose }) {
-    const modalRef = useRef(null);
-    const [isDragging, setIsDragging] = useState(false);
-    const [startX, setStartX] = useState(0);
-    const [startY, setStartY] = useState(0);
     const currentUser = JSON.parse(localStorage.getItem('currentUser')) || {};
     const initialHeight = currentUser.height || [5, 0];  // Default to 5'0" if no height set
 
@@ -34,47 +30,12 @@ function AccountSettingsModal({ isOpen, onClose }) {
         localStorage.setItem('currentUser', JSON.stringify(updatedUser));
         alert('Account updated successfully!');
     };
-    useEffect(() => {
-        function handleClickOutside(event) {
-            if (modalRef.current && !modalRef.current.contains(event.target)) {
-                onClose();
-            }
-        }
-        document.addEventListener("mousedown", handleClickOutside);
-        return () => document.removeEventListener("mousedown", handleClickOutside);
-    }, [onClose]);
-
-    const handleMouseDown = (e) => {
-        setIsDragging(true);
-        setStartX(e.clientX);
-        setStartY(e.clientY);
-    };
-
-    const handleMouseUp = () => {
-        setIsDragging(false);
-    };
-
-    const handleMouseMove = (e) => {
-        if (!isDragging) return;
-        const x = e.clientX - startX;
-        const y = e.clientY - startY;
-
-        if (modalRef.current) {
-            modalRef.current.style.transform = `translate(${x}px, ${y}px)`;
-        }
-    };
 
     if (!isOpen) return null;
 
     return (
         <div className="modal-background">
-            <div 
-                className="modal-content"
-                ref={modalRef}
-                onMouseDown={handleMouseDown}
-                onMouseUp={handleMouseUp}
-                onMouseMove={handleMouseMove}
-            >
+
             <form onSubmit={handleSubmit}>
                 {/* ... existing input fields for username and password ... */}
                 <label>
@@ -124,7 +85,6 @@ function AccountSettingsModal({ isOpen, onClose }) {
                 <input type="submit" value="Update" />
             </form>
             </div>
-        </div>
     );
 }
 

@@ -32,7 +32,7 @@ function AccountSettings() {
     };
 
     return (
-        <form onSubmit={handleSubmit}>
+       <center> <form onSubmit={handleSubmit}>
             {/* ... existing input fields for username and password ... */}
             <label>
                 Height:
@@ -79,7 +79,7 @@ function AccountSettings() {
             </label>
 
             <input type="submit" value="Update" />
-        </form>
+        </form></center>
     );
 }
 

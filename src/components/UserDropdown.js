@@ -1,16 +1,13 @@
-// src/components/UserDropdown.js
-
 import React, { useState } from 'react';
 import './UserDropdown.css';
-import { useNavigate } from 'react-router-dom';
-import AccountSettingsModal from '../AccountSettingsModal'; // Adjust the path accordingly
+import { Link, useNavigate } from 'react-router-dom';  // Import the Link component
 
 function UserDropdown({ setCurrentUser }) {
-    const [isAccountSettingsModalOpen, setAccountSettingsModalOpen] = useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const username = currentUser ? currentUser.username : '';
     const navigate = useNavigate();
+
     const handleLogout = () => {
         localStorage.removeItem('currentUser');
         setCurrentUser(null);  // Update the state to trigger a re-render
@@ -25,12 +22,7 @@ function UserDropdown({ setCurrentUser }) {
             </button>
             {isOpen && (
                 <div className="dropdown-content">
-                    <button onClick={() => setAccountSettingsModalOpen(true)}>Account Settings</button>
-                    <AccountSettingsModal 
-                        isOpen={isAccountSettingsModalOpen} 
-                        onClose={() => setAccountSettingsModalOpen(false)}
-                    />
-
+                    <Link to="/account-settings">Account Settings</Link>  {/* New link to the account settings page */}
                     <button onClick={handleLogout}>Logout</button>
                     {/* Include other stats here if needed */}
                 </div>

@@ -1,12 +1,13 @@
 import React from 'react';
 import './TransparentModal.css';
 
-function TransparentModal({ isOpen, onClose, itemLink, servingSize, numServings, caloriesPS, FatPS, CarbPS, ProteinPS }) {
+function TransparentModal({ isOpen, onClose, itemLink, servingSize, numServings, caloriesPS, FatPS, CarbPS, ProteinPS ,className}) {
     if (!isOpen) return null;
+
 
     return (
         <div className="transparent-modal-overlay">
-            <div className="transparent-modal">
+            <div className={`transparent-modal ${className}`}>  {/* Applied className here */}
                 <a href={itemLink} target="_blank" rel="noopener noreferrer">View Item</a>
                 <p>Serving Size: {servingSize}</p>
                 <p>Number of Servings: {Math.round(numServings * 10) / 10}</p>
