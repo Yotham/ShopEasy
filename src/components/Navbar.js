@@ -8,7 +8,7 @@ function Navbar({ currentUser, setCurrentUser, setLoginModalOpen, setRegModalOpe
     return (
         <div className="navbar">
             <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-                <img className="navbar-logo" src = {image}></img>
+                <img className="navbar-logo" alt = "ShopEasy Logo" src = {image}></img>
             </Link>
             {currentUser ? (
                  <UserDropdown setCurrentUser={setCurrentUser} />
