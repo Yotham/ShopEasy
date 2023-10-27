@@ -17,9 +17,11 @@ function UserDropdown({ setCurrentUser }) {
 
     return (
         <div className="dropdown">
-            <button onClick={() => setIsOpen(!isOpen)}>
-                {username}
-            </button>
+            <div className = "username">
+                <button onClick={() => setIsOpen(!isOpen)}>
+                    {username}
+                </button>
+            </div>
             {isOpen && (
                 <div className="dropdown-content">
                     <Link to="/account-settings">Account Settings</Link>  {/* New link to the account settings page */}

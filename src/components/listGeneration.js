@@ -1,5 +1,5 @@
 export function getRandomItems(data, caloricGoal, minMeals = 10) {
-    caloricGoal = caloricGoal*7
+    caloricGoal = caloricGoal * 7
     const allItems = [];
 
     for (const pageNumber in data) {
@@ -43,7 +43,7 @@ export function getRandomItems(data, caloricGoal, minMeals = 10) {
 
     // Initial selection from lower calorie items
     for (const item of lowerCalorieItems) {
-        if (selectedItems.length < minMeals - 2 && totalCalories + item.caloriesForAllServings <= caloricGoal) {
+        if (selectedItems.length < minMeals - 2 && totalCalories + item.caloriesForAllServings <= caloricGoal && selectedItems.length < 21) {
             totalCalories += item.caloriesForAllServings;
             selectedItems.push(item);
         }
@@ -51,7 +51,7 @@ export function getRandomItems(data, caloricGoal, minMeals = 10) {
 
     // Fill up to minMeals with higher calorie items
     for (const item of higherCalorieItems) {
-        if (selectedItems.length < minMeals && totalCalories + item.caloriesForAllServings <= caloricGoal) {
+        if (selectedItems.length < minMeals && totalCalories + item.caloriesForAllServings <= caloricGoal && selectedItems.length < 21) {
             totalCalories += item.caloriesForAllServings;
             selectedItems.push(item);
         }
@@ -59,7 +59,7 @@ export function getRandomItems(data, caloricGoal, minMeals = 10) {
 
     // Ensure caloric constraints: No more than caloricGoal, and no more than 100 below caloricGoal
     for (const item of allItems) {
-        if (!selectedItems.includes(item) && totalCalories + item.caloriesForAllServings <= caloricGoal) {
+        if (!selectedItems.includes(item) && totalCalories + item.caloriesForAllServings <= caloricGoal && selectedItems.length < 21) {
             totalCalories += item.caloriesForAllServings;
             selectedItems.push(item);
         }

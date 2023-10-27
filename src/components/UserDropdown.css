@@ -3,6 +3,7 @@
 .dropdown {
     position: relative;
     display: inline-block;
+    border-radius: 8px;
 }
 
 .dropdown-content {
@@ -13,6 +14,7 @@
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
+    border-radius: 4px;
 }
 
 .dropdown:hover .dropdown-content {
@@ -32,6 +34,7 @@
 
 .dropdown-content button {
     color: black;
+    font-size:1em;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -44,4 +47,19 @@
 
 .dropdown-content button:hover {
     background-color: #ddd;
+}
+
+.username  button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #007BFF; /* Blue background */
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Ubuntu', sans-serif; /* Consistent font */
+}
+
+.username button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
 }
