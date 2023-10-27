@@ -1,12 +1,14 @@
 import React from 'react';
 import UserDropdown from './UserDropdown';
 import { Link } from 'react-router-dom';
+import image from './ShopEasyLogo.png';
+
 
 function Navbar({ currentUser, setCurrentUser, setLoginModalOpen, setRegModalOpen }) {
     return (
         <div className="navbar">
             <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-                <h1 className="navbar-title">ShopEasy</h1>
+                <img className="navbar-logo" src = {image}></img>
             </Link>
             {currentUser ? (
                  <UserDropdown setCurrentUser={setCurrentUser} />

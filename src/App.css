@@ -60,6 +60,14 @@ h1, h2, h3 {
   align-items: left;
   flex-grow: 5; /* Use flex-grow instead of flex */
 }
+.navbar-logo {
+  display:flex;
+  justify-content: left;
+  align-items: left;
+  flex-grow: 1; /* Use flex-grow instead of flex */
+  width:5em;
+  height:5em;
+}
 
 .main-div {
   background-color: rgba(255, 255, 255, 0.8); /* This will give a transparent white background */
