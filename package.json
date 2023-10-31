@@ -6,6 +6,9 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.16.0",
@@ -35,5 +38,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "description": "A website that allows users to enter their stats i.e.,(Height,Weight,Age,Sex) as\r well as their goal i.e.,(Weight Loss, Weight Gain, Maintenance). They can then select from\r supported grocery stores and generate a list of Frozen Meals that meet their caloric needs for\r the week.",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+.env
+.DS_Store
 /.pnp
 .pnp.js
 
