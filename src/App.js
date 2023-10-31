@@ -10,19 +10,39 @@ import Footer from './components/Footer'
 import FAQ from './components/FAQ'
 
 function App() {
-  const [currentUser, setCurrentUser] = useState(JSON.parse(localStorage.getItem('currentUser')));
+    const [currentUser, setCurrentUser] = useState(null);
     const [isRegModalOpen, setRegModalOpen] = useState(false);
     const [isLoginModalOpen, setLoginModalOpen] = useState(false);
 
     useEffect(() => {
-        const storedUser = JSON.parse(localStorage.getItem('currentUser'));
-        setCurrentUser(storedUser);
+        // Replace with your server's URL
+        const serverUrl = "http://localhost:5000";
+
+        // Fetch current user data from the server
+        const fetchCurrentUser = async () => {
+            try {
+                const username = sessionStorage.getItem('username'); // Use sessionStorage or localStorage as per your need
+                if (username) {
+                    const response = await fetch(`${serverUrl}/user/${username}`);
+                    const data = await response.json();
+                    if (response.ok) {
+                        setCurrentUser(data);
+                    } else {
+                        console.error(data.message);
+                    }
+                }
+            } catch (error) {
+                console.error('Error fetching current user:', error);
+            }
+        };
+
+        fetchCurrentUser();
     }, []);
+
     return (
         <Router>
-          
             <div className="App">
-               <Navbar currentUser={currentUser} setCurrentUser={setCurrentUser} setLoginModalOpen={setLoginModalOpen} setRegModalOpen={setRegModalOpen} />
+                <Navbar currentUser={currentUser} setCurrentUser={setCurrentUser} setLoginModalOpen={setLoginModalOpen} setRegModalOpen={setRegModalOpen} />
                 <Routes>
                     <Route path="/" element={<HomePage 
                         updateCurrentUser={setCurrentUser}

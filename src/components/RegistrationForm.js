@@ -12,7 +12,6 @@ function RegistrationForm({ setRegModalOpen }) {
         goal: 'Maintain Weight',
         age: ''
     });
-    const users = JSON.parse(localStorage.getItem('users')) || [];
     const modalRef = useRef();
 
     const handleChange = (e) => {
@@ -27,10 +26,9 @@ function RegistrationForm({ setRegModalOpen }) {
         setUserData(prevState => ({ ...prevState, height }));
     };
 
-
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
     
         // Conversions
@@ -50,24 +48,48 @@ function RegistrationForm({ setRegModalOpen }) {
         }
         // Caloric Goal Calculation
         let caloricGoal;
-        if (userData.goal === "Maintain Weight") {
-            caloricGoal = bmr;
+        if (userData.goal === "Lose Weight") {
+            caloricGoal = bmr - 500; // Subtract 500 calories for weight loss
         } else if (userData.goal === "Gain Weight") {
-            caloricGoal = bmr + 500;
-        } else { // Lose Weight
-            caloricGoal = bmr - 500;
+            caloricGoal = bmr + 500; // Add 500 calories for weight gain
+        } else {
+            caloricGoal = bmr; // Maintain current weight
         }
-    
-        // Storing BMR and Caloric Goal with user data
-        const newUserData = {
-            ...userData,
-            bmr,
-            caloricGoal
+
+        // Prepare user data for registration
+        const userRegistrationData = {
+            username: userData.username,
+            password: userData.password,
+            height: heightInCm,
+            weight: weightInKg,
+            gender: userData.gender,
+            goal: userData.goal,
+            age: userData.age,
+            bmr: bmr,
+            caloricGoal: caloricGoal
         };
-    
-        // Storing user data in localStorage
-        localStorage.setItem('users', JSON.stringify([...users, newUserData]));
-        localStorage.setItem('currentUser', JSON.stringify(newUserData));
+
+        // Send user registration data to server
+        try {
+            const response = await fetch('http://localhost:5000/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(userRegistrationData)
+            });
+
+            const result = await response.json();
+            if (response.status === 201) {
+                alert('Registration successful!');
+                navigate('/'); // Navigate to home page after registration
+            } else {
+                alert(result.message || 'Registration failed');
+            }
+        } catch (error) {
+            console.error('Error during registration:', error);
+            alert('An error occurred during registration.');
+        }
         setRegModalOpen(false);
         alert('Registered successfully!');
         navigate('/');  
