@@ -26,10 +26,36 @@ function HomePage({ updateCurrentUser, isRegModalOpen, setRegModalOpen, isLoginM
     const [selectedData, setSelectedData] = useState(Data);
     const [caloricGoal, setCaloricGoal] = useState(null);
     const [isGenerated, setIsGenerated] = useState(false); // New state variable
+    const [currentUser, setCurrentUser] = useState(null); // State to hold the current user
 
 
 
+    const fetchUserData = async () => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            try {
+                const response = await fetch('http://localhost:5000/user/data', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
+                    }
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    setCurrentUser(data);
+                    setCaloricGoal(data.caloricGoal); // Assuming 'caloricGoal' is part of the user data
+                } else {
+                    console.error('Failed to fetch user data:', response.status);
+                }
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+            }
+        }
+    };
 
+    useEffect(() => {
+        fetchUserData();
+    }, []);
+    
     const handleDataSelection = (dataName) => {
         if (dataName === 'data1') {
           setSelectedData(Data);
@@ -40,8 +66,10 @@ function HomePage({ updateCurrentUser, isRegModalOpen, setRegModalOpen, isLoginM
       const handleGenerate = () => {
         console.log("Generating items...");  // Debug line
         if (caloricGoal) {
+            
             console.log("Caloric Goal: ", caloricGoal);  // Debug line
             const items = getRandomItems(selectedData, caloricGoal);
+            setRandomItems(items);
             console.log("Generated items: ", items);  // Debug line
             const itemObjects = items.map(item => {
                 const productData = selectedData[item.pageNumber][item.name];
@@ -124,11 +152,10 @@ function HomePage({ updateCurrentUser, isRegModalOpen, setRegModalOpen, isLoginM
 
             {/* Display the random items */}
             <Modal isOpen={isRegModalOpen} onClose={() => setRegModalOpen(false)} title="Register">
-                <RegistrationForm setRegModalOpen={setRegModalOpen} />
+                <RegistrationForm setRegModalOpen={setRegModalOpen} setCurrentUser={setCurrentUser} />
             </Modal>
-
             <Modal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} title="Login">
-                <LoginForm setCurrentUser={updateCurrentUser} setLoginModalOpen={setLoginModalOpen} />
+                <LoginForm setCurrentUser={setCurrentUser} setLoginModalOpen={setLoginModalOpen} />
             </Modal>
                         
         </div>

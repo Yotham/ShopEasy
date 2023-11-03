@@ -34,9 +34,15 @@ const User = mongoose.model('User', userSchema);
 
 // Registration route
 
-// Registration route with password hashing
 app.post('/register', async (req, res) => {
     try {
+        // Check if user already exists
+        const existingUser = await User.findOne({ username: req.body.username });
+        if (existingUser) {
+            return res.status(409).send({ message: 'Username already taken' }); // 409 Conflict
+        }
+
+        // If user does not exist, proceed with registration
         const hashedPassword = await bcrypt.hash(req.body.password, 8);
         const user = new User({
             ...req.body,
@@ -49,6 +55,7 @@ app.post('/register', async (req, res) => {
         res.status(400).send({ message: 'Error registering user', error: error.message });
     }
 });
+
 
 
 // Login route
@@ -97,6 +104,21 @@ app.get('/user/:username', async (req, res) => {
         res.status(400).send({ message: 'Error fetching user data', error });
     }
 });
+
+// Get user data route using user ID from the token
+app.get('/user/data', authMiddleware, async (req, res) => {
+    try {
+        const user = await User.findById(req.user._id);
+        if (user) {
+            res.send(user);
+        } else {
+            res.status(404).send({ message: 'User not found' });
+        }
+    } catch (error) {
+        res.status(400).send({ message: 'Error fetching user data', error });
+    }
+});
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

@@ -14,20 +14,30 @@ function LoginForm({ setCurrentUser, setLoginModalOpen }) {
         setCredentials(prevState => ({ ...prevState, [name]: value }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const users = JSON.parse(localStorage.getItem('users') || '[]');
-        const user = users.find(user => user.username === credentials.username && user.password === credentials.password);
-        
-        if (!user) {
-            alert('Invalid credentials!');
-            return;
-        }
+        try {
+            const response = await fetch('http://localhost:5000/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(credentials)
+            });
 
-        localStorage.setItem('currentUser', JSON.stringify(user));
-        setCurrentUser(user);
-        setLoginModalOpen(false);
-        alert('Logged in successfully!');
+            const data = await response.json();
+            if (response.ok) {
+                localStorage.setItem('token', data.token); // Store the token
+                setCurrentUser(data.user); // Update the current user
+                setLoginModalOpen(false); // Close the modal
+                alert('Logged in successfully!');
+            } else {
+                alert(data.message || 'Failed to login. Please try again.');
+            }
+        } catch (error) {
+            console.error('Login error:', error);
+            alert('An error occurred during login.');
+        }
     };
 
     useEffect(() => {
