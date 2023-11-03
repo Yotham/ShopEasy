@@ -27,13 +27,8 @@ function HomePage({ updateCurrentUser, isRegModalOpen, setRegModalOpen, isLoginM
     const [caloricGoal, setCaloricGoal] = useState(null);
     const [isGenerated, setIsGenerated] = useState(false); // New state variable
 
-    useEffect(() => {
-        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        console.log("CurrentUser from localStorage: ", currentUser);  // Debug line
-        if (currentUser && currentUser.caloricGoal) {
-            setCaloricGoal(Number(currentUser.caloricGoal));
-        }
-    }, []);
+
+
 
     const handleDataSelection = (dataName) => {
         if (dataName === 'data1') {

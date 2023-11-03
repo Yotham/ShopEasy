@@ -46,6 +46,7 @@ function RegistrationForm({ setRegModalOpen }) {
             const bmrFemale = 447.593 + (9.247 * weightInKg) + (3.098 * heightInCm) - (4.330 * userData.age);
             bmr = (bmrMale + bmrFemale) / 2;
         }
+    
         // Caloric Goal Calculation
         let caloricGoal;
         if (userData.goal === "Lose Weight") {
@@ -55,7 +56,7 @@ function RegistrationForm({ setRegModalOpen }) {
         } else {
             caloricGoal = bmr; // Maintain current weight
         }
-
+    
         // Prepare user data for registration
         const userRegistrationData = {
             username: userData.username,
@@ -68,7 +69,7 @@ function RegistrationForm({ setRegModalOpen }) {
             bmr: bmr,
             caloricGoal: caloricGoal
         };
-
+    
         // Send user registration data to server
         try {
             const response = await fetch('http://localhost:5000/register', {
@@ -78,23 +79,35 @@ function RegistrationForm({ setRegModalOpen }) {
                 },
                 body: JSON.stringify(userRegistrationData)
             });
-
+    
             const result = await response.json();
             if (response.status === 201) {
                 alert('Registration successful!');
-                navigate('/'); // Navigate to home page after registration
+    
+                // Store the token in local storage if it's included in the response
+                if (result.token) {
+                    localStorage.setItem('token', result.token);
+                }
+    
+                // Navigate to home page after registration
+                navigate('/');
+                // Reload the page to reflect the new state
+                window.location.reload();
             } else {
                 alert(result.message || 'Registration failed');
             }
         } catch (error) {
             console.error('Error during registration:', error);
+            if (error.response) {
+              // Try to print out the response body directly from the error object
+              console.error('Server responded with:', error.response);
+            }
             alert('An error occurred during registration.');
-        }
+          }
+        // Close the modal after handling the form submission
         setRegModalOpen(false);
-        alert('Registered successfully!');
-        navigate('/');  
-        window.location.reload();
     };
+    
     
 
     useEffect(() => {
