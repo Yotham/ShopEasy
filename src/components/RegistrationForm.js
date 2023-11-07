@@ -75,39 +75,40 @@ function RegistrationForm({ setRegModalOpen }) {
             const response = await fetch('http://localhost:5000/register', {
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(userRegistrationData)
+                body: JSON.stringify(userRegistrationData), // userRegistrationData is prepared earlier in your code
             });
     
             const result = await response.json();
             if (response.status === 201) {
                 alert('Registration successful!');
+                console.log(result)
     
                 // Store the token in local storage if it's included in the response
                 if (result.token) {
                     localStorage.setItem('token', result.token);
+                    // Navigate to the home page after registration
+                    navigate('/'); // The navigate function is from useNavigate() hook from react-router-dom
+                    window.location.reload()
+                } else {
+                    // Handle the case where the token is not sent back by the server
+                    console.error('Token was not provided by the server.');
+                    alert('Registration was successful but automatic login failed. Please log in manually.');
                 }
-    
-                // Navigate to home page after registration
-                navigate('/');
-                // Reload the page to reflect the new state
-                window.location.reload();
             } else {
-                alert(result.message || 'Registration failed');
+                // If the server responds with any status code other than 201, show the message sent by the server
+                alert(result.message || 'Registration failed. Please try again.');
             }
         } catch (error) {
+            // If the fetch itself fails (e.g., due to network issues), log the error and notify the user
             console.error('Error during registration:', error);
-            if (error.response) {
-              // Try to print out the response body directly from the error object
-              console.error('Server responded with:', error.response);
-            }
-            alert('An error occurred during registration.');
-          }
-        // Close the modal after handling the form submission
+            alert('An error occurred during registration. Please check your network and try again.');
+        }
+    
+        // Close the registration modal
         setRegModalOpen(false);
     };
-    
     
 
     useEffect(() => {

@@ -18,25 +18,28 @@ function App() {
         // Replace with your server's URL
         const serverUrl = "http://localhost:5000";
 
-        // Fetch current user data from the server
-        const fetchCurrentUser = async () => {
-            try {
-                const username = sessionStorage.getItem('username'); // Use sessionStorage or localStorage as per your need
-                if (username) {
-                    const response = await fetch(`${serverUrl}/user/${username}`);
-                    const data = await response.json();
+        const fetchUserData = async () => {
+            const token = localStorage.getItem('token');
+            if (token) {
+                try {
+                    const response = await fetch('http://localhost:5000/user/data', {
+                        headers: {
+                            'Authorization': `Bearer ${token}`
+                        }
+                    });
                     if (response.ok) {
+                        const data = await response.json();
                         setCurrentUser(data);
                     } else {
-                        console.error(data.message);
+                        console.error('Failed to fetch user data:', response.status);
                     }
+                } catch (error) {
+                    console.error('Error fetching user data:', error);
                 }
-            } catch (error) {
-                console.error('Error fetching current user:', error);
             }
         };
 
-        fetchCurrentUser();
+        fetchUserData();
     }, []);
 
     return (

@@ -49,7 +49,12 @@ app.post('/register', async (req, res) => {
             password: hashedPassword
         });
         await user.save();
-        res.status(201).send({ message: 'User registered successfully', user });
+    
+        // Create a token
+        const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
+            expiresIn: '24h'
+        });
+        res.status(201).send({ message: 'User registered successfully', user: user, token: token });
     } catch (error) {
         console.error('Registration Error:', error);
         res.status(400).send({ message: 'Error registering user', error: error.message });
@@ -57,8 +62,6 @@ app.post('/register', async (req, res) => {
 });
 
 
-
-// Login route
 
 // Login route with token generation
 app.post('/login', async (req, res) => {
@@ -68,11 +71,12 @@ app.post('/login', async (req, res) => {
             const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
                 expiresIn: '24h'
             });
-            res.send({ message: 'Login successful', user, token });
+            res.status(201).send({ message: 'Login successful', user, token });
         } else {
             res.status(400).send({ message: 'Invalid username or password' });
         }
     } catch (error) {
+        console.log(error)
         res.status(400).send({ message: 'Error during login', error });
     }
 });
@@ -81,36 +85,39 @@ app.post('/login', async (req, res) => {
 
 // Get user data route
 
-// Middleware to authenticate token
 const authMiddleware = (req, res, next) => {
     try {
         const token = req.header('Authorization').replace('Bearer ', '');
-        const decoded = jwt.verify(token, process.env.JWT_SECRET);
-        req.user = decoded; // Add the user payload to the request object
-        next();
+
+        if (!token) {
+            return res.status(401).send({ message: 'No token provided.' });
+        }
+
+        jwt.verify(token, process.env.JWT_SECRET, (err, decoded) => {
+            if (err) {
+                if (err.name === 'TokenExpiredError') {
+                    return res.status(401).send({ message: 'Token expired.' });
+                } else if (err.name === 'JsonWebTokenError') {
+                    return res.status(401).send({ message: 'Invalid token.' });
+                } else {
+                    // Other types of errors
+                    return res.status(401).send({ message: 'Failed to authenticate token.' });
+                }
+            }
+
+            req.user = decoded;
+            next();
+        });
     } catch (error) {
-        res.status(401).send({ message: 'Please authenticate.' });
+        return res.status(401).send({ message: 'Failed to authenticate token.', error: error.message });
     }
 };
-app.get('/user/:username', async (req, res) => {
-    try {
-        const user = await User.findOne({ username: req.params.username });
-        if (user) {
-            res.send(user);
-        } else {
-            res.status(404).send({ message: 'User not found' });
-        }
-    } catch (error) {
-        res.status(400).send({ message: 'Error fetching user data', error });
-    }
-});
-
 // Get user data route using user ID from the token
 app.get('/user/data', authMiddleware, async (req, res) => {
     try {
         const user = await User.findById(req.user._id);
         if (user) {
-            res.send(user);
+            res.status(201).send(user);
         } else {
             res.status(404).send({ message: 'User not found' });
         }

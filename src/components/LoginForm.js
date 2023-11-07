@@ -1,7 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './LoginForm.css';
 
 function LoginForm({ setCurrentUser, setLoginModalOpen }) {
+    const navigate = useNavigate();
     const [credentials, setCredentials] = useState({
         username: '',
         password: ''
@@ -16,6 +18,8 @@ function LoginForm({ setCurrentUser, setLoginModalOpen }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log('Submitting credentials:', credentials); // Log credentials to see what's being sent
+    
         try {
             const response = await fetch('http://localhost:5000/login', {
                 method: 'POST',
@@ -24,13 +28,16 @@ function LoginForm({ setCurrentUser, setLoginModalOpen }) {
                 },
                 body: JSON.stringify(credentials)
             });
-
+    
             const data = await response.json();
+            console.log('Response data:', data); // Log response data for debugging
+    
             if (response.ok) {
-                localStorage.setItem('token', data.token); // Store the token
-                setCurrentUser(data.user); // Update the current user
-                setLoginModalOpen(false); // Close the modal
+                localStorage.setItem('token', data.token);
+                setLoginModalOpen(false);
                 alert('Logged in successfully!');
+                navigate('/'); // The navigate function is from useNavigate() hook from react-router-dom
+                window.location.reload()
             } else {
                 alert(data.message || 'Failed to login. Please try again.');
             }
@@ -39,6 +46,7 @@ function LoginForm({ setCurrentUser, setLoginModalOpen }) {
             alert('An error occurred during login.');
         }
     };
+    
 
     useEffect(() => {
         function handleClickOutside(event) {

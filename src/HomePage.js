@@ -155,7 +155,7 @@ function HomePage({ updateCurrentUser, isRegModalOpen, setRegModalOpen, isLoginM
                 <RegistrationForm setRegModalOpen={setRegModalOpen} setCurrentUser={setCurrentUser} />
             </Modal>
             <Modal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} title="Login">
-                <LoginForm setCurrentUser={setCurrentUser} setLoginModalOpen={setLoginModalOpen} />
+                <LoginForm setCurrentUser={currentUser} setLoginModalOpen={setLoginModalOpen} />
             </Modal>
                         
         </div>

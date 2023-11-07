@@ -7,33 +7,32 @@ function UserDropdown({ setCurrentUser }) {
     const [username, setUsername] = useState('');
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const fetchUserDetails = async () => {
-            const token = localStorage.getItem('token');
-            if (token) {
-                try {
-                    const response = await fetch('http://localhost:5000/user-details', {
-                        headers: {
-                            'Authorization': `Bearer ${token}`
-                        }
-                    });
-
-                    if (response.ok) {
-                        const data = await response.json();
-                        setCurrentUser(data);
-                        setCaloricGoal(data.caloricGoal); // Assuming 'caloricGoal' is part of the user data                    
-                    } else {
-                        // Handle error or logout user
-                        handleLogout(); // If the token is invalid or expired
+    const fetchUserData = async () => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            try {
+                const response = await fetch('http://localhost:5000/user/data', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
                     }
-                } catch (error) {
-                    console.error('Error fetching user data:', error);
+                });
+                if (response.ok) {
+                    const data = await response.json();
+                    setCurrentUser(data);
+                    setUsername(data.username);
+                } else {
+                    console.error('Failed to fetch user data:', response.status);
                 }
+            } catch (error) {
+                console.error('Error fetching user data:', error);
             }
-        };
+        }
+    };
 
-        fetchUserDetails();
-    }, [setCurrentUser]);
+    useEffect(() => {
+        fetchUserData();
+    }, );
+    
 
     const handleLogout = () => {
         localStorage.removeItem('token');
@@ -46,7 +45,7 @@ function UserDropdown({ setCurrentUser }) {
         <div className="dropdown">
             <div className="username">
                 <button onClick={() => setIsOpen(!isOpen)}>
-                    {username || 'Guest'}
+                    {username}
                 </button>
             </div>
             {isOpen && (
