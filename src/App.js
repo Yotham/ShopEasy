@@ -15,8 +15,6 @@ function App() {
     const [isLoginModalOpen, setLoginModalOpen] = useState(false);
 
     useEffect(() => {
-        // Replace with your server's URL
-        const serverUrl = "http://localhost:5000";
 
         const fetchUserData = async () => {
             const token = localStorage.getItem('token');
