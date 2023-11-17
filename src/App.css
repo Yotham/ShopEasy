@@ -83,6 +83,7 @@ h1, h2, h3 {
   justify-content: center;
   align-items: center; /* Vertically align items in the center */
   gap: 10px; /* Space between items */
+  flex-grow:50px;
 }
 
 .Generate {
@@ -108,4 +109,22 @@ h1, h2, h3 {
   border-radius: 10px;
   background-color: #f5f5f5; /* Same as other backgrounds */
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
+}
+
+.modalFront {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 14px;
+  justify-content: center; /* This will space out the name and count */
+  width: 100%; /* Ensure full width to utilize space-between */
+}
+
+.itemName {
+  font-weight: bold; /* Makes the name stand out */
+  flex-grow:5;
+}
+
+.itemCount {
+  /* Additional styles if needed, e.g., a different color or font size */
 }

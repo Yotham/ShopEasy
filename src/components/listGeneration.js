@@ -41,35 +41,46 @@ export function getRandomItems(data, caloricGoal, minMeals = 10) {
     const selectedItems = [];
     let totalCalories = 0;
 
-    // Initial selection from lower calorie items
-    for (const item of lowerCalorieItems) {
-        if (selectedItems.length < minMeals - 2 && totalCalories + item.caloriesForAllServings <= caloricGoal && selectedItems.length < 21) {
-            totalCalories += item.caloriesForAllServings;
-            selectedItems.push(item);
+    // Function to add item if it fits the calorie goal and meal constraints
+    function addItemIfFits(item) {
+        const potentialCalories = totalCalories + item.caloriesForAllServings;
+        if (potentialCalories <= caloricGoal && selectedItems.length < 21) {
+            totalCalories = potentialCalories;
+            return true;
+        }
+        return false;
+    }
+
+    // Select items and update counts
+    for (const list of [lowerCalorieItems, higherCalorieItems, allItems]) {
+        for (const item of list) {
+            // Check if item is already selected
+            const existingItem = selectedItems.find(si => si.name === item.name);
+            if (existingItem) {
+                // If count is less than 2, try to add another
+                if (existingItem.count < 3 && addItemIfFits(item)) {
+                    existingItem.count++;
+                }
+            } else {
+                // If not selected yet, try to add first count
+                if (selectedItems.length < minMeals && addItemIfFits(item)) {
+                    selectedItems.push({ ...item, count: 1 });
+                }
+            }
+
+            if (totalCalories >= caloricGoal - 100) {
+                break;
+            }
         }
     }
 
-    // Fill up to minMeals with higher calorie items
-    for (const item of higherCalorieItems) {
-        if (selectedItems.length < minMeals && totalCalories + item.caloriesForAllServings <= caloricGoal && selectedItems.length < 21) {
-            totalCalories += item.caloriesForAllServings;
-            selectedItems.push(item);
-        }
-    }
+    // Convert selected items to tuples
+    const selectedItemsTuples = selectedItems.map(item => ({
+        ...item,
+        count: item.count
+    }));
 
-    // Ensure caloric constraints: No more than caloricGoal, and no more than 100 below caloricGoal
-    for (const item of allItems) {
-        if (!selectedItems.includes(item) && totalCalories + item.caloriesForAllServings <= caloricGoal && selectedItems.length < 21) {
-            totalCalories += item.caloriesForAllServings;
-            selectedItems.push(item);
-        }
-        if (totalCalories >= caloricGoal - 100) {
-            break;
-        }
-    }
-
-    // Return the selected items
-    return selectedItems;
+    return selectedItemsTuples;
 }
 
 export default getRandomItems;

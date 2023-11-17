@@ -81,7 +81,8 @@ function HomePage({ updateCurrentUser, isRegModalOpen, setRegModalOpen, isLoginM
                     caloriesPS: productData.Nutrition["CaloriesPS"],
                     FatPS: productData.Nutrition["FatPS"],
                     CarbPS: productData.Nutrition["CarbPS"],
-                    ProteinPS: productData.Nutrition["ProteinPS"]
+                    ProteinPS: productData.Nutrition["ProteinPS"],
+                    count: item.count
                 };
             });
             console.log("Item objects: ", itemObjects);  // Debug line
@@ -91,10 +92,11 @@ function HomePage({ updateCurrentUser, isRegModalOpen, setRegModalOpen, isLoginM
             alert('Please log in to generate items based on your nutritional goals.');
         }
     };
-    const totalCalories = Math.round(randomItems.reduce((acc, item) => acc + (item.caloriesPS * item.numServings), 0) * 10) / 10;
-    const totalProtein = Math.round(randomItems.reduce((acc, item) => acc + (item.ProteinPS * item.numServings), 0) * 10) / 10;
-    const totalCarbs = Math.round(randomItems.reduce((acc, item) => acc + (item.CarbPS * item.numServings), 0) * 10) / 10;
-    const totalFats = Math.round(randomItems.reduce((acc, item) => acc + (item.FatPS * item.numServings), 0) * 10) / 10;
+    
+    const totalCalories = Math.round(randomItems.reduce((acc, item) => acc += (item.caloriesPS * item.numServings * item.count), 0) * 10) / 10;
+    const totalProtein = Math.round(randomItems.reduce((acc, item) => acc += (item.ProteinPS * item.numServings * item.count), 0) * 10) / 10;
+    const totalCarbs = Math.round(randomItems.reduce((acc, item) => acc += (item.CarbPS * item.numServings * item.count), 0) * 10) / 10;
+    const totalFats = Math.round(randomItems.reduce((acc, item) => acc += (item.FatPS * item.numServings * item.count), 0) * 10) / 10;
     
     
 
@@ -121,11 +123,15 @@ function HomePage({ updateCurrentUser, isRegModalOpen, setRegModalOpen, isLoginM
                             setCurrentFatPS(item.FatPS);
                             setCurrentCarbPS(item.CarbPS);
                             setCurrentProteinPS(item.ProteinPS)
-
                             setItemModalOpen(true);
                         }}
                     >
-                        {item.name}
+                        <div className="modalFront">
+                            <div className="itemName">{item.name}</div>
+                            <br></br>
+                            <div className="itemCount">Amount: {item.count}</div>
+                        </div>
+
                     </div>
                 ))}
             </div>
