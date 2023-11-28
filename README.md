@@ -24,20 +24,25 @@ To get a local copy up and running, follow these simple steps:
 ### Installation
 
 1. Clone the repository:
+'''
 git clone https://github.com/Yotham/ShopEasy.git
-
-2. Navigate to the project directory:
+'''
+3. Navigate to the project directory:
+'''
 cd src
-
-3. Install the necessary packages:
+'''
+4. Install the necessary packages:
+'''
 npm install
-
-4. Start the development server:
+'''
+5. Start the development server:
+'''
 npm start
-
-5. Connect to the backend:
+'''
+6. Connect to the backend:
+'''
 node server.js
-
+'''
 ## Usage
 
 To use ShopEasy, simply visit [ShopEasy Website](https://shop-ez.netlify.app/), enter your physical stats and dietary goal, and choose your preferred grocery store. The app will generate a list of suitable frozen meals that fit your weekly caloric needs.
