@@ -36,7 +36,7 @@ function LoginForm({ setCurrentUser, setLoginModalOpen }) {
                 localStorage.setItem('token', data.token);
                 setLoginModalOpen(false);
                 alert('Logged in successfully!');
-                navigate('/'); // The navigate function is from useNavigate() hook from react-router-dom
+                navigate('/generate'); // The navigate function is from useNavigate() hook from react-router-dom
                 window.location.reload()
             } else {
                 alert(data.message || 'Failed to login. Please try again.');

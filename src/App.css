@@ -128,3 +128,25 @@ h1, h2, h3 {
 .itemCount {
   /* Additional styles if needed, e.g., a different color or font size */
 }
+
+.homepage-container {
+  text-align: center;
+  padding: 50px;
+}
+
+.welcome-text {
+  margin: 20px 0;
+  font-size: 20px;
+}
+
+.button-container {
+  margin-top: 30px;
+}
+
+.register-button, .login-button {
+  margin: 10px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  /* Add more styling as needed */
+}

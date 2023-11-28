@@ -4,10 +4,11 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import HomePage from './HomePage';
 import AccountSettings from './AccountSettings';
+import GenerateScreen from './components/GenerateScreen'; 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Footer from './components/Footer'
-import FAQ from './components/FAQ'
+import Footer from './components/Footer';
+import FAQ from './components/FAQ';
 
 function App() {
     const [currentUser, setCurrentUser] = useState(null);
@@ -52,6 +53,7 @@ function App() {
                         isLoginModalOpen={isLoginModalOpen}
                         setLoginModalOpen={setLoginModalOpen}
                     />} />
+                    {currentUser &&<Route path="/generate" element={<GenerateScreen currentUser={currentUser} />} />} {/* New route for generate screen */}
                     {currentUser && <Route path="/account-settings" element={<AccountSettings />} />}
                     <Route path="/faq" element={<FAQ />} />
                 </Routes>
