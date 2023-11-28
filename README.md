@@ -24,7 +24,7 @@ To get a local copy up and running, follow these simple steps:
 ### Installation
 
 1. Clone the repository:
-'''git clone https://github.com/Yotham/ShopEasy.git'''
+```git clone https://github.com/Yotham/ShopEasy.git```
 3. Navigate to the project directory:
 '''
 cd src
