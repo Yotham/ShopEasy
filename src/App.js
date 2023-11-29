@@ -45,7 +45,20 @@ function App() {
         <Router>
             <div className="App">
                 <Navbar currentUser={currentUser} setCurrentUser={setCurrentUser} setLoginModalOpen={setLoginModalOpen} setRegModalOpen={setRegModalOpen} />
+                {currentUser ? (                
                 <Routes>
+                    <Route path="/generate" element={<GenerateScreen currentUser={currentUser} 
+                        updateCurrentUser={setCurrentUser}
+                        isRegModalOpen={isRegModalOpen}
+                        setRegModalOpen={setRegModalOpen}
+                        isLoginModalOpen={isLoginModalOpen}
+                        setLoginModalOpen={setLoginModalOpen}
+                    />} />
+                    {currentUser &&<Route path="/generate" element={<GenerateScreen currentUser={currentUser} />} />} {/* New route for generate screen */}
+                    {currentUser && <Route path="/account-settings" element={<AccountSettings />} />}
+                    <Route path="/faq" element={<FAQ />} />
+                    </Routes>) : 
+                    (<Routes>
                     <Route path="/" element={<HomePage 
                         updateCurrentUser={setCurrentUser}
                         isRegModalOpen={isRegModalOpen}
@@ -57,6 +70,7 @@ function App() {
                     {currentUser && <Route path="/account-settings" element={<AccountSettings />} />}
                     <Route path="/faq" element={<FAQ />} />
                 </Routes>
+                )}
                 <Footer></Footer>
             </div>
         </Router>

@@ -7,9 +7,16 @@ import image from './ShopEasyLogo.png';
 function Navbar({ currentUser, setCurrentUser, setLoginModalOpen, setRegModalOpen }) {
     return (
         <div className="navbar">
-            <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
-                <img className="navbar-logo" alt = "ShopEasy Logo" src = {image}></img>
-            </Link>
+            {currentUser ? (
+                <Link to="/generate" style={{ textDecoration: 'none', color: 'inherit' }}>
+                    <img className="navbar-logo" alt = "ShopEasy Logo" src = {image}></img>
+                </Link>
+
+            ) : (
+                    <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <img className="navbar-logo" alt = "ShopEasy Logo" src = {image}></img>
+                    </Link>  )}
+
             {currentUser ? (
                  <UserDropdown setCurrentUser={setCurrentUser} />
             ) : (
