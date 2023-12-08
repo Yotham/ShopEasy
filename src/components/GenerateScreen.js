@@ -102,10 +102,11 @@ function GenerateScreen({ currentUser }) {
             />
             {isGenerated && (
                 <div className="totals shared-background">
-                    <p className="total-item"><strong>Total Calories:</strong> {Math.round((totalCalories/7)*10)/10}</p>
-                    <p className="total-item"><strong>Total Protein:</strong> {Math.round((totalProtein/7)*10)/10}g</p>
-                    <p className="total-item"><strong>Total Carbs:</strong> {Math.round((totalCarbs/7)*100)/100}g</p>
-                    <p className="total-item"><strong>Total Fats:</strong> {Math.round((totalFats/7)*100)/100}g</p>
+                    <p className = "total-item"><strong>Daily:</strong></p>
+                    <p className="total-item"><strong>Calories:</strong> {Math.round((totalCalories/7)*10)/10}</p>
+                    <p className="total-item"><strong>Protein:</strong> {Math.round((totalProtein/7)*10)/10}g</p>
+                    <p className="total-item"><strong>Carbs:</strong> {Math.round((totalCarbs/7)*100)/100}g</p>
+                    <p className="total-item"><strong>Fats:</strong> {Math.round((totalFats/7)*100)/100}g</p>
                 </div>
             )}
 

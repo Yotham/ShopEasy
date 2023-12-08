@@ -89,7 +89,7 @@ function RegistrationForm({ setRegModalOpen }) {
                 if (result.token) {
                     localStorage.setItem('token', result.token);
                     // Navigate to the home page after registration
-                    navigate('/'); // The navigate function is from useNavigate() hook from react-router-dom
+                    navigate('/generate'); // The navigate function is from useNavigate() hook from react-router-dom
                     window.location.reload()
                 } else {
                     // Handle the case where the token is not sent back by the server
