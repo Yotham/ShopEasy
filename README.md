@@ -55,6 +55,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Yotham Sage - [yothamsage@gmail.com.com](mailto:yothamsage@gmail.com.com)
+Yotham Sage - [yothamsage@gmail.com.com](mailto:yothamsage@gmail.com)
 
 Project Link: [https://github.com/Yotham/ShopEasy](https://github.com/Yotham/ShopEasy)
