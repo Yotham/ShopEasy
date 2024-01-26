@@ -25,12 +25,14 @@ To get a local copy up and running, follow these simple steps:
 
 1. Clone the repository:
 (`git clone https://github.com/Yotham/ShopEasy.git`)
-3. Navigate to the project directory:
+2. Navigate to the project directory:
 (`cd src`)
-4. Install the necessary packages:
+3. Install the necessary packages:
 (`npm install`)
-5. Start the development server:
+4. Start the development server:
 (`npm start`)
+5. Return to the main directory:
+(`cd ..`)
 6. Connect to the backend:
 (`node server.js`)
 ## Usage
