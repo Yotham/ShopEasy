@@ -58,12 +58,6 @@ function AccountSettings() {
         }
     }, [currentUser]);
 
-    console.log("here2",currentUser)
-
-    // Rest of your component code...
-    // Use isLoading to conditionally render the loading state or the actual content
-    console.log("here",updatedUser)
-
     // Return early if not open or still loading
     if (isLoading) return <div>Loading...</div>;  // Or some other loading indicator
 

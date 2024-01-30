@@ -8,10 +8,12 @@ import dbConnect from '../../utils/dbConnect';
 export default async function handler(req, res) {
     await dbConnect();
 
+    console.log("here")
     if (req.method === 'POST') {
         try {
             const user = await User.findOne({ username: req.body.username });
             if (user && await bcrypt.compare(req.body.password, user.password)) {
+                console.log("here2 before token")
                 const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
                     expiresIn: '24h'
                 });

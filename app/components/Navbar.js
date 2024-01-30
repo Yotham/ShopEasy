@@ -14,7 +14,6 @@ const LoginForm = dynamic(
 function Navbar({ isRegModalOpen, setRegModalOpen, isLoginModalOpen, setLoginModalOpen  }) {
     const [currentUser, setCurrentUser] = useState(null);
     useEffect(() => {
-
         const fetchUserData = async () => {
             const token = localStorage.getItem('token');
             if (token) {
@@ -38,7 +37,6 @@ function Navbar({ isRegModalOpen, setRegModalOpen, isLoginModalOpen, setLoginMod
 
         fetchUserData();
     }, []);
-    console.log(currentUser)
     return (
         <div className="navbar">
             {currentUser ? (
