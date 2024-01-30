@@ -12,6 +12,7 @@ function UserDropdown({ setCurrentUser }) {
 
     const fetchUserData = async () => {
         const token = localStorage.getItem('token');
+        
         if (token) {
             try {
                 const response = await fetch('/api/user/data', {  // Ensure the endpoint is correct
