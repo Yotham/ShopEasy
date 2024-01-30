@@ -1,14 +1,14 @@
 // src/HomePage.js
 "use client"
-import RegistrationForm from './components/RegistrationForm';
-import Modal from './components/Modal';
-import './components/Generation.css';
+import RegistrationForm from './RegistrationForm';
+import Modal from './Modal';
+import './Generation.css';
 import React, { useState} from 'react';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 import dynamic from 'next/dynamic';
 
 const LoginForm = dynamic(
-    () => import('./components/LoginForm'),
+    () => import('./LoginForm'),
     { ssr: false }
 );
 

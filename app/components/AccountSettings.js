@@ -2,7 +2,7 @@
 
 import React, { useState,useEffect } from 'react';
 import './AccountSettings.css';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 function AccountSettings() {
     const { 
         currentUser

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import HomePageComponent from '../app/HomePageComponent'; // Adjust the path as necessary
+import HomePageComponent from '../app/components/HomePageComponent'; // Adjust the path as necessary
 import { useRouter } from 'next/router';
 import { AuthProvider } from '../context/AuthContext';
 import { useAuth } from '../context/AuthContext';
