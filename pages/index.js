@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import HomePageComponent from '../app/HomePageComponent'; // Adjust the path as necessary
 import { useRouter } from 'next/router';
+import { AuthProvider } from '../context/AuthContext';
 
 function IndexPage() {
     const [currentUser, setCurrentUser] = useState(null);
@@ -50,14 +51,16 @@ function IndexPage() {
     }
 
     return (
-        <HomePageComponent
-            currentUser={currentUser}
-            setCurrentUser={setCurrentUser}
-            isRegModalOpen={isRegModalOpen}
-            setRegModalOpen={setRegModalOpen}
-            isLoginModalOpen={isLoginModalOpen}
-            setLoginModalOpen={setLoginModalOpen}
-        />
+        <AuthProvider>
+            <HomePageComponent
+                currentUser={currentUser}
+                setCurrentUser={setCurrentUser}
+                isRegModalOpen={isRegModalOpen}
+                setRegModalOpen={setRegModalOpen}
+                isLoginModalOpen={isLoginModalOpen}
+                setLoginModalOpen={setLoginModalOpen}
+            />
+        </AuthProvider>
     );
 }
 

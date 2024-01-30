@@ -5,7 +5,7 @@ import TransparentModal from './TransparentModal';
 import Data from '../Data/data.json';
 import Data2 from '../Data/hannafordData.json';
 import './Generation.css';
-
+import { useAuth } from '../../context/AuthContext';
 function GenerateScreen() {
     const [randomItems, setRandomItems] = useState([]);
     const [isItemModalOpen, setItemModalOpen] = useState(false);
@@ -18,32 +18,7 @@ function GenerateScreen() {
 	const [currentCarbPS, setCurrentCarbPS] = useState("");
 	const [currentProteinPS, setCurrentProteinPS] = useState("");
     const [isGenerated, setIsGenerated] = useState(false); // New state variable
-    const [currentUser, setCurrentUser] = useState(null);
-    useEffect(() => {
-
-        const fetchUserData = async () => {
-            const token = localStorage.getItem('token');
-            if (token) {
-                try {
-                    const response = await fetch('/api/user/data', {
-                        headers: {
-                            'Authorization': `Bearer ${token}`
-                        }
-                    });
-                    if (response.ok) {
-                        const data = await response.json();
-                        setCurrentUser(data);
-                    } else {
-                        console.error('Failed to fetch user data:', response.status);
-                    }
-                } catch (error) {
-                    console.error('Error fetching user data:', error);
-                }
-            }
-        };
-
-        fetchUserData();
-    }, []);
+    const { currentUser} = useAuth();
     const handleDataSelection = (dataName) => {
         if (dataName === 'data1') {
             setSelectedData(Data);

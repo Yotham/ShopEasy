@@ -4,46 +4,18 @@ import React, { useState, useEffect } from 'react';
 import './UserDropdown.css';
 import Link from 'next/link';  // Import from next/link
 import { useRouter } from 'next/router';
-
-function UserDropdown({ setCurrentUser }) {
+import { useAuth } from '../../context/AuthContext';
+function UserDropdown() {
     const [isOpen, setIsOpen] = useState(false);
-    const [username, setUsername] = useState('');
+    const {handleLogout } = useAuth(); // Destructure login from the context
     const router = useRouter();
-
-    const fetchUserData = async () => {
-        const token = localStorage.getItem('token');
-        
-        if (token) {
-            try {
-                const response = await fetch('/api/user/data', {  // Ensure the endpoint is correct
-                    headers: {
-                        'Authorization': `Bearer ${token}`
-                    }
-                });
-                if (response.ok) {
-                    const data = await response.json();
-                    setCurrentUser(data);
-                    setUsername(data.username);
-                } else {
-                    console.error('Failed to fetch user data:', response.status);
-                }
-            } catch (error) {
-                console.error('Error fetching user data:', error);
-            }
-        }
-    };
-
-    useEffect(() => {
-        fetchUserData();
-    });
-
-    const handleLogout = () => {
-        localStorage.removeItem('token');
-        setCurrentUser(null);  // Update the state to trigger a re-render
+    const { currentUser } = useAuth();
+    const username = currentUser.username
+    const logout = async () => {
+        await handleLogout();
         router.push('/');  // Redirect to homepage using useRouter
         // Consider removing window.location.reload(); if you handle state correctly
     };
-
     return (
         <div className="dropdown">
             <div className="username">
@@ -56,7 +28,7 @@ function UserDropdown({ setCurrentUser }) {
                     <Link href="/account-settings">
                         Account Settings  {/* Use anchor tags inside Link */}
                     </Link> 
-                    <button onClick={handleLogout}>Logout</button>
+                    <button onClick={logout}>Logout</button>
                 </div>
             )}
         </div>

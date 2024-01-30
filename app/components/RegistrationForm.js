@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './RegistrationForm.css';
 import { useRouter } from 'next/router';
-
+import { useAuth } from '../../context/AuthContext';
 function RegistrationForm({ setRegModalOpen }) {
+    const {register} = useAuth();
     const [userData, setUserData] = useState({
         username: '',
         password: '',
@@ -69,45 +70,14 @@ function RegistrationForm({ setRegModalOpen }) {
             bmr: bmr,
             caloricGoal: caloricGoal
         };
-    
-        // Send user registration data to server
-        try {
-            const response = await fetch('/api/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(userRegistrationData), // userRegistrationData is prepared earlier in your code
-            });
-    
-            const result = await response.json();
-            if (response.status === 201) {
-                alert('Registration successful!');
-                console.log(result)
-    
-                // Store the token in local storage if it's included in the response
-                if (result.token) {
-                    localStorage.setItem('token', result.token);
-                    // Navigate to the home page after registration
-                    router.push('/generate'); // The navigate function is from useNavigate() hook from react-router-dom
-                    window.location.reload()
-                } else {
-                    // Handle the case where the token is not sent back by the server
-                    console.error('Token was not provided by the server.');
-                    alert('Registration was successful but automatic login failed. Please log in manually.');
-                }
-            } else {
-                // If the server responds with any status code other than 201, show the message sent by the server
-                alert(result.message || 'Registration failed. Please try again.');
-            }
-        } catch (error) {
-            // If the fetch itself fails (e.g., due to network issues), log the error and notify the user
-            console.error('Error during registration:', error);
-            alert('An error occurred during registration. Please check your network and try again.');
+
+        try{
+            await register(userRegistrationData);
+            router.push('/generate'); // The navigate function is from useNavigate() hook from react-router-dom
+        }catch(error){
+            console.error("Registration Error", error)
         }
-    
-        // Close the registration modal
-        setRegModalOpen(false);
+
     };
     
 

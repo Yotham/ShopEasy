@@ -2,8 +2,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import './LoginForm.css';
 
+import { useAuth } from '../../context/AuthContext';
 function LoginForm({ setCurrentUser, setLoginModalOpen }) {
     const router = useRouter();
+    const { login } = useAuth(); // Destructure login from the context
     const [credentials, setCredentials] = useState({
         username: '',
         password: ''
@@ -18,31 +20,12 @@ function LoginForm({ setCurrentUser, setLoginModalOpen }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Submitting credentials:', credentials);
-
-        try {
-            const response = await fetch('api/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(credentials)
-            });
-
-            const data = await response.json();
-            console.log('Response data:', data);
-
-            if (response.ok) {
-                localStorage.setItem('token', data.token);
-                setLoginModalOpen(false);
-                alert('Logged in successfully!');
-                router.push('/generate');
-            } else {
-                alert(data.message || 'Failed to login. Please try again.');
-            }
-        } catch (error) {
-            console.error('Login error:', error);
-            alert('An error occurred during login.');
+        try{
+            console.log('Submitting credentials:', credentials);
+            await login(credentials);
+            router.push('/generate')
+        }catch(error){
+            console.error('Login Failed', error)
         }
     };
 

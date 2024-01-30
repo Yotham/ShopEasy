@@ -6,37 +6,23 @@ import image from '../../public/ShopEasyLogoDark.png';
 import RegistrationForm from './RegistrationForm';
 import Modal from './Modal';
 import dynamic from 'next/dynamic';
+import { useAuth } from '../../context/AuthContext';
 
 const LoginForm = dynamic(
     () => import('./LoginForm'),
     { ssr: false }
 );
-function Navbar({ isRegModalOpen, setRegModalOpen, isLoginModalOpen, setLoginModalOpen  }) {
-    const [currentUser, setCurrentUser] = useState(null);
-    useEffect(() => {
-        const fetchUserData = async () => {
-            const token = localStorage.getItem('token');
-            if (token) {
-                try {
-                    const response = await fetch('/api/user/data', {
-                        headers: {
-                            'Authorization': `Bearer ${token}`
-                        }
-                    });
-                    if (response.ok) {
-                        const data = await response.json();
-                        setCurrentUser(data);
-                    } else {
-                        console.error('Failed to fetch user data:', response.status);
-                    }
-                } catch (error) {
-                    console.error('Error fetching user data:', error);
-                }
-            }
-        };
+function Navbar() {
+    const { 
+        currentUser, 
+        handleLogout, 
+        setLoginModalOpen, 
+        setRegModalOpen,
+        isRegModalOpen,     // Get these from the context
+        isLoginModalOpen    // Get these from the context
+    } = useAuth();
 
-        fetchUserData();
-    }, []);
+
     return (
         <div className="navbar">
             {currentUser ? (
@@ -50,7 +36,7 @@ function Navbar({ isRegModalOpen, setRegModalOpen, isLoginModalOpen, setLoginMod
             )}
 
             {currentUser ? (
-                <UserDropdown setCurrentUser={setCurrentUser} />
+                <UserDropdown setCurrentUser={currentUser} />
             ) : (
                 <div className="auth-buttons">
                     <button className="nav-btn" onClick={() => setLoginModalOpen(true)}>Login</button>
