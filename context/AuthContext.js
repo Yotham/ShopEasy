@@ -1,11 +1,11 @@
-import React, { createContext, useState, useContext, useEffect } from 'react';
+import React, { createContext, useState, useContext, useEffect, useMemo } from 'react';
 
 const AuthContext = createContext();
 
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-    const [currentUser, setCurrentUser] = useState(null);
+    const [currentUser, setCurrentUser] = useState('');
     const [isRegModalOpen, setRegModalOpen] = useState(false);
     const [isLoginModalOpen, setLoginModalOpen] = useState(false);
     const login = async(credentials) =>{
@@ -105,7 +105,7 @@ export const AuthProvider = ({ children }) => {
     }, []);
     // Include any auth functions you need (e.g., login, logout)
 
-    const contextValue = {
+    const contextValue = useMemo(() => ({
         currentUser,
         setCurrentUser,
         login,
@@ -115,7 +115,8 @@ export const AuthProvider = ({ children }) => {
         isLoginModalOpen,
         setLoginModalOpen,
         register
-    };
+    }), [currentUser, isRegModalOpen, isLoginModalOpen]); // add other dependencies if needed
+    
 
     return (
         <AuthContext.Provider value={contextValue}>
