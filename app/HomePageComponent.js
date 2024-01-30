@@ -19,6 +19,7 @@ function HomePageComponent() {
         isRegModalOpen,     // Get these from the context
         isLoginModalOpen    // Get these from the context
     } = useAuth();
+    
     return (
         <div className = "main-div">
             <div className="homepage-container">                

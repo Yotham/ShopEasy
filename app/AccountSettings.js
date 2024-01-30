@@ -2,8 +2,11 @@
 
 import React, { useState,useEffect } from 'react';
 import './AccountSettings.css';
+import { useAuth } from '../context/AuthContext';
 function AccountSettings() {
-    const [currentUser, setCurrentUser] = useState(null);
+    const { 
+        currentUser
+    } = useAuth();
     const [updatedUser, setUpdatedUser] = useState({
         height: [0, 0],
         weight: '',
@@ -12,33 +15,6 @@ function AccountSettings() {
         // ... add other fields as needed
     });
     const [isLoading, setIsLoading] = useState(true);
-
-    useEffect(() => {
-        const fetchUserData = async () => {
-            // Only run on the client side
-            if (typeof window !== 'undefined') {
-                const token = localStorage.getItem('token');
-                if (token) {
-                    try {
-                        const response = await fetch('/api/user/data', {
-                            headers: { 'Authorization': `Bearer ${token}` }
-                        });
-                        if (response.ok) {
-                            const data = await response.json();
-                            setCurrentUser(data);
-                        } else {
-                            console.error('Failed to fetch user data:', response.status);
-                        }
-                    } catch (error) {
-                        console.error('Error fetching user data:', error);
-                    }
-                }
-                setIsLoading(false);
-            }
-        };
-
-        fetchUserData();
-    }, []);
 
     const cmToFeetAndInches = (cm) => {
         const totalInches = cm / 2.54;
@@ -78,6 +54,7 @@ function AccountSettings() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log(currentUser)
         try {
             const response = await fetch(`/api/user/${currentUser._id}`, {
                 method: 'PUT',
@@ -93,7 +70,7 @@ function AccountSettings() {
             }
     
             const updatedData = await response.json();
-            setCurrentUser(updatedData);  // Update the local state to reflect the changes
+            //setCurrentUser(updatedData);  // Update the local state to reflect the changes
             alert('Account updated successfully!');
             // Optionally, redirect the user or perform other actions
         } catch (error) {
@@ -105,6 +82,15 @@ function AccountSettings() {
     return (
        <center> <form onSubmit={handleSubmit}>
             {/* ... existing input fields for username and password ... */}
+            <label>
+                Age:
+                <input
+                    type="number"
+                    name="age"
+                    value={updatedUser.age}
+                    onChange={handleChange}
+                />
+            </label>
             <label>
                 Height:
                 <input 

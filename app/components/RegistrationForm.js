@@ -33,7 +33,7 @@ function RegistrationForm({ setRegModalOpen }) {
         e.preventDefault();
     
         // Conversions
-        const heightInCm = (userData.height[0] * 30.48) + (userData.height[1] * 2.54);
+        const heightInCm = ((userData.height[0] *12) + userData.height[1])* 2.54;
         const weightInKg = userData.weight * 0.453592;
         
         // BMR Calculation using userData.age
@@ -63,7 +63,7 @@ function RegistrationForm({ setRegModalOpen }) {
             username: userData.username,
             password: userData.password,
             height: heightInCm,
-            weight: weightInKg,
+            weight: userData.weight,
             gender: userData.gender,
             goal: userData.goal,
             age: userData.age,
