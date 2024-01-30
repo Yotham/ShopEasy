@@ -1,4 +1,0 @@
-.modal-content {
-    user-select: none; /* Prevents text selection during drag */
-    cursor: grab;
-}
