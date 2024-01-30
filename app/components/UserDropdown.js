@@ -34,7 +34,7 @@ function UserDropdown({ setCurrentUser }) {
 
     useEffect(() => {
         fetchUserData();
-    }, []);
+    });
 
     const handleLogout = () => {
         localStorage.removeItem('token');

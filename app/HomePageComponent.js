@@ -3,6 +3,7 @@
 import RegistrationForm from './components/RegistrationForm';
 import Modal from './components/Modal';
 import './components/Generation.css';
+import React, { useState} from 'react';
 
 import dynamic from 'next/dynamic';
 
@@ -11,7 +12,9 @@ const LoginForm = dynamic(
     { ssr: false }
 );
 
-function HomePageComponent({ updateCurrentUser, isRegModalOpen, setRegModalOpen, isLoginModalOpen, setLoginModalOpen }) {    
+function HomePageComponent() {    
+    const [isRegModalOpen, setRegModalOpen] = useState(false);
+    const [isLoginModalOpen, setLoginModalOpen] = useState(false);
     return (
         <div className = "main-div">
             <div className="homepage-container">                

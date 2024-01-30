@@ -4,15 +4,11 @@ import Navbar from '../app/components/Navbar';
 
 import Footer from '../app/components/Footer';
 function App({ Component, pageProps }) {
-    const [currentUser, setCurrentUser] = useState(null);
     const [isRegModalOpen, setRegModalOpen] = useState(false);
     const [isLoginModalOpen, setLoginModalOpen] = useState(false);
     return (
         <div className="App">
             <Navbar             
-            
-            currentUser={currentUser}
-            setCurrentUser={setCurrentUser}
             isRegModalOpen={isRegModalOpen}
             setRegModalOpen={setRegModalOpen}
             isLoginModalOpen={isLoginModalOpen}

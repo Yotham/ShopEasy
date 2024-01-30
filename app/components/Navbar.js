@@ -11,7 +11,8 @@ const LoginForm = dynamic(
     () => import('./LoginForm'),
     { ssr: false }
 );
-function Navbar({ setCurrentUser,currentUser, isRegModalOpen, setRegModalOpen, isLoginModalOpen, setLoginModalOpen  }) {
+function Navbar({ isRegModalOpen, setRegModalOpen, isLoginModalOpen, setLoginModalOpen  }) {
+    const [currentUser, setCurrentUser] = useState(null);
     useEffect(() => {
 
         const fetchUserData = async () => {
