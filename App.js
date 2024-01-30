@@ -1,20 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import LogInPage from './screens/LogInPage'; // Import the LogInPage component
 
-export default function App() {
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Welcome to ShopEasy, Kyle Walker </Text>
-      <StatusBar style="auto" />
-    </View>
+    <LogInPage />
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
