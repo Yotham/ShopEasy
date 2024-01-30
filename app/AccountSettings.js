@@ -1,157 +1,106 @@
-// src/components/AccountSettings.js
+import React, { createContext, useState, useContext, useEffect, useMemo } from 'react';
 
-import React, { useState,useEffect } from 'react';
-import './AccountSettings.css';
-function AccountSettings() {
+const AuthContext = createContext(null);
+
+export const useAuth = () => useContext(AuthContext);
+
+export const AuthProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState(null);
-    const [updatedUser, setUpdatedUser] = useState({
-        height: [0, 0],
-        weight: '',
-        gender: '',
-        goal: '',
-        // ... add other fields as needed
-    });
-    const [isLoading, setIsLoading] = useState(true);
 
-    useEffect(() => {
-        const fetchUserData = async () => {
-            // Only run on the client side
-            if (typeof window !== 'undefined') {
-                const token = localStorage.getItem('token');
-                if (token) {
-                    try {
-                        const response = await fetch('/api/user/data', {
-                            headers: { 'Authorization': `Bearer ${token}` }
-                        });
-                        if (response.ok) {
-                            const data = await response.json();
-                            setCurrentUser(data);
-                        } else {
-                            console.error('Failed to fetch user data:', response.status);
-                        }
-                    } catch (error) {
-                        console.error('Error fetching user data:', error);
-                    }
-                }
-                setIsLoading(false);
+    // Function to check the current user's authentication status
+    const checkAuthStatus = async () => {
+        try {
+            const response = await fetch('/api/user/data', {
+                method: 'GET',
+                credentials: 'include', // Necessary for cookies to be sent
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                setCurrentUser(data.user);
+            } else {
+                setCurrentUser(null);
             }
-        };
+        } catch (error) {
+            console.error('Error fetching auth status:', error);
+        }
+    };
 
-        fetchUserData();
+    // Log in function
+    const login = async (credentials) => {
+        try {
+            const response = await fetch('/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(credentials),
+                credentials: 'include', // Necessary for cookies to be sent
+            });
+
+            if (response.ok) {
+                await checkAuthStatus();
+            } else {
+                const errorData = await response.json();
+                throw new Error(errorData.message);
+            }
+        } catch (error) {
+            console.error('Login error:', error);
+            throw error; // Rethrow to handle in the UI
+        }
+    };
+
+    // Logout function
+    const logout = async () => {
+        try {
+            const response = await fetch('/api/logout', {
+                method: 'POST',
+                credentials: 'include', // Necessary for cookies to be sent
+            });
+
+            if (response.ok) {
+                setCurrentUser(null);
+            } else {
+                const errorData = await response.json();
+                throw new Error(errorData.message);
+            }
+        } catch (error) {
+            console.error('Logout error:', error);
+            throw error; // Rethrow to handle in the UI
+        }
+    };
+
+    // Register function
+    const register = async (userData) => {
+        try {
+            const response = await fetch('/api/register', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(userData),
+                credentials: 'include', // Necessary for cookies to be sent
+            });
+
+            if (response.ok) {
+                await checkAuthStatus();
+            } else {
+                const errorData = await response.json();
+                throw new Error(errorData.message);
+            }
+        } catch (error) {
+            console.error('Registration error:', error);
+            throw error; // Rethrow to handle in the UI
+        }
+    };
+
+    // Check the user's auth status when the component mounts
+    useEffect(() => {
+        checkAuthStatus();
     }, []);
 
-    const cmToFeetAndInches = (cm) => {
-        const totalInches = cm / 2.54;
-        const feet = Math.floor(totalInches / 12);
-        const inches = Math.round(totalInches % 12);
-        return [feet, inches];
+    const contextValue = useMemo(() => ({
+        currentUser,
+        login,
+        logout,
+        register,
+    }), [currentUser]);
 
-    };
-    useEffect(() => {
-        if (currentUser) {
-            const [feet, inches] = cmToFeetAndInches(currentUser.height);
-            setUpdatedUser({
-                ...currentUser,
-                height: [feet, inches]
-            });
-            setIsLoading(false);
-        }
-    }, [currentUser]);
-
-    // Return early if not open or still loading
-    if (isLoading) return <div>Loading...</div>;  // Or some other loading indicator
-
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setUpdatedUser(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
-    };
-    const handleHeightChange = (type, value) => {
-        const height = [...updatedUser.height];
-        if (type === "feet") height[0] = parseInt(value);
-        else height[1] = parseInt(value);
-        setUpdatedUser(prevState => ({ ...prevState, height }));
-    };
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await fetch(`/api/user/${currentUser._id}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`
-                },
-                body: JSON.stringify(updatedUser)
-            });
-    
-            if (!response.ok) {
-                throw new Error('Failed to update user data');
-            }
-    
-            const updatedData = await response.json();
-            setCurrentUser(updatedData);  // Update the local state to reflect the changes
-            alert('Account updated successfully!');
-            // Optionally, redirect the user or perform other actions
-        } catch (error) {
-            console.error('Error updating user data:', error);
-            alert('An error occurred while updating the account.');
-        }
-    };
-
-    return (
-       <center> <form onSubmit={handleSubmit}>
-            {/* ... existing input fields for username and password ... */}
-            <label>
-                Height:
-                <input 
-                    type="number" 
-                    value={updatedUser.height[0]}
-                    onChange={e => handleHeightChange('feet', e.target.value)}
-                    placeholder="Feet"
-                />
-                <input 
-                    type="number" 
-                    value={updatedUser.height[1]}
-                    onChange={e => handleHeightChange('inches', e.target.value)}
-                    placeholder="Inches"
-                />
-            </label>
-
-            <label>
-                Weight (in lbs):
-                <input
-                    type="number"
-                    name="weight"
-                    value={updatedUser.weight}
-                    onChange={handleChange}
-                />
-            </label>
-
-            <label>
-                Gender:
-                <select name="gender" value={updatedUser.gender} onChange={handleChange}>
-                    <option value="Male">Male</option>
-                    <option value="Female">Female</option>
-                    <option value="Other">Other</option>
-                </select>
-            </label>
-
-            <label>
-                Goal:
-                <select name="goal" value={updatedUser.goal} onChange={handleChange}>
-                    <option value="Lose Weight">Lose Weight</option>
-                    <option value="Gain Weight">Gain Weight</option>
-                    <option value="Maintain Weight">Maintain Weight</option>
-                </select>
-            </label>
-
-            <input type="submit" value="Update" />
-        </form></center>
-    );
-}
-
-export default AccountSettings;
+    return <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>;
+};
