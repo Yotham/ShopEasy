@@ -4,7 +4,7 @@ import RegistrationForm from './components/RegistrationForm';
 import Modal from './components/Modal';
 import './components/Generation.css';
 import React, { useState} from 'react';
-
+import { useAuth } from '../context/AuthContext';
 import dynamic from 'next/dynamic';
 
 const LoginForm = dynamic(
@@ -13,8 +13,12 @@ const LoginForm = dynamic(
 );
 
 function HomePageComponent() {    
-    const [isRegModalOpen, setRegModalOpen] = useState(false);
-    const [isLoginModalOpen, setLoginModalOpen] = useState(false);
+    const {
+        setLoginModalOpen, 
+        setRegModalOpen,
+        isRegModalOpen,     // Get these from the context
+        isLoginModalOpen    // Get these from the context
+    } = useAuth();
     return (
         <div className = "main-div">
             <div className="homepage-container">                
