@@ -4,7 +4,7 @@ import { Modal, View, Text, StyleSheet, TextInput, Button } from 'react-native';
 const LogInPage = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>SHOPEASY</Text>
+            <Text style={styles.title}>POOPEASY</Text>
             <TextInput 
                 style={styles.input} 
                 placeholder="Username" 

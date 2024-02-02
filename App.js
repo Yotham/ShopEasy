@@ -3,7 +3,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LogInPage from './src/pages/LogInPage';
 import RegistrationForm from './src/components/RegistrationForm';
-import HomePage from './src/pages/HomePage';
+import GenerateScreen from './src/pages/GenerateScreen';
 import { AuthProvider, useAuth } from './src/context/AuthContext';
 
 const Stack = createNativeStackNavigator();
@@ -18,7 +18,7 @@ function AppNavigation() {
         {currentUser ? (
           // User is logged in
           <>
-            <Stack.Screen name="Home" component={HomePage} />
+            <Stack.Screen name="Home" component={GenerateScreen} />
           </>
         ) : (
           // User is not logged in

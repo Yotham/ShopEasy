@@ -1,0 +1,3 @@
+MONGODB_URI= 'mongodb+srv://ShopEasy:VKOkgWWpBebPB5HD@shopeasy.8tspqeg.mongodb.net/ShopEasy'
+JWT_SECRET=cucCKchtLKpCm1rtJIOh2AkXbyY96pbJ5SGzVg7WcZmpQGqo6F2l7cm80zRR3GM5B/VBsCXxRdydXEx5+wpCsg==
+
