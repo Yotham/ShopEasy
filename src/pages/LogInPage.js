@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
+import { Modal, View, Text, StyleSheet, TextInput, Button } from 'react-native';
 
 const LogInPage = ({ navigation }) => {
     return (
@@ -22,7 +22,7 @@ const LogInPage = ({ navigation }) => {
             {/* Optionally add a button to navigate to the Sign-Up page */}
             <Button 
                 title="Don't have an account? Sign Up"
-                onPress={() => navigation.navigate('SignUpPage')}
+                onPress={() => navigation.navigate('SignUp')}
             />
         </View>
     );

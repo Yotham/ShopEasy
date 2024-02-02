@@ -1,4 +1,6 @@
 import React, { createContext, useState, useContext, useEffect, useMemo } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 const AuthContext = createContext();
 
@@ -23,7 +25,7 @@ export const AuthProvider = ({ children }) => {
             setCurrentUser(data.user);
 
             if (response.ok) {
-                localStorage.setItem('token', data.token);
+                await AsyncStorage.setItem('token', data.token); // Save token
                 setLoginModalOpen(false);
                 alert('Logged in successfully!');
             } else {
@@ -53,7 +55,7 @@ export const AuthProvider = ({ children }) => {
     
                 // Store the token in local storage if it's included in the response
                 if (result.token) {
-                    localStorage.setItem('token', result.token);
+                    await AsyncStorage.setItem('token', result.token); // Save token
                     setCurrentUser(result.user)
                 } else {
                     // Handle the case where the token is not sent back by the server
@@ -73,14 +75,13 @@ export const AuthProvider = ({ children }) => {
         // Close the registration modal
         setRegModalOpen(false);
     }
-    const handleLogout = () => {
-        localStorage.removeItem('token');
-        setCurrentUser(null);  // Update the state to trigger a re-render
+    const handleLogout = async () => {
+        await AsyncStorage.removeItem('token'); // Remove token
+        setCurrentUser(null);
     }
     useEffect(() => {
         const fetchUserData = async () => {
-            console.log("here")
-            const token = localStorage.getItem('token');
+            const token = await AsyncStorage.getItem('token'); // Retrieve token
             if (token) {
                 try {
                     const response = await fetch('/api/user/data', {
@@ -100,7 +101,7 @@ export const AuthProvider = ({ children }) => {
                 }
             }
         };
-
+    
         fetchUserData();
     }, []);
     // Include any auth functions you need (e.g., login, logout)
