@@ -79,7 +79,6 @@ export const AuthProvider = ({ children }) => {
     }
     useEffect(() => {
         const fetchUserData = async () => {
-            console.log("here")
             const token = localStorage.getItem('token');
             if (token) {
                 try {
@@ -88,12 +87,18 @@ export const AuthProvider = ({ children }) => {
                             'Authorization': `Bearer ${token}`
                         }
                     });
+
                     if (response.ok) {
                         const data = await response.json();
                         setCurrentUser(data);
-                        
                     } else {
-                        console.error('Failed to fetch user data:', response.status);
+                        // If token is invalid or expired, clear it from local storage
+                        if (response.status === 401 || response.status === 403) {
+                            localStorage.removeItem('token');
+                            setCurrentUser(null);
+                        } else {
+                            console.error('Failed to fetch user data:', response.status);
+                        }
                     }
                 } catch (error) {
                     console.error('Error fetching user data:', error);
