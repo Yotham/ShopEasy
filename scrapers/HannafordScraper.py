@@ -10,15 +10,6 @@ import re
 from selenium.webdriver.common.keys import Keys
 import time
 
-from selenium import webdriver
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from bs4 import BeautifulSoup
-import time
-import json
-from selenium.webdriver.firefox.service import Service
-
 def get_product_details(url, max_retries=1):
     """Get product details from a specified URL"""
     driver.get(url)
@@ -83,9 +74,6 @@ def extract_number_of_servings(soup):
         return number_of_servings
     return 1  # default to 1 if not found
 """
-
-import re
-from bs4 import BeautifulSoup
 
 def getLinkInfo(url):
     driver.get(url)
