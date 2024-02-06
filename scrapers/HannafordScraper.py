@@ -10,8 +10,17 @@ import re
 from selenium.webdriver.common.keys import Keys
 import time
 
-def get_product_details(url, max_retries=1):
-    """Get product details from a specified URL"""
+def get_product_details(url: str, max_retries=1) -> dict:
+    """Get product details from a specified URL
+    
+        Parameters:
+                url (str): URL to scrape
+        Keyword arguments:
+                max_retries (int) -- Maximum number of retries for clicking the "see more" button (default 1) 
+
+        Returns:
+                storage (dict): Key-value pairs of product names and their URLs
+    """
     driver.get(url)
     
     storage = {}
