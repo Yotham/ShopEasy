@@ -1,6 +1,9 @@
 import React, { createContext, useState, useContext, useEffect, useMemo } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+const ip = 'FILL IN'
+// Put ip and port here for local testing aka 'http://[IP]:[PORT]'
+// Otherwise put 'https://shop-easy-flax.vercel.app'
 
 const AuthContext = createContext();
 
@@ -12,7 +15,7 @@ export const AuthProvider = ({ children }) => {
     const [isLoginModalOpen, setLoginModalOpen] = useState(false);
     const login = async(credentials) =>{
         try {
-            const response = await fetch('api/login', {
+            const response = await fetch(ip + '/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -40,7 +43,7 @@ export const AuthProvider = ({ children }) => {
     const register = async(userRegistrationData) =>{
         // Send user registration data to server
         try {
-            const response = await fetch('/api/register', {
+            const response = await fetch(ip + '/api/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -84,7 +87,7 @@ export const AuthProvider = ({ children }) => {
             const token = await AsyncStorage.getItem('token'); // Retrieve token
             if (token) {
                 try {
-                    const response = await fetch('/api/user/data', {
+                    const response = await fetch(ip + '/api/user/data', {
                         headers: {
                             'Authorization': `Bearer ${token}`
                         }
