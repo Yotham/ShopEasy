@@ -64,8 +64,7 @@ function RegistrationForm() {
         };
         try{
             await register(userRegistrationData);
-            console.log("here");
-            navigation.navigate('Home'); // The navigate function is from useNavigate() hook from react-router-dom
+            navigation.navigate('Home');
         }catch(error){
             console.error("Registration Error", error)
         }

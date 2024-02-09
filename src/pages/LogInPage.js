@@ -1,25 +1,72 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Modal, View, Text, StyleSheet, TextInput, Button } from 'react-native';
+import { useAuth } from '../context/AuthContext'; // Ensure the path is corrected
+import { useNavigation } from '@react-navigation/native';
 
-const LogInPage = ({ navigation }) => {
+const LogInPage = () => {
+    const { login } = useAuth(); // Destructure login from your context
+    const navigation = useNavigation();
+    const [credentials, setCredentials] = useState({
+        username: '',
+        password: ''
+    });
+
+    // Function to handle updates to the username
+    const handleUsernameChange = (username) => {
+        setCredentials(prevCredentials => ({
+            ...prevCredentials,
+            username
+        }));
+    };
+
+    // Function to handle updates to the password
+    const handlePasswordChange = (password) => {
+        setCredentials(prevCredentials => ({
+            ...prevCredentials,
+            password
+        }));
+    };
+
+    // Handle the login logic
+    const handleLogin = async () => {
+        try {
+            const result = await login(credentials);
+            if (result.success) {
+                // Navigation to 'Home' only occurs on successful login
+                navigation.navigate('Home');
+                alert('Logged in successfully!');
+            } else {
+                // Display an error message if login was not successful
+                alert(result.message);
+            }
+        } catch (error) {
+            // This catch block might not be necessary if all errors are handled within the login function
+            console.error('Unexpected error during login:', error);
+            alert('An unexpected error occurred.');
+        }
+    };
+
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>POOPEASY</Text>
+            <Text style={styles.title}>SHOPEASY</Text>
             <TextInput 
                 style={styles.input} 
                 placeholder="Username" 
                 keyboardType="email-address"
+                value={credentials.username}
+                onChangeText={handleUsernameChange} // Update the username in state
             />
             <TextInput 
                 style={styles.input} 
                 placeholder="Password" 
                 secureTextEntry
+                value={credentials.password}
+                onChangeText={handlePasswordChange} // Update the password in state
             />
             <Button 
                 title="Log In" 
-                onPress={() => {/* Handle the login logic here */}}
+                onPress={handleLogin} // Call the handleLogin when pressed
             />
-            {/* Optionally add a button to navigate to the Sign-Up page */}
             <Button 
                 title="Don't have an account? Sign Up"
                 onPress={() => navigation.navigate('SignUp')}
