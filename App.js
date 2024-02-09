@@ -18,11 +18,12 @@ function AppNavigation() {
         {currentUser ? (
           // User is logged in
           <>
-            <Stack.Screen name="Home" component={GenerateScreen} />
+      
           </>
         ) : (
           // User is not logged in
           <>
+            <Stack.Screen name="Home" component={GenerateScreen} />
             <Stack.Screen name="Log In" component={LogInPage} options={{ headerShown: false }}/>
             <Stack.Screen name="SignUp" component={RegistrationForm} options={{ title: 'Sign Up' }}/>
           </>

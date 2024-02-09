@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableHighlight } from 'react-native';
+import Data from '../Data/data.json';
+import getRandomItems from '../components/ListGeneration';
+import { View, Text, StyleSheet, TouchableHighlight, ScrollView } from 'react-native';
 
 const GenerateScreen = () => {
     const [randomItems, setRandomItems] = useState([]);
@@ -7,10 +9,22 @@ const GenerateScreen = () => {
     const [isPressed, setIsPressed] = useState(false);
 
     const handleGenerate = () => {
-        // Insert your generate logic here
-        // For demonstration, let's assume random items are generated
-        const items = ["ryan kerr", "ryan kerrrr", "ryan kerrrrrrr"];
-        setRandomItems(items);
+        const items = getRandomItems(Data, 1000);
+        const itemObjects = items.map(item => {
+            const productData = Data[item.pageNumber][item.name];
+            return {
+                name: item.name,
+                link: productData.link,
+                servingSize: productData.Nutrition["servingSize"],
+                numServings: productData.Nutrition["numServings"],
+                caloriesPS: productData.Nutrition["CaloriesPS"],
+                FatPS: productData.Nutrition["FatPS"],
+                CarbPS: productData.Nutrition["CarbPS"],
+                ProteinPS: productData.Nutrition["ProteinPS"],
+                count: item.count
+            };
+        });
+        setRandomItems(itemObjects);
         setIsGenerated(true);
     };
 
@@ -25,14 +39,18 @@ const GenerateScreen = () => {
             >
                 <Text style={styles.generateButtonText}>Generate</Text>
             </TouchableHighlight>
-
+    
             {isGenerated && (
                 <View style={styles.itemContainer}>
-                    {randomItems.map((item, index) => (
-                        <View key={index} style={styles.item}>
-                            <Text>{item}</Text>
-                        </View>
-                    ))}
+                    <ScrollView>
+                        {randomItems.map((item, index) => (
+                            <View key={index} style={styles.item}>
+                                <Text style={styles.itemText}>
+                                    {item.name}, Amount: {item.count}
+                                </Text>
+                            </View>
+                        ))}
+                    </ScrollView>
                 </View>
             )}
         </View>
