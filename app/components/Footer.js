@@ -2,6 +2,7 @@ import React from 'react';
 import './Footer.css';
 import Link from 'next/link';
 
+
 function Footer() {
     const currentYear = new Date().getFullYear();
 

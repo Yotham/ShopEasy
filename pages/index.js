@@ -3,6 +3,7 @@ import HomePageComponent from '../app/components/HomePageComponent'; // Adjust t
 import { useRouter } from 'next/router';
 import { AuthProvider } from '../context/AuthContext';
 import { useAuth } from '../context/AuthContext';
+import '../index.css'
 function IndexPage() {
     const { 
         currentUser, 
