@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../app/App.css'; // adjust the path to your CSS file
 import Navbar from '../app/components/Navbar';
 import { AuthProvider } from '../context/AuthContext';
+import '../index.css'
 
 import Footer from '../app/components/Footer';
 function App({ Component, pageProps }) {
