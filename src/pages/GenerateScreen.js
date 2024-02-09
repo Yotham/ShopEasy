@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import Data from '../Data/data.json';
 import getRandomItems from '../components/ListGeneration';
-import { View, Text, StyleSheet, TouchableHighlight, ScrollView } from 'react-native';
-import { View, Text, StyleSheet, TouchableHighlight, TouchableOpacity, Modal, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, TouchableHighlight, TouchableOpacity, Modal, SafeAreaView, ScrollView } from 'react-native';
 import { IconButton } from 'react-native-paper';
 import { useAuth } from '../context/AuthContext';
 import { useNavigation } from '@react-navigation/native';

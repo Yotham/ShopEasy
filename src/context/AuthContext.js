@@ -1,7 +1,7 @@
 import React, { createContext, useState, useContext, useEffect, useMemo } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const ip = 'https://shop-easy-flax.vercel.app'
+const ip = ''
 // Put ip and port here for local testing aka 'http://[IP]:[PORT]'
 // Otherwise put 'https://shop-easy-flax.vercel.app'
 
