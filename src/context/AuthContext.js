@@ -1,46 +1,81 @@
 import React, { createContext, useState, useContext, useEffect, useMemo } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
+const ip = 'https://shop-easy-flax.vercel.app'
+// Put ip and port here for local testing aka 'http://[IP]:[PORT]'
+// Otherwise put 'https://shop-easy-flax.vercel.app'
 
 const AuthContext = createContext();
 
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
-    const [currentUser, setCurrentUser] = useState('');
+    const [currentUser, setCurrentUser] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
     const [isRegModalOpen, setRegModalOpen] = useState(false);
     const [isLoginModalOpen, setLoginModalOpen] = useState(false);
-    const login = async(credentials) =>{
+
+    useEffect(() => {
+        // Check the authentication status when the app starts
+        const checkLoginStatus = async () => {
+            setIsLoading(true);
+            try {
+                const userToken = await AsyncStorage.getItem('token');
+                // Assuming you have a way to validate the token or get user data
+                if (userToken) {
+                    // Set currentUser based on the token
+                    setCurrentUser({ /* User data */ });
+                }
+            } catch (error) {
+                console.error("Failed to fetch token:", error);
+            }
+            setIsLoading(false);
+        };
+
+        checkLoginStatus();
+    }, []);
+
+    // Include login, logout, and register functions here
+    // Make sure to set `isLoading` appropriately within these functions
+
+    const login = async (credentials) => {
+        setIsLoading(true);
         try {
-            const response = await fetch('api/login', {
+            const response = await fetch(ip + '/api/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(credentials)
             });
-
+    
             const data = await response.json();
             console.log('Response data:', data);
-            setCurrentUser(data.user);
-
+    
             if (response.ok) {
                 await AsyncStorage.setItem('token', data.token); // Save token
-                setLoginModalOpen(false);
-                alert('Logged in successfully!');
+                setCurrentUser(data.user);
+                setLoginModalOpen(false); // Assuming you're managing a modal's visibility
+                setIsLoading(false);
+                return { success: true };
             } else {
-                alert(data.message || 'Failed to login. Please try again.');
+                // Return success as false and include the server's error message if available
+                setIsLoading(false);
+                return { success: false, message: data.message || 'Failed to login. Please try again.' };
             }
         } catch (error) {
             console.error('Login error:', error);
-            alert('An error occurred during login.');
+            // Return success as false and a generic error message
+            setIsLoading(false);
+            return { success: false, message: 'An error occurred during login.' };
         }
-    }
+    };
 
     const register = async(userRegistrationData) =>{
+        setIsLoading(true);
         // Send user registration data to server
         try {
-            const response = await fetch('/api/register', {
+            const response = await fetch(ip + '/api/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -74,17 +109,27 @@ export const AuthProvider = ({ children }) => {
     
         // Close the registration modal
         setRegModalOpen(false);
+        setIsLoading(false);
     }
+
     const handleLogout = async () => {
-        await AsyncStorage.removeItem('token'); // Remove token
-        setCurrentUser(null);
+        setIsLoading(true);
+        try {
+            await AsyncStorage.removeItem('token');
+            setCurrentUser(null);
+        } catch (error) {
+            console.error("Error during logout:", error);
+            // Handle any cleanup or state reset here
+        }
+        //setIsLoading(false);
     }
+    
     useEffect(() => {
         const fetchUserData = async () => {
             const token = await AsyncStorage.getItem('token'); // Retrieve token
             if (token) {
                 try {
-                    const response = await fetch('/api/user/data', {
+                    const response = await fetch(ip + '/api/user/data', {
                         headers: {
                             'Authorization': `Bearer ${token}`
                         }
@@ -115,8 +160,11 @@ export const AuthProvider = ({ children }) => {
         setRegModalOpen,
         isLoginModalOpen,
         setLoginModalOpen,
-        register
-    }), [currentUser, isRegModalOpen, isLoginModalOpen]); // add other dependencies if needed
+        register,
+        isLoading, // Add isLoading to the context value
+        setIsLoading // Optionally add setIsLoading if you need to change it from outside
+    }), [currentUser, isRegModalOpen, isLoginModalOpen, isLoading]); // Add isLoading to the dependency array
+    
     
         
     return (

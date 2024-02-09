@@ -1,5 +1,6 @@
 To Run:
 1. Run "npm install" in project root
-2. Run "npx expo start" in project root
-3. Install expo go app on your mobile device and log in
-4. Scan QR code from terminal in camera app (IOS) or expo app (Andriod)
+2. Install expo go app on your mobile device and log in
+3. Fill in ip field in /src/context/AuthContext.js, should be vercel ip but if on campus use a local server (also run main) and use your computers ip
+4. Run "npx expo start" in project root
+5. Scan QR code from terminal in camera app (IOS) or expo app (Andriod)
