@@ -62,13 +62,18 @@ function RegistrationForm() {
             bmr: bmr,
             caloricGoal: caloricGoal
         };
-        try{
-            await register(userRegistrationData);
-            navigation.navigate('Home');
-        }catch(error){
-            console.error("Registration Error", error)
-        }
-
+        try {
+            const isRegistrationSuccessful = await register(userRegistrationData);
+            if (isRegistrationSuccessful) {
+                // Navigate only if registration was successful
+                navigation.navigate('Home');
+            } else {
+                // Handle registration failure as needed
+                console.log("Registration failed");
+            }
+        } catch (error) {
+            console.error("Registration Error", error);
+        }        
     };
 
     return (

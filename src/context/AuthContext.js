@@ -1,8 +1,8 @@
 import React, { createContext, useState, useContext, useEffect, useMemo } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const ip = ''
-// Put ip and port here for local testing aka 'http://[IP]:[PORT]'
+const ip = 'https://shop-easy-flax.vercel.app'
+// Put ip and port here for local testing aka '[IP]:[PORT]'
 // Otherwise put 'https://shop-easy-flax.vercel.app'
 
 const AuthContext = createContext();
@@ -71,46 +71,46 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
-    const register = async(userRegistrationData) =>{
+    const register = async (userRegistrationData) => {
         setIsLoading(true);
-        // Send user registration data to server
+        let registrationSuccess = false; // Variable to track success status
+    
         try {
             const response = await fetch(ip + '/api/register', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(userRegistrationData), // userRegistrationData is prepared earlier in your code
+                body: JSON.stringify(userRegistrationData),
             });
     
             const result = await response.json();
             if (response.status === 201) {
                 alert('Registration successful!');
-                console.log(result)
+                console.log(result);
     
-                // Store the token in local storage if it's included in the response
                 if (result.token) {
                     await AsyncStorage.setItem('token', result.token); // Save token
-                    setCurrentUser(result.user)
+                    setCurrentUser(result.user);
+                    registrationSuccess = true; // Registration was successful
                 } else {
-                    // Handle the case where the token is not sent back by the server
                     console.error('Token was not provided by the server.');
                     alert('Registration was successful but automatic login failed. Please log in manually.');
                 }
             } else {
-                // If the server responds with any status code other than 201, show the message sent by the server
                 alert(result.message || 'Registration failed. Please try again.');
             }
         } catch (error) {
-            // If the fetch itself fails (e.g., due to network issues), log the error and notify the user
             console.error('Error during registration:', error);
             alert('An error occurred during registration. Please check your network and try again.');
+        } finally {
+            setRegModalOpen(false);
+            setIsLoading(false);
         }
     
-        // Close the registration modal
-        setRegModalOpen(false);
-        setIsLoading(false);
-    }
+        return registrationSuccess; // Return the success status
+    };
+    
 
     const handleLogout = async () => {
         setIsLoading(true);
