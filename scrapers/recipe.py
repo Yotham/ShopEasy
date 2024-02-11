@@ -21,13 +21,12 @@ items = soup.findAll('div', class_='block block-system block-system-main-block')
 # Within this container, find all elements with the class 'field-content'
 field_contents = items[0].find_all(class_='field-content')
 for content in field_contents:
-    inner = content.find(class_='mp-recipe-teaser__main')
-    print(inner.find(class_= 'field--name-title'))
+    inner = content.find(class_='mp-recipe-teaser__title')
+    title = inner.find(class_= 'mp-recipe-teaser__title')
+        # Find the <a> tag within the title element to get the href
+    link = title.find('a')  # Adjusted to find the <a> tag
+    href = link['href']  # Extract the href attribute
+    print(title.text.strip())  # Print the title text
+    print(href)  # Print the href attribute
     print('-----')
 
-
-
-# Iterate over each element found and perform your desired operations
-# for field_content in field_contents:
-#     # Example: print the text within each 'field-content' element
-#     print(field_content.text.strip())
