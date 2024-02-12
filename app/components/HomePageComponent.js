@@ -28,7 +28,7 @@ function HomePageComponent() {
                     <p class="mx-auto mt-6 max-w-xl text-lg leading-8 text-gray-600">We leverage advanced algorithms and a robust database of foods and ingrdients from your local stores to help you meet your fitness goals.</p>
                     <div class="mt-10 flex items-center justify-center gap-x-6">
                     <button
-                    class="rounded-md bg-blue-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                    class="w-32 rounded-md bg-blue-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                     onClick={() => setLoginModalOpen(true)}
                     >
                         Login
