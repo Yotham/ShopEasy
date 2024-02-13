@@ -8,6 +8,7 @@ export const AuthProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState('');
     const [isRegModalOpen, setRegModalOpen] = useState(false);
     const [isLoginModalOpen, setLoginModalOpen] = useState(false);
+
     const login = async(credentials) =>{
         try {
             const response = await fetch('api/login', {

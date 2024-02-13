@@ -39,17 +39,27 @@ function Navbar() {
                 <UserDropdown setCurrentUser={currentUser} />
             ) : (
                 <div className="auth-buttons">
-                    <button className="nav-btn" onClick={() => setLoginModalOpen(true)}>Login</button>
-                    <button className="nav-btn" onClick={() => setRegModalOpen(true)}>Register</button>
+                    <button
+                        onClick={() => setLoginModalOpen(true)}
+                        className="w-24 rounded-md bg-blue-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                    >
+                        Login
+                    </button>
+                    <button
+                        className="w-24 rounded-md bg-blue-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+                        onClick={() => setRegModalOpen(true)}
+                    >
+                        Register
+                    </button>
                     
                 </div>
             )}
-                <Modal isOpen={isRegModalOpen} onClose={() => setRegModalOpen(false)} title="Register">
-                    <RegistrationForm setRegModalOpen={setRegModalOpen} />
-                </Modal>
-                <Modal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} title="Login">
-                    <LoginForm setLoginModalOpen={setLoginModalOpen} />
-                </Modal>
+            <Modal isOpen={isRegModalOpen} onClose={() => setRegModalOpen(false)} title="Register">
+                <RegistrationForm setRegModalOpen={setRegModalOpen} />
+            </Modal>
+            <Modal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} title="Login">
+                <LoginForm setLoginModalOpen={setLoginModalOpen} />
+            </Modal>
         </div>
     );
 }
