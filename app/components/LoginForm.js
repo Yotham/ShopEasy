@@ -15,8 +15,7 @@ function LoginForm({ setCurrentUser, setLoginModalOpen }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try{
-            
+        try {
             const formData = new FormData(e.target);
             console.log('Submitting credentials:')
             console.log('FormData:', formData.email);

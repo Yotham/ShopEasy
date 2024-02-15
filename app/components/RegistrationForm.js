@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './RegistrationForm.css';
+// import './RegistrationForm.css';
 import { useRouter } from 'next/router';
 import { useAuth } from '../../context/AuthContext';
 function RegistrationForm({ setRegModalOpen }) {
@@ -36,27 +36,38 @@ function RegistrationForm({ setRegModalOpen }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
     
+        // getting data
+        const formData = new FormData(e.target);
+        const username = formData.get("username");
+        const password = formData.get("password");
+        const age = formData.get("age");
+        const heightFt = formData.get("feet");
+        const heightIn = formData.get("inches");
+        const weight = formData.get("weight");
+        const gender = formData.get("gender")
+        const goal = formData.get("goal");
+
         // Conversions
-        const heightInCm = ((userData.height[0] *12) + userData.height[1])* 2.54;
-        const weightInKg = userData.weight * 0.453592;
+        const heightInCm = ((heightFt * 12) + heightIn)* 2.54;
+        const weightInKg = formData.get("weight") * 0.453592;
         
         // BMR Calculation using userData.age
         let bmr;
-        if (userData.gender === "Male") {
-            bmr = 88.362 + (13.397 * weightInKg) + (4.799 * heightInCm) - (5.677 * userData.age);
-        } else if (userData.gender === "Female") {
-            bmr = 447.593 + (9.247 * weightInKg) + (3.098 * heightInCm) - (4.330 * userData.age);
+        if (gender === "Male") {
+            bmr = 88.362 + (13.397 * weightInKg) + (4.799 * heightInCm) - (5.677 * age);
+        } else if (gender === "Female") {
+            bmr = 447.593 + (9.247 * weightInKg) + (3.098 * heightInCm) - (4.330 * age);
         } else {  // For "Other" gender
-            const bmrMale = 88.362 + (13.397 * weightInKg) + (4.799 * heightInCm) - (5.677 * userData.age);
-            const bmrFemale = 447.593 + (9.247 * weightInKg) + (3.098 * heightInCm) - (4.330 * userData.age);
+            const bmrMale = 88.362 + (13.397 * weightInKg) + (4.799 * heightInCm) - (5.677 * age);
+            const bmrFemale = 447.593 + (9.247 * weightInKg) + (3.098 * heightInCm) - (4.330 * age);
             bmr = (bmrMale + bmrFemale) / 2;
         }
     
         // Caloric Goal Calculation
         let caloricGoal;
-        if (userData.goal === "Lose Weight") {
+        if (goal === "Lose Weight") {
             caloricGoal = bmr - 500; // Subtract 500 calories for weight loss
-        } else if (userData.goal === "Gain Weight") {
+        } else if (goal === "Gain Weight") {
             caloricGoal = bmr + 500; // Add 500 calories for weight gain
         } else {
             caloricGoal = bmr; // Maintain current weight
@@ -64,13 +75,13 @@ function RegistrationForm({ setRegModalOpen }) {
     
         // Prepare user data for registration
         const userRegistrationData = {
-            username: userData.username,
-            password: userData.password,
+            username: username,
+            password: password,
             height: heightInCm,
-            weight: userData.weight,
-            gender: userData.gender,
-            goal: userData.goal,
-            age: userData.age,
+            weight: weight,
+            gender: gender,
+            goal: goal,
+            age: age,
             bmr: bmr,
             caloricGoal: caloricGoal
         };
@@ -177,6 +188,17 @@ function RegistrationForm({ setRegModalOpen }) {
                             required
                             />
                         </div>
+                    </div>
+                    <div>
+                        <label for="weight" className="block mt-6 mb-1 text-sm font-medium text-gray-900 dark:text-white">Weight</label>
+                        <input
+                            type="number"
+                            name="weight"
+                            id="weight"
+                            placeholder="Please enter your weight"
+                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            required
+                        />
                     </div>
                     <label>
                         Gender:
