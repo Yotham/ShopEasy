@@ -6,6 +6,7 @@ import RegistrationForm from './src/components/RegistrationForm';
 import GenerateScreen from './src/pages/GenerateScreen';
 import { AuthProvider, useAuth } from './src/context/AuthContext';
 import LoadingScreen from './src/components/LoadingScreen';
+import Settings from './src/pages/Settings';
 
 const Stack = createNativeStackNavigator();
 
@@ -28,12 +29,16 @@ function AppNavigation() {
       <Stack.Navigator>
         {currentUser ? (
           // User is logged in
+          <>
             <Stack.Screen name="Home" component={GenerateScreen} />
+            <Stack.Screen name="Settings" component={Settings} />
+          </>
         ) : (
           // User is not logged in
           <>
             <Stack.Screen name="LogIn" component={LogInPage} options={{ headerShown: false }}/>
             <Stack.Screen name="SignUp" component={RegistrationForm} options={{ title: 'Sign Up' }}/>
+
           </>
         )}
       </Stack.Navigator>

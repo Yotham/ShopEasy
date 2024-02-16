@@ -58,7 +58,7 @@ const GenerateScreen = () => {
                     <TouchableOpacity
                         style={styles.menuItem}
                         onPress={() => {
-                            console.log('Account Settings Pressed');
+                            navigation.navigate('Settings'); 
                             // Implement Account Settings functionality here
                             setShowMenu(false);
                         }}>
