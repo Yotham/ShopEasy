@@ -25,7 +25,8 @@ function RegistrationForm() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         // Conversions
-        const heightInCm = ((userData.heightFeet *12) + userData.heightInches)* 2.54;
+        const heightInCm = ((parseInt(userData.heightFeet, 10) * 12) + parseInt(userData.heightInches, 10)) * 2.54;
+
         const weightInKg = userData.weight * 0.453592;
         
         // BMR Calculation using userData.age

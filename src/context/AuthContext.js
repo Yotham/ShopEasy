@@ -15,29 +15,6 @@ export const AuthProvider = ({ children }) => {
     const [isRegModalOpen, setRegModalOpen] = useState(false);
     const [isLoginModalOpen, setLoginModalOpen] = useState(false);
 
-    useEffect(() => {
-        // Check the authentication status when the app starts
-        const checkLoginStatus = async () => {
-            setIsLoading(true);
-            try {
-                const userToken = await AsyncStorage.getItem('token');
-                // Assuming you have a way to validate the token or get user data
-                if (userToken) {
-                    // Set currentUser based on the token
-                    setCurrentUser({ /* User data */ });
-                }
-            } catch (error) {
-                console.error("Failed to fetch token:", error);
-            }
-            setIsLoading(false);
-        };
-
-        checkLoginStatus();
-    }, []);
-
-    // Include login, logout, and register functions here
-    // Make sure to set `isLoading` appropriately within these functions
-
     const login = async (credentials) => {
         setIsLoading(true);
         try {
@@ -115,21 +92,25 @@ export const AuthProvider = ({ children }) => {
     const handleLogout = async () => {
         setIsLoading(true);
         try {
+            const token = await AsyncStorage.getItem('token');
+            console.log("Retrieved token:", token);
             await AsyncStorage.removeItem('token');
+            console.log(currentUser);
             setCurrentUser(null);
         } catch (error) {
             console.error("Error during logout:", error);
             // Handle any cleanup or state reset here
         }
-        //setIsLoading(false);
+        setIsLoading(false);
     }
     
     useEffect(() => {
         const fetchUserData = async () => {
-            const token = await AsyncStorage.getItem('token'); // Retrieve token
+            setIsLoading(true); // Ensure isLoading is true at the start
+            const token = await AsyncStorage.getItem('token');
             if (token) {
                 try {
-                    const response = await fetch(ip + '/api/user/data', {
+                    const response = await fetch(`${ip}/api/user/data`, {
                         headers: {
                             'Authorization': `Bearer ${token}`
                         }
@@ -137,19 +118,22 @@ export const AuthProvider = ({ children }) => {
                     if (response.ok) {
                         const data = await response.json();
                         setCurrentUser(data);
-                        
                     } else {
-                        console.error('Failed to fetch user data:', response.status);
+                        if (response.status === 401 || response.status === 403) {
+                            await AsyncStorage.removeItem('token');
+                            setCurrentUser(null);
+                        }
+                        // Make sure to log or handle other statuses as needed
                     }
                 } catch (error) {
                     console.error('Error fetching user data:', error);
                 }
             }
+            setIsLoading(false); // Set isLoading to false in all outcomes
         };
     
         fetchUserData();
     }, []);
-    // Include any auth functions you need (e.g., login, logout)
 
     const contextValue = useMemo(() => ({
         currentUser,
