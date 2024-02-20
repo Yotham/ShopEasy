@@ -1,9 +1,7 @@
 import React, { createContext, useState, useContext, useEffect, useMemo } from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import * as SecureStore from 'expo-secure-store';
 
-const ip = 'https://shop-easy-flax.vercel.app'
-// Put ip and port here for local testing aka '[IP]:[PORT]'
-// Otherwise put 'https://shop-easy-flax.vercel.app'
+const ip = 'https://shop-easy-flax.vercel.app';
 
 const AuthContext = createContext();
 
@@ -14,6 +12,7 @@ export const AuthProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true);
     const [isRegModalOpen, setRegModalOpen] = useState(false);
     const [isLoginModalOpen, setLoginModalOpen] = useState(false);
+    const [userLoggedIn, setUserLoggedIn] = useState(false);
 
     const login = async (credentials) => {
         setIsLoading(true);
@@ -25,24 +24,20 @@ export const AuthProvider = ({ children }) => {
                 },
                 body: JSON.stringify(credentials)
             });
-    
+
             const data = await response.json();
-            console.log('Response data:', data);
-    
+
             if (response.ok) {
-                await AsyncStorage.setItem('token', data.token); // Save token
+                await SecureStore.setItemAsync('token', data.token);
                 setCurrentUser(data.user);
-                setLoginModalOpen(false); // Assuming you're managing a modal's visibility
-                setIsLoading(false);
+                setLoginModalOpen(false);
                 return { success: true };
             } else {
-                // Return success as false and include the server's error message if available
                 setIsLoading(false);
                 return { success: false, message: data.message || 'Failed to login. Please try again.' };
             }
         } catch (error) {
             console.error('Login error:', error);
-            // Return success as false and a generic error message
             setIsLoading(false);
             return { success: false, message: 'An error occurred during login.' };
         }
@@ -50,8 +45,8 @@ export const AuthProvider = ({ children }) => {
 
     const register = async (userRegistrationData) => {
         setIsLoading(true);
-        let registrationSuccess = false; // Variable to track success status
-    
+        let registrationSuccess = false;
+
         try {
             const response = await fetch(ip + '/api/register', {
                 method: 'POST',
@@ -60,16 +55,15 @@ export const AuthProvider = ({ children }) => {
                 },
                 body: JSON.stringify(userRegistrationData),
             });
-    
+
             const result = await response.json();
             if (response.status === 201) {
                 alert('Registration successful!');
-                console.log(result);
-    
+
                 if (result.token) {
-                    await AsyncStorage.setItem('token', result.token); // Save token
+                    await SecureStore.setItemAsync('token', result.token);
                     setCurrentUser(result.user);
-                    registrationSuccess = true; // Registration was successful
+                    registrationSuccess = true;
                 } else {
                     console.error('Token was not provided by the server.');
                     alert('Registration was successful but automatic login failed. Please log in manually.');
@@ -84,32 +78,27 @@ export const AuthProvider = ({ children }) => {
             setRegModalOpen(false);
             setIsLoading(false);
         }
-    
-        return registrationSuccess; // Return the success status
+
+        return registrationSuccess;
     };
-    
 
     const handleLogout = async () => {
-        setIsLoading(true);
+        //setIsLoading(true);
         try {
-            const token = await AsyncStorage.getItem('token');
-            console.log("Retrieved token:", token);
-            await AsyncStorage.removeItem('token');
-            console.log(currentUser);
+            await SecureStore.deleteItemAsync('token');
             setCurrentUser(null);
         } catch (error) {
             console.error("Error during logout:", error);
-            // Handle any cleanup or state reset here
         }
-        setIsLoading(false);
-    }
-    
+    };
+
     useEffect(() => {
         const fetchUserData = async () => {
-            setIsLoading(true); // Ensure isLoading is true at the start
-            const token = await AsyncStorage.getItem('token');
-            if (token) {
-                try {
+            setIsLoading(true);
+            try {
+                const credentials = await SecureStore.getItemAsync('token');
+                const token = credentials ? credentials.password : null;
+                if (token) {
                     const response = await fetch(`${ip}/api/user/data`, {
                         headers: {
                             'Authorization': `Bearer ${token}`
@@ -120,20 +109,34 @@ export const AuthProvider = ({ children }) => {
                         setCurrentUser(data);
                     } else {
                         if (response.status === 401 || response.status === 403) {
-                            await AsyncStorage.removeItem('token');
+                            await SecureStore.deleteItemAsync('token');
                             setCurrentUser(null);
                         }
-                        // Make sure to log or handle other statuses as needed
                     }
-                } catch (error) {
-                    console.error('Error fetching user data:', error);
                 }
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+            } finally {
+                setIsLoading(false);
             }
-            setIsLoading(false); // Set isLoading to false in all outcomes
         };
-    
+
         fetchUserData();
     }, []);
+
+    useEffect(() => {
+        console.log("currentUser has been updated:", currentUser);
+        if (currentUser == null) {
+            setUserLoggedIn(false);
+        } else {
+            setUserLoggedIn(true);
+        }
+        setIsLoading(false);
+    }, [currentUser]);
+
+    useEffect(() => {
+        console.log("userLoggedIn has been updated:", userLoggedIn);
+    }, [userLoggedIn]);
 
     const contextValue = useMemo(() => ({
         currentUser,
@@ -145,12 +148,10 @@ export const AuthProvider = ({ children }) => {
         isLoginModalOpen,
         setLoginModalOpen,
         register,
-        isLoading, // Add isLoading to the context value
-        setIsLoading // Optionally add setIsLoading if you need to change it from outside
-    }), [currentUser, isRegModalOpen, isLoginModalOpen, isLoading]); // Add isLoading to the dependency array
-    
-    
-        
+        isLoading,
+        userLoggedIn
+    }), [currentUser, isRegModalOpen, isLoginModalOpen, isLoading, userLoggedIn]);
+
     return (
         <AuthContext.Provider value={contextValue}>
             {children}

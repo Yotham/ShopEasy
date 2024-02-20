@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Data from '../Data/data.json';
 import getRandomItems from '../components/ListGeneration';
 import { View, Text, StyleSheet, TouchableHighlight, TouchableOpacity, Modal, SafeAreaView, ScrollView } from 'react-native';
@@ -11,8 +11,18 @@ const GenerateScreen = () => {
     const [isGenerated, setIsGenerated] = useState(false);
     const [isPressed, setIsPressed] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
-    const { handleLogout } = useAuth();
+    const { handleLogout, setCurrentUser } = useAuth();
     const navigation = useNavigation();
+
+    const isMounted = useRef(true);
+
+    useEffect(() => {
+
+        return () => {
+            isMounted.current = false;
+            //navigation.navigate("LogIn");
+        };
+    }, []);
 
     const handleGenerate = () => {
         const items = getRandomItems(Data, 1000);
@@ -38,7 +48,9 @@ const GenerateScreen = () => {
         try {
             await handleLogout();
         } catch (error) {
-            console.error("Logout Error", error);
+            if (isMounted.current) {
+                console.error("Logout Error", error);
+            }
         }
     };
 

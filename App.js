@@ -12,7 +12,7 @@ const Stack = createNativeStackNavigator();
 
 // New Component for Conditional Navigation
 function AppNavigation() {
-  const { currentUser, isLoading } = useAuth();
+  const { userLoggedIn, isLoading } = useAuth();
 
   if (isLoading) {
     return (
@@ -27,7 +27,7 @@ function AppNavigation() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        {currentUser ? (
+        {userLoggedIn ? (
           // User is logged in
           <>
             <Stack.Screen name="Home" component={GenerateScreen} />
