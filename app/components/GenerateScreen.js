@@ -57,19 +57,21 @@ function GenerateScreen() {
     const totalFats = randomItems.reduce((acc, item) => acc + (item.FatPS * item.numServings * item.count), 0);
 
     return (
-        <div className="main-div">
-            <div className=" flex items-center justify-center bg-gray-100 p-2 rounded-lg shadow space-x-4">
-                <label htmlFor="groceryStore" className="text-lg font-medium text-gray-700">Grocery Store:</label>
-                <div className="relative flex-grow">
-                    <DataDropdown onSelectData={handleDataSelection} className="block w-full px-2 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" />
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                        {/* Assuming you might want to add an icon or similar here */}
+        <div className="bg-black bg-opacity-10 m-5 p-5 rounded-lg shadow-md h-full">
+
+
+            <div className=" flex items-center justify-left bg-slate-100 p-5 rounded-lg shadow-md">
+                <div className = "flex flex-col items-center justify-left space-x-1">
+                    <label htmlFor="groceryStore" className="text-lg font-medium text-gray-700">Grocery Store:</label>
+                    <div className="relative">
+                        <DataDropdown onSelectData={handleDataSelection} className="block w-full px-2 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 z-1" />
+                        <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            {/* Assuming you might want to add an icon or similar here */}
+                        </div>
                     </div>
                 </div>
                 {isGenerated && (
-                    //  <div className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 px-4">
-                    <div className="flex flex-col items-center justify-center mx-auto p-2" style={{ transform: 'translateX(-25vw)',}}>
-                        <div className = " flex flex-col items-center justify-center space-x-4 p-0">
+                        <div className = "flex-grow flex flex-col justify-center items-center p-0">
                             <p className="font-bold text-lg">Daily Average:</p>
                             <div className="flex flex-row space-x-4 ">
                                 <p className="total-item"><strong>Calories:</strong> <br />{Math.floor((totalCalories / 7))}</p>
@@ -78,37 +80,36 @@ function GenerateScreen() {
                                 <p className="total-item"><strong>Fats:</strong> <br />{Math.floor((totalFats / 7))}g</p>
                             </div>
                         </div>
-                    </div>
                     )}
-                <button className="Generate px-4 py-2 bg-indigo-500 text-white font-bold rounded hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50" onClick={handleGenerate}>Generate</button>
+                <button className="ml-auto px-4 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-600 focus:outline-non " onClick={handleGenerate}>Generate</button>
             </div>
 
 
-            <div className="itemBoxContainer">
+            <div className="flex flex-wrap justify-center overflow-y-auto overflow-custom mt-5"style={{ height: '80%' }}>
                 {randomItems.map(item => (
                     <div 
-                        className="itemBox" 
+                        className="bg-slate-100 p-4 m-2 rounded-lg shadow-md cursor-pointer hover:bg-gray-100 
+                        w-full sm:w-1/2 md:w-1/3 lg:w-1/8 xl:w-1/5"
                         key={item.name} 
                         onClick={() => {
                             setCurrentItemLink(item.link);
-                            setCurrentSS(item.servingSize)
+                            setCurrentSS(item.servingSize);
                             setCurrentNumServings(item.numServings);
                             setCurrentCaloriesPS(item.caloriesPS);
                             setCurrentFatPS(item.FatPS);
                             setCurrentCarbPS(item.CarbPS);
-                            setCurrentProteinPS(item.ProteinPS)
+                            setCurrentProteinPS(item.ProteinPS);
                             setItemModalOpen(true);
                         }}
                     >
-                        <div className="modalFront">
-                            <div className="itemName">{item.name}</div>
-                            <br></br>
-                            <div className="itemCount">Amount: {item.count}</div>
+                        <div className="flex flex-col text-center items-center">
+                            <div className="text-lg font-semibold text-gray-900">{item.name}</div>
+                            <div className="text-sm text-gray-700 mt-2">Amount: {item.count}</div>
                         </div>
-
                     </div>
                 ))}
             </div>
+
             <TransparentModal 
                 className="shared-background"
                 isOpen={isItemModalOpen} 
