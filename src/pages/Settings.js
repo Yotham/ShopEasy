@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, Button, StyleSheet, Modal, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { useAuth } from '../context/AuthContext';
 
 const Settings = () => {
   const navigation = useNavigation();
+
+  const { currentUser } = useAuth();
+  const username = currentUser ? currentUser.username : null;
 
   const [age, setAge] = useState('');
   const [height, setHeight] = useState('');
@@ -28,65 +32,57 @@ const Settings = () => {
 
   return (
     <View style={styles.container}>
-      <Text>Edit Profile</Text>
-      <TextInput
-        style={styles.input}
-        placeholder="Age"
-        value={age}
-        onChangeText={setAge}
-        keyboardType="numeric"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Height (cm)"
-        value={height}
-        onChangeText={setHeight}
-        keyboardType="numeric"
-      />
-      <TextInput
-        style={styles.input}
-        placeholder="Weight (lbs)"
-        value={weight}
-        onChangeText={setWeight}
-        keyboardType="numeric"
-      />
-      <TouchableOpacity style={styles.input} onPress={toggleGenderModal}>
-        <Text>{gender || 'Select Gender'}</Text>
-      </TouchableOpacity>
-      <Modal visible={genderModalVisible} transparent={true} animationType="slide">
-        <View style={styles.modalContainer}>
-          <TouchableOpacity style={styles.modalBackground} onPress={toggleGenderModal} />
-          <View style={styles.modalContent}>
-            <TouchableOpacity style={styles.modalItem} onPress={() => { setGender('Male'); toggleGenderModal(); }}>
-              <Text>Male</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.modalItem} onPress={() => { setGender('Female'); toggleGenderModal(); }}>
-              <Text>Female</Text>
-            </TouchableOpacity>
-          </View>
+      <Text style={styles.title}>Whats new, {username}? </Text>
+      <Text style={styles.inputLabel}>Age</Text>
+    <TextInput
+      style={styles.input}
+      placeholder={currentUser ? currentUser.age.toString() : ''} // Convert age to string
+      value={age}
+      onChangeText={setAge}
+      keyboardType="numeric"
+    />
+
+    <Text style={styles.inputLabel}>Height (cm)</Text>
+    <TextInput
+      style={styles.input}
+      placeholder={currentUser ? currentUser.height.toString() : ''}
+      value={height}
+      onChangeText={setHeight}
+      keyboardType="numeric"
+    />
+
+    <Text style={styles.inputLabel}>Weight (lbs)</Text>
+    <TextInput
+      style={styles.input}
+      placeholder={currentUser ? currentUser.weight.toString() : ''}
+      value={weight}
+      onChangeText={setWeight}
+      keyboardType="numeric"
+    />
+
+    <TouchableOpacity style={styles.input} onPress={toggleGoalModal}>
+      <Text>{goal || (currentUser ? currentUser.goal : '')}</Text>
+    </TouchableOpacity>
+
+    <Modal visible={goalModalVisible} transparent={true} animationType="slide">
+      <View style={styles.modalContainer}>
+        <TouchableOpacity style={styles.modalBackground} onPress={toggleGoalModal} />
+        <View style={styles.modalContent}>
+          <TouchableOpacity style={styles.modalItem} onPress={() => { setGoal('Gain Weight'); toggleGoalModal(); }}>
+            <Text>Gain Weight</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.modalItem} onPress={() => { setGoal('Lose Weight'); toggleGoalModal(); }}>
+            <Text>Lose Weight</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.modalItem} onPress={() => { setGoal('Maintain Weight'); toggleGoalModal(); }}>
+            <Text>Maintain Weight</Text>
+          </TouchableOpacity>
         </View>
-      </Modal>
-      <TouchableOpacity style={styles.input} onPress={toggleGoalModal}>
-        <Text>{goal || 'Select Goal'}</Text>
-      </TouchableOpacity>
-      <Modal visible={goalModalVisible} transparent={true} animationType="slide">
-        <View style={styles.modalContainer}>
-          <TouchableOpacity style={styles.modalBackground} onPress={toggleGoalModal} />
-          <View style={styles.modalContent}>
-            <TouchableOpacity style={styles.modalItem} onPress={() => { setGoal('Gain Weight'); toggleGoalModal(); }}>
-              <Text>Gain Weight</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.modalItem} onPress={() => { setGoal('Lose Weight'); toggleGoalModal(); }}>
-              <Text>Lose Weight</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.modalItem} onPress={() => { setGoal('Maintain Weight'); toggleGoalModal(); }}>
-              <Text>Maintain Weight</Text>
-            </TouchableOpacity>
-          </View>
-        </View>
-      </Modal>
-      <Button title="Save" onPress={handleSave} />
-    </View>
+      </View>
+    </Modal>
+
+    <Button title="Save" onPress={handleSave} />
+  </View>
   );
 };
 
@@ -96,6 +92,13 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  title: {
+    paddingBottom: 150,
+    justifyContent: 'flex-start',
+    fontFamily: 'AvenirNextCondensed-Heavy',
+    fontSize: 40,
+    marginBottom: 20,
+  },  
   input: {
     height: 40,
     width: '80%',
