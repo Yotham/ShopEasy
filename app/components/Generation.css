@@ -20,16 +20,16 @@
 
 /* Styles for the row of square boxes */
 .itemBoxContainer {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); /* Creates 10 columns */
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px; 
+    gap: 5px; /* Adjust gap as needed */
 }
 
 .itemBox {
     margin-top:20px;
-    width: 100px;
-    height: 100px;
+    width: 105px;
+    height: 150px;
     display: flex;
     justify-content: center;
     align-items: center;

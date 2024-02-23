@@ -44,7 +44,7 @@ export function getRandomItems(data, caloricGoal, minMeals = 10) {
     // Function to add item if it fits the calorie goal and meal constraints
     function addItemIfFits(item) {
         const potentialCalories = totalCalories + item.caloriesForAllServings;
-        if (potentialCalories <= caloricGoal && selectedItems.length < 21) {
+        if (potentialCalories <= caloricGoal) {
             totalCalories = potentialCalories;
             return true;
         }
@@ -63,7 +63,7 @@ export function getRandomItems(data, caloricGoal, minMeals = 10) {
                 }
             } else {
                 // If not selected yet, try to add first count
-                if (selectedItems.length < minMeals && addItemIfFits(item)) {
+                if (selectedItems.length <= 19 && addItemIfFits(item)) {
                     selectedItems.push({ ...item, count: 1 });
                 }
             }
