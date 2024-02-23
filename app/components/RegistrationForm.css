@@ -6,16 +6,16 @@
 
 }
 
-form {
+.regForm {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    padding: 20px;
+    padding: 50px;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
-    width: 300px;
     background-color: #f5f5f5;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+
 }
 
 label {

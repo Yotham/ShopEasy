@@ -1,13 +1,14 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './RegistrationForm.css';
+// Import Tailwind CSS file if needed - assuming global import in your project
 import { useRouter } from 'next/router';
 import { useAuth } from '../../context/AuthContext';
+
 function RegistrationForm({ setRegModalOpen }) {
-    const {register} = useAuth();
+    const { register } = useAuth();
     const [userData, setUserData] = useState({
         username: '',
         password: '',
-        height: [5, 0],  // Default height set to 5'0"
+        height: [5, 0], // Default height set to 5'0"
         weight: '',
         gender: 'Male',
         goal: 'Maintain Weight',
@@ -19,7 +20,7 @@ function RegistrationForm({ setRegModalOpen }) {
         const { name, value } = e.target;
         setUserData(prevState => ({ ...prevState, [name]: value }));
     };
-    
+
     const handleHeightChange = (type, value) => {
         const height = [...userData.height];
         if (type === "feet") height[0] = parseInt(value, 10);
@@ -80,109 +81,139 @@ function RegistrationForm({ setRegModalOpen }) {
         }
 
     };
-    
 
     useEffect(() => {
         function handleClickOutside(event) {
             if (modalRef.current && !modalRef.current.contains(event.target)) {
-                setRegModalOpen(false);  // Close the modal if click is outside
+                setRegModalOpen(false);
             }
         }
 
-        // Add the event listener
         document.addEventListener("mousedown", handleClickOutside);
-
-        // Cleanup the event listener on component unmount
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
     }, [setRegModalOpen]);
 
     return (
-        <div className="registration-modal" ref={modalRef}>
-            <form onSubmit={handleSubmit}>
-                <h2>Register</h2>
-                        <label>
-                            Username:
-                            <input
-                                type="text"
-                                name="username"
-                                value={userData.username}
-                                onChange={handleChange}
-                                required
-                            />
-                        </label>
+        <div className="flex items-center justify-center px-4 py-4" ref={modalRef}>
+            <form className="w-full max-w-md p-6 bg-white rounded shadow-md" onSubmit={handleSubmit}>
+                <h2 className="text-2xl font-bold text-center mb-4">Register</h2>
+                <div className="grid grid-cols-2 gap-2">
+                    <div className="flex flex-col gap-1">
+                        <label htmlFor="username" className="font-medium">Username:</label>
+                        <input
+                            id="username"
+                            type="text"
+                            name="username"
+                            value={userData.username}
+                            onChange={handleChange}
+                            required
+                            className="p-2 border border-gray-300 rounded focus:border-blue-500 focus:outline-none"
+                        />
+                    </div>
 
-                        <label>
-                            Password:
-                            <input
-                                type="password"
-                                name="password"
-                                value={userData.password}
-                                onChange={handleChange}
-                                required
-                            />
-                        </label>
-                        <label>
-                            Age:
-                            <input
-                                type="number"
-                                name="age"
-                                value={userData.age}
-                                onChange={handleChange}
-                                required
-                            />
-                        </label>
-                        <label>
-                            Height:
-                            <input 
-                                type="number" 
-                                name="heightFeet"
-                                value={userData.height ? userData.height[0] : ''}
-                                onChange={e => handleHeightChange('feet', e.target.value)}
-                                placeholder="Feet"
-                            />
-                            <input 
-                                type="number" 
-                                name="heightInches"
-                                value={userData.height ? userData.height[1] : ''}
-                                onChange={e => handleHeightChange('inches', e.target.value)}
-                                placeholder="Inches"
-                            />
-                        </label>
+                    <div className="flex flex-col gap-1">
+                        <label htmlFor="password" className="font-medium">Password:</label>
+                        <input
+                            id="password"
+                            type="password"
+                            name="password"
+                            value={userData.password}
+                            onChange={handleChange}
+                            required
+                            className="p-2 border border-gray-300 rounded focus:border-blue-500 focus:outline-none"
+                        />
+                    </div>
+                </div>
 
-                        <label>
-                            Weight (in lbs):
-                            <input
-                                type="number"
-                                name="weight"
-                                value={userData.weight}
-                                onChange={handleChange}
-                            />
-                        </label>
+                <div className="flex flex-col gap-1">
+                    <label htmlFor="age" className="font-medium">Age:</label>
+                    <input
+                        id="age"
+                        type="number"
+                        name="age"
+                        value={userData.age}
+                        onChange={handleChange}
+                        required
+                        className="p-2 border border-gray-300 rounded focus:border-blue-500 focus:outline-none"
+                    />
+                </div>
 
-                        <label>
-                            Gender:
-                            <select name="gender" value={userData.gender} onChange={handleChange}>
-                                <option value="">Select...</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Other">Other</option>
-                            </select>
-                        </label>
+                <div className="grid grid-cols-2 gap-2">
+                    <div className="flex flex-col gap-1">
+                        <label htmlFor="heightFeet" className="font-medium">Height (Feet):</label>
+                        <input
+                            id="heightFeet"
+                            type="number"
+                            name="heightFeet"
+                            value={userData.height[0]}
+                            onChange={e => handleHeightChange('feet', e.target.value)}
+                            className="p-2 border border-gray-300 rounded focus:border-blue-500 focus:outline-none"
+                        />
+                    </div>
+                    <div className="flex flex-col gap-1">
+                        <label htmlFor="heightInches" className="font-medium">Height (Inches):</label>
+                        <input
+                            id="heightInches"
+                            type="number"
+                            name="heightInches"
+                            value={userData.height[1]}
+                            onChange={e => handleHeightChange('inches', e.target.value)}
+                            className="p-2 border border-gray-300 rounded focus:border-blue-500 focus:outline-none"
+                        />
+                    </div>
+                </div>
 
-                        <label>
-                            Goal:
-                            <select name="goal" value={userData.goal} onChange={handleChange}>
-                                <option value="">Select...</option>
-                                <option value="Lose Weight">Lose Weight</option>
-                                <option value="Gain Weight">Gain Weight</option>
-                                <option value="Maintain Weight">Maintain Weight</option>
-                            </select>
-                        </label>
+                <div className="grid grid-cols-2 gap-2">
+                    <div className="flex flex-col gap-1">
+                        <label htmlFor="weight" className="font-medium">Weight (lbs):</label>
+                        <input
+                            id="weight"
+                            type="number"
+                            name="weight"
+                            value={userData.weight}
+                            onChange={handleChange}
+                            className="p-2 border border-gray-300 rounded focus:border-blue-500 focus:outline-none"
+                        />
+                    </div>
 
-                        <input type="submit" value="Register" />
-                    </form>
+                    <div className="flex flex-col gap-1">
+                        <label htmlFor="gender" className="font-medium">Gender:</label>
+                        <select
+                            id="gender"
+                            name="gender"
+                            value={userData.gender}
+                            onChange={handleChange}
+                            className="p-2 border border-gray-300 rounded focus:border-blue-500 focus:outline-none"
+                        >
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div className="flex flex-col gap-1">
+                    <label htmlFor="goal" className="font-medium">Goal:</label>
+                    <select
+                        id="goal"
+                        name="goal"
+                        value={userData.goal}
+                        onChange={handleChange}
+                        className="p-2 border border-gray-300 rounded focus:border-blue-500 focus:outline-none"
+                    >
+                        <option value="Lose Weight">Lose Weight</option>
+                        <option value="Gain Weight">Gain Weight</option>
+                        <option value="Maintain Weight">Maintain Weight</option>
+                    </select>
+                </div>
+
+                <input
+                    type="submit"
+                    value="Register"
+                    className="mt-4 px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 cursor-pointer w-full"
+                />
+            </form>
         </div>
     );
 }
