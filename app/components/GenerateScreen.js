@@ -58,13 +58,26 @@ function GenerateScreen() {
 
     return (
         <div className="main-div">
-            <div className="flex items-center justify-center bg-gray-100 p-2 rounded-lg shadow space-x-4">
+            <div className=" flex items-center justify-center bg-gray-100 p-2 rounded-lg shadow space-x-4">
                 <label htmlFor="groceryStore" className="text-lg font-medium text-gray-700">Grocery Store:</label>
                 <div className="relative flex-grow">
                     <DataDropdown onSelectData={handleDataSelection} className="block w-full px-2 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500" />
                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         {/* Assuming you might want to add an icon or similar here */}
                     </div>
+                {isGenerated && (
+                     <div className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 px-4">
+                        <div className = " flex flex-col items-center justify-center space-x-4 p-0">
+                            <p className="font-bold text-lg">Daily Average:</p>
+                            <div className="flex flex-row space-x-4">
+                                <p className="total-item"><strong>Calories:</strong> <br />{Math.round((totalCalories / 7) * 10) / 10}</p>
+                                <p className="total-item"><strong>Protein:</strong> <br />{Math.round((totalProtein / 7) * 10) / 10}g</p>
+                                <p className="total-item"><strong>Carbs:</strong> <br />{Math.round((totalCarbs / 7) * 100) / 100}g</p>
+                                <p className="total-item"><strong>Fats:</strong> <br />{Math.round((totalFats / 7) * 100) / 100}g</p>
+                            </div>
+                        </div>
+                    </div>
+                    )}
                 </div>
                 <button className="Generate px-4 py-2 bg-indigo-500 text-white font-bold rounded hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50" onClick={handleGenerate}>Generate</button>
             </div>
@@ -107,15 +120,6 @@ function GenerateScreen() {
                 CarbPS={currentCarbPS}
                 ProteinPS={currentProteinPS}
             />
-            {isGenerated && (
-                <div className="totals shared-background">
-                    <p className = "total-item"><strong>Daily:</strong></p>
-                    <p className="total-item"><strong>Calories:</strong> {Math.round((totalCalories/7)*10)/10}</p>
-                    <p className="total-item"><strong>Protein:</strong> {Math.round((totalProtein/7)*10)/10}g</p>
-                    <p className="total-item"><strong>Carbs:</strong> {Math.round((totalCarbs/7)*100)/100}g</p>
-                    <p className="total-item"><strong>Fats:</strong> {Math.round((totalFats/7)*100)/100}g</p>
-                </div>
-            )}
 
         </div>
     );
