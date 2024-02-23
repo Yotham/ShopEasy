@@ -34,3 +34,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# python
+*.pyc
+scrapers/walmart/walmartSpider/walmartSpider/spiders/__pycache__/walmart_spider.cpython-37.pyc
