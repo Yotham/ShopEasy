@@ -65,20 +65,21 @@ function GenerateScreen() {
                     <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
                         {/* Assuming you might want to add an icon or similar here */}
                     </div>
+                </div>
                 {isGenerated && (
-                     <div className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 px-4">
+                    //  <div className="absolute top-1/2 left-0 right-0 transform -translate-y-1/2 px-4">
+                    <div className="flex flex-col items-center justify-center mx-auto p-2" style={{ transform: 'translateX(-25vw)',}}>
                         <div className = " flex flex-col items-center justify-center space-x-4 p-0">
                             <p className="font-bold text-lg">Daily Average:</p>
-                            <div className="flex flex-row space-x-4">
-                                <p className="total-item"><strong>Calories:</strong> <br />{Math.round((totalCalories / 7) * 10) / 10}</p>
-                                <p className="total-item"><strong>Protein:</strong> <br />{Math.round((totalProtein / 7) * 10) / 10}g</p>
-                                <p className="total-item"><strong>Carbs:</strong> <br />{Math.round((totalCarbs / 7) * 100) / 100}g</p>
-                                <p className="total-item"><strong>Fats:</strong> <br />{Math.round((totalFats / 7) * 100) / 100}g</p>
+                            <div className="flex flex-row space-x-4 ">
+                                <p className="total-item"><strong>Calories:</strong> <br />{Math.floor((totalCalories / 7))}</p>
+                                <p className="total-item"><strong>Protein:</strong> <br />{Math.floor((totalProtein / 7))}g</p>
+                                <p className="total-item"><strong>Carbs:</strong> <br />{Math.floor((totalCarbs / 7))}g</p>
+                                <p className="total-item"><strong>Fats:</strong> <br />{Math.floor((totalFats / 7))}g</p>
                             </div>
                         </div>
                     </div>
                     )}
-                </div>
                 <button className="Generate px-4 py-2 bg-indigo-500 text-white font-bold rounded hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-opacity-50" onClick={handleGenerate}>Generate</button>
             </div>
 
