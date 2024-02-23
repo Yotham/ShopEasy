@@ -85,7 +85,7 @@ function GenerateScreen() {
             </div>
 
 
-            <div className="flex flex-wrap justify-center overflow-y-auto overflow-custom mt-5"style={{ height: '80%' }}>
+            <div className="flex flex-wrap justify-center overflow-y-auto overflow-custom mt-5"style={{ height: '70%' }}>
                 {randomItems.map(item => (
                     <div 
                         className="bg-slate-100 p-4 m-2 rounded-lg shadow-md cursor-pointer hover:bg-gray-100 
