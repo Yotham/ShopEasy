@@ -2,7 +2,6 @@
 "use client"
 import RegistrationForm from './RegistrationForm';
 import Modal from './Modal';
-import './Generation.css';
 import React, { useState} from 'react';
 import { useAuth } from '../../context/AuthContext';
 import dynamic from 'next/dynamic';

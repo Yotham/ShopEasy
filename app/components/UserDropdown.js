@@ -18,7 +18,7 @@ function UserDropdown() {
     };
     return (
         <div className="dropdown">
-            <div className="username">
+            <div className="text-sm bg-slate-200 hover:bg-slate-300 text-black font-bold py-2 px-4 rounded mr-2">
                 <button onClick={() => setIsOpen(!isOpen)}>
                     {username}
                 </button>

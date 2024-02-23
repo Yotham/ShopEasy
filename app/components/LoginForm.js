@@ -23,10 +23,11 @@ function LoginForm({ setCurrentUser, setLoginModalOpen }) {
         try{
             console.log('Submitting credentials:', credentials);
             await login(credentials);
-            router.push('/generate')
-            window.location.reload()
         }catch(error){
             console.error('Login Failed', error)
+        }
+        finally{
+            router.push('/generate')
         }
     };
 

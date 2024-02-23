@@ -4,7 +4,7 @@ import DataDropdown from './dataDropdown';
 import TransparentModal from './TransparentModal';
 import Data from '../Data/data.json';
 import Data2 from '../Data/hannafordData.json';
-import './Generation.css';
+
 import { useAuth } from '../../context/AuthContext';
 function GenerateScreen() {
     const [randomItems, setRandomItems] = useState([]);
