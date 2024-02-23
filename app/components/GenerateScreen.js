@@ -60,29 +60,33 @@ function GenerateScreen() {
         <div className="bg-black bg-opacity-10 m-5 p-5 rounded-lg shadow-md h-full">
 
 
-            <div className=" flex items-center justify-left bg-slate-100 p-5 rounded-lg shadow-md">
-                <div className = "flex flex-col items-center justify-left space-x-1">
+            <div className="flex flex-col sm:flex-row items-center bg-slate-100 p-5 rounded-lg shadow-md space-y-4 sm:space-y-0">
+
+                <div className="flex flex-col items-center space-x-1">
                     <label htmlFor="groceryStore" className="text-lg font-medium text-gray-700">Grocery Store:</label>
                     <div className="relative">
                         <DataDropdown onSelectData={handleDataSelection} className="block w-full px-2 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 z-1" />
                         <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                            {/* Assuming you might want to add an icon or similar here */}
+                            {/* Icon or similar here */}
                         </div>
                     </div>
                 </div>
+
                 {isGenerated && (
-                        <div className = "flex-grow flex flex-col justify-center items-center p-0">
-                            <p className="font-bold text-lg">Daily Average:</p>
-                            <div className="flex flex-row space-x-4 ">
-                                <p className="total-item"><strong>Calories:</strong> <br />{Math.floor((totalCalories / 7))}</p>
-                                <p className="total-item"><strong>Protein:</strong> <br />{Math.floor((totalProtein / 7))}g</p>
-                                <p className="total-item"><strong>Carbs:</strong> <br />{Math.floor((totalCarbs / 7))}g</p>
-                                <p className="total-item"><strong>Fats:</strong> <br />{Math.floor((totalFats / 7))}g</p>
-                            </div>
+                    <div className="flex-grow flex flex-col justify-center items-center p-0">
+                        <p className="font-bold text-lg">Daily Average:</p>
+                        <div className="flex flex-row space-x-4 ">
+                            <p className="total-item"><strong>Calories:</strong> <br />{Math.floor((totalCalories / 7))}</p>
+                            <p className="total-item"><strong>Protein:</strong> <br />{Math.floor((totalProtein / 7))}g</p>
+                            <p className="total-item"><strong>Carbs:</strong> <br />{Math.floor((totalCarbs / 7))}g</p>
+                            <p className="total-item"><strong>Fats:</strong> <br />{Math.floor((totalFats / 7))}g</p>
                         </div>
-                    )}
-                <button className="ml-auto px-4 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-600 focus:outline-non " onClick={handleGenerate}>Generate</button>
+                    </div>
+                )}
+
+                <button className="ml-0 sm:ml-auto px-4 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-600 focus:outline-none" onClick={handleGenerate}>Generate</button>
             </div>
+
 
 
             <div className="flex flex-wrap justify-center overflow-y-auto overflow-custom mt-5"style={{ height: '70%' }}>
