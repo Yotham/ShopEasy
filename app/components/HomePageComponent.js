@@ -5,11 +5,7 @@ import Modal from './Modal';
 import React, { useState} from 'react';
 import { useAuth } from '../../context/AuthContext';
 import dynamic from 'next/dynamic';
-
-const LoginForm = dynamic(
-    () => import('./LoginForm'),
-    { ssr: false }
-);
+import LoginForm from './LoginForm'
 
 function HomePageComponent() {    
     const {

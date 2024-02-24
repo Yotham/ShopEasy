@@ -14,11 +14,6 @@ function IndexPage() {
     } = useAuth();
     const router = useRouter();
 
-    useEffect(() => {
-        if (currentUser) {
-            router.push('/generate'); // Redirect if the user is logged in
-        }
-    }, [currentUser, router]);
 
 
     return (

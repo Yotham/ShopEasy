@@ -8,11 +8,7 @@ import Modal from './Modal';
 import dynamic from 'next/dynamic';
 import { useAuth } from '../../context/AuthContext';
 
-
-const LoginForm = dynamic(
-    () => import('./LoginForm'),
-    { ssr: false }
-);
+import LoginForm from './LoginForm'
 
 function Navbar() {
     const { 
@@ -22,6 +18,10 @@ function Navbar() {
         isRegModalOpen,     // Get these from the context
         isLoginModalOpen    // Get these from the context
     } = useAuth();
+
+    useEffect(() => {
+        console.log('Current user changed:', currentUser);
+    }, [currentUser]);
     return (
         <nav className="bg-gray-800 text-white px-4 py-2">
             <div className="flex-grow flex justify-between items-center mx-auto">
@@ -42,13 +42,14 @@ function Navbar() {
                         </div>
                     )}
                 </div>
-            </div>
-            <Modal isOpen={isRegModalOpen} onClose={() => setRegModalOpen(false)} title="Register">
+                <Modal isOpen={isRegModalOpen} onClose={() => setRegModalOpen(false)} title="Register">
                 <RegistrationForm setRegModalOpen={setRegModalOpen} />
-            </Modal>
-            <Modal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} title="Login">
-                <LoginForm setLoginModalOpen={setLoginModalOpen} />
-            </Modal>
+                </Modal>
+                <Modal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} title="Login">
+                    <LoginForm setLoginModalOpen={setLoginModalOpen} />
+                </Modal>
+            </div>
+
         </nav>
     );
 }

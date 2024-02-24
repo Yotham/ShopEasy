@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import './LoginForm.css';
 
 import { useAuth } from '../../context/AuthContext';
-function LoginForm({ setCurrentUser, setLoginModalOpen }) {
+function LoginForm({setLoginModalOpen }) {
     const router = useRouter();
     const { login } = useAuth(); // Destructure login from the context
     const [credentials, setCredentials] = useState({
@@ -22,12 +22,14 @@ function LoginForm({ setCurrentUser, setLoginModalOpen }) {
         e.preventDefault();
         try{
             console.log('Submitting credentials:', credentials);
-            await login(credentials);
+            const user = await login(credentials);
+            console.log(user)
+            if (user) {
+                console.log("User",user)
+                router.push('/generate');
+            }
         }catch(error){
             console.error('Login Failed', error)
-        }
-        finally{
-            router.push('/generate')
         }
     };
 

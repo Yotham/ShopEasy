@@ -8,6 +8,7 @@ export const AuthProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState('');
     const [isRegModalOpen, setRegModalOpen] = useState(false);
     const [isLoginModalOpen, setLoginModalOpen] = useState(false);
+    const [refetch, setRefetch] = useState(false);
     const login = async(credentials) =>{
         try {
             const response = await fetch('api/login', {
@@ -20,12 +21,13 @@ export const AuthProvider = ({ children }) => {
 
             const data = await response.json();
             console.log('Response data:', data);
-            setCurrentUser(data.user);
 
             if (response.ok) {
                 localStorage.setItem('token', data.token);
+                setCurrentUser(data.user);
                 setLoginModalOpen(false);
                 alert('Logged in successfully!');
+                return data.user; // Make sure you return the user he
             } else {
                 alert(data.message || 'Failed to login. Please try again.');
             }
@@ -91,6 +93,7 @@ export const AuthProvider = ({ children }) => {
                     if (response.ok) {
                         const data = await response.json();
                         setCurrentUser(data);
+                        console.log("Here",data)
                     } else {
                         // If token is invalid or expired, clear it from local storage
                         if (response.status === 401 || response.status === 403) {
@@ -107,7 +110,7 @@ export const AuthProvider = ({ children }) => {
         };
 
         fetchUserData();
-    }, []);
+    }, [refetch]);
     // Include any auth functions you need (e.g., login, logout)
 
     const contextValue = useMemo(() => ({
@@ -119,7 +122,7 @@ export const AuthProvider = ({ children }) => {
         setRegModalOpen,
         isLoginModalOpen,
         setLoginModalOpen,
-        register
+        register,
     }), [currentUser, isRegModalOpen, isLoginModalOpen]); // add other dependencies if needed
     
         
