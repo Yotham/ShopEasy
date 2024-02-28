@@ -14,7 +14,6 @@ export default async function handler(req, res) {
             if (existingUser) {
                 return res.status(409).json({ message: 'Username already taken' });
             }
-
             const hashedPassword = await bcrypt.hash(req.body.password, 8);
             const user = new User({
                 ...req.body,

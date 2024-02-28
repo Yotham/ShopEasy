@@ -1,3 +1,4 @@
+'use client'
 import React, { createContext, useState, useContext, useEffect, useMemo } from 'react';
 
 const AuthContext = createContext();
@@ -8,7 +9,8 @@ export const AuthProvider = ({ children }) => {
     const [currentUser, setCurrentUser] = useState('');
     const [isRegModalOpen, setRegModalOpen] = useState(false);
     const [isLoginModalOpen, setLoginModalOpen] = useState(false);
-    const [refetch, setRefetch] = useState(false);
+    const[logging,setLogging] = useState(false)
+
     const login = async(credentials) =>{
         try {
             const response = await fetch('api/login', {
@@ -23,11 +25,11 @@ export const AuthProvider = ({ children }) => {
             console.log('Response data:', data);
 
             if (response.ok) {
-                localStorage.setItem('token', data.token);
                 setCurrentUser(data.user);
+                setLogging(true)
                 setLoginModalOpen(false);
-                alert('Logged in successfully!');
-                return data.user; // Make sure you return the user he
+                localStorage.setItem('token', data.token);
+                alert("Login Successful")
             } else {
                 alert(data.message || 'Failed to login. Please try again.');
             }
@@ -78,39 +80,47 @@ export const AuthProvider = ({ children }) => {
     const handleLogout = () => {
         localStorage.removeItem('token');
         setCurrentUser(null);  // Update the state to trigger a re-render
+        setLogging(false)
     }
-    useEffect(() => {
-        const fetchUserData = async () => {
-            const token = localStorage.getItem('token');
-            if (token) {
-                try {
-                    const response = await fetch('/api/user/data', {
-                        headers: {
-                            'Authorization': `Bearer ${token}`
-                        }
-                    });
-
-                    if (response.ok) {
-                        const data = await response.json();
-                        setCurrentUser(data);
-                        console.log("Here",data)
-                    } else {
-                        // If token is invalid or expired, clear it from local storage
-                        if (response.status === 401 || response.status === 403) {
-                            localStorage.removeItem('token');
-                            setCurrentUser(null);
-                        } else {
-                            console.error('Failed to fetch user data:', response.status);
-                        }
+    const fetchUserData = async () => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            try {
+                const response = await fetch('/api/user/data', {
+                    headers: {
+                        'Authorization': `Bearer ${token}`
                     }
-                } catch (error) {
-                    console.error('Error fetching user data:', error);
-                }
-            }
-        };
+                });
 
+                if (response.ok) {
+                    const data = await response.json();
+                    setCurrentUser(data);
+                    console.log("Here",data)
+                } else {
+                    // If token is invalid or expired, clear it from local storage
+                    if (response.status === 401 || response.status === 403) {
+                        localStorage.removeItem('token');
+                        setCurrentUser(null);
+                    } else {
+                        console.error('Failed to fetch user data:', response.status);
+                    }
+                }
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+            }
+        }
+    };
+
+    useEffect(() => {
         fetchUserData();
-    }, [refetch]);
+    }, []); // This ensures fetchUserData runs once on component mount
+    // If you want to refetch user data on login/logout, consider using a state that changes on these actions
+    useEffect(() => {
+        if (logging) {
+            // Assuming currentUser is null or undefined when not logged in
+            fetchUserData();
+        }
+    }, [logging]); // This will trigger when currentUser changes
     // Include any auth functions you need (e.g., login, logout)
 
     const contextValue = useMemo(() => ({

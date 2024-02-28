@@ -4,21 +4,19 @@ import React, { useState, useEffect } from 'react';
 import './UserDropdown.css';
 import Link from 'next/link';  // Import from next/link
 import { useRouter } from 'next/router';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 function UserDropdown() {
     const [isOpen, setIsOpen] = useState(false);
     const {handleLogout } = useAuth(); // Destructure login from the context
-    const router = useRouter();
     const { currentUser } = useAuth();
     const username = currentUser.username
     const logout = async () => {
         await handleLogout();
-        router.push('/');  // Redirect to homepage using useRouter
         // Consider removing window.location.reload(); if you handle state correctly
     };
     return (
         <div className="dropdown">
-            <div className="text-sm bg-slate-200 hover:bg-slate-300 text-black font-bold py-2 px-4 rounded mr-2">
+            <div className="text-xl bg-slate-200 hover:bg-slate-300 text-black font-bold py-2 px-4 rounded mr-2">
                 <button onClick={() => setIsOpen(!isOpen)}>
                     {username}
                 </button>
@@ -28,7 +26,7 @@ function UserDropdown() {
                     <Link href="/account-settings">
                         Account Settings  {/* Use anchor tags inside Link */}
                     </Link> 
-                    <button onClick={logout}>Logout</button>
+                    <Link href = "/" onClick={logout}>Logout</Link>
                 </div>
             )}
         </div>

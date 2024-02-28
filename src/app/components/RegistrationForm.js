@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 // Import Tailwind CSS file if needed - assuming global import in your project
 import { useRouter } from 'next/router';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 
 function RegistrationForm({ setRegModalOpen }) {
     const { register } = useAuth();

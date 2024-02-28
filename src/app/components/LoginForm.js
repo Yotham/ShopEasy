@@ -1,11 +1,9 @@
+"use client"
 import React, { useState, useRef, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import './LoginForm.css';
-
-import { useAuth } from '../../context/AuthContext';
+import { useAuth } from '../context/AuthContext';
 function LoginForm({setLoginModalOpen }) {
-    const router = useRouter();
-    const { login } = useAuth(); // Destructure login from the context
+    const { login,setCurrentUser } = useAuth(); // Destructure login from the context
     const [credentials, setCredentials] = useState({
         username: '',
         password: ''
@@ -22,12 +20,8 @@ function LoginForm({setLoginModalOpen }) {
         e.preventDefault();
         try{
             console.log('Submitting credentials:', credentials);
-            const user = await login(credentials);
-            console.log(user)
-            if (user) {
-                console.log("User",user)
-                router.push('/generate');
-            }
+            await login(credentials);
+            window.location.href = '/generate'; // Redirect to the /generate page
         }catch(error){
             console.error('Login Failed', error)
         }

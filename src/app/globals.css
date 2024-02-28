@@ -1,3 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
 .App {
   display: flex;
   flex-direction: column;
@@ -5,8 +22,16 @@
   user-select:none;
 }
 
-body {
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+html,body {
   font-family: 'Ubuntu', sans-serif;
+  margin:0;
+  padding:0;
 }
 
 nav {
@@ -203,3 +228,5 @@ h1, h2, h3 {
   scrollbar-width: thin; /* Can be "auto", "thin", or "none" */
   scrollbar-color: #a0a0a0 #f0f0f0; /* thumb and track color */
 }
+
+
