@@ -12,15 +12,3 @@
     align-items: center;
     z-index:1000;
 }
-
-.modal {
-    background-color: white;
-    border-radius: 8px;
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
