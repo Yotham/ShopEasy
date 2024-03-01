@@ -19,7 +19,7 @@ function Navbar() {
     } = useAuth();
 
     return (
-        <nav className="primary-bg text-white shadow-lg">
+        <nav className="primary-bg text-white shadow-lg border-b-4">
             <div className={!currentUser ? " px-4 py-5 flex justify-between items-center" : "mx-auto px-4 py-5 flex justify-between items-center flex-grow"}>
                 <Link href={currentUser ? "/generate" : "/"} passHref className="text-3xl font-medium text-white flex items-center">
                         {/* Assuming you have the image in your public folder */}

@@ -9,7 +9,7 @@ import Navbar from './components/Navbar.js';
 import Footer from './components/Footer.js';
 import LoginForm from './components/LoginForm.js'
 import { TypewriterEffect } from './components/typewriter-effect.tsx';
-import image from "../../public/img/vege.jpg"
+import image from "../../public/img/kitchen.png"
 function Home() {    
     const words = [
         {
@@ -29,7 +29,7 @@ function Home() {
         },
         {
           text: "ShopEasy.",
-          className: "text-blue-500 dark:text-blue-500",
+          className: "primary-text",
         },
       ];
     const {
@@ -100,11 +100,11 @@ function Home() {
                         <LoginForm setLoginModalOpen={setLoginModalOpen} />
                     </Modal> }
                 </div>     */}
-                <div className="relative flex min-h-1/2 flex-col items-center justify-center h-[35rem] shadow-xl ">
+                <div className="relative flex min-h-1/2 flex-col items-center justify-center h-[30rem] shadow-xl ">
                     {/* Optional: Removed the inline comment for cleanliness */}
-                    <img className="absolute w-full h-[45rem] inset-0 object-cover bg-center object-top shadow-xl" src={image.src}></img>
-                    <div className="absolute inset-0  h-[45rem] bg-black bg-opacity-55 shadow-xl"></div> {/* Dark overlay */}
-                    <div className="relative z-10"> {/* Ensure content is above the overlay */}
+                    <img className="absolute w-full h-[40rem] inset-0 object-cover bg-center object-middle shadow-xl" src={image.src}></img>
+                    <div className="absolute inset-0  h-[40rem] bg-black bg-opacity-55 shadow-xl"></div> {/* Dark overlay */}
+                    <div className="relative z-10 items-center"> {/* Ensure content is above the overlay */}
                         <TypewriterEffect words={words} />
                         <div className="flex flex-col justify-center md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4 mt-10">
                             <button className="w-40 h-12 text-xl bg-slate-200 hover:bg-slate-300 text-black font-bold py-2 px-4 rounded mr-2" onClick={() => setLoginModalOpen(true)}>
@@ -122,35 +122,35 @@ function Home() {
                     <Modal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} title="Login">
                         <LoginForm setLoginModalOpen={setLoginModalOpen} />
                 </Modal> 
-                <div className="bg-gray-200 text-black mt-40 py-14">
+                <div className="secondary-bg primary-text mt-40 py-14">
                     <h2 className="text-center text-4xl font-medium">Meet The Team</h2>
                     <div className="mt-8 grid grid-cols-5 gap-4 mx-auto max-w-7xl px-4 font-medium">
                         {/* Card 1 */}
-                        <div className="flex flex-col items-center text-white rounded-lg shadow primary-bg text shadow-xl">
+                        <div className="team-member flex flex-col items-center text-white rounded-lg shadow primary-bg text shadow-xl">
                             <img src="/img/kyle.jpg" alt="Member 1" className="w-40 object-cover rounded-xl mt-6 border-4" />
                             <p className="mb-4 mt-2">Kyle Walker</p>
                         </div>
 
                         {/* Card 2 */}
-                        <div className="flex flex-col items-center text-white rounded-lg shadow primary-bg text shadow-xl">
+                        <div className="team-member flex flex-col items-center text-white rounded-lg shadow primary-bg text shadow-xl">
                             <img src="/img/ryan.jpg" alt="Member 2" className="w-40 object-cover rounded-xl mt-6 border-4" />
                             <p className="mb-4 mt-2">Ryan Kerr</p>
                         </div>
 
                         {/* Card 3 */}
-                        <div className="flex flex-col items-center text-white rounded-lg shadow primary-bg text shadow-xl">
+                        <div className="team-member flex flex-col items-center text-white rounded-lg shadow primary-bg text shadow-xl">
                             <img src="/img/yotham.jpg" alt="Member 3" className="w-40 object-cover rounded-xl mt-6 border-4" />
                             <p className="mb-4 mt-2">Yotham Sage</p>
                         </div>
 
                         {/* Card 4 */}
-                        <div className="flex flex-col items-center text-white rounded-lg shadow primary-bg text shadow-xl">
+                        <div className="team-member flex flex-col items-center text-white rounded-lg shadow primary-bg text shadow-xl">
                             <img src="/img/noah.jpg" alt="Member 4" className="w-40 object-cover rounded-xl mt-6 border-4" />
                             <p className="mb-4 mt-2">Noah Pedroso</p>
                         </div>
 
                         {/* Card 5 */}
-                        <div className="flex flex-col items-center text-white rounded-lg shadow primary-bg text shadow-xl">
+                        <div className="team-member flex flex-col items-center text-white rounded-lg shadow primary-bg text shadow-xl">
                             <img src="/img/isaac.jpg" alt="Member 5" className="w-40 object-cover rounded-xl mt-6 border-4" />
                             <p className="mb-4 mt-2">Isaac Foster</p>
                         </div>

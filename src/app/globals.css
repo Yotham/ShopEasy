@@ -213,5 +213,21 @@ h1, h2, h3 {
 
 
 .primary-bg{
-  background: rgb(20,20,20)
+  background: #92BCEA
+}
+
+.primary-text{
+  color:#92BCEA;
+}
+
+.secondary-bg{
+  background: white;
+}
+
+.team-member {
+  transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+.team-member:hover {
+  transform: scale(1.05); /* Slightly increase the size on hover */
 }
