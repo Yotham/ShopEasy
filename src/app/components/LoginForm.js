@@ -1,9 +1,8 @@
-"use client"
 import React, { useState, useRef, useEffect } from 'react';
-import './LoginForm.css';
 import { useAuth } from '../context/AuthContext';
-function LoginForm({setLoginModalOpen }) {
-    const { login,setCurrentUser } = useAuth(); // Destructure login from the context
+
+function LoginForm({ setLoginModalOpen }) {
+    const { login } = useAuth(); // Destructure login from the context
     const [credentials, setCredentials] = useState({
         username: '',
         password: ''
@@ -18,13 +17,13 @@ function LoginForm({setLoginModalOpen }) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        try{
+        try {
             console.log('Submitting credentials:', credentials);
             const redirect = await login(credentials);
-            console.log(redirect)
+            console.log(redirect);
             //window.location.href = '/generate'; // Redirect to the /generate page
-        }catch(error){
-            console.error('Login Failed', error)
+        } catch (error) {
+            console.error('Login Failed', error);
         }
     };
 
@@ -44,29 +43,43 @@ function LoginForm({setLoginModalOpen }) {
 
     return (
         <div className="login-modal z-50" ref={modalRef}>
-            <form onSubmit={handleSubmit}>
-                <h2>Login</h2>
-                <label>
-                    Username:
+            <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <h2 className="text-center text-2xl font-bold mb-4">Login</h2>
+                <div className="mb-4">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
+                        Username:
+                    </label>
                     <input
                         type="text"
                         name="username"
+                        id="username"
                         value={credentials.username}
                         onChange={handleChange}
                         required
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                     />
-                </label>
-                <label>
-                    Password:
+                </div>
+                <div className="mb-6">
+                    <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+                        Password:
+                    </label>
                     <input
                         type="password"
                         name="password"
+                        id="password"
                         value={credentials.password}
                         onChange={handleChange}
                         required
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
                     />
-                </label>
-                <input type="submit" value="Login" />
+                </div>
+                <div className="flex items-center justify-center"> {/* Updated class here */}
+                    <input
+                        type="submit"
+                        value="Login"
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                    />
+                </div>
             </form>
         </div>
     );

@@ -122,7 +122,7 @@ function Home() {
                     <Modal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} title="Login">
                         <LoginForm setLoginModalOpen={setLoginModalOpen} />
                 </Modal> 
-                <div className="secondary-bg primary-text mt-40 py-14">
+                <div className="secondary-bg primary-text font-medium mt-40 py-14">
                     <h2 className="text-center text-4xl font-medium">Meet The Team</h2>
                     <div className="mt-8 grid grid-cols-5 gap-4 mx-auto max-w-7xl px-4 font-medium">
                         {/* Card 1 */}
