@@ -11,6 +11,7 @@ function UserDropdown() {
     const { currentUser } = useAuth();
     const username = currentUser.username
     const logout = async () => {
+        window.location.href = '/'
         await handleLogout();
         // Consider removing window.location.reload(); if you handle state correctly
     };
@@ -26,7 +27,7 @@ function UserDropdown() {
                     <Link href="/account-settings">
                         Account Settings  {/* Use anchor tags inside Link */}
                     </Link> 
-                    <Link href = "/" onClick={logout}>Logout</Link>
+                    <button onClick={logout}>Logout</button>
                 </div>
             )}
         </div>

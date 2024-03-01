@@ -20,8 +20,9 @@ function LoginForm({setLoginModalOpen }) {
         e.preventDefault();
         try{
             console.log('Submitting credentials:', credentials);
-            await login(credentials);
-            window.location.href = '/generate'; // Redirect to the /generate page
+            const redirect = await login(credentials);
+            console.log(redirect)
+            //window.location.href = '/generate'; // Redirect to the /generate page
         }catch(error){
             console.error('Login Failed', error)
         }
