@@ -43,7 +43,7 @@ function LoginForm({setLoginModalOpen }) {
     }, [setLoginModalOpen]);
 
     return (
-        <div className="login-modal" ref={modalRef}>
+        <div className="login-modal z-50" ref={modalRef}>
             <form onSubmit={handleSubmit}>
                 <h2>Login</h2>
                 <label>

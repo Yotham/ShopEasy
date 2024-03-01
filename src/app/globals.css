@@ -32,6 +32,7 @@ html,body {
   font-family:Arial, Helvetica, sans-serif;
   margin:0;
   padding:0;
+  height: 100vh;
 }
 
 nav {
@@ -184,49 +185,33 @@ h1, h2, h3 {
   background-color: #0056b3;
 }
 
-/* Customizes the scrollbar itself */
-.overflow-custom::-webkit-scrollbar {
-  width: 8px; /* Adjust the width of the scrollbar */
+
+/* The entire scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  border-radius: 6px;
+
 }
 
-/* Customizes the background of the scrollbar track */
-.overflow-custom::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Light grey background */
+/* The background of the scrollbar tray */
+::-webkit-scrollbar-track {
+  background: transparent;
+  /*rgba(255, 255, 255, 0.30);  White with 30% opacity */
+  border-radius: 6px;
 }
 
-/* Customizes the draggable scrolling handle */
-.overflow-custom::-webkit-scrollbar-thumb {
-  background: #888; /* Darker grey handle */
+/* The scrollbar handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 6px;
 }
 
-/* Changes the color on hover */
-.overflow-custom::-webkit-scrollbar-thumb:hover {
-  background: #555; /* Darker handle on hover */
-}
-
-/* For webkit browsers like Chrome, Safari, and newer versions of Edge */
-*::-webkit-scrollbar {
-  width: 12px; /* Adjust the width of the scrollbar */
-}
-
-*::-webkit-scrollbar-track {
-  background: #f0f0f0; /* The track (background) of the scrollbar */
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: #a0a0a0; /* The scroll handle */
-  border-radius: 20px; /* Optional: adds rounded corners to the scroll handle */
-  border: 3px solid #f0f0f0; /* Optional: adds a border around the scroll handle */
-}
-
-*::-webkit-scrollbar-thumb:hover {
-  background-color: #808080; /* Color of the scroll handle on hover */
-}
-
-/* For Firefox */
-* {
-  scrollbar-width: thin; /* Can be "auto", "thin", or "none" */
-  scrollbar-color: #a0a0a0 #f0f0f0; /* thumb and track color */
+/* The scrollbar handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 
+.primary-bg{
+  background: rgb(20,20,20)
+}

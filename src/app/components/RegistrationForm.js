@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 // Import Tailwind CSS file if needed - assuming global import in your project
-import { useRouter } from 'next/router';
 import { useAuth } from '../context/AuthContext';
 
 function RegistrationForm({ setRegModalOpen }) {
@@ -28,7 +27,6 @@ function RegistrationForm({ setRegModalOpen }) {
         setUserData(prevState => ({ ...prevState, height }));
     };
 
-    const router = useRouter();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -74,8 +72,7 @@ function RegistrationForm({ setRegModalOpen }) {
 
         try{
             await register(userRegistrationData);
-            router.push('/generate'); // The navigate function is from useNavigate() hook from react-router-dom
-            window.location.reload()
+            window.location.href = "/generate"
         }catch(error){
             console.error("Registration Error", error)
         }

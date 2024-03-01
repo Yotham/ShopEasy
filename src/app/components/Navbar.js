@@ -1,53 +1,38 @@
 "use client"
-import React, { useState, useEffect } from 'react';
-import UserDropdown from './UserDropdown';
-import Link from 'next/link'; // Import from next/link
-import image from '../../../public/img/ShopEasyLogo.png'
-import RegistrationForm from './RegistrationForm';
-import LoginForm from './LoginForm';
-import Modal from './Modal';
-import dynamic from 'next/dynamic';
+import React from 'react';
+import Link from 'next/link';
 import { useAuth } from '../context/AuthContext';
+import dynamic from 'next/dynamic';
 
-// import LoginForm from './LoginForm'
+const UserDropdown = dynamic(() => import('./UserDropdown'));
+const Modal = dynamic(() => import('./Modal'));
+const RegistrationForm = dynamic(() => import('./RegistrationForm'));
+const LoginForm = dynamic(() => import('./LoginForm'));
 
 function Navbar() {
     const { 
         currentUser, 
         setLoginModalOpen, 
         setRegModalOpen,
-        isRegModalOpen,     // Get these from the context
-        isLoginModalOpen    // Get these from the context
+        isRegModalOpen,     
+        isLoginModalOpen    
     } = useAuth();
 
     return (
-        <nav className="bg-gray-800 text-white px-4 py-6">
-            <div className="flex-grow flex justify-between items-center mx-auto">
-                <Link href={currentUser ? "/generate" : "/"}>
-                    <img className="flex h-28" alt="ShopEasy Logo" src={image.src} />
+        <nav className="primary-bg text-white shadow-lg">
+            <div className={!currentUser ? "max-w-6xl mx-auto px-4 py-5 flex justify-between items-center" : "mx-auto px-4 py-5 flex justify-between items-center flex-grow"}>
+                <Link href={currentUser ? "/generate" : "/"} passHref className="text-3xl font-medium text-white flex items-center">
+                        {/* Assuming you have the image in your public folder */}
+                        {/* <img src="/img/ShopEasyLogo.png" alt="ShopEasy Logo" className="mr-3 h-16" /> */}
+                        ShopEasy
                 </Link>
-                <div className="mr-0 flex">
-                    {currentUser ? (
-                        <UserDropdown/>
-                    ) : (
-                        <div>
-                            <button className="text-xl bg-slate-200 hover:bg-slate-300 text-black font-bold py-2 px-4 rounded mr-4" onClick={() => setLoginModalOpen(true)}>
-                                Login
-                            </button>
-                            <button className="text-xl bg-slate-200 hover:bg-slate-300 text-black font-bold py-2 px-4 rounded" onClick={() => setRegModalOpen(true)}>
-                                Register
-                            </button>
-                        </div>
+                <div className="flex items-center">
+                    {currentUser && (
+                        <UserDropdown />
                     )}
                 </div>
-                <Modal isOpen={isRegModalOpen} onClose={() => setRegModalOpen(false)} title="Register">
-                <RegistrationForm setRegModalOpen={setRegModalOpen} />
-                </Modal>
-                <Modal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} title="Login">
-                    <LoginForm setLoginModalOpen={setLoginModalOpen} />
-                </Modal>
-            </div>
 
+            </div>
         </nav>
     );
 }
