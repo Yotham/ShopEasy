@@ -107,10 +107,10 @@ function Home() {
                     <div className="relative z-10"> {/* Ensure content is above the overlay */}
                         <TypewriterEffect words={words} />
                         <div className="flex flex-col justify-center md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4 mt-10">
-                            <button className="w-40 h-10 rounded-md bg-white border dark:border-white border-transparent text-black text-xl" onClick={() => setLoginModalOpen(true)}>
+                            <button className="w-40 h-12 text-xl bg-slate-200 hover:bg-slate-300 text-black font-bold py-2 px-4 rounded mr-2" onClick={() => setLoginModalOpen(true)}>
                             Login
                             </button>
-                            <button className="w-40 h-10 rounded-md bg-white border dark:border-white border-transparent text-black text-xl" onClick={() => setRegModalOpen(true)}>
+                            <button className="w-40 h-12 text-xl bg-slate-200 hover:bg-slate-300 text-black font-bold py-2 px-4 rounded mr-2" onClick={() => setRegModalOpen(true)}>
                             Signup
                             </button>
                         </div>
