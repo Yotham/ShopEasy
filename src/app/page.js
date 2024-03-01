@@ -10,6 +10,11 @@ import Footer from './components/Footer.js';
 import LoginForm from './components/LoginForm.js'
 import { TypewriterEffect } from './components/typewriter-effect.tsx';
 import image from "../../public/img/kitchen.png"
+
+function classNames(...classes) {
+    return classes.filter(Boolean).join(' ')
+}
+
 function Home() {    
     const words = [
         {
@@ -107,11 +112,32 @@ function Home() {
                     <div className="relative z-10 items-center"> {/* Ensure content is above the overlay */}
                         <TypewriterEffect words={words} />
                         <div className="flex flex-col items-center justify-center md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4 mt-10">
-                            <button className="w-40 h-12 text-xl bg-slate-200 hover:bg-slate-300 text-black font-bold py-2 px-4 rounded md:mr-2" onClick={() => setLoginModalOpen(true)}>
-                            Login
+                            <button
+                                className={classNames(
+                                    "group inline-block overflow-hidden rounded-sm px-12 py-3 text-sm font-medium text-[#92BCEA] bg-white focus:outline-none focus:ring",
+                                    isLoginModalOpen || isRegModalOpen ? "" : "relative"
+                                )}
+                                onClick={() => setLoginModalOpen(true)}
+                            >
+                                <span className="ease absolute left-0 top-0 h-0 w-0 border-t-2 border-[#92BCEA] transition-all duration-200 group-hover:w-full"></span>
+                                <span className="ease absolute right-0 top-0 h-0 w-0 border-r-2 border-[#92BCEA] transition-all duration-200 group-hover:h-full"></span>
+                                <span className="ease absolute bottom-0 right-0 h-0 w-0 border-b-2 border-[#92BCEA] transition-all duration-200 group-hover:w-full"></span>
+                                <span className="ease absolute bottom-0 left-0 h-0 w-0 border-l-2 border-[#92BCEA] transition-all duration-200 group-hover:h-full"></span>
+                                Login
                             </button>
-                            <button className="w-40 h-12 text-xl bg-slate-200 hover:bg-slate-300 text-black font-bold py-2 px-4 rounded " onClick={() => setRegModalOpen(true)}>
-                            Signup
+                            <button
+                                onClick={() => setRegModalOpen(true)}
+                                className={classNames(
+                                    "group inline-block overflow-hidden rounded-sm px-12 py-3 text-sm font-medium text-white backdrop-blur-sm focus:outline-none focus:ring",
+                                    isLoginModalOpen || isRegModalOpen ? "" : "relative"
+                                )}
+                            >
+                                <span className="ease absolute left-0 top-0 h-0 w-0 border-t-2 border-[#92BCEA] transition-all duration-200 group-hover:w-full"></span>
+                                <span className="ease absolute right-0 top-0 h-0 w-0 border-r-2 border-[#92BCEA] transition-all duration-200 group-hover:h-full"></span>
+                                <span className="ease absolute bottom-0 right-0 h-0 w-0 border-b-2 border-[#92BCEA] transition-all duration-200 group-hover:w-full"></span>
+                                <span className="ease absolute bottom-0 left-0 h-0 w-0 border-l-2 border-[#92BCEA] transition-all duration-200 group-hover:h-full"></span>
+                                Get Started
+                                <span aria-hidden="true">→</span>
                             </button>
                         </div>
                     </div>
