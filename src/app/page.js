@@ -140,6 +140,9 @@ function Home() {
                                 <span aria-hidden="true">→</span>
                             </button>
                         </div>
+                        <p className="text-white mt-10 mx-auto w-2/3 text-center font-thin">
+                            We leverage advanced algorithms and a robust database of foods and ingrdients from your local stores to help you meet your fitness goals.
+                        </p>
                     </div>
                 </div>
                 <Modal isOpen={isRegModalOpen} onClose={() => setRegModalOpen(false)} title="Register">
