@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 
 function RegistrationForm({ setRegModalOpen }) {
-    const { register } = useAuth();
+    const { register, setLoginModalOpen } = useAuth();
     const [userData, setUserData] = useState({
         username: '',
         password: '',
@@ -31,27 +31,38 @@ function RegistrationForm({ setRegModalOpen }) {
     const handleSubmit = async (e) => {
         e.preventDefault();
     
+        // getting data
+        const formData = new FormData(e.target);
+        const username = formData.get("username");
+        const password = formData.get("password");
+        const age = formData.get("age");
+        const heightFt = formData.get("feet");
+        const heightIn = formData.get("inches");
+        const weight = formData.get("weight");
+        const gender = formData.get("gender")
+        const goal = formData.get("goal");
+
         // Conversions
-        const heightInCm = ((userData.height[0] *12) + userData.height[1])* 2.54;
-        const weightInKg = userData.weight * 0.453592;
+        const heightInCm = ((heightFt * 12) + heightIn)* 2.54;
+        const weightInKg = formData.get("weight") * 0.453592;
         
         // BMR Calculation using userData.age
         let bmr;
-        if (userData.gender === "Male") {
-            bmr = 88.362 + (13.397 * weightInKg) + (4.799 * heightInCm) - (5.677 * userData.age);
-        } else if (userData.gender === "Female") {
-            bmr = 447.593 + (9.247 * weightInKg) + (3.098 * heightInCm) - (4.330 * userData.age);
+        if (gender === "Male") {
+            bmr = 88.362 + (13.397 * weightInKg) + (4.799 * heightInCm) - (5.677 * age);
+        } else if (gender === "Female") {
+            bmr = 447.593 + (9.247 * weightInKg) + (3.098 * heightInCm) - (4.330 * age);
         } else {  // For "Other" gender
-            const bmrMale = 88.362 + (13.397 * weightInKg) + (4.799 * heightInCm) - (5.677 * userData.age);
-            const bmrFemale = 447.593 + (9.247 * weightInKg) + (3.098 * heightInCm) - (4.330 * userData.age);
+            const bmrMale = 88.362 + (13.397 * weightInKg) + (4.799 * heightInCm) - (5.677 * age);
+            const bmrFemale = 447.593 + (9.247 * weightInKg) + (3.098 * heightInCm) - (4.330 * age);
             bmr = (bmrMale + bmrFemale) / 2;
         }
     
         // Caloric Goal Calculation
         let caloricGoal;
-        if (userData.goal === "Lose Weight") {
+        if (goal === "Lose Weight") {
             caloricGoal = bmr - 500; // Subtract 500 calories for weight loss
-        } else if (userData.goal === "Gain Weight") {
+        } else if (goal === "Gain Weight") {
             caloricGoal = bmr + 500; // Add 500 calories for weight gain
         } else {
             caloricGoal = bmr; // Maintain current weight
@@ -59,24 +70,24 @@ function RegistrationForm({ setRegModalOpen }) {
     
         // Prepare user data for registration
         const userRegistrationData = {
-            username: userData.username,
-            password: userData.password,
+            username: username,
+            password: password,
             height: heightInCm,
-            weight: userData.weight,
-            gender: userData.gender,
-            goal: userData.goal,
-            age: userData.age,
+            weight: weight,
+            gender: gender,
+            goal: goal,
+            age: age,
             bmr: bmr,
             caloricGoal: caloricGoal
         };
 
-        try{
+        try {
             await register(userRegistrationData);
-            window.location.href = "/generate"
-        }catch(error){
+            router.push('/generate'); // The navigate function is from useNavigate() hook from react-router-dom
+            window.location.reload()
+        } catch(error){
             console.error("Registration Error", error)
         }
-
     };
 
     useEffect(() => {
@@ -93,124 +104,156 @@ function RegistrationForm({ setRegModalOpen }) {
     }, [setRegModalOpen]);
 
     return (
-        <div className="flex items-center justify-center px-4 py-4" ref={modalRef}>
-            <form className="w-full max-w-md p-6 bg-white rounded shadow-md" onSubmit={handleSubmit}>
-                <h2 className="text-2xl font-bold text-center mb-4">Register</h2>
-                <div className="grid grid-cols-2 gap-2">
-                    <div className="flex flex-col gap-1">
-                        <label htmlFor="username" className="font-medium">Username:</label>
+        <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700" ref={modalRef}>
+            <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+                <h1 className="text-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
+                    Register for a free account
+                </h1>
+                <form className="space-y-2 md:space-y-2" onSubmit={handleSubmit}>
+                    <div>
+                        <label for="username" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Username</label>
                         <input
-                            id="username"
                             type="text"
                             name="username"
-                            value={userData.username}
-                            onChange={handleChange}
+                            id="username"
+                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            placeholder="username"
+                            autoComplete='username'
                             required
-                            className="p-2 border border-gray-300 rounded focus:border-blue-500 focus:outline-none"
                         />
                     </div>
-
-                    <div className="flex flex-col gap-1">
-                        <label htmlFor="password" className="font-medium">Password:</label>
+                    <div>
+                        <label for="password" className="block mt-6 mb-1 text-sm font-medium text-gray-900 dark:text-white">Password</label>
                         <input
-                            id="password"
                             type="password"
                             name="password"
-                            value={userData.password}
-                            onChange={handleChange}
+                            id="password"
+                            placeholder="••••••••••••••"
+                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            autoComplete='new-password'
                             required
-                            className="p-2 border border-gray-300 rounded focus:border-blue-500 focus:outline-none"
                         />
                     </div>
-                </div>
-
-                <div className="flex flex-col gap-1">
-                    <label htmlFor="age" className="font-medium">Age:</label>
-                    <input
-                        id="age"
-                        type="number"
-                        name="age"
-                        value={userData.age}
-                        onChange={handleChange}
-                        required
-                        className="p-2 border border-gray-300 rounded focus:border-blue-500 focus:outline-none"
-                    />
-                </div>
-
-                <div className="grid grid-cols-2 gap-2">
-                    <div className="flex flex-col gap-1">
-                        <label htmlFor="heightFeet" className="font-medium">Height (Feet):</label>
+                    <div>
+                        <label for="confirmpassword" className="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Confirm Password</label>
                         <input
-                            id="heightFeet"
+                            type="password"
+                            name="confirmpassword"
+                            id="confirmpassword"
+                            placeholder="••••••••••••••"
+                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            required
+                        />
+                    </div>
+                    <div>
+                        <label for="age" className="block mt-6 mb-1 text-sm font-medium text-gray-900 dark:text-white">Age</label>
+                        <input
                             type="number"
-                            name="heightFeet"
-                            value={userData.height[0]}
-                            onChange={e => handleHeightChange('feet', e.target.value)}
-                            className="p-2 border border-gray-300 rounded focus:border-blue-500 focus:outline-none"
+                            name="age"
+                            id="age"
+                            placeholder="Please enter your age"
+                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            required
                         />
                     </div>
-                    <div className="flex flex-col gap-1">
-                        <label htmlFor="heightInches" className="font-medium">Height (Inches):</label>
-                        <input
-                            id="heightInches"
+                    <div>
+                        <label htmlFor="feet" className="block mt-6 mb-1 text-sm font-medium text-gray-900 dark:text-white">
+                            Height
+                        </label>
+                        <div className="flex">
+                            <input
                             type="number"
-                            name="heightInches"
-                            value={userData.height[1]}
-                            onChange={e => handleHeightChange('inches', e.target.value)}
-                            className="p-2 border border-gray-300 rounded focus:border-blue-500 focus:outline-none"
-                        />
+                            name="feet"
+                            id="feet"
+                            placeholder='Feet'
+                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            required
+                            />
+                            <input
+                            type="number"
+                            name="inches"
+                            id="inches"
+                            placeholder='Inches'
+                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            required
+                            />
+                        </div>
                     </div>
-                </div>
-
-                <div className="grid grid-cols-2 gap-2">
-                    <div className="flex flex-col gap-1">
-                        <label htmlFor="weight" className="font-medium">Weight (lbs):</label>
+                    <div>
+                        <label for="weight" className="block mt-6 mb-1 text-sm font-medium text-gray-900 dark:text-white">Weight</label>
                         <input
-                            id="weight"
                             type="number"
                             name="weight"
-                            value={userData.weight}
-                            onChange={handleChange}
-                            className="p-2 border border-gray-300 rounded focus:border-blue-500 focus:outline-none"
+                            id="weight"
+                            placeholder="Please enter your weight"
+                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            required
                         />
                     </div>
-
-                    <div className="flex flex-col gap-1">
-                        <label htmlFor="gender" className="font-medium">Gender:</label>
-                        <select
-                            id="gender"
-                            name="gender"
-                            value={userData.gender}
-                            onChange={handleChange}
-                            className="p-2 border border-gray-300 rounded focus:border-blue-500 focus:outline-none"
-                        >
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
-                </div>
-                <div className="flex flex-col gap-1">
-                    <label htmlFor="goal" className="font-medium">Goal:</label>
+                    <label>
+                        Gender:
+                    </label>
                     <select
-                        id="goal"
-                        name="goal"
-                        value={userData.goal}
-                        onChange={handleChange}
-                        className="p-2 border border-gray-300 rounded focus:border-blue-500 focus:outline-none"
+                        name="gender"
+                        // value={userData.gender}
+                        className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+                        required
                     >
+                        <option value="">Select...</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <label>
+                        Goal:
+                    </label>
+                    <select
+                        name="goal"
+                        // value={userData.gender}
+                        className='bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500'
+                        required
+                    >
+                        <option value="">Select...</option>
                         <option value="Lose Weight">Lose Weight</option>
                         <option value="Gain Weight">Gain Weight</option>
                         <option value="Maintain Weight">Maintain Weight</option>
                     </select>
-                </div>
-
-                <input
-                    type="submit"
-                    value="Register"
-                    className="mt-4 px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 cursor-pointer w-full"
-                />
-            </form>
+                    <div className="flex items-center justify-between">
+                        {/* <div className="flex items-start">
+                            <div className="flex items-center h-5">
+                                <input
+                                    id="remember"
+                                    aria-describedby="remember"
+                                    type="checkbox"
+                                    className="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-primary-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-primary-600 dark:ring-offset-gray-800"
+                                    required=""
+                                />
+                            </div>
+                            <div className="ml-3 text-sm">
+                                <label for="remember" className="text-gray-500 dark:text-gray-300">Remember me</label>
+                            </div>
+                        </div>
+                        <a href="#" className="text-sm font-medium text-primary-600 hover:underline dark:text-primary-500">Forgot password?</a> */}
+                    </div>
+                    <button 
+                        type="submit"
+                        className="w-full text-white bg-[#7AA7EB] hover:bg-[#92BCEA] focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                            Sign Up
+                    </button>
+                </form>
+                <p className="text-sm font-light text-gray-500 dark:text-gray-400">
+                    Already have an account? {' '}
+                    <button
+                        onClick={() => {
+                            setRegModalOpen(false);
+                            setLoginModalOpen(true);
+                        }}
+                        className="font-medium text-primary-600 hover:underline dark:text-primary-500"
+                    >
+                        Log in
+                    </button>
+                </p>
+            </div>
         </div>
     );
 }

@@ -136,7 +136,7 @@ function Home() {
                                 <span className="ease absolute right-0 top-0 h-0 w-0 border-r-2 border-[#92BCEA] transition-all duration-200 group-hover:h-full"></span>
                                 <span className="ease absolute bottom-0 right-0 h-0 w-0 border-b-2 border-[#92BCEA] transition-all duration-200 group-hover:w-full"></span>
                                 <span className="ease absolute bottom-0 left-0 h-0 w-0 border-l-2 border-[#92BCEA] transition-all duration-200 group-hover:h-full"></span>
-                                Get Started
+                                Get Started&nbsp;
                                 <span aria-hidden="true">→</span>
                             </button>
                         </div>
