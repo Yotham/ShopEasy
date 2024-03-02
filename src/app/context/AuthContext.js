@@ -1,15 +1,16 @@
 'use client'
 import React, { createContext, useState, useContext, useEffect, useMemo } from 'react';
-
 const AuthContext = createContext();
 
 export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
+
     const [currentUser, setCurrentUser] = useState('');
     const [isRegModalOpen, setRegModalOpen] = useState(false);
     const [isLoginModalOpen, setLoginModalOpen] = useState(false);
     const[logging,setLogging] = useState(false)
+
 
     const login = async(credentials) =>{
         try {
