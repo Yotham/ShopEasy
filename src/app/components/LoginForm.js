@@ -103,7 +103,7 @@ function LoginForm({ setLoginModalOpen }) {
                     </button>
                 </form>
                 <p className="text-sm font-light text-gray-500 dark:text-gray-400">
-                    Don't have an account yet? {' '}
+                    Don{"'"}t have an account yet? {' '}
                     <button
                         onClick={() => {
                             setRegModalOpen(true);
