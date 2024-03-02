@@ -10,6 +10,7 @@ import Footer from './components/Footer.js';
 import LoginForm from './components/LoginForm.js'
 import { TypewriterEffect } from './components/typewriter-effect.tsx';
 import image from "../../public/img/kitchen.png"
+import Slideshow from './components/Slideshow.js'
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -148,35 +149,38 @@ function Home() {
                     <Modal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} title="Login">
                         <LoginForm setLoginModalOpen={setLoginModalOpen} />
                 </Modal> 
-                <div className="secondary-bg primary-text font-medium mt-40 py-14">
-                    <h2 className="text-center text-4xl font-medium">Meet The Team</h2>
+                <div className="mt-40 secondary-bg primary-text rounded-lg mb-0">
+                    <Slideshow></Slideshow>
+                </div>
+                <div className="primary-bg text-white font-medium py-14">
+                    <h2 className="text-center text-5xl font-medium">Meet The Team</h2>
                     <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mx-auto max-w-7xl px-4 font-medium">
                         {/* Card 1 */}
-                        <div className="team-member flex flex-col items-center text-white rounded-lg shadow primary-bg text shadow-xl">
+                        <div className="team-member flex flex-col items-center primary-text rounded-lg shadow secondary-bg text shadow-xl">
                             <img src="/img/kyle.jpg" alt="Member 1" className="w-40 object-cover rounded-xl mt-6 border-4" />
                             <p className="mb-4 mt-2">Kyle Walker</p>
                         </div>
 
                         {/* Card 2 */}
-                        <div className="team-member flex flex-col items-center text-white rounded-lg shadow primary-bg text shadow-xl">
+                        <div className="team-member flex flex-col items-center primary-text rounded-lg shadow secondary-bg text shadow-xl">
                             <img src="/img/ryan.jpg" alt="Member 2" className="w-40 object-cover rounded-xl mt-6 border-4" />
                             <p className="mb-4 mt-2">Ryan Kerr</p>
                         </div>
 
                         {/* Card 3 */}
-                        <div className="team-member flex flex-col items-center text-white rounded-lg shadow primary-bg text shadow-xl">
+                        <div className="team-member flex flex-col items-center primary-text rounded-lg shadow secondary-bg text shadow-xl">
                             <img src="/img/yotham.jpg" alt="Member 3" className="w-40 object-cover rounded-xl mt-6 border-4" />
                             <p className="mb-4 mt-2">Yotham Sage</p>
                         </div>
 
                         {/* Card 4 */}
-                        <div className="team-member flex flex-col items-center text-white rounded-lg shadow primary-bg text shadow-xl">
+                        <div className="team-member flex flex-col items-center primary-text rounded-lg shadow secondary-bg text shadow-xl">
                             <img src="/img/noah.jpg" alt="Member 4" className="w-40 object-cover rounded-xl mt-6 border-4" />
                             <p className="mb-4 mt-2">Noah Pedroso</p>
                         </div>
 
                         {/* Card 5 */}
-                        <div className="team-member flex flex-col items-center text-white rounded-lg shadow primary-bg text shadow-xl">
+                        <div className="team-member flex flex-col items-center primary-text rounded-lg shadow secondary-bg text shadow-xl">
                             <img src="/img/isaac.jpg" alt="Member 5" className="w-40 object-cover rounded-xl mt-6 border-4" />
                             <p className="mb-4 mt-2">Isaac Foster</p>
                         </div>

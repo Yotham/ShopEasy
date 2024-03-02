@@ -1,0 +1,25 @@
+/* SliderStyles.css */
+.slick-dots li button:before {
+    color: black !important;
+  }
+  
+
+.slick-prev{
+  padding:0px;
+  left:-35px;
+}
+
+.slick-arrow{
+  color:red;
+}
+.slick-next{
+
+  padding:0px;
+  right:-35px;
+}
+
+.slick-prev:before, .slick-next:before{
+  line-height: 1.10;
+  color:#92BCEA;
+  background:white;
+}

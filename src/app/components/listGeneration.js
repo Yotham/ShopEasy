@@ -63,7 +63,7 @@ export function getRandomItems(data, caloricGoal, minMeals = 10) {
                 }
             } else {
                 // If not selected yet, try to add first count
-                if (selectedItems.length <= 19 && addItemIfFits(item)) {
+                if (selectedItems.length <= 20 && addItemIfFits(item)) {
                     selectedItems.push({ ...item, count: 1 });
                 }
             }

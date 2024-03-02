@@ -27,7 +27,6 @@ export const TypewriterEffect = ({
   const [scope, animate] = useAnimate();
   const isInView = useInView(scope);
   useEffect(() => {
-    if (isInView) {
       animate(
         "span",
         {
@@ -40,8 +39,8 @@ export const TypewriterEffect = ({
           ease: "easeInOut",
         }
       );
-    }
-  }, [isInView]);
+    
+  },[]);
 
   const renderWords = () => {
     return (
