@@ -7,6 +7,9 @@ import Data from '../Data/data.json';
 import Data2 from '../Data/hannafordData.json';
 import Navbar from '../components/Navbar.js';
 import Footer from '../components/Footer.js';
+import {
+    InformationCircleIcon,
+} from '@heroicons/react/20/solid';
 
 import { useAuth } from '../context/AuthContext';
 function Generate() {
@@ -133,18 +136,26 @@ function Generate() {
                     </div>
 
                     {isGenerated && (
-                        <div className="flex-grow flex flex-col justify-center items-center p-0">
-                            <p className="font-bold text-lg">Daily Average:</p>
-                            <div className="flex flex-row space-x-4 ">
-                                <p className="total-item"><strong>Calories:</strong> <br />{Math.floor((totalCalories / 7))}</p>
-                                <p className="total-item"><strong>Protein:</strong> <br />{Math.floor((totalProtein / 7))}g</p>
-                                <p className="total-item"><strong>Carbs:</strong> <br />{Math.floor((totalCarbs / 7))}g</p>
-                                <p className="total-item"><strong>Fats:</strong> <br />{Math.floor((totalFats / 7))}g</p>
+                        <div className="w-full justify-center">
+                            <div className="flex-grow flex flex-col justify-center items-center p-0">
+                                <p className="font-bold text-lg">Daily Average:</p>
+                                <div className="flex flex-row space-x-4 ">
+                                    <p className="total-item"><strong>Calories:</strong> <br />{Math.floor((totalCalories / 7))}</p>
+                                    <p className="total-item"><strong>Protein:</strong> <br />{Math.floor((totalProtein / 7))}g</p>
+                                    <p className="total-item"><strong>Carbs:</strong> <br />{Math.floor((totalCarbs / 7))}g</p>
+                                    <p className="total-item"><strong>Fats:</strong> <br />{Math.floor((totalFats / 7))}g</p>
+                                </div>
                             </div>
                         </div>
                     )}
-
-                    <button className="text-xl bg-slate-200 hover:bg-slate-300 text-black font-bold py-2 px-4 rounded mr-2 ml-0 sm:ml-auto" onClick={handleGenerate}>Generate</button>
+                    <div className={`text-right ${isGenerated? '' : 'w-full'}`}>
+                        <button
+                            onClick={handleGenerate}
+                            className="font-bold border-2 border-shopeasy-blue py-2 px-10 rounded-md hover:bg-gradient-to-r hover:from-shopeasy-blue hover:to-white focus:outline-none focus:ring-2 focus:ring-shopeasy-blue focus:ring-opacity-50"
+                        >
+                            {isGenerated ? 'Regenerate' : 'Generate'}
+                        </button>
+                    </div>
                 </div>
 
                 {/* {!isGenerated && (
@@ -156,21 +167,23 @@ function Generate() {
                 <div className="flex flex-wrap justify-center mt-5 overflow-auto max-h-96 primary-bg ">
                     {randomItems.map(item => (
                         <div 
-                            className="secondary-bg p-4 m-2 rounded-lg shadow-md cursor-pointer hover:bg-gray-100 
-                            w-full sm:w-1/2 md:w-1/3 lg:w-1/8 xl:w-1/5"
+                            className="relative secondary-bg p-4 m-2 rounded-lg shadow-md w-full sm:w-1/2 md:w-1/3 lg:w-1/8 xl:w-1/5"
                             key={item.name} 
-                            onClick={() => {
-                                setCurrentItemLink(item.link);
-                                setCurrentSS(item.servingSize);
-                                setCurrentNumServings(item.numServings);
-                                setCurrentCaloriesPS(item.caloriesPS);
-                                setCurrentFatPS(item.FatPS);
-                                setCurrentCarbPS(item.CarbPS);
-                                setCurrentProteinPS(item.ProteinPS);
-                                setItemModalOpen(true);
-                            }}
                         >
-                            <div className="flex flex-col text-center items-center">
+                            <InformationCircleIcon
+                                onClick={() => {
+                                    setCurrentItemLink(item.link);
+                                    setCurrentSS(item.servingSize);
+                                    setCurrentNumServings(item.numServings);
+                                    setCurrentCaloriesPS(item.caloriesPS);
+                                    setCurrentFatPS(item.FatPS);
+                                    setCurrentCarbPS(item.CarbPS);
+                                    setCurrentProteinPS(item.ProteinPS);
+                                    setItemModalOpen(true);
+                                }}
+                                className="absolute top-2 right-2 h-6 w-6 text-gray-500 hover:text-gray-400"
+                            />
+                            <div className="flex flex-col text-center items-center pt-4">
                                 <div className="text-lg font-semibold text-gray-900">{item.name}</div>
                                 <div className="text-sm text-gray-700 mt-2">Amount: {item.count}</div>
                             </div>
