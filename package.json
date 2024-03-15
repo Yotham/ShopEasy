@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
     "bcryptjs": "^2.4.3",
     "clsx": "^2.1.0",
