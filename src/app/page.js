@@ -188,7 +188,7 @@ function Home() {
                             <p className="mb-4 mt-2">Isaac Foster</p>
                         </div>
                     </div>
-                    <p className = "text-center text-xl mt-10">Dedicated eliminating the stress of meal planning by allowing user{"'"}s to instantly generate meals for the week aligning with their caloric and macronutrient needs.</p>
+                    <p className = "text-center text-xl mt-10">Dedicated eliminating the stress of meal planning by allowing users to instantly generate meals for the week aligning with their caloric and macronutrient needs.</p>
 
                 </div>
 
