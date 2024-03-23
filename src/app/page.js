@@ -157,35 +157,35 @@ function Home() {
                 </div>
                 <div className="primary-bg text-white font-medium py-14">
                     <h2 className="text-center text-5xl font-medium">Meet The Team</h2>
-                    <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 mx-auto max-w-7xl px-4 font-medium">
+                    <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2 mx-auto max-w-5xl px-4 font-medium">
                         {/* Card 1 */}
-                        <div className="team-member flex flex-col items-center primary-text rounded-lg shadow secondary-bg text shadow-xl">
-                            <img src="/img/kyle.jpg" alt="Member 1" className="w-40 object-cover rounded-xl mt-6 border-4" />
-                            <p className="mb-4 mt-2">Kyle Walker</p>
+                        <div className="team-member flex flex-col items-center primary-text">
+                            <img src="/img/kyle.jpg" alt="Member 1" className="w-40 object-cover mt-6 border-4 rounded-t-xl" />
+                            <p className="mb-4 mt-2 bg-gray-200 pb-2 mt-0 w-40 text-center border-t-2 rounded-b-xl ">Kyle Walker</p>
                         </div>
 
                         {/* Card 2 */}
-                        <div className="team-member flex flex-col items-center primary-text rounded-lg shadow secondary-bg text shadow-xl">
-                            <img src="/img/ryan.jpg" alt="Member 2" className="w-40 object-cover rounded-xl mt-6 border-4" />
-                            <p className="mb-4 mt-2">Ryan Kerr</p>
+                        <div className="team-member flex flex-col items-center primary-text">
+                            <img src="/img/ryan.jpg" alt="Member 2" className="w-40 object-cover mt-6 border-4 rounded-t-xl" />
+                            <p className="mb-4 mt-2 bg-gray-200 pb-2 mt-0 w-40 text-center border-t-2 rounded-b-xl">Ryan Kerr</p>
                         </div>
 
                         {/* Card 3 */}
-                        <div className="team-member flex flex-col items-center primary-text rounded-lg shadow secondary-bg text shadow-xl">
-                            <img src="/img/yotham.jpg" alt="Member 3" className="w-40 object-cover rounded-xl mt-6 border-4" />
-                            <p className="mb-4 mt-2">Yotham Sage</p>
+                        <div className="team-member flex flex-col items-center primary-text">
+                            <img src="/img/yotham.jpg" alt="Member 3" className="w-40 object-cover mt-6 border-4 rounded-t-xl" />
+                            <p className="mb-4 mt-2 bg-gray-200 pb-2 mt-0 w-40 text-center border-t-2 rounded-b-xl">Yotham Sage</p>
                         </div>
 
                         {/* Card 4 */}
-                        <div className="team-member flex flex-col items-center primary-text rounded-lg shadow secondary-bg text shadow-xl">
-                            <img src="/img/noah.jpg" alt="Member 4" className="w-40 object-cover rounded-xl mt-6 border-4" />
-                            <p className="mb-4 mt-2">Noah Pedroso</p>
+                        <div className="team-member flex flex-col items-center primary-text">
+                            <img src="/img/noah.jpg" alt="Member 4" className="w-40 object-cover mt-6 border-4 rounded-t-xl" />
+                            <p className="mb-4 mt-2 bg-gray-200 pb-2 mt-0 w-40 text-center border-t-2 rounded-b-xl">Noah Pedroso</p>
                         </div>
 
                         {/* Card 5 */}
-                        <div className="team-member flex flex-col items-center primary-text rounded-lg shadow secondary-bg text shadow-xl">
-                            <img src="/img/isaac.jpg" alt="Member 5" className="w-40 object-cover rounded-xl mt-6 border-4" />
-                            <p className="mb-4 mt-2">Isaac Foster</p>
+                        <div className="team-member flex flex-col items-center primary-text">
+                            <img src="/img/isaac.jpg" alt="Member 5" className="w-40 object-cover mt-6 border-4 rounded-t-xl" />
+                            <p className="mb-4 mt-2 bg-gray-200 pb-2 mt-0 w-40 text-center border-t-2 rounded-b-xl">Isaac Foster</p>
                         </div>
                     </div>
                     <p className = "text-center text-xl mt-10">Dedicated eliminating the stress of meal planning by allowing user{"'"}s to instantly generate meals for the week aligning with their caloric and macronutrient needs.</p>
