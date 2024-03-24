@@ -1,7 +1,6 @@
 // src/components/AccountSettings.js
 "use client"
 import React, { useState,useEffect } from 'react';
-import './AccountSettings.css';
 import { useAuth } from '../context/AuthContext';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
@@ -89,69 +88,98 @@ function AccountSettings() {
     };
 
     return (
-        <div className = "h-screen">
-        <Navbar></Navbar>
-        <h2 className = "text-4xl pt-12 mb-4 text-center">Account Settings</h2>
-        <center> <form className = " mb-24 max-w-3xl w-full text-xl" onSubmit={handleSubmit}>
-                {/* ... existing input fields for username and password ... */}
-                <label>
-                    Age:
-                    <input
-                        type="number"
-                        name="age"
-                        value={updatedUser.age}
-                        onChange={handleChange}
-                    />
-                </label>
-                <label>
-                    Height:
-                    <input 
-                        type="number" 
-                        value={updatedUser.height[0]}
-                        onChange={e => handleHeightChange('feet', e.target.value)}
-                        placeholder="Feet"
-                    />
-                    <input 
-                        className = "mt-2 "
-                        type="number" 
-                        value={updatedUser.height[1]}
-                        onChange={e => handleHeightChange('inches', e.target.value)}
-                        placeholder="Inches"
-                    />
-                </label>
-
-                <label>
-                    Weight (in lbs):
-                    <input
-                        type="number"
-                        name="weight"
-                        value={updatedUser.weight}
-                        onChange={handleChange}
-                    />
-                </label>
-
-                <label>
-                    Gender:
-                    <select name="gender" value={updatedUser.gender} onChange={handleChange}>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </label>
-
-                <label>
-                    Goal:
-                    <select name="goal" value={updatedUser.goal} onChange={handleChange}>
-                        <option value="Lose Weight">Lose Weight</option>
-                        <option value="Gain Weight">Gain Weight</option>
-                        <option value="Maintain Weight">Maintain Weight</option>
-                    </select>
-                </label>
-
-                <input type="submit" value="Update" />
-            </form></center>
-            <Footer></Footer>
-         </div>
+        <>
+            <Navbar />
+            <div className="min-h-screen">
+                <h2 className="text-4xl pt-12 mb-4 text-center">
+                    Account Settings
+                </h2>
+                <form className="mx-auto max-w-3xl w-full text-xl lg:space-y-2 2xl:space-y-6" onSubmit={handleSubmit}>
+                    {/* ... existing input fields for username and password ... */}
+                    <div className="grid grid-cols-2 items-center p-2">
+                        <label>
+                            Age:
+                        </label>
+                        <input
+                            className="border borer-gray-300 p-2 rounded-md w-full"
+                            type="number"
+                            name="age"
+                            value={updatedUser.age}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="bg-gray-300 h-[1px] w-full" />
+                    <div className="grid grid-cols-2 items-center p-2">
+                        <label>
+                            Height:
+                        </label>
+                        <div className="grid grid-cols-2">
+                            <input
+                                className="border borer-gray-300 p-2 rounded-md w-full"
+                                type="number" 
+                                value={updatedUser.height[0]}
+                                onChange={e => handleHeightChange('feet', e.target.value)}
+                                placeholder="Feet"
+                            />
+                            <input
+                                className="border borer-gray-300 p-2 rounded-md w-full"
+                                type="number" 
+                                value={updatedUser.height[1]}
+                                onChange={e => handleHeightChange('inches', e.target.value)}
+                                placeholder="Inches"
+                            />
+                        </div>
+                    </div>
+                    <div className="bg-gray-300 h-[1px] w-full" />
+                    <div className="grid grid-cols-2 items-center p-2">
+                        <label>
+                            Weight (in lbs):
+                        </label>
+                        <input
+                            className="border borer-gray-300 p-2 rounded-md w-full"
+                            type="number"
+                            name="weight"
+                            value={updatedUser.weight}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="bg-gray-300 h-[1px] w-full" />
+                    <div className="grid grid-cols-2 items-center p-2">
+                        <label>
+                            Gender:
+                        </label>
+                        <select
+                            className="border borer-gray-300 p-2 rounded-md w-full"
+                            name="gender" value={updatedUser.gender} onChange={handleChange}
+                        >
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div className="bg-gray-300 h-[1px] w-full" />
+                    <div className="grid grid-cols-2 items-center p-2">
+                        <label>
+                            Goal:
+                        </label>
+                        <select
+                            className="border borer-gray-300 p-2 rounded-md w-full"
+                            name="goal" value={updatedUser.goal} onChange={handleChange}
+                        >
+                            <option value="Lose Weight">Lose Weight</option>
+                            <option value="Gain Weight">Gain Weight</option>
+                            <option value="Maintain Weight">Maintain Weight</option>
+                        </select>
+                    </div>
+                    <div className="w-full text-center p-4">
+                        <button className="bg-shopeasy-blue px-8 py-2 rounded-lg text-white hover:bg-blue-200" type="submit">
+                            Update
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <Footer />
+        </>
     );
 }
 
