@@ -86,26 +86,7 @@ function Home() {
     if(!currentUser){
         return (
             <div>
-                <Navbar></Navbar>
-                {/* <div className="flex flex-col h-dvh items-center justify-center">                
-                    <h1 className = 'text-7xl font-medium py'>Welcome to ShopEasy!</h1>
-                    <p className="text-3xl mt-4">
-                        Explore our unique features and find the best items tailored to your nutritional goals.
-                        Sign up now to get started!
-                    </p>
-
-                    {/* <div className="button-container">
-                        <button className="login-button" onClick={() => setLoginModalOpen(true)}>Login</button>
-                        <button className="register-button" onClick={() => setRegModalOpen(true)}>Register</button>
-                    </div>
-
-                    <Modal isOpen={isRegModalOpen} onClose={() => setRegModalOpen(false)} title="Register">
-                        <RegistrationForm setRegModalOpen={setRegModalOpen} />
-                    </Modal>
-                    <Modal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} title="Login">
-                        <LoginForm setLoginModalOpen={setLoginModalOpen} />
-                    </Modal> }
-                </div>     */}
+                <Navbar />
                 <div className="relative flex min-h-1/2 flex-col items-center justify-center h-[30rem] shadow-xl ">
                     {/* Optional: Removed the inline comment for cleanliness */}
                     <img className="absolute w-full h-[40rem] inset-0 object-cover bg-center object-middle shadow-xl" src={image.src}></img>
