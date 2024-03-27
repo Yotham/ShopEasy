@@ -91,10 +91,10 @@ function AccountSettings() {
         <>
             <Navbar />
             <div className="min-h-screen">
-                <h2 className="text-4xl pt-12 mb-4 text-center">
+                <h2 className="text-4xl pt-12 mb-8 text-center">
                     Account Settings
                 </h2>
-                <form className="mx-auto max-w-3xl w-full text-xl lg:space-y-2 2xl:space-y-6" onSubmit={handleSubmit}>
+                <form className="mx-auto max-w-3xl w-full text-xl lg:space-y-2 2xl:space-y-6 p-4 even-shadow rounded-lg" onSubmit={handleSubmit}>
                     {/* ... existing input fields for username and password ... */}
                     <div className="grid grid-cols-2 items-center p-2">
                         <label>
@@ -113,7 +113,7 @@ function AccountSettings() {
                         <label>
                             Height:
                         </label>
-                        <div className="grid grid-cols-2">
+                        <div className="grid grid-cols-2 gap-4">
                             <input
                                 className="border borer-gray-300 p-2 rounded-md w-full"
                                 type="number" 

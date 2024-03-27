@@ -34,9 +34,9 @@ function TransparentModal({ isOpen, onClose, itemLink, servingSize, numServings,
                     leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                     leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                     >
-                    <Dialog.Panel className="relative transform overflow-hidden rounded-lg transition-all md:mt-0 mt-44 sm:w-full">
-                        {/* EDIT CONTENT BELOW */}
-                        <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto bg-gray-200 mt-16 rounded-lg">
+                <Dialog.Panel className="relative flex items-center transform overflow-hidden rounded-lg transition-all md:mt-0 mt-0 mb-0 sm:w-full">
+                    {/* EDIT CONTENT BELOW */}
+                    <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto bg-gray-200 mt-16 rounded-lg">
                             <a
                                 href={itemLink}
                                 target="_blank"
