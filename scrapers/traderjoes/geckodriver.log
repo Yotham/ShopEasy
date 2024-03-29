@@ -233,3 +233,150 @@ console.error: ({})
 JavaScript warning: https://assets.adobedtm.com/6e431df7a05d/5db4ef24a88a/launch-d59077aff956.min.js line 6 > Function, line 4: Script terminated by timeout at:
 anonymous@https://assets.adobedtm.com/6e431df7a05d/5db4ef24a88a/launch-d59077aff956.min.js line 6 > Function:4:1
 
+1711749855066	geckodriver	INFO	Listening on 127.0.0.1:33313
+1711749856094	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr/bin/firefox" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofileuoZ5GI"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1711749857990	Marionette	INFO	Marionette enabled
+1711749858316	Marionette	INFO	Listening on port 39171
+Read port: 39171
+1711749858736	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+console.error: "update.locale" " file doesn't exist in either the application or GRE directories"
+1711749889799	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1711750000133	Marionette	INFO	Stopped listening on port 39171
+1711750139936	geckodriver	INFO	Listening on 127.0.0.1:46015
+1711750140944	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr/bin/firefox" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofileBRgejd"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+[GFX1-]: ManageChildProcess(glxtest): poll failed: Success
+
+[GFX1-]: glxtest: ManageChildProcess failed
+
+[GFX1-]: No GPUs detected via PCI
+
+1711750146234	Marionette	INFO	Marionette enabled
+1711750146434	Marionette	INFO	Listening on port 46341
+Read port: 46341
+1711750146565	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+console.error: "update.locale" " file doesn't exist in either the application or GRE directories"
+1711750176549	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c, line 286: Script terminated by timeout at:
+zm.prototype.flush@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:286:28
+mG/<@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:548:142
+aa.mk/<@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:496:126
+c/<@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:495:420
+
+1711750179824	Marionette	INFO	Stopped listening on port 46341
+console.warn: services.settings: main/translations-models sync interrupted by shutdown
+console.warn: services.settings: main/search-config sync interrupted by shutdown
+console.warn: services.settings: main/search-config-v2 sync interrupted by shutdown
+console.warn: services.settings: main/search-config-icons sync interrupted by shutdown
+console.warn: services.settings: main/search-config-overrides sync interrupted by shutdown
+console.error: (new AbortError("IndexedDB: main/newtab-wallpapers getLastModified() IndexedDB:  execute() A request was aborted, for example through a call to IDBTransaction.abort.", "resource://services-settings/IDBHelpers.sys.mjs", 16))
+1711750191534	geckodriver	INFO	Listening on 127.0.0.1:43393
+1711750192584	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr/bin/firefox" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofile3QRTfG"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1711750193825	Marionette	INFO	Marionette enabled
+1711750194010	Marionette	INFO	Listening on port 35063
+Read port: 35063
+1711750194415	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+1711750198904	Marionette	INFO	Stopped listening on port 35063
+1711750213129	geckodriver	INFO	Listening on 127.0.0.1:57877
+1711750213140	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr/bin/firefox" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofilePTDptn"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1711750214855	Marionette	INFO	Marionette enabled
+1711750215000	Marionette	INFO	Listening on port 35049
+Read port: 35049
+1711750215315	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+console.error: "update.locale" " file doesn't exist in either the application or GRE directories"
+1711750246662	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1711750403784	geckodriver	INFO	Listening on 127.0.0.1:53663
+1711750404810	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr/bin/firefox" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofileSoSXAN"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1711750409162	Marionette	INFO	Marionette enabled
+1711750409415	Marionette	INFO	Listening on port 44301
+Read port: 44301
+1711750409608	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+console.error: "update.locale" " file doesn't exist in either the application or GRE directories"
+1711750440367	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1711750549498	geckodriver	INFO	Listening on 127.0.0.1:47147
+1711750550560	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr/bin/firefox" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofile2vTgbO"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1711750555782	Marionette	INFO	Marionette enabled
+1711750556116	Marionette	INFO	Listening on port 41961
+Read port: 41961
+1711750556707	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c, line 497: Script terminated by timeout at:
+aa.hh@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:497:89
+get@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:495:119
+stop@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:495:87
+c/<@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:495:412
+
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c, line 497: Script terminated by timeout at:
+aa.hh@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:497:89
+get@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:495:119
+stop@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:495:87
+c/<@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:495:412
+
+1711750574875	Marionette	INFO	Stopped listening on port 44301
+1711750575073	Marionette	INFO	Stopped listening on port 35049
+console.error: "update.locale" " file doesn't exist in either the application or GRE directories"
+1711750585897	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1711750618749	geckodriver	INFO	Listening on 127.0.0.1:41187
+1711750619762	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr/bin/firefox" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofilelTLUgn"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c, line 497: Script terminated by timeout at:
+aa.hh@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:497:89
+get@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:495:119
+stop@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:495:87
+c/<@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:495:412
+
+1711750621257	Marionette	INFO	Stopped listening on port 41961
+1711750625036	Marionette	INFO	Marionette enabled
+1711750625208	Marionette	INFO	Listening on port 32775
+Read port: 32775
+1711750625649	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+1711750648623	geckodriver	INFO	Listening on 127.0.0.1:50695
+1711750649678	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr/bin/firefox" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofiledO37kg"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1711750654706	Marionette	INFO	Marionette enabled
+1711750654940	Marionette	INFO	Listening on port 40441
+Read port: 40441
+1711750655415	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+console.error: "update.locale" " file doesn't exist in either the application or GRE directories"
+1711750658773	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c, line 497: Script terminated by timeout at:
+aa.hh@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:497:89
+get@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:495:119
+stop@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:495:87
+c/<@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:495:412
+
+1711750677479	Marionette	INFO	Stopped listening on port 32775
+console.error: services.settings: 
+  Message: NetworkError: Network error: TypeError: NetworkError: Network request failed
+  Stack:
+    APIError@resource://services-settings/RemoteSettingsClient.sys.mjs:107:1
+NetworkError@resource://services-settings/RemoteSettingsClient.sys.mjs:111:5
+_adjustedError@resource://services-settings/RemoteSettingsClient.sys.mjs:911:14
+maybeSync@resource://services-settings/RemoteSettingsClient.sys.mjs:816:38
+
+console.warn: services.settings: main/partitioning-exempt-urls sync interrupted by shutdown
+console.warn: services.settings: main/translations-wasm sync interrupted by shutdown
+console.warn: services.settings: main/search-config-overrides-v2 sync interrupted by shutdown
+console.error: (new AbortError("IndexedDB: main/quicksuggest getLastModified() IndexedDB:  execute() A request was aborted, for example through a call to IDBTransaction.abort.", "resource://services-settings/IDBHelpers.sys.mjs", 16))
+console.error: "update.locale" " file doesn't exist in either the application or GRE directories"
+1711750688136	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
