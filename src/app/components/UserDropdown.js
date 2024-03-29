@@ -17,16 +17,16 @@ function UserDropdown() {
     };
     return (
         <div className="dropdown">
-            <div className="text-xl bg-slate-200 hover:bg-slate-300 text-black font-bold py-2 px-4 rounded mr-2">
+            <div className="text-md bg-white hover:bg-slate-100 text-shopeasy-blue py-2 px-4 rounded mr-2">
                 <button onClick={() => setIsOpen(!isOpen)}>
                     {username}
                 </button>
             </div>
             {isOpen && (
-                <div className="dropdown-content">
+                <div className="dropdown-content whitespace-nowrap">
                     <Link href="/account-settings">
                         Account Settings  {/* Use anchor tags inside Link */}
-                    </Link> 
+                    </Link>
                     <button onClick={logout}>Logout</button>
                 </div>
             )}
