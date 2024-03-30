@@ -24,7 +24,7 @@ function Navbar() {
             <div className={!currentUser ? " px-4 py-5 flex justify-between items-center flex-grow" : "mx-auto px-4 py-5 flex justify-between items-center flex-grow"}>
                 <Link href={currentUser ? "/generate" : "/"} passHref className="text-3xl font-medium text-white flex items-center">
                         {/* Assuming you have the image in your public folder */}
-                        <Image src="/img/ShopEasyLogo.png" alt="ShopEasy Logo" className="mr-3 h-16" width={72} height={24} />
+                        <img src="/img/ShopEasyLogo-1.png" alt="ShopEasy Logo" className="mr-3 h-16"  />
                         ShopEasy
                 </Link>
                 {currentUser && (
