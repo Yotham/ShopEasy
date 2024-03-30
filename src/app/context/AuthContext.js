@@ -135,8 +135,7 @@ export const AuthProvider = ({ children }) => {
         setLoginModalOpen,
         register,
     }), [currentUser, isRegModalOpen, isLoginModalOpen]); // add other dependencies if needed
-    
-        
+
     return (
         <AuthContext.Provider value={contextValue}>
             {children}

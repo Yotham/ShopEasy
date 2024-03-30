@@ -1,11 +1,13 @@
 // src/components/AccountSettings.js
 "use client"
 import React, { useState,useEffect } from 'react';
-import { useAuth } from '../context/AuthContext';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
+import { useAuth } from '../../context/AuthContext';
+import Navbar from '../../components/Navbar';
+import Footer from '../../components/Footer';
+import { redirect } from 'next/navigation';
+
 function AccountSettings() {
-    const { 
+    const {
         currentUser
     } = useAuth();
     const [updatedUser, setUpdatedUser] = useState({
@@ -34,14 +36,19 @@ function AccountSettings() {
             setIsLoading(false);
         }
     }, [currentUser]);
+
+    if (!currentUser) {
+        redirect('/');
+    }
+
     const LoadingComponent = () => (
         <div className="fixed inset-0 z-50 flex items-center justify-center primary-bg">
-          <svg className="animate-spin -ml-1 mr-3 h-10 w-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-          </svg>
+            <svg className="animate-spin -ml-1 mr-3 h-10 w-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
         </div>
-      );
+    );
     // Return early if not open or still loading
     if (isLoading) return <LoadingComponent />;  // Or some other loading indicator
 
@@ -62,7 +69,7 @@ function AccountSettings() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(currentUser)
+
         try {
             const response = await fetch(`/api/user/${currentUser._id}`, {
                 method: 'PUT',
@@ -72,11 +79,11 @@ function AccountSettings() {
                 },
                 body: JSON.stringify(updatedUser)
             });
-    
+
             if (!response.ok) {
                 throw new Error('Failed to update user data');
             }
-    
+
             const updatedData = await response.json();
             //setCurrentUser(updatedData);  // Update the local state to reflect the changes
             alert('Account updated successfully!');
@@ -116,14 +123,14 @@ function AccountSettings() {
                         <div className="grid grid-cols-2 gap-4">
                             <input
                                 className="border borer-gray-300 p-2 rounded-md w-full"
-                                type="number" 
+                                type="number"
                                 value={updatedUser.height[0]}
                                 onChange={e => handleHeightChange('feet', e.target.value)}
                                 placeholder="Feet"
                             />
                             <input
                                 className="border borer-gray-300 p-2 rounded-md w-full"
-                                type="number" 
+                                type="number"
                                 value={updatedUser.height[1]}
                                 onChange={e => handleHeightChange('inches', e.target.value)}
                                 placeholder="Inches"

@@ -1,17 +1,18 @@
 "use client"
 import React, { useState, useEffect } from 'react';
-import getRandomItems from '../components/listGeneration.js';
-import DataDropdown from '../components/dataDropdown';
-import TransparentModal from '../components/TransparentModal';
-import Data from '../Data/data.json';
-import Data2 from '../Data/hannafordData.json';
-import Navbar from '../components/Navbar.js';
-import Footer from '../components/Footer.js';
+import getRandomItems from '../../components/listGeneration.js';
+import DataDropdown from '../../components/dataDropdown';
+import TransparentModal from '../../components/TransparentModal';
+import Data from '../../Data/data.json';
+import Data2 from '../../Data/hannafordData.json';
+import Navbar from '../../components/Navbar.js';
+import Footer from '../../components/Footer.js';
+import { redirect } from 'next/navigation';
 import {
     InformationCircleIcon,
 } from '@heroicons/react/20/solid';
 
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from '../../context/AuthContext';
 function Generate() {
     const [randomItems, setRandomItems] = useState([]);
     const [isItemModalOpen, setItemModalOpen] = useState(false);
@@ -24,25 +25,26 @@ function Generate() {
 	const [currentCarbPS, setCurrentCarbPS] = useState("");
 	const [currentProteinPS, setCurrentProteinPS] = useState("");
     const [isGenerated, setIsGenerated] = useState(false); // New state variable
-    const { currentUser} = useAuth();
+    const {currentUser} = useAuth();
     const [weeklyPlan, setWeeklyPlan] = useState([]);
+
     function distributeMealsWeekly(items) {
         // Calculate total calories of all items
         const totalCalories = items.reduce((acc, item) => acc + (item.caloriesPS * item.numServings * item.count), 0);
         const targetDailyCalories = totalCalories / 7;
-      
+
         let days = Array(7).fill(null).map(() => ({ meals: [], totalCalories: 0 }));
-      
+
         // Sort items by total calories in descending order
         const sortedItems = items.sort((a, b) => (b.caloriesPS * b.numServings * b.count) - (a.caloriesPS * a.numServings * a.count));
-      
+
         sortedItems.forEach(item => {
             // Find the day with the lowest current total calorie count
             let day = days.reduce((prev, current) => (prev.totalCalories < current.totalCalories) ? prev : current);
             day.meals.push(item);
             day.totalCalories += (item.caloriesPS * item.numServings * item.count);
         });
-      
+
         // Convert the meals array into breakfast, lunch, dinner format if needed
         days = days.map(day => {
             return {
@@ -52,11 +54,10 @@ function Generate() {
                 totalCalories: day.totalCalories
             };
         });
-      
+
         return days;
     }
-    
-    
+
     const handleDataSelection = (dataName) => {
         if (dataName === 'data1') {
             setSelectedData(Data);
@@ -67,22 +68,22 @@ function Generate() {
     const [isLoading, setIsLoading] = useState(true); // State to control the loading state
 
     useEffect(() => {
-      const timer = setTimeout(() => {
+    const timer = setTimeout(() => {
         setIsLoading(false); // Set loading to false after 500 milliseconds
-      }, 100);
-  
+    }, 100);
+
       return () => clearTimeout(timer); // Cleanup the timer
     }, []);
     const LoadingComponent = () => (
-      <div className="fixed inset-0 z-50 flex items-center justify-center primary-bg">
+    <div className="fixed inset-0 z-50 flex items-center justify-center primary-bg">
         <svg className="animate-spin -ml-1 mr-3 h-10 w-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
         </svg>
-      </div>
+    </div>
     );
     if (isLoading) {
-      return <LoadingComponent />;
+        return <LoadingComponent />;
     }
     const handleGenerate = () => {
         if (currentUser && currentUser.caloricGoal) {
@@ -116,6 +117,10 @@ function Generate() {
     const totalProtein = randomItems.reduce((acc, item) => acc + (item.ProteinPS * item.numServings * item.count), 0);
     const totalCarbs = randomItems.reduce((acc, item) => acc + (item.CarbPS * item.numServings * item.count), 0);
     const totalFats = randomItems.reduce((acc, item) => acc + (item.FatPS * item.numServings * item.count), 0);
+
+    if (!currentUser) {
+        redirect('/');
+    }
 
     return (
         <div className = "flex flex-col min-h-screen">
@@ -151,7 +156,7 @@ function Generate() {
                     <div className={`text-right ${isGenerated? '' : 'w-full'}`}>
                         <button
                             onClick={handleGenerate}
-                            className="font-bold border-2 border-shopeasy-blue py-2 px-10 rounded-md hover:bg-gradient-to-r hover:from-shopeasy-blue hover:to-white focus:outline-none focus:ring-2 focus:ring-shopeasy-blue focus:ring-opacity-50"
+                            className="transition ease-in-out duration-200 font-bold border-2 text-white border-shopeasy-blue py-2 px-10 rounded-md bg-gradient-to-r from-shopeasy-blue to-blue-100 hover:to-shopeasy-blue focus:outline-none focus:ring-2 focus:ring-shopeasy-blue focus:ring-opacity-50"
                         >
                             {isGenerated ? 'Regenerate' : 'Generate'}
                         </button>
@@ -159,16 +164,16 @@ function Generate() {
                 </div>
 
                 {/* {!isGenerated && (
-                        <div className="text-center text-5xl mt-96 ">
-                            <h2>Click Generate To Begin</h2>
-                        </div>
-                    )} */}
+                    <div className="text-center text-5xl mt-96 ">
+                        <h2>Click Generate To Begin</h2>
+                    </div>
+                )} */}
 
                 <div className="flex flex-wrap justify-center mt-5 overflow-auto max-h-96 primary-bg ">
                     {randomItems.map(item => (
-                        <div 
+                        <div
                             className="relative secondary-bg p-4 m-2 rounded-lg shadow-md w-full sm:w-1/2 md:w-1/3 lg:w-1/8 xl:w-1/5"
-                            key={item.name} 
+                            key={item.name}
                         >
                             <InformationCircleIcon
                                 onClick={() => {
@@ -191,9 +196,9 @@ function Generate() {
                     ))}
                 </div>
 
-                <TransparentModal 
+                <TransparentModal
                     className="shared-background"
-                    isOpen={isItemModalOpen} 
+                    isOpen={isItemModalOpen}
                     onClose={() => setItemModalOpen(false)}
                     itemLink={currentItemLink}
                     servingSize={currentSS}
@@ -203,7 +208,7 @@ function Generate() {
                     CarbPS={currentCarbPS}
                     ProteinPS={currentProteinPS}
                 />
-               
+
             </div>
             {isGenerated && (
                 <div className = 'primary-bg mx-4 mb-4 rounded-lg shadow-lg'>
@@ -229,7 +234,7 @@ function Generate() {
 
 
             <div className = "mb-0">
-                <Footer></Footer>
+                <Footer />
             </div>
         </div>
     );
