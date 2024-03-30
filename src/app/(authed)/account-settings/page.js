@@ -37,10 +37,6 @@ function AccountSettings() {
         }
     }, [currentUser]);
 
-    if (!currentUser) {
-        redirect('/');
-    }
-
     const LoadingComponent = () => (
         <div className="fixed inset-0 z-50 flex items-center justify-center primary-bg">
             <svg className="animate-spin -ml-1 mr-3 h-10 w-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -53,6 +49,9 @@ function AccountSettings() {
     if (isLoading) return <LoadingComponent />;  // Or some other loading indicator
 
 
+    if (!currentUser) {
+        redirect('/');
+    }
     const handleChange = (e) => {
         const { name, value } = e.target;
         setUpdatedUser(prevState => ({
