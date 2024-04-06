@@ -163,11 +163,16 @@ function Generate() {
                     </div>
                 </div>
 
-                {/* {!isGenerated && (
-                    <div className="text-center text-5xl mt-96 ">
-                        <h2>Click Generate To Begin</h2>
+                {!isGenerated && (
+                    <div className="bg-white px-6 py-24 sm:py-32 lg:px-8">
+                        <div className="mx-auto max-w-2xl text-center">
+                            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Generate Groceries</h2>
+                            <p className="mt-6 text-lg leading-8 text-gray-600">
+                                Click the generate button to get a list of groceries for the selected store based on your nutritional goals.
+                            </p>
+                        </div>
                     </div>
-                )} */}
+                )}
 
                 <div className="flex flex-wrap justify-center mt-5 overflow-auto max-h-96 primary-bg ">
                     {randomItems.map(item => (

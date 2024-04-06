@@ -41,17 +41,39 @@ function TransparentModal({ isOpen, onClose, itemLink, servingSize, numServings,
                                 href={itemLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group text-blue-400 flex items-center w-full justify-center pb-4"
+                                className="group text-blue-400 flex items-center justify-center pb-4"
                             >
                                 View Item
                                 <ChevronDoubleRightIcon className="group-hover:translate-x-1 transition duration-150 ease-in-out w-5 h-5 ml-1" />
                             </a>
-                            <p><strong>Serving Size</strong>: <span className = "servingText">{servingSize}</span></p>
-                            <p><strong>Number of Servings</strong>: <span className = "servingText">{Math.round(numServings * 10) / 10}</span></p>
-                            <p><strong>Calories Per Serving</strong>:<span className = "servingText"> {Math.round(caloriesPS * 10) / 10}</span></p>
-                            <p><strong>Protein Per Serving</strong>: <span className = "servingText">{Math.round(ProteinPS * 10) / 10}g</span></p>
-                            <p><strong>Fat Per Serving</strong>: <span className = "servingText">{Math.round(FatPS * 10) / 10}g</span></p>
-                            <p><strong>Carbs Per Serving</strong>: <span className = "servingText">{Math.round(CarbPS * 10) / 10}g</span></p>
+                            <div className="w-52 text-left">
+                                <h3 className="text-xs">SERVING SIZE</h3>
+                                <h1 className="text-xl font-bold">{servingSize}</h1>
+                            </div>
+                            <div className="mt-2 w-52 text-left">
+                                <h3 className="text-xs">NUMBER OF SERVINGS</h3>
+                                <h1 className="text-xl font-bold">{Math.round(numServings * 10) / 10}</h1>
+                            </div>
+                            <div className="mt-2 w-52 text-left">
+                                <h3 className="text-xs">CALORIES PER SERVING</h3>
+                                <h1 className="text-xl font-bold">{Math.round(caloriesPS * 10) / 10}</h1>
+                            </div>
+                            <div className="my-4 w-52 grid grid-cols-2">
+                                <div className="w-48 mt-2 text-left">
+                                    <h3 className="text-sm">PROTEIN PER SERVING</h3>
+                                    <div className="h-[1px] bg-black my-1"/>
+                                    <h3 className="text-sm">CARBS PER SERVING</h3>
+                                    <div className="h-[1px] bg-black my-1"/>
+                                    <h3 className="text-sm">FAT PER SERVING</h3>
+                                </div>
+                                <div className="mt-2 text-right">
+                                    <h3 className="font-bold text-sm">{Math.round(ProteinPS * 10) / 10}g</h3>
+                                    <div className="h-[1px] bg-black my-1"/>
+                                    <h3 className="font-bold text-sm">{Math.round(FatPS * 10) / 10}g</h3>
+                                    <div className="h-[1px] bg-black my-1"/>
+                                    <h3 className="font-bold text-sm">{Math.round(CarbPS * 10) / 10}g</h3>
+                                </div>
+                            </div>
                             <button
                                 className="bg-blue-400 text-white px-10 py-1 mt-4 rounded-md hover:bg-shopeasy-blue transition duration-150 ease-in-out"
                                 onClick={onClose}
