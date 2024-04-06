@@ -110,7 +110,7 @@ function FAQ() {
                 </div>
                 </div>
 
-                <div className = "absolute max-w-screen w-screen bottom-0">
+                <div className = "mt-5 max-w-screen">
                     <Footer></Footer>
                 </div>
             </div>
