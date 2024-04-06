@@ -4,7 +4,7 @@ import {
     ChevronDoubleRightIcon,
 } from '@heroicons/react/20/solid';
 
-function TransparentModal({ isOpen, onClose, itemLink, servingSize, numServings, caloriesPS, FatPS, CarbPS, ProteinPS ,className }) {
+function TransparentModal({ isOpen, onClose, itemName, itemLink, servingSize, numServings, caloriesPS, FatPS, CarbPS, ProteinPS }) {
     if (!isOpen) return null;
 
 
@@ -46,6 +46,7 @@ function TransparentModal({ isOpen, onClose, itemLink, servingSize, numServings,
                                 View Item
                                 <ChevronDoubleRightIcon className="group-hover:translate-x-1 transition duration-150 ease-in-out w-5 h-5 ml-1" />
                             </a>
+                            <h1 className="text-2xl font-bold w-72 mb-4">{itemName}</h1>
                             <div className="w-52 text-left">
                                 <h3 className="text-xs">SERVING SIZE</h3>
                                 <h1 className="text-xl font-bold">{servingSize}</h1>

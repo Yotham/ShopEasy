@@ -17,6 +17,7 @@ function Generate() {
     const [randomItems, setRandomItems] = useState([]);
     const [isItemModalOpen, setItemModalOpen] = useState(false);
     const [selectedData, setSelectedData] = useState(Data);
+    const [currentItemName, setCurrentItemName] = useState("");
     const [currentItemLink, setCurrentItemLink] = useState("");
     const [currentSS, setCurrentSS] = useState("");
 	const [currentNumServings, setCurrentNumServings] = useState("");
@@ -24,7 +25,7 @@ function Generate() {
 	const [currentFatPS, setCurrentFatPS] = useState("");
 	const [currentCarbPS, setCurrentCarbPS] = useState("");
 	const [currentProteinPS, setCurrentProteinPS] = useState("");
-    const [isGenerated, setIsGenerated] = useState(false); // New state variable
+    const [isGenerated, setIsGenerated] = useState(false);
     const {currentUser} = useAuth();
     const [weeklyPlan, setWeeklyPlan] = useState([]);
 
@@ -182,6 +183,7 @@ function Generate() {
                         >
                             <InformationCircleIcon
                                 onClick={() => {
+                                    setCurrentItemName(item.name);
                                     setCurrentItemLink(item.link);
                                     setCurrentSS(item.servingSize);
                                     setCurrentNumServings(item.numServings);
@@ -205,6 +207,7 @@ function Generate() {
                     className="shared-background"
                     isOpen={isItemModalOpen}
                     onClose={() => setItemModalOpen(false)}
+                    itemName={currentItemName}
                     itemLink={currentItemLink}
                     servingSize={currentSS}
                     numServings={currentNumServings}
