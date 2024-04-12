@@ -718,3 +718,66 @@ Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
+1712953970807	geckodriver	INFO	Listening on 127.0.0.1:53045
+1712953971817	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr/bin/firefox" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofileXmjuWM"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1712953979792	Marionette	INFO	Marionette enabled
+1712953980144	Marionette	INFO	Listening on port 44173
+Read port: 44173
+1712953980421	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+console.error: "update.locale" " file doesn't exist in either the application or GRE directories"
+1712954012503	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1712954035179	Marionette	INFO	Stopped listening on port 44173
+JavaScript error: chrome://remote/content/marionette/cert.sys.mjs, line 47: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsICertOverrideService.setDisableAllSecurityChecksAndLetAttackersInterceptMyData]
+1712954471155	geckodriver	INFO	Listening on 127.0.0.1:41569
+1712954472169	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr/bin/firefox" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofileobOfTU"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1712954476868	Marionette	INFO	Marionette enabled
+1712954477092	Marionette	INFO	Listening on port 41985
+Read port: 41985
+1712954477569	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+console.error: "update.locale" " file doesn't exist in either the application or GRE directories"
+1712954508765	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1712955028127	geckodriver	INFO	Listening on 127.0.0.1:37319
+1712955029131	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr/bin/firefox" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofilej8DSBk"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1712955033778	Marionette	INFO	Marionette enabled
+1712955033945	Marionette	INFO	Listening on port 43203
+Read port: 43203
+1712955034354	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1712955054855	geckodriver	INFO	Listening on 127.0.0.1:44489
+1712955054868	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/usr/bin/firefox" "--marionette" "-no-remote" "-profile" "/tmp/rust_mozprofile0fVkht"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1712955058322	Marionette	INFO	Marionette enabled
+1712955058503	Marionette	INFO	Listening on port 40489
+Read port: 40489
+1712955058830	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: ({})
+console.error: "update.locale" " file doesn't exist in either the application or GRE directories"
+1712955090391	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c, line 502: Script terminated by timeout at:
+aa.mh@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:502:89
+get@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:500:119
+stop@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:500:87
+c/<@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:500:412
+
+1712956167043	Marionette	INFO	Stopped listening on port 40489
+1712956169970	Marionette	INFO	Stopped listening on port 41985
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c, line 517: Script terminated by timeout at:
+aa.mh@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:517:89
+get@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:515:119
+stop@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:515:87
+c/<@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:515:412
+
