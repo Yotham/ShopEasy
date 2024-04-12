@@ -17,6 +17,7 @@ function Generate() {
     const [randomItems, setRandomItems] = useState([]);
     const [isItemModalOpen, setItemModalOpen] = useState(false);
     const [selectedData, setSelectedData] = useState(Data);
+    const [currentItemName, setCurrentItemName] = useState("");
     const [currentItemLink, setCurrentItemLink] = useState("");
     const [currentSS, setCurrentSS] = useState("");
 	const [currentNumServings, setCurrentNumServings] = useState("");
@@ -24,7 +25,7 @@ function Generate() {
 	const [currentFatPS, setCurrentFatPS] = useState("");
 	const [currentCarbPS, setCurrentCarbPS] = useState("");
 	const [currentProteinPS, setCurrentProteinPS] = useState("");
-    const [isGenerated, setIsGenerated] = useState(false); // New state variable
+    const [isGenerated, setIsGenerated] = useState(false);
     const {currentUser} = useAuth();
     const [weeklyPlan, setWeeklyPlan] = useState([]);
 
@@ -163,11 +164,16 @@ function Generate() {
                     </div>
                 </div>
 
-                {/* {!isGenerated && (
-                    <div className="text-center text-5xl mt-96 ">
-                        <h2>Click Generate To Begin</h2>
+                {!isGenerated && (
+                    <div className="bg-white px-6 py-24 sm:py-32 lg:px-8">
+                        <div className="mx-auto max-w-2xl text-center">
+                            <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Generate Groceries</h2>
+                            <p className="mt-6 text-lg leading-8 text-gray-600">
+                                Click the generate button to get a list of groceries for the selected store based on your nutritional goals.
+                            </p>
+                        </div>
                     </div>
-                )} */}
+                )}
 
                 <div className="flex flex-wrap justify-center mt-5 overflow-auto max-h-96 primary-bg ">
                     {randomItems.map(item => (
@@ -177,6 +183,7 @@ function Generate() {
                         >
                             <InformationCircleIcon
                                 onClick={() => {
+                                    setCurrentItemName(item.name);
                                     setCurrentItemLink(item.link);
                                     setCurrentSS(item.servingSize);
                                     setCurrentNumServings(item.numServings);
@@ -200,6 +207,7 @@ function Generate() {
                     className="shared-background"
                     isOpen={isItemModalOpen}
                     onClose={() => setItemModalOpen(false)}
+                    itemName={currentItemName}
                     itemLink={currentItemLink}
                     servingSize={currentSS}
                     numServings={currentNumServings}
