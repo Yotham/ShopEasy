@@ -3,6 +3,7 @@
 import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline'
 import React, { useState, useEffect} from 'react';
 import { useAuth } from '../context/AuthContext.js';
+import emailjs from 'emailjs-com';
 import Navbar from '../components/Navbar.js';
 import Footer from '../components/Footer.js';
 
@@ -10,26 +11,42 @@ function Contact() {
     const {
         currentUser,
     } = useAuth();
-  
-    
+
+    const sendEmail = (e) => {
+        e.preventDefault();
+
+        const fullname = e.target[0].value + " " + e.target[1].value;
+        const email = e.target[2].value;
+        const phone = e.target[3].value;
+        const message = e.target[4].value;
+
+        emailjs.send('service_7gg17ic', 'template_ndgauj5', {
+            from_name: fullname,
+            message: message,
+            phone_number: phone,
+            from_email: email
+        }, 'YCpKdXodTCm3ZUnzY')
+
+    }
+
     // State for managing the loading condition
     const [isLoading, setIsLoading] = useState(false);
     const [isLoading2, setIsLoading2] = useState(true); // State to control the loading state
 
     useEffect(() => {
-      const timer = setTimeout(() => {
+        const timer = setTimeout(() => {
         setIsLoading2(false); // Set loading to false after 500 milliseconds
-      }, 200);
-  
+    }, 200);
+
       return () => clearTimeout(timer); // Cleanup the timer
     }, []);
     const LoadingComponent = () => (
-      <div className="fixed inset-0 z-50 flex items-center justify-center primary-bg">
-        <svg className="animate-spin -ml-1 mr-3 h-10 w-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-        </svg>
-      </div>
+        <div className="fixed inset-0 z-50 flex items-center justify-center primary-bg">
+            <svg className="animate-spin -ml-1 mr-3 h-10 w-10 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+        </div>
     );
     // Redirect with loading state
     useEffect(() => {
@@ -43,7 +60,7 @@ function Contact() {
     }, [currentUser]); // Depend on currentUser
     if (isLoading2) {
         return <LoadingComponent />;
-      }
+    }
     if (isLoading) {
         // Render a loading spinner or any loading component you prefer
         return <LoadingComponent />;
@@ -92,7 +109,7 @@ function Contact() {
                                 <BuildingOffice2Icon className="h-7 w-6 text-gray-400" aria-hidden="true" />
                                 </dt>
                                 <dd>
-                                1730 Highland Ave
+                                1999 Burdett Ave
                                 <br />
                                 Troy, NY 12180
                                 </dd>
@@ -122,7 +139,8 @@ function Contact() {
                             </dl>
                         </div>
                         </div>
-                        <form action="" method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
+                        {/* Message interface */}
+                        <form onSubmit={sendEmail} method="POST" className="px-6 pb-24 pt-20 sm:pb-32 lg:px-8 lg:py-48">
                         <div className="mx-auto max-w-xl lg:mr-0 lg:max-w-lg">
                             <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
                             <div>
