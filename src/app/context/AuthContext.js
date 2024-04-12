@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }) => {
                 },
                 body: JSON.stringify(userRegistrationData), // userRegistrationData is prepared earlier in your code
             });
-    
+            console.log(response);
             const result = await response.json();
             if (response.status === 201) {
                 alert('Registration successful!');
