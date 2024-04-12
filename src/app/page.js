@@ -84,6 +84,7 @@ function Home() {
         return <LoadingComponent />;
     }
     if(!currentUser){
+        
         return (
             <div>
                 <Navbar />

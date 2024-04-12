@@ -8,8 +8,10 @@ import dbConnect from '../../utils/dbConnect';
 export default async function handler(req, res) {
     await dbConnect();
     console.log("Here")
+    console.log(req.body);
     if (req.method === 'POST') {
         try {
+            console.log(req.body);
             const existingUser = await User.findOne({ username: req.body.username });
             if (existingUser) {
                 return res.status(409).json({ message: 'Username already taken' });

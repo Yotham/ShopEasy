@@ -41,6 +41,7 @@ function RegistrationForm({ setRegModalOpen }) {
         const weight = formData.get("weight");
         const gender = formData.get("gender")
         const goal = formData.get("goal");
+        const budget = formData.get("budget");
 
         // Conversions
         const heightInCm = ((heightFt * 12) + heightIn)* 2.54;
@@ -78,11 +79,13 @@ function RegistrationForm({ setRegModalOpen }) {
             goal: goal,
             age: age,
             bmr: bmr,
-            caloricGoal: caloricGoal
+            caloricGoal: caloricGoal,
+            budget: budget
         };
 
         try {
             await register(userRegistrationData);
+            console.log(userRegistrationData)
             router.push('/generate'); // The navigate function is from useNavigate() hook from react-router-dom
             window.location.reload()
         } catch(error){
@@ -218,6 +221,18 @@ function RegistrationForm({ setRegModalOpen }) {
                         <option value="Gain Weight">Gain Weight</option>
                         <option value="Maintain Weight">Maintain Weight</option>
                     </select>
+
+                    <div>
+                        <label for="weight" className="block mt-6 mb-1 text-sm font-medium text-gray-900 dark:text-white">Budget</label>
+                        <input
+                            type="number"
+                            name="budget"
+                            id="budget"
+                            placeholder="Please enter your Budget $"
+                            className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                            required
+                        />
+                    </div>
                     <div className="flex items-center justify-between">
                         {/* <div className="flex items-start">
                             <div className="flex items-center h-5">

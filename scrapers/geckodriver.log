@@ -2964,7 +2964,8 @@ DevTools listening on ws://127.0.0.1:57746/devtools/browser/83469007-150e-46ef-9
 1711750894919	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
 JavaScript error: https://www.traderjoes.com/etc.clientlibs/trjo/clientlibs/clientlib-react.lc-7685d28e6b7547a8ecbbe874be1bf227-lc.min.js, line 1: ChunkLoadError: Loading chunk 94 failed.
 (error: https://www.traderjoes.com/etc.clientlibs/trjo/clientlibs/clientlib-react/resources/static/js/94.16569851.chunk.js)
-1711753456372	geckodriver	INFO	Listening on 127.0.0.1:59773
+Exiting due to channel error.
+Listening on 127.0.0.1:59773
 1711753459464	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "59774" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\ADMIN_~1\\AppData\\Local\\Temp\\rust_mozprofileRPUKPx"
 console.warn: services.settings: Ignoring preference override of remote settings server
 console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
