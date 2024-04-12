@@ -86,8 +86,8 @@ function RegistrationForm({ setRegModalOpen }) {
         try {
             await register(userRegistrationData);
             console.log(userRegistrationData)
-            //router.push('/generate'); // The navigate function is from useNavigate() hook from react-router-dom
-            //window.location.reload()
+            router.push('/generate'); // The navigate function is from useNavigate() hook from react-router-dom
+            window.location.reload()
         } catch(error){
             console.error("Registration Error", error)
         }
