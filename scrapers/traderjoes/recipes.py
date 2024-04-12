@@ -5,6 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
+import json
 
 # Set up WebDriver
 driver = webdriver.Firefox()
@@ -25,6 +26,8 @@ driver.get(url)
 
 # # Wait for search results to load
 # WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.ID, "search")))
+
+storage = {}
 classes_dict = {
     "RecipeCard": "Link_link__1AZfr RecipeGridCard_recipe__1Wo__ RecipeGridCard_recipe__tan__12uua",
 }
@@ -43,17 +46,22 @@ for link in recipe_links:
     title = link.select_one('h3.RecipeGridCard_recipe__title__3-8S-').text
 
     # Print or process the extracted data as needed
-    print("Recipe Title:", title)
-    print("Category:", categories)
-    print("Link:", href)
-    print("Image Source:", img_src)
-    print()
+    storage[title] = {}
+    storage[title]["link"] = href
+    storage[title]["image"] = img_src
+    storage[title]["categories"] = categories
+    storage[title]["image_src"] = img_src
+
+
 
 if len(recipe_links) > 0:
+
     print("Found", len(recipe_links), "recipes")
 
-for i in range(len(recipe_links)):
-    driver.get(urljoin(base_url, recipe_links[i]['href']))
+for key in storage.keys():
+    url = base_url+storage[key]['link']
+    print(url)
+    driver.get(url)
     # Wait for the content to load
     try:
         WebDriverWait(driver, 20).until(
@@ -68,14 +76,19 @@ for i in range(len(recipe_links)):
     li_elements = soup.find('ul', class_='IngredientsList_ingredientsList__1LoAJ').find_all('li')
 
     # Print the text of each li element
+    ingredients = []
     for li in li_elements:
-        print(li.text)
+        ingredients.append(li.text.strip())
+    storage[key]['ingredients'] = ingredients
 # # Find all search result titles
 # search_results = soup.find_all("a", class_=classes_dict["RecipeCard"])
 
 # # Print out search result titles
 # for result in search_results:
 #     print(result.text)
+
+with open('TJrecipes.json', 'w', encoding="utf-8") as json_file:
+    json.dump(storage, json_file,ensure_ascii=False, indent=4)
     
 driver.quit()
 
