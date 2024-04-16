@@ -5,6 +5,7 @@ import { useAuth } from '../../context/AuthContext';
 import Navbar from '../../components/Navbar';
 import Footer from '../../components/Footer';
 import { redirect } from 'next/navigation';
+import { useQueryClient, useMutation } from '@tanstack/react-query';
 
 function AccountSettings() {
     const {
@@ -18,6 +19,7 @@ function AccountSettings() {
         // ... add other fields as needed
     });
     const [isLoading, setIsLoading] = useState(true);
+    const queryClient = useQueryClient();
 
     const cmToFeetAndInches = (cm) => {
         const totalInches = cm / 2.54;
@@ -48,24 +50,6 @@ function AccountSettings() {
     // Return early if not open or still loading
     if (isLoading) return <LoadingComponent />;  // Or some other loading indicator
 
-
-    if (!currentUser) {
-        redirect('/');
-    }
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setUpdatedUser(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
-    };
-    const handleHeightChange = (type, value) => {
-        const height = [...updatedUser.height];
-        if (type === "feet") height[0] = parseInt(value);
-        else height[1] = parseInt(value);
-        setUpdatedUser(prevState => ({ ...prevState, height }));
-    };
-
     const handleSubmit = async (e) => {
         e.preventDefault();
 
@@ -91,6 +75,28 @@ function AccountSettings() {
             console.error('Error updating user data:', error);
             alert('An error occurred while updating the account.');
         }
+    };
+    // const userMutation = useMutation({
+    //     mutationFn: handleSubmit,
+    //     onSuccess: () => {
+    //         queryClient.invalidateQueries({ queryKey: ['user'] });
+    //         alert('Account updated successfully!');
+    //     },
+    // })
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setUpdatedUser(prevState => ({
+            ...prevState,
+            [name]: value
+        }));
+    };
+
+    const handleHeightChange = (type, value) => {
+        const height = [...updatedUser.height];
+        if (type === "feet") height[0] = parseInt(value);
+        else height[1] = parseInt(value);
+        setUpdatedUser(prevState => ({ ...prevState, height }));
     };
 
     return (

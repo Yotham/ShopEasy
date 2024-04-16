@@ -6,28 +6,12 @@ import { useAuth } from '../context/AuthContext.js';
 import emailjs from 'emailjs-com';
 import Navbar from '../components/Navbar.js';
 import Footer from '../components/Footer.js';
+import toast, { Toaster } from 'react-hot-toast';
 
 function Contact() {
     const {
         currentUser,
     } = useAuth();
-
-    const sendEmail = (e) => {
-        e.preventDefault();
-
-        const fullname = e.target[0].value + " " + e.target[1].value;
-        const email = e.target[2].value;
-        const phone = e.target[3].value;
-        const message = e.target[4].value;
-
-        emailjs.send('service_7gg17ic', 'template_ndgauj5', {
-            from_name: fullname,
-            message: message,
-            phone_number: phone,
-            from_email: email
-        }, 'YCpKdXodTCm3ZUnzY')
-
-    }
 
     // State for managing the loading condition
     const [isLoading, setIsLoading] = useState(false);
@@ -48,6 +32,7 @@ function Contact() {
             </svg>
         </div>
     );
+
     // Redirect with loading state
     useEffect(() => {
         if (currentUser) {
@@ -58,6 +43,39 @@ function Contact() {
             }, 200); // Adjust the delay as needed
         }
     }, [currentUser]); // Depend on currentUser
+
+    const sendEmail = async (e) => {
+        e.preventDefault();
+
+        const fullname = e.target[0].value + " " + e.target[1].value;
+        const email = e.target[2].value;
+        const phone = e.target[3].value;
+        const message = e.target[4].value;
+
+        emailjs.send('service_7gg17ic', 'template_ndgauj5', {
+            from_name: fullname,
+            message: message,
+            phone_number: phone,
+            from_email: email
+        }, 'YCpKdXodTCm3ZUnzY')
+
+        toast('Email sent successfully!', {
+            duration: 2000,
+            style: {
+                padding: '12px',
+                textAlign: 'center',
+                color: '#fff',
+                background: '#333',
+            },
+            iconTheme: {
+                primary: '#fff',
+                secondary: '#333',
+            },
+        });
+
+        e.target.reset();
+    }
+
     if (isLoading2) {
         return <LoadingComponent />;
     }
@@ -154,6 +172,7 @@ function Contact() {
                                     id="first-name"
                                     autoComplete="given-name"
                                     className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    required
                                 />
                                 </div>
                             </div>
@@ -168,6 +187,7 @@ function Contact() {
                                     id="last-name"
                                     autoComplete="family-name"
                                     className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    required
                                 />
                                 </div>
                             </div>
@@ -182,6 +202,7 @@ function Contact() {
                                     id="email"
                                     autoComplete="email"
                                     className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    required
                                 />
                                 </div>
                             </div>
@@ -196,6 +217,7 @@ function Contact() {
                                     id="phone-number"
                                     autoComplete="tel"
                                     className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                    required
                                 />
                                 </div>
                             </div>
@@ -210,6 +232,7 @@ function Contact() {
                                     rows={4}
                                     className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                                     defaultValue={''}
+                                    required
                                 />
                                 </div>
                             </div>
@@ -230,6 +253,8 @@ function Contact() {
                 <div className = "max-w-screen">
                     <Footer></Footer>
                 </div>
+
+                <Toaster />
             </div>
         );
     }
