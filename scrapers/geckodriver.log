@@ -3164,3 +3164,73 @@ DevTools listening on ws://127.0.0.1:62085/devtools/browser/b4bd878b-1cba-48a8-9
 1712956107164	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
 JavaScript warning: https://www.google.com/js/th/MmeGZkbGRlhx9dD0Tlnh-YCOSNkof2GnTFGECC4HirE.js line 2 > eval line 1097 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
 JavaScript warning: https://www.google.com/js/th/MmeGZkbGRlhx9dD0Tlnh-YCOSNkof2GnTFGECC4HirE.js line 2 > eval line 7561 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1712956390943	Marionette	INFO	Stopped listening on port 62094
+Dynamically enable window occlusion 1
+1713297466551	geckodriver	INFO	Listening on 127.0.0.1:57337
+1713297469844	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "57338" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\ADMIN_~1\\AppData\\Local\\Temp\\rust_mozprofilemdPk8u"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1713297470677	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1713297470859	Marionette	INFO	Listening on port 57355
+WebDriver BiDi listening on ws://127.0.0.1:57338
+Read port: 57355
+1713297471329	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:57338/devtools/browser/a92eb5ab-fd01-481f-a104-2b8ea35af9d5
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 4666 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1713297502480	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 3662 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 1512 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1713297785118	Marionette	INFO	Stopped listening on port 57355
+Dynamically enable window occlusion 1
+1713298039871	geckodriver	INFO	Listening on 127.0.0.1:57653
+1713298042926	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--remote-debugging-port" "57654" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\ADMIN_~1\\AppData\\Local\\Temp\\rust_mozprofileMtlHtY"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1713298043209	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1713298043274	Marionette	INFO	Listening on port 57663
+WebDriver BiDi listening on ws://127.0.0.1:57654
+Read port: 57663
+1713298043465	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:57654/devtools/browser/9bd98c42-901f-4dc8-b846-44a73bd101e8
+1713298073237	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+e" "--marionette" "--remote-debugging-port" "57721" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\ADMIN_~1\\AppData\\Local\\Temp\\rust_mozprofilehNaRvg"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1713298067776	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1713298067856	Marionette	INFO	Listening on port 57734
+WebDriver BiDi listening on ws://127.0.0.1:57721
+Read port: 57734
+1713298068083	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://127.0.0.1:57721/devtools/browser/1cfdd73e-f1c9-4a9f-acb3-706749c15a92
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 7559 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 4665 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 1309 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1713298097883	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 7104 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 1842 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 3452 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 3709 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.youtube.com/embed/4DOWTyGUAXE?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.traderjoes.com&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=1 line 870 > injectedScript line 2 > eval line 508 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 3413 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 7766 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.youtube.com/embed/8Dw-I_e_tu4?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.traderjoes.com&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=1 line 870 > injectedScript line 2 > eval line 7505 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 2741 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 6942 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 504 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 1702 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 4500 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 3453 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.youtube.com/embed/YKKeL1erdoM?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.traderjoes.com&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=1 line 870 > injectedScript line 2 > eval line 6018 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 790 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.youtube.com/embed/rigGiS-QbKY?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.traderjoes.com&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=1 line 870 > injectedScript line 2 > eval line 6513 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 5470 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 6571 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 2736 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 217 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.youtube.com/embed/BT1Jrw68KaA?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.traderjoes.com&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=1 line 870 > injectedScript line 2 > eval line 2654 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.youtube.com/embed/q1NGTVd21-o?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.traderjoes.com&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=1 line 870 > injectedScript line 2 > eval line 1179 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.youtube.com/embed/Pu8_29bR6ho?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.traderjoes.com&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=1 line 870 > injectedScript line 2 > eval line 1737 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.youtube.com/embed/Euml9qIwL6o?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.traderjoes.com&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=1 line 870 > injectedScript line 2 > eval line 3918 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
