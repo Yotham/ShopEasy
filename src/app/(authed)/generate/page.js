@@ -119,10 +119,6 @@ function Generate() {
     const totalCarbs = randomItems.reduce((acc, item) => acc + (item.CarbPS * item.numServings * item.count), 0);
     const totalFats = randomItems.reduce((acc, item) => acc + (item.FatPS * item.numServings * item.count), 0);
 
-    if (!currentUser) {
-        redirect('/');
-    }
-
     return (
         <div className = "flex flex-col min-h-screen">
             <Navbar></Navbar>
