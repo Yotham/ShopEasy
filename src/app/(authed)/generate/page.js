@@ -194,10 +194,6 @@ function Generate() {
     
 
 
-    if (!currentUser) {
-        redirect('/');
-    }
-
     return (
         <div className = "flex flex-col min-h-screen">
             <Navbar></Navbar>
