@@ -37,7 +37,7 @@ export default async function handler(req, res) {
             } else {
                 caloricGoal = bmr; // Maintain current weight
             }
-            const user = await User.findByIdAndUpdate(id, { $set: { goal: req.body.goal, weight: req.body.weight, gender: req.body.gender,height:heightInCm, bmr: bmr, caloricGoal: caloricGoal, age:req.body.age} }, { new: true });
+            const user = await User.findByIdAndUpdate(id, { $set: { goal: req.body.goal, weight: req.body.weight, gender: req.body.gender,height:heightInCm, bmr: bmr, caloricGoal: caloricGoal, age:req.body.age, budget:req.body.budget} }, { new: true });
             if (!user) {
                 return res.status(404).json({ success: false });
             }

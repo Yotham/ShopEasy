@@ -3195,17 +3195,17 @@ Read port: 57663
 1713298043465	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 DevTools listening on ws://127.0.0.1:57654/devtools/browser/9bd98c42-901f-4dc8-b846-44a73bd101e8
 1713298073237	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
-e" "--marionette" "--remote-debugging-port" "57721" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\ADMIN_~1\\AppData\\Local\\Temp\\rust_mozprofilehNaRvg"
-console.warn: services.settings: Ignoring preference override of remote settings server
-console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
-1713298067776	Marionette	INFO	Marionette enabled
-Dynamically enable window occlusion 0
-1713298067856	Marionette	INFO	Listening on port 57734
-WebDriver BiDi listening on ws://127.0.0.1:57721
-Read port: 57734
-1713298068083	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
-DevTools listening on ws://127.0.0.1:57721/devtools/browser/1cfdd73e-f1c9-4a9f-acb3-706749c15a92
-JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 7559 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c, line 122: Script terminated by timeout at:
+l@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:122:917
+Dl@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:277:587
+mm@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:282:613
+kG/<@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:542:178
+aa.rk/<@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:490:126
+aa.rk/c/<@https://www.googletagmanager.com/gtag/js?id=G-2HMPBJHQ41&l=dataLayer&cx=c:489:420
+
+1713382050980	Marionette	INFO	Stopped listening on port 57663
+Dynamically enable window occlusion 1
+ipt warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 7559 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
 JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 4665 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
 JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 1309 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
 1713298097883	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
@@ -3234,3 +3234,8 @@ JavaScript warning: https://www.youtube.com/embed/BT1Jrw68KaA?autoplay=0&mute=0&
 JavaScript warning: https://www.youtube.com/embed/q1NGTVd21-o?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.traderjoes.com&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=1 line 870 > injectedScript line 2 > eval line 1179 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
 JavaScript warning: https://www.youtube.com/embed/Pu8_29bR6ho?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.traderjoes.com&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=1 line 870 > injectedScript line 2 > eval line 1737 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
 JavaScript warning: https://www.youtube.com/embed/Euml9qIwL6o?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.traderjoes.com&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=1 line 870 > injectedScript line 2 > eval line 3918 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 3267 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.google.com/js/th/rNOiIBWn_DQS_hHEFtHtv97eBjsLLf3CcRgHQ0Jgy0I.js line 2 > eval line 5648 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.youtube.com/embed/hUaxg6laLqw?autoplay=0&mute=0&controls=1&origin=https%3A%2F%2Fwww.traderjoes.com&playsinline=1&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&widgetid=1 line 870 > injectedScript line 2 > eval line 5994 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1713299230404	Marionette	INFO	Stopped listening on port 57734
+Dynamically enable window occlusion 1

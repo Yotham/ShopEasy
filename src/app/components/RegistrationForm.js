@@ -11,7 +11,13 @@ function RegistrationForm({ setRegModalOpen }) {
         weight: '',
         gender: 'Male',
         goal: 'Maintain Weight',
-        age: ''
+        age: '',
+        budget: '',
+        macros:{
+            proteins: '50',
+            fats: '20',
+            carbs: '30'
+        },
     });
     const modalRef = useRef();
 
@@ -80,7 +86,12 @@ function RegistrationForm({ setRegModalOpen }) {
             age: age,
             bmr: bmr,
             caloricGoal: caloricGoal,
-            budget: budget
+            budget: budget,
+            macros: {
+                proteins: '50',
+                fats: '20',
+                carbs: '30'
+            },
         };
 
         try {
@@ -194,7 +205,7 @@ function RegistrationForm({ setRegModalOpen }) {
                         />
                     </div>
                     <label>
-                        Gender:
+                        Sex:
                     </label>
                     <select
                         name="gender"

@@ -16,6 +16,12 @@ function AccountSettings() {
         weight: '',
         gender: '',
         goal: '',
+        budget: '',
+        macros: {
+            proteins: '0',
+            fats: '0',
+            carbs: '0'
+        },
         // ... add other fields as needed
     });
     const [isLoading, setIsLoading] = useState(true);
@@ -76,6 +82,16 @@ function AccountSettings() {
             alert('An error occurred while updating the account.');
         }
     };
+
+    const handleMacroChange = (name, value) => {
+        setUpdatedUser(prevState => ({
+            ...prevState,
+            macros: {
+                ...prevState.macros,
+                [name]: value
+            }
+        }));
+    };
     // const userMutation = useMutation({
     //     mutationFn: handleSubmit,
     //     onSuccess: () => {
@@ -106,7 +122,7 @@ function AccountSettings() {
                 <h2 className="text-4xl pt-12 mb-8 text-center">
                     Account Settings
                 </h2>
-                <form className="mx-auto max-w-3xl w-full text-xl lg:space-y-2 2xl:space-y-6 p-4 even-shadow rounded-lg" onSubmit={handleSubmit}>
+                <form className="mx-auto max-w-3xl w-full text-xl lg:space-y-2 2xl:space-y-6 p-4 even-shadow rounded-lg mb-4" onSubmit={handleSubmit}>
                     {/* ... existing input fields for username and password ... */}
                     <div className="grid grid-cols-2 items-center p-2">
                         <label>
@@ -158,7 +174,7 @@ function AccountSettings() {
                     <div className="bg-gray-300 h-[1px] w-full" />
                     <div className="grid grid-cols-2 items-center p-2">
                         <label>
-                            Gender:
+                            Sex:
                         </label>
                         <select
                             className="border borer-gray-300 p-2 rounded-md w-full"
@@ -182,6 +198,52 @@ function AccountSettings() {
                             <option value="Gain Weight">Gain Weight</option>
                             <option value="Maintain Weight">Maintain Weight</option>
                         </select>
+                    </div>
+                    <div className="grid grid-cols-2 items-center p-2">
+                        <label>
+                            Budget ($):
+                        </label>
+                        <input
+                            className="border borer-gray-300 p-2 rounded-md w-full"
+                            type="number"
+                            name="budget"
+                            value={updatedUser.budget}
+                            onChange={handleChange}
+                        />
+                    </div>
+                    <div className="bg-gray-300 h-[1px] w-full" />
+                    <div className="grid grid-cols-2 items-center p-2">
+                        <label>
+                            Proteins (grams):
+                        </label>
+                        <input
+                            className="border borer-gray-300 p-2 rounded-md w-full"
+                            type="number"
+                            value={50}
+                            onChange={e => handleMacroChange('proteins', e.target.value)}
+                        />
+                    </div>
+                    <div className="grid grid-cols-2 items-center p-2">
+                        <label>
+                            Fats (grams):
+                        </label>
+                        <input
+                            className="border borer-gray-300 p-2 rounded-md w-full"
+                            type="number"
+                            value={20}
+                            onChange={e => handleMacroChange('fats', e.target.value)}
+                        />
+                    </div>
+                    <div className="grid grid-cols-2 items-center p-2">
+                        <label>
+                            Carbs (grams):
+                        </label>
+                        <input
+                            className="border borer-gray-300 p-2 rounded-md w-full"
+                            type="number"
+                            value={30}
+                            onChange={e => handleMacroChange('carbs', e.target.value)}
+                        />
                     </div>
                     <div className="w-full text-center p-4">
                         <button className="bg-shopeasy-blue px-8 py-2 rounded-lg text-white hover:bg-blue-200" type="submit">

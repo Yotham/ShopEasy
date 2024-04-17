@@ -1,10 +1,12 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import getRandomItems from '../../components/listGeneration.js';
+import getRandomRecipes from '../../components/recipeGeneration.js';
 import DataDropdown from '../../components/dataDropdown';
 import TransparentModal from '../../components/TransparentModal';
 import Data from '../../Data/data.json';
 import Data2 from '../../Data/hannafordData.json';
+import rec from '../../Data/recipes.json';
 import Navbar from '../../components/Navbar.js';
 import Footer from '../../components/Footer.js';
 import { redirect } from 'next/navigation';
@@ -28,6 +30,14 @@ function Generate() {
     const [isGenerated, setIsGenerated] = useState(false);
     const {currentUser} = useAuth();
     const [weeklyPlan, setWeeklyPlan] = useState([]);
+    const [isRecipe, setRecipe] = useState(false);
+    const [directions, setDirections] = useState([]);
+
+    const [totalCalories, setTotalCalories] = useState(0);
+    const [totalProtein, setTotalProtein] = useState(0);
+    const [totalCarbs, setTotalCarbs] = useState(0);
+    const [totalFats, setTotalFats] = useState(0);
+
 
     function distributeMealsWeekly(items) {
         // Calculate total calories of all items
@@ -64,6 +74,9 @@ function Generate() {
             setSelectedData(Data);
         } else if (dataName === 'data2') {
             setSelectedData(Data2);
+        }
+        else if (dataName === 'data3'){
+            setSelectedData(rec);
         }
     };
     const [isLoading, setIsLoading] = useState(true); // State to control the loading state
@@ -104,8 +117,13 @@ function Generate() {
                 };
             });
             setRandomItems(itemObjects);
+            setTotalCalories(itemObjects.reduce((acc, item) => acc + (item.caloriesPS * item.numServings * item.count), 0));
+            setTotalProtein(itemObjects.reduce((acc, item) => acc + (item.ProteinPS * item.numServings * item.count), 0));
+            setTotalCarbs(itemObjects.reduce((acc, item) => acc + (item.CarbPS * item.numServings * item.count), 0));
+            setTotalFats(itemObjects.reduce((acc, item) => acc + (item.FatPS * item.numServings * item.count), 0));
             if (currentUser && currentUser.caloricGoal) {
                 // existing code...
+                
                 setIsGenerated(true);
                 setWeeklyPlan(distributeMealsWeekly(itemObjects)); // Update the weekly plan
             }
@@ -114,10 +132,67 @@ function Generate() {
         }
     };
 
-    const totalCalories = randomItems.reduce((acc, item) => acc + (item.caloriesPS * item.numServings * item.count), 0);
-    const totalProtein = randomItems.reduce((acc, item) => acc + (item.ProteinPS * item.numServings * item.count), 0);
-    const totalCarbs = randomItems.reduce((acc, item) => acc + (item.CarbPS * item.numServings * item.count), 0);
-    const totalFats = randomItems.reduce((acc, item) => acc + (item.FatPS * item.numServings * item.count), 0);
+    const handleProductClick = (item) => {
+        setCurrentItemName(item.name);
+        setCurrentItemLink(item.link);
+        setCurrentSS(item.servingSize);
+        setCurrentNumServings(item.numServings);
+        setCurrentCaloriesPS(item.caloriesPS);
+        setCurrentFatPS(item.FatPS);
+        setCurrentCarbPS(item.CarbPS);
+        setCurrentProteinPS(item.ProteinPS);
+        setItemModalOpen(true);
+    };
+
+    const handleRecipeClick = (recipe) => {
+        console.log("recipe", recipe)
+        setCurrentItemName(recipe.name);
+        setCurrentItemLink(recipe.link);
+        // Assuming recipes might not have all the fields as products
+        setCurrentNumServings(recipe.numServings);
+        setCurrentCaloriesPS(recipe.caloriePS);
+        // Set other fields as needed or reset to defaults if not applicable
+        setCurrentSS(1);
+        setCurrentFatPS(parseInt(recipe.FatPS));
+        setCurrentCarbPS(parseInt(recipe.CarbPS));
+        setCurrentProteinPS(parseInt(recipe.ProteinPS));
+        setItemModalOpen(true);
+        setDirections(recipe.directions)
+        
+    };
+    const handleGenerateRecipes = () => {
+        if (currentUser && currentUser.caloricGoal) {
+            const recipes = getRandomRecipes(rec, currentUser.caloricGoal);
+            const recipeObjects = recipes.map(recipe => {
+                const recipeData = rec[recipe.name];
+                console.log("data", recipeData)
+                return {
+                    name: recipe.name,
+                    link: recipeData.link,
+                    numServings: recipeData.numServings,
+                    caloriePS: recipeData.nutrition["Total Calories"],
+                    FatPS: recipeData.nutrition["Total Fat"],
+                    CarbPS: recipeData.nutrition.Carbohydrates,
+                    ProteinPS: recipeData.nutrition.Protein,
+                    count: recipe.count,
+                    directions: recipeData.directions
+                };
+            });
+            setRandomItems(recipeObjects);
+            setTotalCalories(recipeObjects.reduce((acc, item) => acc + (parseInt(item.caloriePS) * parseInt(1) * item.count), 0));
+            setTotalProtein(recipeObjects.reduce((acc, item) => acc + (parseInt(item.ProteinPS) * parseInt(1) * item.count), 0));
+            setTotalCarbs(recipeObjects.reduce((acc, item) => acc + (parseInt(item.CarbPS) * parseInt(1) * item.count), 0));
+            setTotalFats(recipeObjects.reduce((acc, item) => acc + (parseInt(item.FatPS) * parseInt(1) * item.count), 0));
+            setRecipe(true);
+            console.log(recipeObjects)
+            setIsGenerated(true);
+            setWeeklyPlan(distributeMealsWeekly(recipeObjects)); // Update the weekly plan based on recipes
+        } else {
+            alert('Please log in to generate items based on your nutritional goals.');
+        }
+    };
+    
+
 
     if (!currentUser) {
         redirect('/');
@@ -132,7 +207,7 @@ function Generate() {
                 <div className="flex flex-col sm:flex-row items-center secondary-bg p-5 rounded-lg shadow-md space-y-4 sm:space-y-0">
 
                     <div className="flex flex-col items-center space-x-1">
-                        <label htmlFor="groceryStore" className="text-lg font-medium text-gray-700">Grocery Store:</label>
+                        <label htmlFor="groceryStore" className="text-lg font-medium text-gray-700">From</label>
                         <div className="relative">
                             <DataDropdown onSelectData={handleDataSelection} className="block w-full px-2 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 z-1" />
                             <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -156,7 +231,13 @@ function Generate() {
                     )}
                     <div className={`text-right ${isGenerated? '' : 'w-full'}`}>
                         <button
-                            onClick={handleGenerate}
+                            onClick={() => {
+                                if (selectedData === Data || selectedData === Data2) {
+                                    handleGenerate();
+                                } else {
+                                    handleGenerateRecipes();
+                                }
+                            }}
                             className="transition ease-in-out duration-200 font-bold border-2 text-white border-shopeasy-blue py-2 px-10 rounded-md bg-gradient-to-r from-shopeasy-blue to-blue-100 hover:to-shopeasy-blue focus:outline-none focus:ring-2 focus:ring-shopeasy-blue focus:ring-opacity-50"
                         >
                             {isGenerated ? 'Regenerate' : 'Generate'}
@@ -183,15 +264,11 @@ function Generate() {
                         >
                             <InformationCircleIcon
                                 onClick={() => {
-                                    setCurrentItemName(item.name);
-                                    setCurrentItemLink(item.link);
-                                    setCurrentSS(item.servingSize);
-                                    setCurrentNumServings(item.numServings);
-                                    setCurrentCaloriesPS(item.caloriesPS);
-                                    setCurrentFatPS(item.FatPS);
-                                    setCurrentCarbPS(item.CarbPS);
-                                    setCurrentProteinPS(item.ProteinPS);
-                                    setItemModalOpen(true);
+                                    if (selectedData === Data || selectedData === Data2) {
+                                        handleProductClick(item);
+                                    } else if (selectedData === rec) { // Assuming 'rec' is for data3
+                                        handleRecipeClick(item);
+                                    }
                                 }}
                                 className="absolute top-2 right-2 h-6 w-6 text-gray-500 hover:text-gray-400"
                             />
@@ -215,10 +292,13 @@ function Generate() {
                     FatPS={currentFatPS}
                     CarbPS={currentCarbPS}
                     ProteinPS={currentProteinPS}
+                    Recipe={isRecipe}
+                    directions = {directions}
+
                 />
 
             </div>
-            {isGenerated && (
+            {(isGenerated && (selectedData === Data || selectedData === Data2)) && (
                 <div className = 'primary-bg mx-4 mb-4 rounded-lg shadow-lg'>
                     <div className="mt-10 mb-10 max-w-full mx-4">
                         <h2 className="text-center font-medium text-4xl mb-10 text-white ">Weekly Meal Plan</h2>
