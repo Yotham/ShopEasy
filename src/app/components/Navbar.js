@@ -33,7 +33,7 @@ function Navbar() {
                     </div>
                 )}
                 { !currentUser && (
-                    <div className="inline-flex">
+                    <div className="inline-flex sm:inline-flex hidden">
                         <button onClick={() => setRegModalOpen(true)} className="bg-white text-shopeasy-blue text-sm font-medium py-2 px-4 rounded-lg mr-2">Sign Up</button>
                         <button onClick={() => setLoginModalOpen(true)} className="bg-white text-shopeasy-blue text-sm font-medium py-2 px-4 rounded-lg">Login</button>
                     </div>
