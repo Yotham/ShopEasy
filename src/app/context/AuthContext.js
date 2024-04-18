@@ -27,10 +27,11 @@ export const AuthProvider = ({ children }) => {
 
             if (response.ok) {
                 setCurrentUser(data.user);
+                fetchUserData();
                 setLogging(true)
                 setLoginModalOpen(false);
                 localStorage.setItem('token', data.token);
-                fetchUserData();
+                await fetchUserData();
                 alert("Login Successful")
             } else {
                 alert(data.message || 'Failed to login. Please try again.');
