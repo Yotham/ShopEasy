@@ -30,6 +30,7 @@ export const AuthProvider = ({ children }) => {
                 setLogging(true)
                 setLoginModalOpen(false);
                 localStorage.setItem('token', data.token);
+                fetchUserData();
                 alert("Login Successful")
             } else {
                 alert(data.message || 'Failed to login. Please try again.');
@@ -121,7 +122,7 @@ export const AuthProvider = ({ children }) => {
             // Assuming currentUser is null or undefined when not logged in
             fetchUserData();
         }
-    }, [logging]); // This will trigger when currentUser changes
+    },[logging]); // This will trigger when currentUser changes
     // Include any auth functions you need (e.g., login, logout)
 
     const contextValue = useMemo(() => ({
