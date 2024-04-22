@@ -4,7 +4,7 @@ import RegistrationForm from './components/RegistrationForm.js';
 import Modal from './components/Modal';
 import React, { useState, useEffect} from 'react';
 import { useAuth } from './context/AuthContext.js';
-import dynamic from 'next/dynamic';
+import { useMediaQuery } from 'react-responsive'
 import Navbar from './components/Navbar.js';
 import Footer from './components/Footer.js';
 import LoginForm from './components/LoginForm.js'
@@ -46,6 +46,7 @@ function Home() {
         isLoginModalOpen    // Get these from the context
     } = useAuth();
   
+    const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
     
     // State for managing the loading condition
     const [isLoading, setIsLoading] = useState(false);
@@ -94,6 +95,11 @@ function Home() {
                     <div className="absolute inset-0  h-[40rem] bg-black bg-opacity-55 shadow-xl"></div> {/* Dark overlay */}
                     <div className="relative z-10 items-center"> {/* Ensure content is above the overlay */}
                         <TypewriterEffect words={words} />
+                        { isMobile &&
+                            <p className="text-white mt-4 md:text-2xl mx-auto w-2/3 text-center font-thin">
+                                We leverage advanced algorithms and a robust database of foods and ingredients from your local stores to help you meet your fitness goals.
+                            </p>
+                        }
                         <div className="flex flex-col items-center justify-center md:flex-row space-y-4 md:space-y-0 space-x-0 md:space-x-4 mt-10">
                             <button
                                 className={classNames(
@@ -123,9 +129,11 @@ function Home() {
                                 <span aria-hidden="true">→</span>
                             </button>
                         </div>
-                        <p className="text-white mt-10 text-2xl mx-auto w-2/3 text-center font-thin">
-                            We leverage advanced algorithms and a robust database of foods and ingredients from your local stores to help you meet your fitness goals.
-                        </p>
+                        { !isMobile &&
+                            <p className="text-white mt-10 text-2xl mx-auto w-2/3 text-center font-thin">
+                                We leverage advanced algorithms and a robust database of foods and ingredients from your local stores to help you meet your fitness goals.
+                            </p>
+                        }
                     </div>
                 </div>
                 <Modal isOpen={isRegModalOpen} onClose={() => setRegModalOpen(false)} title="Register">
@@ -136,8 +144,8 @@ function Home() {
                 </Modal>
 
                 <div className="primary-bg mt-40  text-white font-medium py-14">
-                    <h2 className="text-center text-5xl font-medium">Meet The Team</h2>
-                    <div className="mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-2 mx-auto max-w-5xl px-4 font-medium">
+                    <h2 className="text-center text-3xl sm:text-4xl xl:text-5xl font-medium">Meet The Team</h2>
+                    <div className="mt-4 sm:mt-8 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-2 mx-auto max-w-5xl px-4 font-medium">
                         {/* Card 1 */}
                         <div className="team-member flex flex-col items-center primary-text">
                             <img src="/img/kyle.jpg" alt="Member 1" className="w-40 object-cover mt-6 border-4 rounded-t-xl" />
@@ -168,7 +176,7 @@ function Home() {
                             <p className="mb-4  bg-gray-200 pb-2 mt-0 w-40 text-center border-t-2 rounded-b-xl">Isaac Foster</p>
                         </div>
                     </div>
-                    <p className = "text-center text-xl mt-10">Dedicated eliminating the stress of meal planning by allowing users to instantly generate meals for the week aligning with their caloric and macronutrient needs.</p>
+                    <p className="text-center text-xl mt-10 mx-4">Dedicated eliminating the stress of meal planning by allowing users to instantly generate meals for the week aligning with their caloric and macronutrient needs.</p>
 
                 </div>
                 <div className="secondary-bg primary-text rounded-lg mb-0">
