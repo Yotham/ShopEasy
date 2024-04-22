@@ -2,6 +2,10 @@ import React, { useState, useRef, useEffect } from 'react';
 // Import Tailwind CSS file if needed - assuming global import in your project
 import { useAuth } from '../context/AuthContext';
 
+import {
+    XCircleIcon
+} from '@heroicons/react/20/solid';
+
 function RegistrationForm({ setRegModalOpen }) {
     const { register, setLoginModalOpen } = useAuth();
     const [userData, setUserData] = useState({
@@ -119,7 +123,8 @@ function RegistrationForm({ setRegModalOpen }) {
 
     return (
         <div className="w-full bg-white rounded-lg shadow dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-gray-800 dark:border-gray-700" ref={modalRef}>
-            <div className="p-6 space-y-4 max-h-screen overflow-auto md:space-y-6 sm:p-8">
+            <div className="relative p-6 space-y-4 max-h-screen overflow-auto md:space-y-6 sm:p-8">
+                <XCircleIcon className="h-6 w-6 absolute top-4 right-4 text-gray-500 cursor-pointer dark:text-gray-400" onClick={() => setRegModalOpen(false)} />
                 <h1 className="text-center text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl dark:text-white">
                     Register for a free account
                 </h1>

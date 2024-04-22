@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.18",
-    "@heroicons/react": "^2.1.1",
-    "@tanstack/react-query": "^5.29.2",
+    "@heroicons/react": "^2.1.3",
+    "@tanstack/react-query": "^5.31.0",
     "@tanstack/react-query-devtools": "^5.29.2",
     "bcryptjs": "^2.4.3",
     "clsx": "^2.1.0",
