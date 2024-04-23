@@ -2,6 +2,9 @@
 "use client"
 import { Disclosure } from '@headlessui/react'
 import { MinusSmallIcon, PlusSmallIcon } from '@heroicons/react/24/outline'
+import RegistrationForm from '../components/RegistrationForm.js';
+import LoginForm from '../components/LoginForm.js'
+import Modal from '../components/Modal';
 import React, { useState, useEffect} from 'react';
 import { useAuth } from '../context/AuthContext.js';
 import Navbar from '../components/Navbar.js';
@@ -33,6 +36,10 @@ const faqs = [
 function FAQ() {
     const {
         currentUser,
+        isRegModalOpen,
+        setRegModalOpen,
+        isLoginModalOpen,
+        setLoginModalOpen
     } = useAuth();
   
     
@@ -109,6 +116,13 @@ function FAQ() {
                     </div>
                 </div>
                 </div>
+
+                <Modal isOpen={isRegModalOpen} onClose={() => setRegModalOpen(false)} title="Register">
+                        <RegistrationForm setRegModalOpen={setRegModalOpen} />
+                    </Modal>
+                    <Modal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} title="Login">
+                        <LoginForm setLoginModalOpen={setLoginModalOpen} />
+                </Modal>
 
                 <div className = "mt-5 max-w-screen">
                     <Footer></Footer>

@@ -4,6 +4,9 @@ import { BuildingOffice2Icon, EnvelopeIcon, PhoneIcon } from '@heroicons/react/2
 import React, { useState, useEffect} from 'react';
 import { useAuth } from '../context/AuthContext.js';
 import emailjs from 'emailjs-com';
+import RegistrationForm from '../components/RegistrationForm.js';
+import LoginForm from '../components/LoginForm.js'
+import Modal from '../components/Modal';
 import Navbar from '../components/Navbar.js';
 import Footer from '../components/Footer.js';
 import toast, { Toaster } from 'react-hot-toast';
@@ -11,6 +14,10 @@ import toast, { Toaster } from 'react-hot-toast';
 function Contact() {
     const {
         currentUser,
+        isRegModalOpen,
+        setRegModalOpen,
+        isLoginModalOpen,
+        setLoginModalOpen,
     } = useAuth();
 
     // State for managing the loading condition
@@ -249,6 +256,13 @@ function Contact() {
                         </form>
                     </div>
                 </div>
+
+                <Modal isOpen={isRegModalOpen} onClose={() => setRegModalOpen(false)} title="Register">
+                        <RegistrationForm setRegModalOpen={setRegModalOpen} />
+                    </Modal>
+                    <Modal isOpen={isLoginModalOpen} onClose={() => setLoginModalOpen(false)} title="Login">
+                        <LoginForm setLoginModalOpen={setLoginModalOpen} />
+                </Modal>
 
                 <div className = "max-w-screen">
                     <Footer></Footer>

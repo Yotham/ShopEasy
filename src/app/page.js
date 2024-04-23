@@ -1,13 +1,13 @@
 // src/HomePage.js
 "use client"
-import RegistrationForm from './components/RegistrationForm.js';
-import Modal from './components/Modal';
 import React, { useState, useEffect} from 'react';
 import { useAuth } from './context/AuthContext.js';
 // import { useMediaQuery } from 'react-responsive'
 import Navbar from './components/Navbar.js';
 import Footer from './components/Footer.js';
+import RegistrationForm from './components/RegistrationForm.js';
 import LoginForm from './components/LoginForm.js'
+import Modal from './components/Modal';
 import { TypewriterEffect } from './components/typewriter-effect.tsx';
 import image from "../../public/img/kitchen.png"
 import Slideshow from './components/Slideshow.js'
