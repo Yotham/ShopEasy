@@ -4,7 +4,7 @@ import RegistrationForm from './components/RegistrationForm.js';
 import Modal from './components/Modal';
 import React, { useState, useEffect} from 'react';
 import { useAuth } from './context/AuthContext.js';
-import { useMediaQuery } from 'react-responsive'
+// import { useMediaQuery } from 'react-responsive'
 import Navbar from './components/Navbar.js';
 import Footer from './components/Footer.js';
 import LoginForm from './components/LoginForm.js'
@@ -46,7 +46,15 @@ function Home() {
         isLoginModalOpen    // Get these from the context
     } = useAuth();
   
-    const isMobile = useMediaQuery({ query: '(max-width: 768px)' })
+    const [isMobile, setIsMobile] = useState(false)
+    useEffect(() => {
+        const handleResize = () => {
+            setIsMobile(window.innerWidth <= 768)
+        }
+        handleResize()
+        window.addEventListener('resize', handleResize)
+        return () => window.removeEventListener('resize', handleResize)
+    }, [])
     
     // State for managing the loading condition
     const [isLoading, setIsLoading] = useState(false);
@@ -145,7 +153,7 @@ function Home() {
 
                 <div className="primary-bg mt-40  text-white font-medium py-14">
                     <h2 className="text-center text-3xl sm:text-4xl xl:text-5xl font-medium">Meet The Team</h2>
-                    <div className="mt-4 sm:mt-8 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-2 mx-auto max-w-5xl px-4 font-medium">
+                    <div className="mt-4 sm:mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2 mx-auto max-w-5xl px-4 font-medium">
                         {/* Card 1 */}
                         <div className="team-member flex flex-col items-center primary-text">
                             <img src="/img/kyle.jpg" alt="Member 1" className="w-40 object-cover mt-6 border-4 rounded-t-xl" />

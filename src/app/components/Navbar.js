@@ -21,19 +21,19 @@ function Navbar() {
 
     return (
         <nav className="primary-bg text-white shadow-lg border-b-4">
-            <div className={!currentUser ? " px-4 py-5 flex justify-between items-center flex-grow" : "mx-auto px-4 py-5 flex justify-between items-center flex-grow"}>
-                <Link href={currentUser ? "/generate" : "/"} passHref className="text-3xl font-medium text-white flex items-center">
+            <div className={!currentUser ? "px-4 py-5 flex justify-between items-center flex-grow" : "mx-auto sm:px-4 py-3 sm:py-5 flex justify-between items-center flex-grow"}>
+                <Link href={currentUser ? "/generate" : "/"} passHref className="text-2xl md:text-3xl font-medium text-white flex items-center">
                         {/* Assuming you have the image in your public folder */}
-                        <img src="/img/ShopEasyLogo-1.png" alt="ShopEasy Logo" className="mr-3 h-16"  />
+                        <Image src="/img/ShopEasyLogo-1.png" alt="ShopEasy Logo" className="mr-3 h-16" height={25} width={100} />
                         ShopEasy
                 </Link>
-                {currentUser && (
+                { currentUser && (
                     <div className="flex items-center">
-                            <UserDropdown />
+                        <UserDropdown />
                     </div>
                 )}
                 { !currentUser && (
-                    <div className="inline-flex sm:inline-flex hidden">
+                    <div className="hidden sm:inline-flex">
                         <button onClick={() => setRegModalOpen(true)} className="bg-white text-shopeasy-blue text-sm font-medium py-2 px-4 rounded-lg mr-2">Sign Up</button>
                         <button onClick={() => setLoginModalOpen(true)} className="bg-white text-shopeasy-blue text-sm font-medium py-2 px-4 rounded-lg">Login</button>
                     </div>
