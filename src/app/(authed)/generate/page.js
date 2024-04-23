@@ -198,18 +198,10 @@ function Generate() {
         <div className = "flex flex-col min-h-screen">
             <Navbar></Navbar>
             <div  className= {isGenerated ?"primary-bg  m-5 p-5 rounded-lg shadow-md flex-grow" : "bg-white flex-grow m-5 p-5 rounded-lg"}>
-
-
-                <div className="flex flex-col sm:flex-row items-center secondary-bg p-5 rounded-lg shadow-md space-y-4 sm:space-y-0">
-
+                <div className="flex flex-col md:flex-row justify-center sm:justify-between items-center secondary-bg p-5 rounded-lg shadow-lg space-y-4 md:space-y-0">
                     <div className="flex flex-col items-center space-x-1">
                         <label htmlFor="groceryStore" className="text-lg font-medium text-gray-700">From</label>
-                        <div className="relative">
-                            <DataDropdown onSelectData={handleDataSelection} className="block w-full px-2 py-2 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 z-1" />
-                            <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                                {/* Icon or similar here */}
-                            </div>
-                        </div>
+                        <DataDropdown onSelectData={handleDataSelection} />
                     </div>
 
                     {isGenerated && (
@@ -225,20 +217,18 @@ function Generate() {
                             </div>
                         </div>
                     )}
-                    <div className={`text-right ${isGenerated? '' : 'w-full'}`}>
-                        <button
-                            onClick={() => {
-                                if (selectedData === Data || selectedData === Data2) {
-                                    handleGenerate();
-                                } else {
-                                    handleGenerateRecipes();
-                                }
-                            }}
-                            className="transition ease-in-out duration-200 font-bold border-2 text-white border-shopeasy-blue py-2 px-10 rounded-md bg-gradient-to-r from-shopeasy-blue to-blue-100 hover:to-shopeasy-blue focus:outline-none focus:ring-2 focus:ring-shopeasy-blue focus:ring-opacity-50"
-                        >
-                            {isGenerated ? 'Regenerate' : 'Generate'}
-                        </button>
-                    </div>
+                    <button
+                        onClick={() => {
+                            if (selectedData === Data || selectedData === Data2) {
+                                handleGenerate();
+                            } else {
+                                handleGenerateRecipes();
+                            }
+                        }}
+                        className="transition ease-in-out duration-200 font-bold border-2 text-white border-shopeasy-blue py-2 px-10 rounded-md bg-gradient-to-r from-shopeasy-blue to-blue-100 hover:to-shopeasy-blue focus:outline-none focus:ring-2 focus:ring-shopeasy-blue focus:ring-opacity-50"
+                    >
+                        {isGenerated ? 'Regenerate' : 'Generate'}
+                    </button>
                 </div>
 
                 {!isGenerated && (

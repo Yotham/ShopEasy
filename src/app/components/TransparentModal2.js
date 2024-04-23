@@ -1,5 +1,5 @@
-import React from 'react';
-import { Transition, Dialog, Fragment } from '@headlessui/react';
+import React, { Fragment } from 'react';
+import { Transition, Dialog } from '@headlessui/react';
 import {
     ChevronDoubleRightIcon,
 } from '@heroicons/react/20/solid';
